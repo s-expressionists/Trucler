@@ -2,5 +2,8 @@
 
 (defpackage #:trucler
   (:use #:common-lisp)
-  (:shadow #:identity)
+  (:shadow #:identity
+           #:type
+           #:ignore
+           #:dynamic-extent)
   (:export))
