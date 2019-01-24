@@ -6,4 +6,5 @@
   :components
   ((:file "packages")
    (:file "query-functions")
-   (:file "query-class-accessors")))
+   (:file "query-class-accessors")
+   (:file "query-classes")))
