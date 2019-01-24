@@ -5,6 +5,8 @@
   (:shadow #:identity
            #:type
            #:ignore
+           #:inline
+           #:compiler-macro
            #:dynamic-extent)
   (:export #:info
            #:variable-info
