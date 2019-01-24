@@ -11,4 +11,8 @@
            #:lexical-variable-info
            #:special-variable-info
            #:constant-variable-info
-           #:symbol-macro-info))
+           #:symbol-macro-info
+           #:function-info
+           #:block-info
+           #:tag-info
+           #:optimize-info))
