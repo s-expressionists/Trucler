@@ -22,7 +22,7 @@
 (defclass variable-info (name-mixin type-mixin) ())
 
 (defclass lexical-variable-info
-    (variable-info identity-mixin ignore-mixin dynamic-extent-mixin)
+    (variable-info identity-mixin type-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
 (defclass special-variable-info (variable-info type-mixin ignore-mixin)
