@@ -15,6 +15,12 @@
            #:constant-variable-info
            #:symbol-macro-info
            #:function-info
+           #:local-function-info
+           #:global-function-info
+           #:generic-function-info
+           #:local-macro-info
+           #:global-macro-info
+           #:special-operator-info
            #:block-info
            #:tag-info
            #:optimize-info))
