@@ -6,4 +6,9 @@
            #:type
            #:ignore
            #:dynamic-extent)
-  (:export))
+  (:export #:info
+           #:variable-info
+           #:lexical-variable-info
+           #:special-variable-info
+           #:constant-variable-info
+           #:symbol-macro-info))
