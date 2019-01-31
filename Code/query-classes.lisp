@@ -49,7 +49,7 @@
     (variable-info identity-mixin type-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass special-variable-info (variable-info type-mixin ignore-mixin)
+(defclass special-variable-info (variable-info type-mixin)
   ((%global-p :initform nil :initarg :global-p :reader global-p)))
   
 (defclass constant-variable-info (variable-info name-mixin)
@@ -71,7 +71,7 @@
 
 (defclass global-function-info
     (function-info type-mixin inline-mixin compiler-macro-mixin
-     ignore-mixin ast-mixin dynamic-extent-mixin)
+     ast-mixin dynamic-extent-mixin)
   ((%class-name :initarg :class-name :reader class-name))
   (:default-initargs :class-name 'function))
 
