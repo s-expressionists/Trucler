@@ -7,4 +7,5 @@
   ((:file "packages")
    (:file "query-functions")
    (:file "query-class-accessors")
-   (:file "query-classes")))
+   (:file "query-classes")
+   (:file "conditions")))
