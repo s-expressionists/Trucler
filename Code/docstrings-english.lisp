@@ -28,3 +28,19 @@
       (format nil "Return an instance of the class OPTIMIZE-INFO~@
                    describing the values of all OPTIMIZE qualities~@
                    in ENVIRONMENT."))
+
+(setf (documentation 'name 'function)
+      (format nil "This function can be used on any instance returned~@
+                   by a query function.  It returns the name of the entity~@
+                   that is described in the instance.~@
+                   ~@
+                   The name returned by this function might be different~@
+                   from the name given to the query function, as a result~@
+                   of errors and restarts.  Therefore, client code should~@
+                   always use the return value of this function for further~@
+                   processing."))
+
+(setf (documentation 'identity 'function)
+      (format nil " This function returns some kind of object determining~@
+                    the identity of the entity that is described in the~@
+                    info instance given as the argument."))
