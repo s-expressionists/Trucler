@@ -72,3 +72,32 @@
                    IGNORE means that there is an IGNORE declaration in scope,~@
                    and IGNORABLE means that there is a IGNORABLE declaration~@
                    in scope."))
+
+(setf (documentation 'dynamic-extent 'function)
+      (format nil "This function returns TRUE if and only if there is~@
+                   a DYNAMIC-EXTENT declaration in scope for the info~@
+                   instance given as the argument."))
+
+(setf (documentation 'ast 'function)
+      (format nil ""))
+
+(setf (documentation 'compler-macro 'function)
+      (format nil ""))
+
+(setf (documentation 'expander 'function)
+      (format nil ""))
+
+(setf (documentation 'global-p 'function)
+      (format nil ""))
+
+(setf (documentation 'value 'function)
+      (format nil ""))
+
+(setf (documentation 'expansion 'function)
+      (format nil ""))
+
+(setf (documentation 'class-name 'function)
+      (format nil ""))
+
+(setf (documentation 'method-class-name 'function)
+      (format nil ""))
