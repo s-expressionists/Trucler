@@ -8,4 +8,5 @@
    (:file "query-functions")
    (:file "query-class-accessors")
    (:file "query-classes")
-   (:file "conditions")))
+   (:file "conditions")
+   (:file "condition-reporters-english")))
