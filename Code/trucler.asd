@@ -9,4 +9,5 @@
    (:file "query-class-accessors")
    (:file "query-classes")
    (:file "conditions")
-   (:file "condition-reporters-english")))
+   (:file "condition-reporters-english")
+   (:file "docstrings-english")))
