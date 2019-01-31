@@ -71,7 +71,11 @@
                    neither an IGNORE nor a IGNORABLE declaration in scope.~@
                    IGNORE means that there is an IGNORE declaration in scope,~@
                    and IGNORABLE means that there is a IGNORABLE declaration~@
-                   in scope."))
+                   in scope.~@
+                   ~@
+                   The argument must be an instance either of a subclass of~@
+                   the class LOCAL-FUNCTION-INFO or of a subclass of the~@
+                   class LEXICAL-VARIABLE-INFO."))
 
 (setf (documentation 'dynamic-extent 'function)
       (format nil "This function returns TRUE if and only if there is~@
@@ -79,7 +83,12 @@
                    instance given as the argument."))
 
 (setf (documentation 'ast 'function)
-      (format nil ""))
+      (format nil "Return an abstract syntax tree for the info instance~@
+                   given as an argument, or NIL if no abstract syntax tree~@
+                   is available.~@
+                   ~@
+                   The argument must be an instance of a subclass of the~@
+                   class FUNCTION-INFO."))
 
 (setf (documentation 'compler-macro 'function)
       (format nil ""))
