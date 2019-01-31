@@ -41,6 +41,34 @@
                    processing."))
 
 (setf (documentation 'identity 'function)
-      (format nil " This function returns some kind of object determining~@
-                    the identity of the entity that is described in the~@
-                    info instance given as the argument."))
+      (format nil "This function returns some kind of object determining~@
+                   the identity of the entity that is described in the~@
+                   info instance given as the argument."))
+
+(setf (documentation 'type 'function)
+      (format nil "This function returns the type of the entity that is~@
+                   described in the info instance given as the argument."))
+
+(setf (documentation 'inline 'function)
+      (format nil "This function returns information about any INLINE~@
+                   declaration in scope for the info instance given as~@
+                   the argument.~@
+                   ~@
+                   There are three possible values here, namely~@
+                   NIL, INLINE and NOTINLINE.  NIL means that there is~@
+                   neither an INLINE nor a NOTINLINE declaration in scope.~@
+                   INLINE means that there is an INLINE declaration in scope,~@
+                   and NOTINLINE means that there is a NOTINLINE declaration~@
+                   in scope."))
+
+(setf (documentation 'ignore 'function)
+      (format nil "This function returns information about any IGNORE~@
+                   or IGNORABLE declaration in scope for the info instance~@
+                   given as the argument.~@
+                   ~@
+                   There are three possible values here, namely~@
+                   NIL, IGNORE and IGNORABLE.  NIL means that there is~@
+                   neither an IGNORE nor a IGNORABLE declaration in scope.~@
+                   IGNORE means that there is an IGNORE declaration in scope,~@
+                   and IGNORABLE means that there is a IGNORABLE declaration~@
+                   in scope."))
