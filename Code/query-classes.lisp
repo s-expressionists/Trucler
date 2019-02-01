@@ -36,9 +36,6 @@
                     :initarg :compiler-macro
                     :reader compiler-macro)))
 
-(defclass expander-mixin ()
-  ((%expander :initarg :expander :reader expander)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; VARIABLE-INFO classes.
@@ -58,20 +55,26 @@
 (defclass symbol-macro-info (variable-info name-mixin type-mixin)
   ((%expansion :initarg :expansion :reader expansion)))
 
+(defclass local-symbol-macro-info (symbol-macro-info ignore-mixin)
+  ())
+
+(defclass global-symbol-macro-info (symbol-macro-info ignore-mixin)
+  ())
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; FUNCTION-INFO classes.
 
-(defclass function-info (name-mixin) ())
+(defclass functionoid-info (name-mixin) ())
 
-(defclass local-function-info
-    (function-info identity-mixin type-mixin inline-mixin
-     ignore-mixin ast-mixin dynamic-extent-mixin)
+(defclass function-info
+    (functionoid-info type-mixin inline-mixin ast-mixin dynamic-extent-mixin)
   ())
 
-(defclass global-function-info
-    (function-info type-mixin inline-mixin compiler-macro-mixin
-     ast-mixin dynamic-extent-mixin)
+(defclass local-function-info (function-info identity-mixin ignore-mixin)
+  ())
+
+(defclass global-function-info (function-info compiler-macro-mixin)
   ((%class-name :initarg :class-name :reader class-name))
   (:default-initargs :class-name 'function))
 
@@ -81,11 +84,14 @@
                        :reader method-class-name))
   (:default-initargs :class-name 'standard-generic-function))
 
-(defclass local-macro-info (function-info expander-mixin)
+(defclass macro-info (functionoid-info)
+  ((%expander :initarg :expander :reader expander)))
+
+(defclass local-macro-info (macro-info ignore-mixin)
   ())
 
-(defclass global-macro-info (function-info expander-mixin compiler-macro-mixin)
+(defclass global-macro-info (macro-info compiler-macro-mixin)
   ())
 
-(defclass special-operator-info (function-info)
+(defclass special-operator-info (functionoid-info)
   ())
