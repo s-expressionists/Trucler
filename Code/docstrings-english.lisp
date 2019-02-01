@@ -73,9 +73,9 @@
                    and IGNORABLE means that there is a IGNORABLE declaration~@
                    in scope.~@
                    ~@
-                   The argument must be an instance either of a subclass of~@
-                   the class LOCAL-FUNCTION-INFO or of a subclass of the~@
-                   class LEXICAL-VARIABLE-INFO."))
+                   The argument must be an instance of a subclass of one of~@
+                   the following classes: LOCAL-FUNCTION-INFO, LOCAL-MACRO-INFO,~@
+                   LEXICAL-VARIABLE-INFO, or ."))
 
 (setf (documentation 'dynamic-extent 'function)
       (format nil "This function returns TRUE if and only if there is~@
