@@ -10,31 +10,55 @@
 (defclass name-mixin ()
   ((%name :initarg :name :reader name)))
 
+(defmethod clone-info append ((object name-mixin))
+  '((:name name)))
+
 (defclass identity-mixin ()
   ((%identity :initarg :identity :reader identity)))
+
+(defmethod clone-info append ((object identity-mixin))
+  `((:identity identity)))
 
 (defclass type-mixin ()
   ((%type :initform t :initarg :type :reader type)))
 
+(defmethod clone-info append ((object type-mixin))
+  `((:type type)))
+
 (defclass ignore-mixin ()
   ((%ignore :initform nil :initarg :ignore :reader ignore)))
+
+(defmethod clone-info append ((object ignore-mixin))
+  `((:ignore ignore)))
 
 (defclass dynamic-extent-mixin ()
   ((%dynamic-extent :initform nil
                     :initarg :dynamic-extent
                     :reader dynamic-extent)))
 
+(defmethod clone-info append ((object dynamic-extent-mixin))
+  `((:dynamic-extent dynamic-extent)))
+
 (defclass inline-mixin ()
   ((%inline :initform nil :initarg :inline :reader inline
 	    :type (member nil inline notinline))))
 
+(defmethod clone-info append ((object inline-mixin))
+  `((:inline inline)))
+
 (defclass ast-mixin ()
   ((%ast :initform nil :initarg :ast :reader ast)))
+
+(defmethod clone-info append ((object ast-mixin))
+  `((:ast ast)))
 
 (defclass compiler-macro-mixin ()
   ((%compiler-macro :initform nil
                     :initarg :compiler-macro
                     :reader compiler-macro)))
+
+(defmethod clone-info append ((object compiler-macro-mixin))
+  `((:compiler-macro compiler-macro)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -49,11 +73,20 @@
 (defclass special-variable-info (variable-info type-mixin)
   ((%global-p :initform nil :initarg :global-p :reader global-p)))
   
+(defmethod clone-info append ((object special-variable-info))
+  `((:global-p global-p)))
+
 (defclass constant-variable-info (variable-info name-mixin)
   ((%value :initarg :value :reader value)))
 
+(defmethod clone-info append ((object constant-variable-info))
+  `((:value value)))
+
 (defclass symbol-macro-info (variable-info name-mixin type-mixin)
   ((%expansion :initarg :expansion :reader expansion)))
+
+(defmethod clone-info append ((object symbol-macro-info))
+  `((:expansion expansion)))
 
 (defclass local-symbol-macro-info (symbol-macro-info ignore-mixin)
   ())
@@ -78,14 +111,23 @@
   ((%class-name :initarg :class-name :reader class-name))
   (:default-initargs :class-name 'function))
 
+(defmethod clone-info append ((object global-function-info))
+  `((:class-name class-name)))
+
 (defclass generic-function-info (global-function-info)
   ((%method-class-name :initform 'standard-method
                        :initarg :method-class-name
                        :reader method-class-name))
   (:default-initargs :class-name 'standard-generic-function))
 
+(defmethod clone-info append ((object generic-function-info))
+  `((:method-class-name method-class-name)))
+
 (defclass macro-info (functionoid-info)
   ((%expander :initarg :expander :reader expander)))
+
+(defmethod clone-info append ((object macro-info))
+  `((:expander expander)))
 
 (defclass local-macro-info (macro-info ignore-mixin)
   ())
