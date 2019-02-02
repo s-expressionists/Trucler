@@ -31,7 +31,24 @@
            #:tag-info
            ;; Generic function and class for optimize information.
            #:optimize-info
-           ;; Condition types
+           ;; Augmentation functions.
+           #:add-lexical-variable
+           #:add-special-variable
+           #:add-local-symbol-macro
+           #:add-local-function
+           #:add-local-macro
+           #:add-block
+           #:add-tag
+           #:add-variable-type
+           #:add-function-type
+           #:add-variable-ignore
+           #:add-function-ignore
+           #:add-variable-dynamic-extent
+           #:add-function-dynamic-extent
+           #:add-optimize
+           #:add-inline
+           #:add-inline-expansion
+           ;; Condition types.
            #:no-info
            #:no-variable-info
            #:no-function-info
