@@ -9,6 +9,7 @@
    (:file "query-class-accessors")
    (:file "query-classes")
    (:file "augmentation-functions")
+   (:file "environment")
    (:file "conditions")
    (:file "condition-reporters-english")
    (:file "docstrings-english")))
