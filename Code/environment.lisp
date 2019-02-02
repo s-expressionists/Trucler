@@ -1,5 +1,7 @@
 (cl:in-package #:trucler)
 
+(defgeneric global-environment (environment))
+
 (defgeneric function-infos (environment))
 
 (defgeneric variable-infos (environment))
@@ -11,7 +13,10 @@
 (defgeneric optimize-infos (environment))
 
 (defclass environment ()
-  ((%function-infos
+  ((%global-environment
+    :initarg :global-environment
+    :reader global-environment)
+   (%function-infos
     :initform '()
     :initarg :function-infos
     :reader function-infos)
