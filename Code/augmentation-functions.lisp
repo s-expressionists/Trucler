@@ -1,33 +1,49 @@
 (cl:in-package #:trucler)
 
-(defgeneric add-lexical-variable (environment symbol &optional identity))
+(defgeneric add-lexical-variable
+    (client environment symbol &optional identity))
 
-(defgeneric add-special-variable (environment symbol))
+(defgeneric add-special-variable
+    (client environment symbol))
 
-(defgeneric add-local-symbol-macro (environment symbol expansion))
+(defgeneric add-local-symbol-macro
+    (client environment symbol expansion))
 
-(defgeneric add-local-function (environment function-name &optional identity))
+(defgeneric add-local-function
+    (client environment function-name &optional identity))
 
-(defgeneric add-local-macro (environment symbol expander))
+(defgeneric add-local-macro
+    (client environment symbol expander))
 
-(defgeneric add-block (environment symbol &optional identity))
+(defgeneric add-block
+    (client environment symbol &optional identity))
 
-(defgeneric add-tag (environment symbol &optional identity))
+(defgeneric add-tag
+    (client environment symbol &optional identity))
 
-(defgeneric add-variable-type (environment symbol type))
+(defgeneric add-variable-type
+    (client environment symbol type))
 
-(defgeneric add-function-type (environment function-name type))
+(defgeneric add-function-type
+    (client environment function-name type))
 
-(defgeneric add-variable-ignore (environment symbol ignore))
+(defgeneric add-variable-ignore
+    (client environment symbol ignore))
 
-(defgeneric add-function-ignore (environment function-name ignore))
+(defgeneric add-function-ignore
+    (client environment function-name ignore))
 
-(defgeneric add-variable-dynamic-extent (environment symbol))
+(defgeneric add-variable-dynamic-extent
+    (client environment symbol))
 
-(defgeneric add-function-dynamic-extent (environment function-name))
+(defgeneric add-function-dynamic-extent
+    (client environment function-name))
 
-(defgeneric add-optimize (environment optimize policy))
+(defgeneric add-optimize
+    (client environment optimize policy))
 
-(defgeneric add-inline (environment function-name inline))
+(defgeneric add-inline
+    (client environment function-name inline))
 
-(defgeneric add-inline-expansion (environment function-name expansion))
+(defgeneric add-inline-expansion
+    (client environment function-name expansion))
