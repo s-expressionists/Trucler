@@ -31,6 +31,21 @@
            #:tag-info
            ;; Generic function and class for optimize information.
            #:optimize-info
+           ;; INFO accessors
+           #:name
+           #:identity
+           #:type
+           #:ignore
+           #:inline
+           #:compiler-macro
+           #:dynamic-extent
+           #:ast
+           #:global-p
+           #:value
+           #:expansion
+           #:expander
+           #:class-name
+           #:method-class-name
            ;; Augmentation functions.
            #:add-lexical-variable
            #:add-special-variable
