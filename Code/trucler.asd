@@ -8,6 +8,7 @@
    (:file "query-functions")
    (:file "query-class-accessors")
    (:file "clone-info")
+   (:file "quasi-clone")
    (:file "query-classes")
    (:file "augmentation-functions")
    (:file "environment")
