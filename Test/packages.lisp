@@ -1,5 +1,5 @@
 (cl:in-package #:common-lisp-user)
 
 (defpackage #:trucler-test
-  (:use #:common-lisp #:trucler)
+  (:use #:common-lisp)
   (:export #:test))
