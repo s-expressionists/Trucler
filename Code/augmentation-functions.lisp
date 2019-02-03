@@ -19,7 +19,7 @@
     (client environment symbol &optional identity))
 
 (defgeneric add-tag
-    (client environment symbol &optional identity))
+    (client environment tag &optional identity))
 
 (defgeneric add-variable-type
     (client environment symbol type))
