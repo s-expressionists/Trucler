@@ -10,6 +10,8 @@
    (:file "clone-info")
    (:file "quasi-clone")
    (:file "query-classes")
+   (:file "merge-functions")
+   (:file "merge-methods")
    (:file "augmentation-functions")
    (:file "environment")
    (:file "query-methods")
