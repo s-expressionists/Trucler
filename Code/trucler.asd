@@ -15,6 +15,7 @@
    (:file "augmentation-functions")
    (:file "environment")
    (:file "query-methods")
+   (:file "augmentation-methods")
    (:file "conditions")
    (:file "condition-reporters-english")
    (:file "docstrings-english")))
