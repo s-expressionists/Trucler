@@ -40,7 +40,7 @@
     (client environment function-name))
 
 (defgeneric add-optimize
-    (client environment optimize policy))
+    (client environment quality value))
 
 (defgeneric add-inline
     (client environment function-name inline))
