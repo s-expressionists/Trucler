@@ -134,3 +134,17 @@
 
 (defclass special-operator-info (functionoid-info)
   ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; BLOCK-INFO class.
+
+(defclass block-info (name-mixin identity-mixin)
+  ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; TAG-INFO class.
+
+(defclass tag-info (name-mixin identity-mixin)
+  ())
