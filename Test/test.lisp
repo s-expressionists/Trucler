@@ -7,7 +7,7 @@
                :global-environment global-environment))
          (id (list nil))
 	 (e1 (trucler:add-local-function client e0 'foo id))
-         (e2 (trucler:add-inline client e1 'foo 'trucler:inline))
+         (e2 (trucler:add-inline client e1 'foo 'inline))
          (f0 (trucler:function-info client e1 'foo))
          (f1 (trucler:function-info client e2 'foo)))
     (assert (not (null f0)))
@@ -24,7 +24,7 @@
     (assert (null (trucler:ignore f1)))
     (assert (null (trucler:dynamic-extent f1)))
     (assert (null (trucler:ast f1)))
-    (assert (eq (trucler:inline f1) 'trucler:inline))))
+    (assert (eq (trucler:inline f1) 'inline))))
 
 (defun test-block ()
   (let* ((global-environment (make-instance 'environment))
