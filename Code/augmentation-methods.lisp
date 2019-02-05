@@ -68,3 +68,11 @@
                        :name tag
                        :identity identity)
                      (cached-tag-infos environment))))
+
+(defmethod add-inline
+    (client (environment environment) function-name inline)
+  (let ((info (function-info client environment function-name)))
+    (quasi-clone environment
+                 :cached-function-infos
+                 (cons (merge-inline info inline)
+                       (cached-function-infos environment)))))
