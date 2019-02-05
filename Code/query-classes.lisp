@@ -96,7 +96,7 @@
 (defclass function-info
     (functionoid-info type-mixin ast-mixin dynamic-extent-mixin)
   ((%inline :initform nil :initarg :inline :reader inline
-	    :type (member nil inline notinline))))
+	    :type (member nil cl:inline cl:notinline))))
 
 (defmethod clone-info append ((object function-info))
   `((:inline inline)))
