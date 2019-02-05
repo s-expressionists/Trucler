@@ -69,10 +69,26 @@
                        :identity identity)
                      (cached-tag-infos environment))))
 
+(defmethod add-variable-type
+    (client (environment environment) symbol type)
+  (let ((info (variable-info client environment symbol)))
+    (quasi-clone environment
+                 :cached-variable-infos
+                 (cons (merge-variable-type info type)
+                       (cached-variable-infos environment)))))
+
 (defmethod add-inline
     (client (environment environment) function-name inline)
   (let ((info (function-info client environment function-name)))
     (quasi-clone environment
                  :cached-function-infos
                  (cons (merge-inline info inline)
+                       (cached-function-infos environment)))))
+
+(defmethod add-function-type
+    (client (environment environment) function-name type)
+  (let ((info (function-info client environment function-name)))
+    (quasi-clone environment
+                 :cached-function-infos
+                 (cons (merge-function-type info type)
                        (cached-function-infos environment)))))
