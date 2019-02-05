@@ -1,5 +1,15 @@
 (cl:in-package #:trucler-test)
 
+(defun test-function ()
+  (let* ((global-environment (make-instance 'environment))
+         (client (make-instance 'trucler-test-client))
+         (e0 (make-instance 'trucler::environment
+               :global-environment global-environment))
+	 (e1 (trucler:add-local-function client e0 'foo (list nil)))
+         (f0 (trucler:function-info client e1 'foo)))
+    (assert (not (null f0)))
+    (assert (eq (trucler:name f0) 'foo))))
+
 (defun test-block ()
   (let* ((global-environment (make-instance 'environment))
          (client (make-instance 'trucler-test-client))
@@ -39,5 +49,6 @@
     (assert (eq (trucler:name b2) 'hello))))
 
 (defun test ()
+  (test-function)
   (test-block)
   (test-tag))
