@@ -77,6 +77,14 @@
                  (cons (merge-variable-type info type)
                        (cached-variable-infos environment)))))
 
+(defmethod add-variable-ignore
+    (client (environment environment) symbol ignore)
+  (let ((info (variable-info client environment symbol)))
+    (quasi-clone environment
+                 :cached-variable-infos
+                 (cons (merge-variable-ignore info ignore)
+                       (cached-variable-infos environment)))))
+
 (defmethod add-variable-dynamic-extent
     (client (environment environment) variable-name)
   (let ((info (variable-info client environment variable-name)))
