@@ -14,4 +14,12 @@
 
 (defgeneric merge-inline (info inline))
 
-(defgeneric merge-optimize (info quality value))
+(defgeneric merge-speed (info value))
+
+(defgeneric merge-compilation-speed (info value))
+
+(defgeneric merge-debug (info value))
+
+(defgeneric merge-space (info value))
+
+(defgeneric merge-safety (info value))
