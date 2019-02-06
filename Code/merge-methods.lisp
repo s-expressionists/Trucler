@@ -12,13 +12,11 @@
 (defmethod merge-function-ignore ((info ignore-mixin) ignore)
   (quasi-clone info :ignore ignore))
 
-(defmethod merge-variable-dynamic-extent
-    ((info dynamic-extent-mixin) dynamic-extent)
-  (quasi-clone info :dynamic-extent dynamic-extent))
+(defmethod merge-variable-dynamic-extent ((info dynamic-extent-mixin))
+  (quasi-clone info :dynamic-extent t))
 
-(defmethod merge-function-dynamic-extent
-    ((info dynamic-extent-mixin) dynamic-extent)
-  (quasi-clone info :dynamic-extent dynamic-extent))
+(defmethod merge-function-dynamic-extent ((info dynamic-extent-mixin))
+  (quasi-clone info :dynamic-extent t))
 
 (defmethod merge-inline ((info function-info) inline)
   (quasi-clone info :inline inline))

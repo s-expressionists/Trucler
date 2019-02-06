@@ -8,9 +8,9 @@
 
 (defgeneric merge-function-ignore (info ignore))
 
-(defgeneric merge-variable-dynamic-extent (info dynamic-extent))
+(defgeneric merge-variable-dynamic-extent (info))
 
-(defgeneric merge-function-dynamic-extent (info dynamic-extent))
+(defgeneric merge-function-dynamic-extent (info))
 
 (defgeneric merge-inline (info inline))
 
