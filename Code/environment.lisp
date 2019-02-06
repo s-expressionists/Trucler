@@ -32,10 +32,10 @@
     :initform '()
     :initarg :cached-tag-infos
     :reader cached-tag-infos)
-   (%optimization-info
+   (%optimize-info
     :initform '()
-    :initarg :cached-optimization-info
-    :reader cached-optimization-info)))
+    :initarg :cached-optimize-info
+    :reader cached-optimize-info)))
 
 (defmethod clone-info append ((object environment))
   '((:global-environment global-environment)
@@ -43,4 +43,4 @@
     (:cached-variable-infos cached-variable-infos)
     (:cached-block-infos cached-block-infos)
     (:cached-tag-infos cached-tag-infos)
-    (:cached-optimization-info cached-optimization-info)))
+    (:cached-optimize-info cached-optimize-info)))
