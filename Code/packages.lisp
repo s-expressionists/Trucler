@@ -7,7 +7,12 @@
            #:ignore
            #:inline
            #:compiler-macro
-           #:dynamic-extent)
+           #:dynamic-extent
+           #:speed
+           #:compilation-speed
+           #:debug
+           #:space
+           #:safety)
   (:export #:info
            ;; Generic function and base class for variable information.
            #:variable-info
