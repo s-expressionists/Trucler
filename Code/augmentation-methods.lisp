@@ -124,3 +124,43 @@
                  :cached-function-infos
                  (cons (merge-function-dynamic-extent info)
                        (cached-function-infos environment)))))
+
+(defmethod add-optimize
+    (client (environment environment) (quality (eql 'cl:speed)) value)
+  (let ((info (optimize-info client environment)))
+    (quasi-clone environment
+                 :cached-optimize-info
+                 (cons (merge-speed info value)
+                       (cached-optimize-info environment)))))
+
+(defmethod add-optimize
+    (client (environment environment) (quality (eql 'cl:compilation-speed)) value)
+  (let ((info (optimize-info client environment)))
+    (quasi-clone environment
+                 :cached-optimize-info
+                 (cons (merge-compilation-speed info value)
+                       (cached-optimize-info environment)))))
+
+(defmethod add-optimize
+    (client (environment environment) (quality (eql 'cl:debug)) value)
+  (let ((info (optimize-info client environment)))
+    (quasi-clone environment
+                 :cached-optimize-info
+                 (cons (merge-debug info value)
+                       (cached-optimize-info environment)))))
+
+(defmethod add-optimize
+    (client (environment environment) (quality (eql 'cl:safety)) value)
+  (let ((info (optimize-info client environment)))
+    (quasi-clone environment
+                 :cached-optimize-info
+                 (cons (merge-safety info value)
+                       (cached-optimize-info environment)))))
+
+(defmethod add-optimize
+    (client (environment environment) (quality (eql 'cl:space)) value)
+  (let ((info (optimize-info client environment)))
+    (quasi-clone environment
+                 :cached-optimize-info
+                 (cons (merge-space info value)
+                       (cached-optimize-info environment)))))
