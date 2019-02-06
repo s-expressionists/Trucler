@@ -148,3 +148,14 @@
 
 (defclass tag-info (name-mixin identity-mixin)
   ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; OPTIMIZE-INFO class.
+
+(defclass optimize-info ()
+  ((%speed :initarg :speed :reader speed)
+   (%compilation-speed :initarg :compilation-speed :reader compilation-speed)
+   (%debug :initarg :debug :reader debug)
+   (%space :initarg :space :reader space)
+   (%safety :initarg :safety :reader safety)))
