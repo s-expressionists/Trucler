@@ -92,3 +92,11 @@
                  :cached-function-infos
                  (cons (merge-function-type info type)
                        (cached-function-infos environment)))))
+
+(defmethod add-function-dynamic-extent
+    (client (environment environment) function-name)
+  (let ((info (function-info client environment function-name)))
+    (quasi-clone environment
+                 :cached-function-infos
+                 (cons (merge-function-dynamic-extent info)
+                       (cached-function-infos environment)))))
