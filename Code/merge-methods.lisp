@@ -20,3 +20,18 @@
 
 (defmethod merge-inline ((info function-info) inline)
   (quasi-clone info :inline inline))
+
+(defmethod merge-speed ((info optimize-info) value)
+  (quasi-clone info :speed value))
+
+(defmethod merge-compilation-speed ((info optimize-info) value)
+  (quasi-clone info :compilation-speed value))
+
+(defmethod merge-debug ((info optimize-info) value)
+  (quasi-clone info :debug value))
+
+(defmethod merge-safety ((info optimize-info) value)
+  (quasi-clone info :safety value))
+
+(defmethod merge-space ((info optimize-info) value)
+  (quasi-clone info :space value))
