@@ -509,6 +509,28 @@ associated with the global function, as supplied by the initarg
 \texttt{:class-name}.  If that initarg was not supplied, this
 method returns \texttt{function}.
 
+\Defclass {generic-function-info}
+
+This class is a subclass of \texttt{global-function-info}
+
+If the \texttt{:class-name} initarg is not given when an instance of
+this class is created, it defaults to
+\texttt{standard-generic-function}.
+
+\Definitarg {:method-class-name}
+
+This initarg is used to supply the name of the class to be used for
+methods on the generic function.  If this initarg is not given, it
+defaults to \texttt{standard-method}.
+
+\Defmethod method-class-name {(info {\tt generic-function-info})}
+
+Given an instance of the class \texttt{generic-function-info}, this
+method returns the \emph{method class name} information
+associated with the global function, as supplied by the initarg
+\texttt{:method-class-name}.  If that initarg was not supplied, this
+method returns \texttt{standard-method}.
+
 \subsection{Local macro information}
 
 \Defclass {local-macro-info}
