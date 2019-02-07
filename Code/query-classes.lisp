@@ -57,13 +57,17 @@
 ;;;
 ;;; VARIABLE-INFO classes.
 
-(defclass variable-info (name-mixin type-mixin) ())
-
-(defclass lexical-variable-info
-    (variable-info identity-mixin ignore-mixin dynamic-extent-mixin)
+(defclass variable-info (name-mixin)
   ())
 
-(defclass special-variable-info (variable-info)
+(defclass authentic-variable-info (variable-info type-mixin)
+  ())
+
+(defclass lexical-variable-info
+    (authentic-variable-info identity-mixin ignore-mixin dynamic-extent-mixin)
+  ())
+
+(defclass special-variable-info (authentic-variable-info)
   ((%global-p :initform nil :initarg :global-p :reader global-p)))
   
 (defmethod clone-info append ((object special-variable-info))
@@ -75,7 +79,7 @@
 (defmethod clone-info append ((object constant-variable-info))
   `((:value value)))
 
-(defclass symbol-macro-info (variable-info)
+(defclass symbol-macro-info (variable-info type-mixin)
   ((%expansion :initarg :expansion :reader expansion)))
 
 (defmethod clone-info append ((object symbol-macro-info))
@@ -91,20 +95,20 @@
 ;;;
 ;;; FUNCTION-INFO classes.
 
-(defclass functionoid-info (name-mixin) ())
+(defclass function-info (name-mixin) ())
 
-(defclass function-info
-    (functionoid-info type-mixin ast-mixin dynamic-extent-mixin)
+(defclass authentic-function-info
+    (function-info type-mixin ast-mixin dynamic-extent-mixin)
   ((%inline :initform nil :initarg :inline :reader inline
 	    :type (member nil cl:inline cl:notinline))))
 
-(defmethod clone-info append ((object function-info))
+(defmethod clone-info append ((object authentic-function-info))
   `((:inline inline)))
 
-(defclass local-function-info (function-info identity-mixin ignore-mixin)
+(defclass local-function-info (authentic-function-info identity-mixin ignore-mixin)
   ())
 
-(defclass global-function-info (function-info compiler-macro-mixin)
+(defclass global-function-info (authentic-function-info compiler-macro-mixin)
   ((%class-name :initarg :class-name :reader class-name))
   (:default-initargs :class-name 'function))
 
@@ -120,7 +124,7 @@
 (defmethod clone-info append ((object generic-function-info))
   `((:method-class-name method-class-name)))
 
-(defclass macro-info (functionoid-info)
+(defclass macro-info (function-info)
   ((%expander :initarg :expander :reader expander)))
 
 (defmethod clone-info append ((object macro-info))
@@ -132,7 +136,7 @@
 (defclass global-macro-info (macro-info compiler-macro-mixin)
   ())
 
-(defclass special-operator-info (functionoid-info)
+(defclass special-operator-info (function-info)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
