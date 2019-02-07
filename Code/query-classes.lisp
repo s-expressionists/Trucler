@@ -69,13 +69,13 @@
 (defmethod clone-info append ((object special-variable-info))
   `((:global-p global-p)))
 
-(defclass constant-variable-info (variable-info name-mixin)
+(defclass constant-variable-info (variable-info)
   ((%value :initarg :value :reader value)))
 
 (defmethod clone-info append ((object constant-variable-info))
   `((:value value)))
 
-(defclass symbol-macro-info (variable-info name-mixin)
+(defclass symbol-macro-info (variable-info)
   ((%expansion :initarg :expansion :reader expansion)))
 
 (defmethod clone-info append ((object symbol-macro-info))
