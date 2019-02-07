@@ -382,9 +382,12 @@ method returns the \emph{ignore} information of the local function as
 supplied by the initarg \texttt{:ignore}.  If that initarg was not
 supplied, this method returns \texttt{nil}.
 
-\Defmethod {inline} {(info {\tt local-function-info})}
+\Defmethod {ast} {(info {\tt local-function-info})}
 
-Given an instance of the class \texttt{local-function-info}, this method returns the \emph{ast} information of the local function as supplied by the initarg \texttt{:ast}. If that initarg was not supplied, this method returns \texttt{nil}.
+Given an instance of the class \texttt{local-function-info}, this
+method returns the \emph{ast} information of the local function as
+supplied by the initarg \texttt{:ast}. If that initarg was not
+supplied, this method returns \texttt{nil}.
 
 \Defmethod {dynamic-extent} {(info {\tt local-function-info})}
 
@@ -453,6 +456,12 @@ a compiler macro is associated with the global function.  If this
 initarg is not given, it defaults to \texttt{nil}, meaning that no
 compiler macro is associated with this function. 
 
+\Definitarg {:class-name}
+
+This initarg is used to supply the name of the class of the global
+function.  If this initarg is not given, it defaults to
+\texttt{function}.
+
 \Defmethod {name} {(info {\tt global-function-info})}
 
 Given an instance of the class \texttt{global-function-info}, this
@@ -491,6 +500,14 @@ method returns the \emph{compiler macro function} information
 associated with the global function, as supplied by the initarg
 \texttt{:compiler-macro}.  If that initarg was not supplied, this
 method returns \texttt{nil}.
+
+\Defmethod class-name {(info {\tt global-function-info})}
+
+Given an instance of the class \texttt{global-function-info}, this
+method returns the \emph{class name} information
+associated with the global function, as supplied by the initarg
+\texttt{:class-name}.  If that initarg was not supplied, this
+method returns \texttt{function}.
 
 \subsection{Local macro information}
 
