@@ -246,6 +246,20 @@ returns the \emph{type} of the symbol macro as supplied by the initarg
 \texttt{:type}.  If that initarg was not supplied, this method returns
 \texttt{t}.
 
+\Defclass {global-symbol-macro-info}
+
+This class is a subclass of \texttt{symbol-macro-information} is is
+returned by a call to \texttt{variable-information} when the name is
+defined as a global symbol macro, as defined by
+\texttt{define-symbol-macro}.
+
+\Defclass {local-symbol-macro-info}
+
+This class is a subclass of \texttt{symbol-macro-information} is is
+returned by a call to \texttt{variable-information} when the name is
+defined as a local symbol macro, as defined by
+\texttt{symbol-macrolet}.
+
 \section{Function information}
 
 \Defgeneric {function-info} {environment function-name}
