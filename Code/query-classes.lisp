@@ -60,10 +60,10 @@
 (defclass variable-info (name-mixin type-mixin) ())
 
 (defclass lexical-variable-info
-    (variable-info identity-mixin type-mixin ignore-mixin dynamic-extent-mixin)
+    (variable-info identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass special-variable-info (variable-info type-mixin)
+(defclass special-variable-info (variable-info)
   ((%global-p :initform nil :initarg :global-p :reader global-p)))
   
 (defmethod clone-info append ((object special-variable-info))
@@ -75,7 +75,7 @@
 (defmethod clone-info append ((object constant-variable-info))
   `((:value value)))
 
-(defclass symbol-macro-info (variable-info name-mixin type-mixin)
+(defclass symbol-macro-info (variable-info name-mixin)
   ((%expansion :initarg :expansion :reader expansion)))
 
 (defmethod clone-info append ((object symbol-macro-info))
