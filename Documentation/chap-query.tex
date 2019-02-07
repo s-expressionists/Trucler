@@ -150,18 +150,6 @@ variable.  The type can be any type specifier and it may contain
 user-defined types.  If this initarg is omitted, it defaults to
 \texttt{t}. 
 
-\Definitarg {:ignore}
-
-This initarg is used to supply \emph{ignore} information about the
-special variable.  The value of this initarg can be either
-\texttt{ignore} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the variable is declared
-\texttt{ignore}, \texttt{ignorable} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the variable is
-declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
-ignorable declaration for this variable is in scope.  If this initarg
-is not supplied, it defaults to \texttt{nil}.
-
 \Definitarg {:global-p}
 
 This initarg is used to supply information on whether the variable is globally or locally special, i.e. whether it is special because of a proclamation. The value of this initarg can be either \texttt{t}, meaning that the variable is globally special, or \texttt{nil}, meaning that it is not.
@@ -178,13 +166,6 @@ Given an instance of the class \texttt{special-variable-info}, this
 method returns the \emph{type} of the variable as supplied by the
 initarg \texttt{:type}.  If that initarg was not supplied, this method
 returns \texttt{t}.
-
-\Defmethod {ignore} {(info {\tt special-variable-info})}
-
-Given an instance of the class \texttt{special-variable-info}, this
-method returns the \emph{ignore} information of the special variable as
-supplied by the initarg \texttt{:ignore}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
 
 \Defmethod {global-p} {(info {\tt special-variable-info})}
 
