@@ -20,6 +20,15 @@ This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a special
 variable named \textit{name}.
 
+\section{Adding and annotating symbol macros}
+
+\Defgeneric {add-local-symbol-macro} {client environment name expansion}
+
+This function returns a new environment that is like
+\textit{environment} except that it has been augmented with a local
+symbol macro named \texttt{name}, with the expansion
+\textit{expansion}
+
 \section{Adding and annotating functions}
 
 \subsection{Adding a local function}
