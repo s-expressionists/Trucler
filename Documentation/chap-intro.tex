@@ -3,4 +3,31 @@
 
 In section 8.5 of the second edition of the book ``Common Lisp, the
 Language'' by Guy Steele \cite{Steele:1990:CLL:95411}, a protocol for
-accessing compile-time environments is defined.
+accessing compile-time environments is defined.  That protocol has
+two main problems:
+
+\begin{enumerate}
+\item It is incomplete.  It does not provide for a way to query the
+  invironment for information about blocks or tags.
+\item It is not extensible.  In order for an implementation to make
+  one of the query functions return more information, additional
+  return values would have to be defined.  However, such a change is
+  not considered backward compatible, so this kind of extension is not
+  recommended.
+\end{enumerate}
+
+\sysname{} introduces a protocol that solves these problems as
+follows:
+
+\begin{enumerate}
+\item It contains additional query and augmentation functions for
+  blocks and tags.
+\item Instead of returning multiple values, the query functions return
+  standard instances.  Accessors specialized to the classes of those
+  instances provide the information that the protocol in the book
+  provides as multiple values.
+\end{enumerate}
+
+In addition to providing a mechanism that solves the problems of
+protocol presented in the book, we also add several new features that
+a compiler must use to process source code.
