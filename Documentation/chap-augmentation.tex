@@ -24,7 +24,30 @@ This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a special
 variable named \textit{name}.
 
+\subsection{Annotating a variable with a type}
+\label{sec-annotating-a-variable-with-a-type}
+
+{\footnotesize
+\Defgeneric {add-variable-type} {client environment name type}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the variable named \textit{name} has
+been annotated with the type specifier \textit{type}.
+
+The type of the variable returned when the new environment is queried
+for the variable named \textit{name} will have a new type that is the
+conjunction of \textit{type} and the type it had in
+\textit{environment}.
+
+This function can be used when \textit{name} names a lexical variable,
+a special variable, or a symbol macro
+\seesec{sec-annotating-a-symbol-macro-with-a-type}, but \emph{not}
+  when \textit{name} names a constant variable.
+
 \section{Adding and annotating symbol macros}
+
+\subsection{Adding a local symbol macro}
 
 {\footnotesize
 \Defgeneric {add-local-symbol-macro} {client environment name expansion}
@@ -34,6 +57,13 @@ This function returns a new environment that is like
 \textit{environment} except that it has been augmented with a local
 symbol macro named \texttt{name}, with the expansion
 \textit{expansion}
+
+\subsection{Annotating a symbol macro with a type}
+\label{sec-annotating-a-symbol-macro-with-a-type}
+
+The generic function \texttt{add-variable-type}
+\seesec{sec-annotating-a-variable-with-a-type} can be used to annotate
+the type of a (local or global) symbol macro.
 
 \section{Adding and annotating functions}
 
