@@ -4,7 +4,9 @@
 
 \subsection{Adding a lexical variable}
 
-\Defun {add-lexical-variable} {client environment name \optional identity}
+{\footnotesize
+\Defgeneric {add-lexical-variable} {client environment name \optional identity}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a lexical
@@ -14,7 +16,9 @@ variables with the same name.
 
 \subsection{Adding a special variable}
 
-\Defun {add-special-variable} {client environment name}
+{\footnotesize
+\Defgeneric {add-special-variable} {client environment name}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a special
@@ -22,7 +26,9 @@ variable named \textit{name}.
 
 \section{Adding and annotating symbol macros}
 
+{\footnotesize
 \Defgeneric {add-local-symbol-macro} {client environment name expansion}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augmented with a local
@@ -33,7 +39,9 @@ symbol macro named \texttt{name}, with the expansion
 
 \subsection{Adding a local function}
 
-\Defun {add-local-function} {client environment name \optional identity}
+{\footnotesize
+\Defgeneric {add-local-function} {client environment name \optional identity}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a local
@@ -43,7 +51,9 @@ the same name.
 
 \section{Adding and annotating macros}
 
+{\footnotesize
 \Defgeneric {add-local-macro} {client environment name expander}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augmented with a local
@@ -53,7 +63,9 @@ environment.
 
 \section{Adding a block}
 
-\Defun {add-block} {client environment name \optional identity}
+{\footnotesize
+\Defgeneric {add-block} {client environment name \optional identity}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a block
@@ -63,7 +75,9 @@ different blocks with the same name.
 
 \section{Adding a tag}
 
-\Defun {add-tag} {client environment tag \optional identity}
+{\footnotesize
+\Defgeneric {add-tag} {client environment tag \optional identity}
+}
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a tag
