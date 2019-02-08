@@ -41,6 +41,16 @@ function named \textit{name}.  The optional argument \textit{identity}
 can be supplied by client code to distinguish different functions with
 the same name.
 
+\section{Adding and annotating macros}
+
+\Defgeneric {add-local-macro} {client environment name expander}
+
+This function returns a new environment that is like
+\textit{environment} except that it has been augmented with a local
+macro named \texttt{name}.  The argument \textit{expander} is a
+macro-expansion function that takes two arguments, a form and an
+environment.
+
 \section{Adding a block}
 
 \Defun {add-block} {client environment name \optional identity}
