@@ -43,7 +43,25 @@ conjunction of \textit{type} and the type it had in
 This function can be used when \textit{name} names a lexical variable,
 a special variable, or a symbol macro
 \seesec{sec-annotating-a-symbol-macro-with-a-type}, but \emph{not}
-  when \textit{name} names a constant variable.
+when \textit{name} names a constant variable.
+
+\subsection{Annotating a variable with an \texttt{ignore} declaration}
+\label{sec-annotating-a-variable-with-ignore}
+
+{\footnotesize
+\Defgeneric {add-variable-ignore} {client environment name ignore}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the variable named \textit{name} has
+been annotated with an \texttt{ignore} declaration.
+
+The argument \textit{ignore} must be the symbol \texttt{ignore} or the
+symbol \texttt{ignorable}.
+
+This function can be used when \textit{name} names a lexical variable
+or a local symbol macro
+\seesec{sec-annotating-a-local-symbol-macro-with-ignore}.
 
 \section{Adding and annotating symbol macros}
 
@@ -64,6 +82,14 @@ symbol macro named \texttt{name}, with the expansion
 The generic function \texttt{add-variable-type}
 \seesec{sec-annotating-a-variable-with-a-type} can be used to annotate
 the type of a (local or global) symbol macro.
+
+\subsection{Annotating a symbol macro with an \texttt{ignore} declaration}
+\label{sec-annotating-a-local-symbol-macro-with-ignore}
+
+The generic function \texttt{add-variable-ignore}
+\seesec{sec-annotating-a-variable-with-ignore} can be used to annotate
+a \emph{local} symbol macro with an \texttt{ignore} declaration.
+Global symbol macros can not be annotated this way.
 
 \section{Adding and annotating functions}
 
