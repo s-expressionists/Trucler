@@ -88,7 +88,7 @@
 (defclass local-symbol-macro-info (symbol-macro-info ignore-mixin)
   ())
 
-(defclass global-symbol-macro-info (symbol-macro-info ignore-mixin)
+(defclass global-symbol-macro-info (symbol-macro-info)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
