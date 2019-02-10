@@ -27,6 +27,68 @@ information about the program elements.  Client code would then
 typically also provide auxiliary methods or overriding primary methods
 on the compilation functions that handle these classes.
 
+\section{Mixin classes}
+
+\subsection{\texttt{name-mixin}}
+
+\Defclass {name-mixin}
+
+\Definitarg {:name}
+
+\Defmethod {name} {(info {\tt name-mixin})}
+
+Given an instance of the class \texttt{name-mixin}, this method
+returns the name information, as supplied by the initarg
+\texttt{:name}.
+
+\subsection{\texttt{identity-mixin}}
+
+\Defclass {identity-mixin}
+
+\Definitarg {:identity}
+
+\Defmethod {identity} {(info {\tt identity-mixin})}
+
+Given an instance of the class \texttt{identity-mixin}, this method
+returns the identity information, as supplied by the initarg
+\texttt{:identity}.
+
+\subsection{\texttt{type-mixin}}
+
+\Defclass {type-mixin}
+
+\Definitarg {:type}
+
+\Defmethod {type} {(info {\tt type-mixin})}
+
+Given an instance of the class \texttt{type-mixin}, this method
+returns the type information, as supplied by the initarg
+\texttt{:type}.
+
+\subsection{\texttt{ignore-mixin}}
+
+\Defclass {ignore-mixin}
+
+\Definitarg {:ignore}
+
+\Defmethod {ignore} {(info {\tt ignore-mixin})}
+
+Given an instance of the class \texttt{ignore-mixin}, this method
+returns the ignore information, as supplied by the initarg
+\texttt{:ignore}.
+
+\subsection{\texttt{dynamic-extent-mixin}}
+
+\Defclass {dynamic-extent-mixin}
+
+\Definitarg {:dynamic-extent}
+
+\Defmethod {dynamic-extent} {(info {\tt dynamic-extent-mixin})}
+
+Given an instance of the class \texttt{dynamic-extent-mixin}, this method
+returns the dynamic-extent information, as supplied by the initarg
+\texttt{:dynamic-extent}.
+
 \section{Variable information}
 
 \Defgeneric {variable-info} {environment symbol}
