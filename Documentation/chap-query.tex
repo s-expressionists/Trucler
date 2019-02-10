@@ -33,6 +33,9 @@ on the compilation functions that handle these classes.
 
 \Defclass {name-mixin}
 
+This class is a superclass of query classes that require a name to
+identify the information supplied by the class instances.
+
 \Definitarg {:name}
 
 \Defmethod {name} {(info {\tt name-mixin})}
@@ -44,6 +47,10 @@ returns the name information, as supplied by the initarg
 \subsection{\texttt{identity-mixin}}
 
 \Defclass {identity-mixin}
+
+This class is a superclass of query classes that require some kind of
+identity to distinguish instances of the query class that have the
+same name.
 
 \Definitarg {:identity}
 
@@ -57,7 +64,12 @@ returns the identity information, as supplied by the initarg
 
 \Defclass {type-mixin}
 
+This class is a superclass of query classes that provide information
+of entities that can have a type.
+
 \Definitarg {:type}
+
+If this initarg is not supplied, it defaults to \texttt{t}.
 
 \Defmethod {type} {(info {\tt type-mixin})}
 
@@ -88,6 +100,27 @@ returns the ignore information, as supplied by the initarg
 Given an instance of the class \texttt{dynamic-extent-mixin}, this method
 returns the dynamic-extent information, as supplied by the initarg
 \texttt{:dynamic-extent}.
+
+\section{Abstract query classes}
+
+\Defclass {variable-info}
+
+This abstract class is the superclass of every query class returned by
+a call to the generic function \texttt{variable-info}.  It is a
+subclass of the class \texttt{name-mixin}.
+
+\Defclass {authentic-variable-info}
+
+This abstract class is a subclass of the classes
+\texttt{variable-info} and \texttt{type-mixin}.
+
+It is a superclass of \texttt{lexical-variable-info} and
+\texttt{special-variable-info}.
+
+\Defclass {symbol-macro-info}
+
+This abstract class is a subclass of the classes
+\texttt{variable-info} and \texttt{type-mixin}.
 
 \section{Variable information}
 
