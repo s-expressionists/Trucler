@@ -82,14 +82,6 @@
                    a DYNAMIC-EXTENT declaration in scope for the info~@
                    instance given as the argument."))
 
-(setf (documentation 'ast 'function)
-      (format nil "Return an abstract syntax tree for the info instance~@
-                   given as an argument, or NIL if no abstract syntax tree~@
-                   is available.~@
-                   ~@
-                   The argument must be an instance of a subclass of the~@
-                   class FUNCTION-INFO."))
-
 (setf (documentation 'compler-macro 'function)
       (format nil ""))
 

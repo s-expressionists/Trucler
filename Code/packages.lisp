@@ -44,7 +44,6 @@
            #:inline
            #:compiler-macro
            #:dynamic-extent
-           #:ast
            #:global-p
            #:value
            #:expansion

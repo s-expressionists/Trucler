@@ -39,12 +39,6 @@
 (defmethod clone-info append ((object dynamic-extent-mixin))
   `((:dynamic-extent dynamic-extent)))
 
-(defclass ast-mixin ()
-  ((%ast :initform nil :initarg :ast :reader ast)))
-
-(defmethod clone-info append ((object ast-mixin))
-  `((:ast ast)))
-
 (defclass compiler-macro-mixin ()
   ((%compiler-macro :initform nil
                     :initarg :compiler-macro
@@ -98,7 +92,7 @@
 (defclass function-info (name-mixin) ())
 
 (defclass authentic-function-info
-    (function-info type-mixin ast-mixin dynamic-extent-mixin)
+    (function-info type-mixin dynamic-extent-mixin)
   ((%inline :initform nil :initarg :inline :reader inline
 	    :type (member nil cl:inline cl:notinline))))
 
