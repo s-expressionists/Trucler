@@ -394,14 +394,6 @@ declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
 ignorable declaration for this function is in scope.  If this initarg
 is not supplied, it defaults to \texttt{nil}.
 
-\Definitarg {:ast}
-
-This initarg is used to supply an inline expansion for the local 
-function. The value of this initarg can be either a
-\texttt{cleavir-ast:function-ast}, or \texttt{nil}, indicating that
-no inline expansion is available. If this initarg is not supplied,
-it defaults to \texttt{nil}.
-
 \Definitarg {:dynamic-extent}
 
 This initarg is used to supply \emph{dynamic extent} information about
@@ -442,13 +434,6 @@ supplied, this method returns \texttt{nil}.
 Given an instance of the class \texttt{local-function-info}, this
 method returns the \emph{ignore} information of the local function as
 supplied by the initarg \texttt{:ignore}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {ast} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the \emph{ast} information of the local function as
-supplied by the initarg \texttt{:ast}. If that initarg was not
 supplied, this method returns \texttt{nil}.
 
 \Defmethod {dynamic-extent} {(info {\tt local-function-info})}
@@ -503,14 +488,6 @@ declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
 ignorable declaration for this function is in scope.  If this initarg
 is not supplied, it defaults to \texttt{nil}.
 
-\Definitarg {:ast}
-
-This initarg is used to supply an inline expansion for the global
-function. The value of this initarg can be either a
-\texttt{cleavir-ast:function-ast}, or \texttt{nil}, indicating that
-no inline expansion is available. If this initarg is not supplied,
-it defaults to \texttt{nil}.
-
 \Definitarg {:compiler-macro}
 
 This initarg is used to supply a \emph{compiler macro function} when
@@ -553,7 +530,10 @@ supplied, this method returns \texttt{nil}.
 
 \Defmethod {inline} {(info {\tt global-function-info})}
 
-Given an instance of the class \texttt{global-function-info}, this method returns the \emph{ast} information of the global function as supplied by the initarg \texttt{:ast}. If that initarg was not supplied, this method returns \texttt{nil}.
+Given an instance of the class \texttt{global-function-info}, this
+method returns the \emph{inline} information of the global function as
+supplied by the initarg \texttt{:inline}. If that initarg was not
+supplied, this method returns \texttt{nil}.
 
 \Defmethod compiler-macro {(info {\tt global-function-info})}
 
@@ -783,44 +763,15 @@ returns the identity of the tag as supplied by the initarg
 
 Client-supplied methods on this function must always return a valid
 instance of the class \texttt{optimize-info}. Optimize info includes
-information about optimize declarations as well as policies; more
-information on policies is in \refChap{chap-policy}.
+information about optimize declarations.
 
 \Defclass {optimize-info}
-
-\Definitarg {:optimize}
-
-This initarg supplies the information about optimize declarations.
-It should be a proper list where each element is a list (quality
-value) , i.e. a list valid as the \texttt{cdr} of an \texttt{optimize} 
-declaration specifier, with no defaulted values. Such a list can be
-returned by \texttt{cleavir-policy:normalize-optimize}. The list
-must be complete in the sense that every quality valid in
- the environment (see \texttt{optimize-qualities}) is represented.
-
-This initarg must be supplied.
-
-\Definitarg {:policy}
-
-This initarg supplies the policy for the \texttt{optimize-info}
-object. It should be a value returned by
-\texttt{cleavir-policy:compute-policy} for the \texttt{:optimize} initarg.
-
-Because the policy is referenced widely during AST generation,
-environment query methods should make an effort to cache policies,
-and to compute new policy objects only when necessary.
-
-This initarg must be supplied.
 
 \Defmethod {optimize} {(info {\tt optimize-info})}
 
 Given an instance of the class \texttt{optimize-info}, this method 
 returns the optimize information as supplied by the initarg
 \texttt{:optimize}.
-
-\Defmethod {policy} {(info {\tt optimize-info})}
-
-Given an instance of the class \texttt{optimize-info}, this method returns the policy as supplied by the initarg \texttt{:policy}.
 
 \section{Type information}
 
