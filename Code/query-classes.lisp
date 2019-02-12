@@ -47,6 +47,12 @@
 (defmethod clone-info append ((object compiler-macro-mixin))
   `((:compiler-macro compiler-macro)))
 
+(defclass expansion-mixin ()
+  ((%expansion :initarg :expansion :reader expansion)))
+
+(defmethod clone-info append ((object expansion-mixin))
+  `((:expansion expansion)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; VARIABLE-INFO classes.
@@ -73,11 +79,8 @@
 (defmethod clone-info append ((object constant-variable-info))
   `((:value value)))
 
-(defclass symbol-macro-info (variable-info type-mixin)
-  ((%expansion :initarg :expansion :reader expansion)))
-
-(defmethod clone-info append ((object symbol-macro-info))
-  `((:expansion expansion)))
+(defclass symbol-macro-info (variable-info type-mixin expansion-mixin)
+  ())
 
 (defclass local-symbol-macro-info (symbol-macro-info ignore-mixin)
   ())
