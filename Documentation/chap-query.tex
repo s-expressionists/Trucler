@@ -81,6 +81,9 @@ returns the type information, as supplied by the initarg
 
 \Defclass {ignore-mixin}
 
+This class is a superclass of query classes that provide information
+of entities that can be declared \texttt{ignore} or \texttt{ignorable}.
+
 \Definitarg {:ignore}
 
 \Defmethod {ignore} {(info {\tt ignore-mixin})}
@@ -93,6 +96,9 @@ returns the ignore information, as supplied by the initarg
 
 \Defclass {dynamic-extent-mixin}
 
+This class is a superclass of query classes that provide information
+of entities that can be declared \texttt{dynamic-extent}.
+
 \Definitarg {:dynamic-extent}
 
 \Defmethod {dynamic-extent} {(info {\tt dynamic-extent-mixin})}
@@ -100,6 +106,20 @@ returns the ignore information, as supplied by the initarg
 Given an instance of the class \texttt{dynamic-extent-mixin}, this method
 returns the dynamic-extent information, as supplied by the initarg
 \texttt{:dynamic-extent}.
+
+\subsection{\texttt{expansion-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have an expansion.  In particular, it is a
+superclass of the abstract class \texttt{symbol-macro-info}.
+
+\Definitarg {:expansion}
+
+\Defmethod {expansion} {(info {\tt expansion-mixin})}
+
+Given an instance of the class \texttt{expansion-mixin}, this method
+returns the expansion information, as supplied by the initarg
+\texttt{:expansion}.
 
 \section{Abstract query classes}
 
