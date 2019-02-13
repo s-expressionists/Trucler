@@ -162,6 +162,30 @@ It is a superclass of the two instantiable classes
 \texttt{local-symbol-macro-info} and
 \texttt{global-symbol-macro-info}.
 
+\Defclass {function-info}
+
+This abstract class is the superclass of every query class returned by
+a call to the generic function \texttt{function-info}.  It is a
+subclass of the class \texttt{name-mixin}.
+
+\Defclass {authentic-function-info}
+
+This abstract class is a subclass of the classes
+\texttt{function-info} and \texttt{type-mixin}.
+
+It is a superclass of the two instantiable classes
+\texttt{local-function-info} and
+\texttt{global-function-info}.
+
+\Defclass {macro-info}
+
+This abstract class is a subclass of the classes
+\texttt{function-info} and \texttt{expander-mixin}.
+
+It is a superclass of the two instantiable classes
+\texttt{local-macro-info} and
+\texttt{global-macro-info}.
+
 \section{Variable information}
 
 \Defgeneric {variable-info} {environment symbol}
