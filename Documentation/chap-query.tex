@@ -134,13 +134,19 @@ subclass of the class \texttt{name-mixin}.
 This abstract class is a subclass of the classes
 \texttt{variable-info} and \texttt{type-mixin}.
 
-It is a superclass of \texttt{lexical-variable-info} and
+It is a superclass of the two instantiable classes
+\texttt{lexical-variable-info} and
 \texttt{special-variable-info}.
 
 \Defclass {symbol-macro-info}
 
 This abstract class is a subclass of the classes
-\texttt{variable-info} and \texttt{type-mixin}.
+\texttt{variable-info}, \texttt{type-mixin}, and
+\texttt{expansion-mixin}.
+
+It is a superclass of the two instantiable classes
+\texttt{local-symbol-macro-info} and
+\texttt{global-symbol-macro-info}.
 
 \section{Variable information}
 
