@@ -53,6 +53,12 @@
 (defmethod clone-info append ((object expansion-mixin))
   `((:expansion expansion)))
 
+(defclass expander-mixin ()
+  ((%expander :initarg :expander :reader expander)))
+
+(defmethod clone-info append ((object expander))
+  `((:expander expander)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; VARIABLE-INFO classes.
@@ -121,11 +127,8 @@
 (defmethod clone-info append ((object generic-function-info))
   `((:method-class-name method-class-name)))
 
-(defclass macro-info (function-info)
-  ((%expander :initarg :expander :reader expander)))
-
-(defmethod clone-info append ((object macro-info))
-  `((:expander expander)))
+(defclass macro-info (function-info expander-mixin)
+  ())
 
 (defclass local-macro-info (macro-info ignore-mixin)
   ())
