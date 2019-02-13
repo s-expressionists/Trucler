@@ -100,15 +100,15 @@
 
 (defclass function-info (name-mixin) ())
 
-(defclass authentic-function-info
-    (function-info type-mixin dynamic-extent-mixin)
+(defclass authentic-function-info (function-info type-mixin)
   ((%inline :initform nil :initarg :inline :reader inline
 	    :type (member nil cl:inline cl:notinline))))
 
 (defmethod clone-info append ((object authentic-function-info))
   `((:inline inline)))
 
-(defclass local-function-info (authentic-function-info identity-mixin ignore-mixin)
+(defclass local-function-info
+    (authentic-function-info identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
 (defclass global-function-info (authentic-function-info compiler-macro-mixin)
