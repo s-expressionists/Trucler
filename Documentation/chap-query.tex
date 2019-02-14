@@ -262,17 +262,17 @@ initarg \texttt{:value}.
 
 \Defclass {global-symbol-macro-info}
 
-This class is a subclass of \texttt{symbol-macro-information} is is
+This class is a subclass of \texttt{symbol-macro-info}.  It is
 returned by a call to \texttt{variable-information} when the name is
 defined as a global symbol macro, as defined by
 \texttt{define-symbol-macro}.
 
 \Defclass {local-symbol-macro-info}
 
-This class is a subclass of \texttt{symbol-macro-information} is is
-returned by a call to \texttt{variable-information} when the name is
-defined as a local symbol macro, as defined by
-\texttt{symbol-macrolet}.
+This class is a subclass of \texttt{symbol-macro-info} and
+\texttt{ignore-mixin}.  It is returned by a call to
+\texttt{variable-information} when the name is defined as a local
+symbol macro, as defined by \texttt{symbol-macrolet}.
 
 \section{Function information}
 
