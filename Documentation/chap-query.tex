@@ -245,21 +245,12 @@ instance of this class is returned by a call to \texttt{variable-info}
 when it turns out that the symbol passed as an argument refers to a
 constant variable.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the constant variable.  This initarg
-must be supplied. 
+This class is a subclass of the class \texttt{variable-info}.
 
 \Definitarg {:value}
 
 This initarg supplies the value of the constant variable.  This
 initarg must be supplied.
-
-\Defmethod {name} {(info {\tt constant-variable-info})}
-
-Given an instance of the class \texttt{constant-variable-info}, this
-method returns the name of the constant variable as supplied by the
-initarg \texttt{:name}.
 
 \Defmethod {value} {(info {\tt constant-variable-info})}
 
@@ -268,48 +259,6 @@ method returns the value of the constant variable as supplied by the
 initarg \texttt{:value}.
 
 \subsection{Symbol macro information}
-
-\Defclass {symbol-macro-info}
-
-This class represents information about symbol macros.  An
-instance of this class is returned by a call to \texttt{variable-info}
-when it turns out that the symbol passed as an argument refers to a
-symbol macro.
-
-\Definitarg {:name}
-
-This initarg supplies the name of the symbol macro.  This initarg must
-be supplied.
-
-\Definitarg {:expansion}
-
-This initarg supplies the expansion of the symbol macro.  This initarg
-must be supplied.
-
-\Definitarg {:type}
-
-This initarg is used to supply the \emph{type} of the symbol macro.
-The type can be any type specifier and it may contain user-defined
-types.  If this initarg is omitted, it defaults to \texttt{t}.
-
-\Defmethod {name} {(info {\tt symbol-macro-info})}
-
-Given an instance of the class \texttt{symbol-macro-info}, this method
-returns the name of the symbol macro as supplied by the initarg
-\texttt{:name}.
-
-\Defmethod {expansion} {(info {\tt symbol-macro-info})}
-
-Given an instance of the class \texttt{symbol-macro-info}, this method
-returns the expansion of the symbol macro as supplied by the initarg
-\texttt{:expansion}.
-
-\Defmethod {type} {(info {\tt symbol-macro-info})}
-
-Given an instance of the class \texttt{symbol-macro-info}, this method
-returns the \emph{type} of the symbol macro as supplied by the initarg
-\texttt{:type}.  If that initarg was not supplied, this method returns
-\texttt{t}.
 
 \Defclass {global-symbol-macro-info}
 
