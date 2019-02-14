@@ -213,79 +213,9 @@ instance of this class is returned by a call to \texttt{variable-info}
 when it turns out that the symbol passed as an argument refers to a
 lexical variable.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the lexical variable.  This initarg
-must be supplied. 
-
-\Definitarg {:identity}
-
-This initarg is used to supply some kind of implementation-defined 
-\emph{identity}.  The implementation can supply any object as the
-identity, because it is not interpreted by the compiler.  However, the
-\emph{same} identity must be supplied each time for a particular
-lexical variable.  This initarg must be supplied. 
-
-\Definitarg {:type}
-
-This initarg is used to supply the \emph{type} of the lexical
-variable.  The type can be any type specifier and it may contain
-user-defined types.  If this initarg is omitted, it defaults to
-\texttt{t}. 
-
-\Definitarg {:ignore}
-
-This initarg is used to supply \emph{ignore} information about the
-lexical variable.  The value of this initarg can be either
-\texttt{ignore} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the variable is declared
-\texttt{ignore}, \texttt{ignorable} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the variable is
-declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
-ignorable declaration for this variable is in scope.  If this initarg
-is not supplied, it defaults to \texttt{nil}.
-
-\Definitarg {:dynamic-extent}
-
-This initarg is used to supply \emph{dynamic extent} information about
-the lexical variable.  The value of this initarg can be either
-\texttt{t}, meaning that the variable has been declared
-\texttt{dynamic-extent}, or \texttt{nil}, meaning that the variable
-has not been declared \texttt{dynamic-extent}.  The default value when
-this initarg is not supplied is \texttt{nil}. 
-
-\Defmethod {name} {(info {\tt lexical-variable-info})}
-
-Given an instance of the class \texttt{lexical-variable-info}, this
-method returns the name of the lexical variable as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {identity} {(info {\tt lexical-variable-info})}
-
-Given an instance of the class \texttt{lexical-variable-info}, this
-method returns the identity of the lexical variable as supplied by the
-initarg \texttt{:identity}.
-
-\Defmethod {type} {(info {\tt lexical-variable-info})}
-
-Given an instance of the class \texttt{lexical-variable-info}, this
-method returns the \emph{type} of the variable as supplied by the
-initarg \texttt{:type}.  If that initarg was not supplied, this method
-returns \texttt{t}.
-
-\Defmethod {ignore} {(info {\tt lexical-variable-info})}
-
-Given an instance of the class \texttt{lexical-variable-info}, this
-method returns the \emph{ignore} information of the lexical variable as
-supplied by the initarg \texttt{:ignore}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {dynamic-extent} {(info {\tt lexical-variable-info})}
-
-Given an instance of the class \texttt{lexical-variable-info}, this
-method returns the \emph{dynamic extent} information of the lexical
-variable as supplied by the initarg \texttt{:dynamic-extent}.  If that
-initarg was not supplied, this method returns \texttt{nil}.
+This class is a subclass of the classes
+\texttt{authentic-variable-info} \texttt{identity-mixin},
+\texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
 \subsection{Special variable information}
 
