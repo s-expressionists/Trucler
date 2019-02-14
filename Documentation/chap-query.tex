@@ -226,35 +226,11 @@ instance of this class is returned by a call to \texttt{variable-info}
 when it turns out that the symbol passed as an argument refers to a
 special variable.
 
-
-\Definitarg {:name}
-
-This initarg supplies the name of the special variable.  This initarg
-must be supplied. 
-
-\Definitarg {:type}
-
-This initarg is used to supply the \emph{type} of the special
-variable.  The type can be any type specifier and it may contain
-user-defined types.  If this initarg is omitted, it defaults to
-\texttt{t}. 
+This class is a subclass of the class \texttt{authentic-variable-info}.
 
 \Definitarg {:global-p}
 
 This initarg is used to supply information on whether the variable is globally or locally special, i.e. whether it is special because of a proclamation. The value of this initarg can be either \texttt{t}, meaning that the variable is globally special, or \texttt{nil}, meaning that it is not.
-
-\Defmethod {name} {(info {\tt special-variable-info})}
-
-Given an instance of the class \texttt{special-variable-info}, this
-method returns the name of the special variable as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {type} {(info {\tt special-variable-info})}
-
-Given an instance of the class \texttt{special-variable-info}, this
-method returns the \emph{type} of the variable as supplied by the
-initarg \texttt{:type}.  If that initarg was not supplied, this method
-returns \texttt{t}.
 
 \Defmethod {global-p} {(info {\tt special-variable-info})}
 
