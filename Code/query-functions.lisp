@@ -15,6 +15,8 @@
 
 (defgeneric function-info (client environment function-name))
 
+(defgeneric class-info (client environment class-name))
+
 (defgeneric block-info (client environment symbol))
 
 (defgeneric tag-info (client environment tag))
