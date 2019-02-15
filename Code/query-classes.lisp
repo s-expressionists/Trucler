@@ -163,3 +163,11 @@
    (%debug :initarg :debug :reader debug)
    (%space :initarg :space :reader space)
    (%safety :initarg :safety :reader safety)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; CLASS-INFO class.
+
+(defclass class-info ()
+  ((%superclass-names :initarg :superclass-names :reader superclass-names)
+   (%metaclass-name :initarg :metaclass-name :reader metaclass-name)))
