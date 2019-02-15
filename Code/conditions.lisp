@@ -16,3 +16,6 @@
 
 (define-condition no-tag-info (no-info)
   ())
+
+(define-condition no-class-info (no-info)
+  ())
