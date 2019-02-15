@@ -670,6 +670,20 @@ passed as an argument refers to a tag.
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
+\section{Class information}
+
+\Defgeneric {class-info} {environment class-name}
+
+\Defcondition {no-class-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{class-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-class-info})}
+
+This method returns the name of the class for which no info was
+available. 
+
 \Defclass {class-info}
 
 This class represents information about a class introduced by
