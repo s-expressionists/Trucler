@@ -694,6 +694,17 @@ passed as an argument refers to a class.
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
+\Definitarg {:superclass-names}
+
+This initarg supplies list of names of superclasses that was given in
+the \texttt{defclass} form.
+
+\Definitarg {:metaclass-name}
+
+This initarg supplies the name of the metaclass that was given in the
+\texttt{defclass} form, or the symbol \texttt{standard-class} if no
+explicit metaclass name was given in the \texttt{defclass} form.
+
 \section{Optimization information}
 
 \Defgeneric {optimize-info} {environment}
