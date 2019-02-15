@@ -645,6 +645,7 @@ block.
 
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
+
 \section{Tag information}
 
 \Defgeneric {tag-info} {environment tag}
@@ -664,7 +665,17 @@ available.
 This class represents information about tags introduced by
 \texttt{tagbody}.  An instance of this class is returned by a call to
 \texttt{tag-info} when the name (which must be a symbol or an integer)
-passed as an argument refers to a block.
+passed as an argument refers to a tag.
+
+This class is a subclass of the classes \texttt{name-mixin} and
+\texttt{identity-mixin}.
+
+\Defclass {class-info}
+
+This class represents information about a class introduced by
+\texttt{defclass}.  An instance of this class is returned by a call to
+\texttt{class-info} when the name (which must be a symbol)
+passed as an argument refers to a class.
 
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
