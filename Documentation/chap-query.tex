@@ -611,16 +611,7 @@ instance of this class is returned by a call to \texttt{function-info}
 when it turns out that the function name passed as an argument refers
 to a specialoperator.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the special operator.  This initarg
-must be supplied.
-
-\Defmethod {name} {(info {\tt special-operator-info})}
-
-Given an instance of the class \texttt{special-operator-info}, this
-method returns the name of the special operator as supplied by the
-initarg \texttt{:name}.
+This class is a subclass of the class \texttt{function-info}.
 
 \section{Block information}
 
