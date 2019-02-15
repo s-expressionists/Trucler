@@ -702,8 +702,20 @@ the \texttt{defclass} form.
 \Definitarg {:metaclass-name}
 
 This initarg supplies the name of the metaclass that was given in the
-\texttt{defclass} form, or the symbol \texttt{standard-class} if no
-explicit metaclass name was given in the \texttt{defclass} form.
+\texttt{defclass} form.  If this initarg is not given, it defaults to
+the symbol \texttt{standard-class}.
+
+\Defmethod {superclass-names} {(info {\tt class-info})}
+
+Given an instance of the class \texttt{class-info}, this
+method returns the list of superclass names as supplied by the
+initarg \texttt{:superclass-names}.
+
+\Defmethod {metaclass-name} {(info {\tt class-info})}
+
+Given an instance of the class \texttt{class-info}, this
+method returns the name of the metaclass as supplied by the
+initarg \texttt{:metaclass-name}.
 
 \section{Optimization information}
 
