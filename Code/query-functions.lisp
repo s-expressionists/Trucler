@@ -11,14 +11,14 @@
 ;;;; used on those standard objects to determine the required
 ;;;; information.
 
-(defgeneric variable-info (client environment symbol))
+(defgeneric variable-info (client environment variable-name))
 
 (defgeneric function-info (client environment function-name))
 
 (defgeneric class-info (client environment class-name))
 
-(defgeneric block-info (client environment symbol))
+(defgeneric block-info (client environment block-namel))
 
-(defgeneric tag-info (client environment tag))
+(defgeneric tag-info (client environment tag-name))
 
 (defgeneric optimize-info (client environment))
