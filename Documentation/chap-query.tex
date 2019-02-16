@@ -7,10 +7,16 @@ the compiler to query the environment concerning information about
 program elements that the compiler needs in order to determine how to
 process those program elements. 
 
-When the compiler calls a generic query function, it passes the
-environment as the first argument.  Client code must supply methods
+When the compiler calls a generic query function, it passes two or
+three arguments, depending on the function it calls.  The first
+argument is called the \texttt{client}.  \sysname{} does not
+specialize on this argument, but client code should define a standard
+class and pass an instance of that class for this argument.  Client
+code can then define auxiliary methods that specialize to this class
+on the query generic functions.  The second argument is the
+environment concerned by the query.  Client code must supply methods
 on these functions, specialized to its particular representation of
-environments. 
+environments.
 
 These methods should return instances of the classes described in this
 chapter.  Any such instance contains all available information about
