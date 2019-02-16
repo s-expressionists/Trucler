@@ -26,6 +26,7 @@
            ;; Generic function and base class for variable information.
            #:variable-info
            ;; Classes for variable information.
+           #:authentic-variable-info
            #:lexical-variable-info
            #:special-variable-info
            #:constant-variable-info
@@ -33,9 +34,11 @@
            ;; Generic function and base class for function information.
            #:function-info
            ;; Classes for function information.
+           #:authentic-function-info
            #:local-function-info
            #:global-function-info
            #:generic-function-info
+           #:macro-info
            #:local-macro-info
            #:global-macro-info
            #:special-operator-info
