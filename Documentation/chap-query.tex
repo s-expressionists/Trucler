@@ -194,7 +194,7 @@ It is a superclass of the two instantiable classes
 
 \section{Variable information}
 
-\Defgeneric {variable-info} {environment symbol}
+\Defgeneric {variable-info} {client environment symbol}
 
 This function is called by the compiler whenever a symbol in a
 \emph{variable} position is to be compiled.  If successful, it returns an instance of
@@ -282,7 +282,7 @@ symbol macro, as defined by \texttt{symbol-macrolet}.
 
 \section{Function information}
 
-\Defgeneric {function-info} {environment function-name}
+\Defgeneric {function-info} {client environment function-name}
 
 This function is called by the compiler whenever a symbol in a
 \emph{function} position is to be compiled or whenever a function name
@@ -621,7 +621,7 @@ This class is a subclass of the class \texttt{function-info}.
 
 \section{Block information}
 
-\Defgeneric {block-info} {environment symbol}
+\Defgeneric {block-info} {client environment symbol}
 
 \Defcondition {no-block-info}
 
@@ -645,7 +645,7 @@ This class is a subclass of the classes \texttt{name-mixin} and
 
 \section{Tag information}
 
-\Defgeneric {tag-info} {environment tag}
+\Defgeneric {tag-info} {client environment tag}
 
 \Defcondition {no-tag-info}
 
@@ -669,7 +669,7 @@ This class is a subclass of the classes \texttt{name-mixin} and
 
 \section{Class information}
 
-\Defgeneric {class-info} {environment class-name}
+\Defgeneric {class-info} {client environment class-name}
 
 \Defcondition {no-class-info}
 
@@ -716,7 +716,7 @@ initarg \texttt{:metaclass-name}.
 
 \section{Optimization information}
 
-\Defgeneric {optimize-info} {environment}
+\Defgeneric {optimize-info} {client environment}
 
 Client-supplied methods on this function must always return a valid
 instance of the class \texttt{optimize-info}. Optimize info includes
@@ -732,7 +732,7 @@ returns the optimize information as supplied by the initarg
 
 \section{Type information}
 
-\Defgeneric {type-expand} {environment type}
+\Defgeneric {type-expand} {client environment type}
 
 This generic function is called with some arbitrary type specifier,
 and the return value is an equivalent type specifier that does not
