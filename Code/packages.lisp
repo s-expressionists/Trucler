@@ -14,6 +14,15 @@
            #:space
            #:safety)
   (:export #:info
+           ;; Mixin classes.
+           name-mixin
+           identity-mixin
+           type-mixin
+           ignore-mixin
+           dynamic-extent-mixin
+           compiler-macro-mxin
+           expander-mixin
+           expasion-mixin
            ;; Generic function and base class for variable information.
            #:variable-info
            ;; Classes for variable information.
