@@ -193,6 +193,128 @@ Given an instance of the class \texttt{method-class-name-mixin}, this
 method returns the method-class-name information, as supplied by the
 initarg \texttt{:method-class-name}.
 
+\subsection{\texttt{speed-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have speed information.  In particular, it is a
+superclass of the class \texttt{optimize-info}.
+
+\Definitarg {:speed}
+
+The value of this initarg must be an integer between $0$ and $3$
+inclusive.
+
+\Defmethod {speed} {(info {\tt speed-mixin})}
+
+Given an instance of the class \texttt{speed-mixin}, this method
+returns the compilation-speed information, as supplied by the initarg
+\texttt{:speed}.
+
+\subsection{\texttt{compilation-speed-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have compilation-speed information.  In particular, it is a
+superclass of the class \texttt{optimize-info}.
+
+\Definitarg {:compilation-speed}
+
+The value of this initarg must be an integer between $0$ and $3$
+inclusive.
+
+\Defmethod {compilation-speed} {(info {\tt compilation-speed-mixin})}
+
+Given an instance of the class \texttt{compilation-speed-mixin}, this method
+returns the compilation-compilation-speed information, as supplied by the initarg
+\texttt{:compilation-speed}.
+
+\subsection{\texttt{debug-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have debug information.  In particular, it is a
+superclass of the class \texttt{optimize-info}.
+
+\Definitarg {:debug}
+
+The value of this initarg must be an integer between $0$ and $3$
+inclusive.
+
+\Defmethod {debug} {(info {\tt debug-mixin})}
+
+Given an instance of the class \texttt{debug-mixin}, this method
+returns the compilation-debug information, as supplied by the initarg
+\texttt{:debug}.
+
+\subsection{\texttt{space-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have space information.  In particular, it is a
+superclass of the class \texttt{optimize-info}.
+
+\Definitarg {:space}
+
+The value of this initarg must be an integer between $0$ and $3$
+inclusive.
+
+\Defmethod {space} {(info {\tt space-mixin})}
+
+Given an instance of the class \texttt{space-mixin}, this method
+returns the compilation-space information, as supplied by the initarg
+\texttt{:space}.
+
+\subsection{\texttt{safety-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have safety information.  In particular, it is a
+superclass of the class \texttt{optimize-info}.
+
+\Definitarg {:safety}
+
+The value of this initarg must be an integer between $0$ and $3$
+inclusive.
+
+\Defmethod {safety} {(info {\tt safety-mixin})}
+
+Given an instance of the class \texttt{safety-mixin}, this method
+returns the compilation-safety information, as supplied by the initarg
+\texttt{:safety}.
+
+\subsection{\texttt{superclass-names-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have superclass-names information.  In
+particular, it is a superclass of the class \texttt{class-info}.
+
+\Definitarg {:superclass-names}
+
+The value of this initarg is a list of symbols naming a classes.  If
+this initarg is not given, it defaults the empty list.  Only
+explicitly mentioned superclass names should be provided.
+
+\Defmethod {superclass-names} {(info {\tt superclass-names-mixin})}
+
+Given an instance of the class \texttt{superclass-names-mixin}, this
+method returns the superclass-names information, as supplied by the
+initarg \texttt{:superclass-names}.
+
+\subsection{\texttt{metaclass-name-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have metaclass-name information.  In
+particular, it is a superclass of the class
+\texttt{class-info}.
+
+\Definitarg {:metaclass-name}
+
+The value of this initarg is a symbol naming a class to be used as a
+metaclasss.  If this initarg is not given, it defaults to the symbol
+\texttt{standard-class}.
+
+\Defmethod {metaclass-name} {(info {\tt metaclass-name-mixin})}
+
+Given an instance of the class \texttt{metaclass-name-mixin}, this
+metaclass returns the metaclass-name information, as supplied by the
+initarg \texttt{:metaclass-name}.
+
 \section{Abstract query classes}
 
 \Defclass {variable-info}
