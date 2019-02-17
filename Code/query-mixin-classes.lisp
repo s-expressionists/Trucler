@@ -1,5 +1,12 @@
 (cl:in-package #:trucler)
 
+(defmacro define-mixin-class (class-name slot-name initarg reader-name)
+  `(progn (defclass ,class-name ()
+            ((,slot-name :initarg ,initarg :reader ,reader-name)))
+
+          (defmethod clone-info append ((object ,class-name))
+            '((,initarg ,reader-name)))))
+
 (defclass name-mixin ()
   ((%name :initarg :name :reader name)))
 
