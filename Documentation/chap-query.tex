@@ -16,7 +16,14 @@ code can then define auxiliary methods that specialize to this class
 on the query generic functions.  The second argument is the
 environment concerned by the query.  Client code must supply methods
 on these functions, specialized to its particular representation of
-environments.
+its global environments.  If the client does not have an explicit
+representation of its global environment (as is usually the case), it
+must nevertheless define a dummy standard class to specialize on.
+\sysname{} provides methods on the query functions, specialized to its
+representation of \emph{lexical} environments.  Client code that wants
+to use a different representation of lexical environments than the one
+provided by \sysname{} must also provide methods specialized to its
+lexical environment classes.
 
 These methods should return instances of the classes described in this
 chapter.  Any such instance contains all available information about
@@ -34,6 +41,11 @@ typically also provide auxiliary methods or overriding primary methods
 on the compilation functions that handle these classes.
 
 \section{Mixin classes}
+
+For maximum flexibility, each query class is the subclass of one or
+more mixin classes, each one providing one single feature.  That
+feature is represented as a slot with an initarg, a reader, an
+initform, and a type.
 
 \subsection{\texttt{name-mixin}}
 
