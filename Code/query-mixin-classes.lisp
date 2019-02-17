@@ -1,23 +1,25 @@
 (cl:in-package #:trucler)
 
-(defmacro define-mixin-class (class-name slot-name initarg reader-name)
+(defmacro define-mixin-class (class-name
+                              slot-name
+                              initarg
+                              reader-name
+                              &optional (initform nil initform-p))
   `(progn (defclass ,class-name ()
-            ((,slot-name :initarg ,initarg :reader ,reader-name)))
+            ((,slot-name :initform ,(if initform-p
+                                        initform
+                                        `(error "Initarg ~s must be given." ,initarg))
+                         :initarg ,initarg
+                         :reader ,reader-name)))
 
           (defmethod clone-info append ((object ,class-name))
             '((,initarg ,reader-name)))))
 
-(defclass name-mixin ()
-  ((%name :initarg :name :reader name)))
+(define-mixin-class name-mixin %name :name name)
 
-(defmethod clone-info append ((object name-mixin))
-  '((:name name)))
+(define-mixin-class identity-mixin %identity :identity identity)
 
-(defclass identity-mixin ()
-  ((%identity :initarg :identity :reader identity)))
-
-(defmethod clone-info append ((object identity-mixin))
-  `((:identity identity)))
+(define-mixin-class type-mixin %type :type type)
 
 (defclass type-mixin ()
   ((%type :initform t :initarg :type :reader type)))
