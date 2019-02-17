@@ -141,6 +141,20 @@ Given an instance of the class \texttt{expander-mixin}, this method
 returns the expander information, as supplied by the initarg
 \texttt{:expander}.
 
+\subsection{\texttt{class-name-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have a class-name.  In particular, it is a
+superclass of the class \texttt{global-function-info}.
+
+\Definitarg {:class-name}
+
+\Defmethod {class-name} {(info {\tt class-name-mixin})}
+
+Given an instance of the class \texttt{class-name-mixin}, this method
+returns the class-name information, as supplied by the initarg
+\texttt{:class-name}.
+
 \section{Abstract query classes}
 
 \Defclass {variable-info}
