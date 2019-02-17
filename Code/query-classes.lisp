@@ -92,5 +92,5 @@
 ;;;
 ;;; CLASS-INFO class.
 
-(defclass class-info (info superclass-names-mixin metaclass-name-mixin)
+(defclass class-info (info name-mixin superclass-names-mixin metaclass-name-mixin)
   ())
