@@ -31,6 +31,8 @@
            #:debug-mixin
            #:space-mixin
            #:safety-mixin
+           ;; Macro for definining mixin classes.
+           #:define-mixin-class
            ;; Generic function and base class for variable information.
            #:variable-info
            ;; Classes for variable information.
