@@ -17,17 +17,11 @@
     (authentic-variable-info identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass special-variable-info (authentic-variable-info)
-  ((%global-p :initform nil :initarg :global-p :reader global-p)))
-  
-(defmethod clone-info append ((object special-variable-info))
-  `((:global-p global-p)))
+(defclass special-variable-info (authentic-variable-info global-p-mixin)
+  ())
 
-(defclass constant-variable-info (variable-info)
-  ((%value :initarg :value :reader value)))
-
-(defmethod clone-info append ((object constant-variable-info))
-  `((:value value)))
+(defclass constant-variable-info (variable-info value-mixin)
+  ())
 
 (defclass symbol-macro-info (variable-info type-mixin expansion-mixin)
   ())
