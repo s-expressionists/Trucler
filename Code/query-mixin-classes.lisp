@@ -56,3 +56,24 @@
 (define-mixin-class method-class-name-mixin
     %method-class-name :method-class-name method-class-name
     :initform 'standard-method)
+
+(define-mixin-class speed-mixin
+    %speed :speed speed)
+
+(define-mixin-class compilation-speed-mixin
+    %compilation-speed :compilation-speed compilation-speed)
+
+(define-mixin-class debug-mixin
+    %debug :debug debug)
+
+(define-mixin-class space-mixin
+    %space :space space)
+
+(define-mixin-class safety-mixin
+    %safety :safety safety)
+
+(define-mixin-class superclass-names-mixin
+    %superclass-names :superclass-names superclass-names)
+
+(define-mixin-class metaclass-name-mixin
+    %metaclass-name :metaclass-name metaclass-name)

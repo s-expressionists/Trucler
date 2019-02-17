@@ -90,17 +90,13 @@
 ;;;
 ;;; OPTIMIZE-INFO class.
 
-(defclass optimize-info ()
-  ((%speed :initarg :speed :reader speed)
-   (%compilation-speed :initarg :compilation-speed :reader compilation-speed)
-   (%debug :initarg :debug :reader debug)
-   (%space :initarg :space :reader space)
-   (%safety :initarg :safety :reader safety)))
+(defclass optimize-info
+    (speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
+  ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; CLASS-INFO class.
 
-(defclass class-info ()
-  ((%superclass-names :initarg :superclass-names :reader superclass-names)
-   (%metaclass-name :initarg :metaclass-name :reader metaclass-name)))
+(defclass class-info (superclass-names-mixin metaclass-name-mixin)
+  ())
