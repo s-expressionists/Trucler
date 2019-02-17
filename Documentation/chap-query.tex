@@ -5,7 +5,7 @@
 In this chapter, we describe classes and functions that are used by
 the compiler to query the environment concerning information about
 program elements that the compiler needs in order to determine how to
-process those program elements. 
+process those program elements.
 
 When the compiler calls a generic query function, it passes two or
 three arguments, depending on the function it calls.  The first
@@ -39,6 +39,96 @@ here, for instance in order to represent implementation-specific
 information about the program elements.  Client code would then
 typically also provide auxiliary methods or overriding primary methods
 on the compilation functions that handle these classes.
+
+\section{Query functions}
+
+\subsection{Variable information}
+
+\Defgeneric {variable-info} {client environment symbol}
+
+This function is called by the compiler whenever a symbol in a
+\emph{variable} position is to be compiled.  If successful, it returns an instance of
+one of the classes described below.
+
+\Defcondition {no-variable-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{variable-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-variable-info})}
+
+This method returns the name of the variable for which no info was
+available.
+
+\subsection{Function information}
+
+\Defgeneric {function-info} {client environment function-name}
+
+This function is called by the compiler whenever a symbol in a
+\emph{function} position is to be compiled or whenever a function name
+is found in a context where it is known to refer to a function.  It
+returns an instance of one of the classes described below.
+
+\Defcondition {no-function-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{function-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-function-info})}
+
+This method returns the name of the function for which no info was
+available.
+
+\subsection{Block information}
+
+\Defgeneric {block-info} {client environment symbol}
+
+\Defcondition {no-block-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{block-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-block-info})}
+
+This method returns the name of the block for which no info was
+available.
+
+\subsection{Tag information}
+
+\Defgeneric {tag-info} {client environment tag}
+
+\Defcondition {no-tag-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{tag-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-tag-info})}
+
+This method returns the name of the tag for which no info was
+available.
+
+\subsection{Class information}
+
+\Defgeneric {class-info} {client environment class-name}
+
+\Defcondition {no-class-info}
+
+This condition is signaled by \sysname{} when a client-supplied method
+on the generic function \texttt{class-info} returns \texttt{nil}.
+
+\Defmethod {name} {(condition {\tt no-class-info})}
+
+This method returns the name of the class for which no info was
+available.
+
+\subsection{Optimize information}
+
+\Defgeneric {optimize-info} {client environment}
+
+Client-supplied methods on this function must always return a valid
+instance of the class \texttt{optimize-info}. Optimize info includes
+information about optimize declarations.
+
 
 \section{Mixin classes}
 
@@ -378,25 +468,9 @@ It is a superclass of the two instantiable classes
 \texttt{local-macro-info} and
 \texttt{global-macro-info}.
 
-\section{Variable information}
+\section{Instantiable classes}
 
-\Defgeneric {variable-info} {client environment symbol}
-
-This function is called by the compiler whenever a symbol in a
-\emph{variable} position is to be compiled.  If successful, it returns an instance of
-one of the classes described below.
-
-\Defcondition {no-variable-info}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{variable-info} returns \texttt{nil}.
-
-\Defmethod {name} {(condition {\tt no-variable-info})}
-
-This method returns the name of the variable for which no info was
-available. 
-
-\subsection{Lexical variable information}
+\subsection{Variable information}
 
 \Defclass {lexical-variable-info}
 
@@ -409,8 +483,6 @@ This class is a subclass of the classes
 \texttt{authentic-variable-info} \texttt{identity-mixin},
 \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
-\subsection{Special variable information}
-
 \Defclass {special-variable-info}
 
 This class represents information about special variables.   An
@@ -418,17 +490,8 @@ instance of this class is returned by a call to \texttt{variable-info}
 when it turns out that the symbol passed as an argument refers to a
 special variable.
 
-This class is a subclass of the class \texttt{authentic-variable-info}.
-
-\Definitarg {:global-p}
-
-This initarg is used to supply information on whether the variable is globally or locally special, i.e. whether it is special because of a proclamation. The value of this initarg can be either \texttt{t}, meaning that the variable is globally special, or \texttt{nil}, meaning that it is not.
-
-\Defmethod {global-p} {(info {\tt special-variable-info})}
-
-Given an instance of the class \texttt{special-variable-info}, this method returns the \emph{global-p} information of the special variable as supplised by the initarg \texttt{:global-p}.
-
-\subsection{Constant variable information}
+This class is a subclass of the classes
+\texttt{authentic-variable-info} and \texttt{global-p-mixin}.
 
 \Defclass {constant-variable-info}
 
@@ -437,20 +500,8 @@ instance of this class is returned by a call to \texttt{variable-info}
 when it turns out that the symbol passed as an argument refers to a
 constant variable.
 
-This class is a subclass of the class \texttt{variable-info}.
-
-\Definitarg {:value}
-
-This initarg supplies the value of the constant variable.  This
-initarg must be supplied.
-
-\Defmethod {value} {(info {\tt constant-variable-info})}
-
-Given an instance of the class \texttt{constant-variable-info}, this
-method returns the value of the constant variable as supplied by the
-initarg \texttt{:value}.
-
-\subsection{Symbol macro information}
+This class is a subclass of the classes \texttt{variable-info} and
+\texttt{value-mixin}.
 
 \Defclass {global-symbol-macro-info}
 
@@ -466,128 +517,17 @@ This class is a subclass of \texttt{symbol-macro-info} and
 \texttt{variable-information} when the name is defined as a local
 symbol macro, as defined by \texttt{symbol-macrolet}.
 
-\section{Function information}
-
-\Defgeneric {function-info} {client environment function-name}
-
-This function is called by the compiler whenever a symbol in a
-\emph{function} position is to be compiled or whenever a function name
-is found in a context where it is known to refer to a function.  It
-returns an instance of one of the classes described below.
-
-\Defcondition {no-function-info}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{function-info} returns \texttt{nil}.
-
-\Defmethod {name} {(condition {\tt no-function-info})}
-
-This method returns the name of the function for which no info was
-available. 
-
-\subsection{Local function information}
+\subsection{Function information}
 
 \Defclass {local-function-info}
 
 This class represents information about local functions introduced by
 \texttt{flet} or \texttt{labels}.  An instance of this class is
 returned by a call to \texttt{function-info} when it turns out that
-the function name passed as an argument refers to a local function. 
+the function name passed as an argument refers to a local function.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the local function.  This initarg
-must be supplied.
-
-\Definitarg {:identity}
-
-This initarg is used to supply some kind of implementation-defined 
-\emph{identity}.  The implementation can supply any object as the
-identity, because it is not interpreted by the compiler.  However, the
-\emph{same} identity must be supplied each time for a particular
-local function.  This initarg must be supplied. 
-
-\Definitarg {:type}
-
-This initarg is used to supply the \emph{type} of the local function.
-The type can be any function type specifier and it may contain
-user-defined types.  If this initarg is omitted, it defaults to
-\texttt{t}.
-
-\Definitarg {:inline}
-
-This initarg is used to supply \emph{inline} information about the
-local function.  The value of this initarg can be either
-\texttt{inline} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the function is declared
-\texttt{inline}, \texttt{notinline} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the function is
-declared \texttt{notinline}, or \texttt{nil} meaning that no inline
-declaration for this function is in scope.  If this initarg is not
-supplied, it defaults to \texttt{nil}.
-
-\Definitarg {:ignore}
-
-This initarg is used to supply \emph{ignore} information about the
-local function.  The value of this initarg can be either
-\texttt{ignore} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the function is declared
-\texttt{ignore}, \texttt{ignorable} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the function is
-declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
-ignorable declaration for this function is in scope.  If this initarg
-is not supplied, it defaults to \texttt{nil}.
-
-\Definitarg {:dynamic-extent}
-
-This initarg is used to supply \emph{dynamic extent} information about
-the local function.  The value of this initarg can be either
-\texttt{t}, meaning that the function has been declared
-\texttt{dynamic-extent}, or \texttt{nil}, meaning that the function
-has not been declared \texttt{dynamic-extent}.  The default value when
-this initarg is not supplied is \texttt{nil}. 
-
-\Defmethod {name} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the name of the local function as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {identity} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the identity of the local function as supplied by the
-initarg \texttt{:identity}.
-
-\Defmethod {type} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the \emph{type} of the local function as supplied by the
-initarg \texttt{:type}.  If that initarg was not supplied, this method
-returns \texttt{t}.
-
-\Defmethod {inline} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the \emph{inline} information of the local function as
-supplied by the initarg \texttt{:inline}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {ignore} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the \emph{ignore} information of the local function as
-supplied by the initarg \texttt{:ignore}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {dynamic-extent} {(info {\tt local-function-info})}
-
-Given an instance of the class \texttt{local-function-info}, this
-method returns the \emph{dynamic extent} information of the local
-function as supplied by the initarg \texttt{:dynamic-extent}.  If that
-initarg was not supplied, this method returns \texttt{nil}.
-
-\subsection{Global function information}
+This class is a subclass of \texttt{authentic-function-info},
+\texttt{identity-mixin}, \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
 \Defclass {global-function-info}
 
@@ -596,128 +536,14 @@ of this class is returned by a call to \texttt{function-info} when it
 turns out that the function name passed as an argument refers to a
 global function.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the global function.  This initarg
-must be supplied.
-
-\Definitarg {:type}
-
-This initarg is used to supply the \emph{type} of the global function.
-The type can be any function type specifier and it may contain
-user-defined types.  If this initarg is omitted, it defaults to
-\texttt{t}.
-
-\Definitarg {:inline}
-
-This initarg is used to supply \emph{inline} information about the
-global function.  The value of this initarg can be either
-\texttt{inline} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the function is declared
-\texttt{inline}, \texttt{notinline} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the function is
-declared \texttt{notinline}, or \texttt{nil} meaning that no inline
-declaration for this function is in scope.  If this initarg is not
-supplied, it defaults to \texttt{nil}.
-
-\Definitarg {:ignore}
-
-This initarg is used to supply \emph{ignore} information about the
-global function.  The value of this initarg can be either
-\texttt{ignore} (i.e., the symbol with that name in the
-\texttt{common-lisp} package) meaning that the function is declared
-\texttt{ignore}, \texttt{ignorable} (i.e., the symbol with that name
-in the \texttt{common-lisp} package) meaning that the function is
-declared \texttt{ignorable}, or \texttt{nil} meaning that no ignore or
-ignorable declaration for this function is in scope.  If this initarg
-is not supplied, it defaults to \texttt{nil}.
-
-\Definitarg {:compiler-macro}
-
-This initarg is used to supply a \emph{compiler macro function} when
-a compiler macro is associated with the global function.  If this
-initarg is not given, it defaults to \texttt{nil}, meaning that no
-compiler macro is associated with this function. 
-
-\Definitarg {:class-name}
-
-This initarg is used to supply the name of the class of the global
-function.  If this initarg is not given, it defaults to
-\texttt{function}.
-
-\Defmethod {name} {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the name of the global function as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {type} {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{type} of the global function as supplied by the
-initarg \texttt{:type}.  If that initarg was not supplied, this method
-returns \texttt{t}.
-
-\Defmethod {inline} {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{inline} information of the global function as
-supplied by the initarg \texttt{:inline}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {ignore} {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{ignore} information of the global function as
-supplied by the initarg \texttt{:ignore}.  If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod {inline} {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{inline} information of the global function as
-supplied by the initarg \texttt{:inline}. If that initarg was not
-supplied, this method returns \texttt{nil}.
-
-\Defmethod compiler-macro {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{compiler macro function} information
-associated with the global function, as supplied by the initarg
-\texttt{:compiler-macro}.  If that initarg was not supplied, this
-method returns \texttt{nil}.
-
-\Defmethod class-name {(info {\tt global-function-info})}
-
-Given an instance of the class \texttt{global-function-info}, this
-method returns the \emph{class name} information
-associated with the global function, as supplied by the initarg
-\texttt{:class-name}.  If that initarg was not supplied, this
-method returns \texttt{function}.
+This class is a subclass of \texttt{authentic-function-info},
+\texttt{compiler-macro-mixin}, and \texttt{class-name-mixin}.
 
 \Defclass {generic-function-info}
 
-This class is a subclass of \texttt{global-function-info}
+This class is a subclass of \texttt{global-function-info} and
+\texttt{method-class-name-mixin}.
 
-If the \texttt{:class-name} initarg is not given when an instance of
-this class is created, it defaults to
-\texttt{standard-generic-function}.
-
-\Definitarg {:method-class-name}
-
-This initarg is used to supply the name of the class to be used for
-methods on the generic function.  If this initarg is not given, it
-defaults to \texttt{standard-method}.
-
-\Defmethod method-class-name {(info {\tt generic-function-info})}
-
-Given an instance of the class \texttt{generic-function-info}, this
-method returns the \emph{method class name} information
-associated with the global function, as supplied by the initarg
-\texttt{:method-class-name}.  If that initarg was not supplied, this
-method returns \texttt{standard-method}.
-
-\subsection{Local macro information}
 
 \Defclass {local-macro-info}
 
@@ -726,29 +552,7 @@ This class represents information about local macros introduced by
 \texttt{function-info} when it turns out that the function name passed
 as an argument refers to a local macro.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the local macro.  This initarg
-must be supplied.
-
-\Definitarg {:expander}
-
-This initarg is used to supply the macro function used to expand macro
-forms that use this macro.  This initarg must be supplied. 
-
-\Defmethod {name} {(info {\tt local-macro-info})}
-
-Given an instance of the class \texttt{local-macro-info}, this
-method returns the name of the local macro as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {expander} {(info {\tt local-macro-info})}
-
-Given an instance of the class \texttt{local-macro-info}, this
-method returns the expander of the local macro as supplied by the
-initarg \texttt{:expander}.
-
-\subsection{Global macro information}
+This class is a subclass of \texttt{macro-info} and \texttt{ignore-mixin}.
 
 \Defclass {global-macro-info}
 
@@ -757,44 +561,7 @@ This class represents information about global macros introduced by
 \texttt{function-info} when it turns out that the function name passed
 as an argument refers to a global macro.
 
-\Definitarg {:name}
-
-This initarg supplies the name of the global macro.  This initarg
-must be supplied.
-
-\Definitarg {:expander}
-
-This initarg is used to supply the macro function used to expand macro
-forms that use this macro.  This initarg must be supplied. 
-
-\Definitarg {:compiler-macro}
-
-This initarg is used to supply a \emph{compiler macro function} when
-a compiler macro is associated with the global macro.  If this
-initarg is not given, it defaults to \texttt{nil}, meaning that no
-compiler macro is associated with this macro. 
-
-\Defmethod {name} {(info {\tt global-macro-info})}
-
-Given an instance of the class \texttt{global-macro-info}, this
-method returns the name of the global macro as supplied by the
-initarg \texttt{:name}.
-
-\Defmethod {expander} {(info {\tt global-macro-info})}
-
-Given an instance of the class \texttt{global-macro-info}, this
-method returns the expander of the global macro as supplied by the
-initarg \texttt{:expander}.
-
-\Defmethod compiler-macro {(info {\tt global-macro-info})}
-
-Given an instance of the class \texttt{global-macro-info}, this
-method returns the \emph{compiler macro function} information
-associated with the global macro, as supplied by the initarg
-\texttt{:compiler-macro}.  If that initarg was not supplied, this
-method returns \texttt{nil}.
-
-\subsection{Special operator information}
+This class is a subclass of \texttt{macro-info} and \texttt{compiler-macro-mixin}.
 
 \Defclass {special-operator-info}
 
@@ -805,19 +572,7 @@ to a specialoperator.
 
 This class is a subclass of the class \texttt{function-info}.
 
-\section{Block information}
-
-\Defgeneric {block-info} {client environment symbol}
-
-\Defcondition {no-block-info}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{block-info} returns \texttt{nil}.
-
-\Defmethod {name} {(condition {\tt no-block-info})}
-
-This method returns the name of the block for which no info was
-available. 
+\subsection{Block information}
 
 \Defclass {block-info}
 
@@ -829,19 +584,7 @@ block.
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
-\section{Tag information}
-
-\Defgeneric {tag-info} {client environment tag}
-
-\Defcondition {no-tag-info}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{tag-info} returns \texttt{nil}.
-
-\Defmethod {name} {(condition {\tt no-tag-info})}
-
-This method returns the name of the tag for which no info was
-available. 
+\subsection{Tag information}
 
 \Defclass {tag-info}
 
@@ -853,19 +596,7 @@ passed as an argument refers to a tag.
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
-\section{Class information}
-
-\Defgeneric {class-info} {client environment class-name}
-
-\Defcondition {no-class-info}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{class-info} returns \texttt{nil}.
-
-\Defmethod {name} {(condition {\tt no-class-info})}
-
-This method returns the name of the class for which no info was
-available. 
+\subsection{Class information}
 
 \Defclass {class-info}
 
@@ -874,52 +605,24 @@ This class represents information about a class introduced by
 \texttt{class-info} when the name (which must be a symbol)
 passed as an argument refers to a class.
 
-This class is a subclass of the classes \texttt{name-mixin} and
-\texttt{identity-mixin}.
+This class is a subclass of the classes \texttt{name-mixin},
+\texttt{superclass-names-mixin},  and
+\texttt{metaclass-name-mixin}.
 
-\Definitarg {:superclass-names}
-
-This initarg supplies list of names of superclasses that was given in
-the \texttt{defclass} form.
-
-\Definitarg {:metaclass-name}
-
-This initarg supplies the name of the metaclass that was given in the
-\texttt{defclass} form.  If this initarg is not given, it defaults to
-the symbol \texttt{standard-class}.
-
-\Defmethod {superclass-names} {(info {\tt class-info})}
-
-Given an instance of the class \texttt{class-info}, this
-method returns the list of superclass names as supplied by the
-initarg \texttt{:superclass-names}.
-
-\Defmethod {metaclass-name} {(info {\tt class-info})}
-
-Given an instance of the class \texttt{class-info}, this
-method returns the name of the metaclass as supplied by the
-initarg \texttt{:metaclass-name}.
-
-\section{Optimization information}
-
-\Defgeneric {optimize-info} {client environment}
-
-Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-info}. Optimize info includes
-information about optimize declarations.
+\subsection{Optimization information}
 
 \Defclass {optimize-info}
 
 \Defmethod {optimize} {(info {\tt optimize-info})}
 
-Given an instance of the class \texttt{optimize-info}, this method 
+Given an instance of the class \texttt{optimize-info}, this method
 returns the optimize information as supplied by the initarg
 \texttt{:optimize}.
 
-\section{Type information}
+\subsection{Type information}
 
 \Defgeneric {type-expand} {client environment type}
 
 This generic function is called with some arbitrary type specifier,
 and the return value is an equivalent type specifier that does not
-contain any user-defined types introduced by \texttt{deftype}. 
+contain any user-defined types introduced by \texttt{deftype}.
