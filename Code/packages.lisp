@@ -15,15 +15,22 @@
            #:safety)
   (:export #:info
            ;; Mixin classes.
-           name-mixin
-           identity-mixin
-           type-mixin
-           ignore-mixin
-           dynamic-extent-mixin
-           compiler-macro-mxin
-           expander-mixin
-           expasion-mixin
-           class-name-mixin
+           #:name-mixin
+           #:identity-mixin
+           #:type-mixin
+           #:ignore-mixin
+           #:dynamic-extent-mixin
+           #:compiler-macro-mxin
+           #:expander-mixin
+           #:expasion-mixin
+           #:class-name-mixin
+           #:inline-mixin
+           #:method-class-name-mixin
+           #:speed-mixin
+           #:compilation-speed-mixin
+           #:debug-mixin
+           #:space-mixin
+           #:safety-mixin
            ;; Generic function and base class for variable information.
            #:variable-info
            ;; Classes for variable information.
