@@ -9,6 +9,7 @@
    (:file "query-class-accessors")
    (:file "clone-info")
    (:file "quasi-clone")
+   (:file "query-mixin-classes")
    (:file "query-classes")
    (:file "merge-functions")
    (:file "merge-methods")
