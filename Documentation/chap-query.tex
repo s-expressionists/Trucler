@@ -155,6 +155,25 @@ Given an instance of the class \texttt{class-name-mixin}, this method
 returns the class-name information, as supplied by the initarg
 \texttt{:class-name}.
 
+\subsection{\texttt{inline-mixin}}
+
+This class is a superclass of query classes that provide information
+of entities that can have inline information.  In particular, it is a
+superclass of the class \texttt{authentic-function-info}.
+
+\Definitarg {:inline}
+
+Possible values for this initarg are \texttt{nil}, \texttt{inline},
+and \texttt{notinline}, all symbols in the \texttt{common-lisp}
+package.  The value \texttt{nil} means that no inline information has
+been provided, and this is the default value if the initarg is omitted.
+
+\Defmethod {inline} {(info {\tt inline-mixin})}
+
+Given an instance of the class \texttt{inline-mixin}, this method
+returns the inline information, as supplied by the initarg
+\texttt{:inline}.
+
 \section{Abstract query classes}
 
 \Defclass {variable-info}
