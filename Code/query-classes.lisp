@@ -59,6 +59,12 @@
 (defmethod clone-info append ((object expander))
   `((:expander expander)))
 
+(defclass class-name-mixin ()
+  ((%class-name :initarg :class-name :reader class-name)))
+
+(defmethod clone-info append ((object class-name-mixin))
+  `((:class-name class-name)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; VARIABLE-INFO classes.
@@ -111,12 +117,10 @@
     (authentic-function-info identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass global-function-info (authentic-function-info compiler-macro-mixin)
-  ((%class-name :initarg :class-name :reader class-name))
+(defclass global-function-info
+    (authentic-function-info compiler-macro-mixin class-name-mixin)
+  ()
   (:default-initargs :class-name 'function))
-
-(defmethod clone-info append ((object global-function-info))
-  `((:class-name class-name)))
 
 (defclass generic-function-info (global-function-info)
   ((%method-class-name :initform 'standard-method
