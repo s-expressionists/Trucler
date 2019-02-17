@@ -56,14 +56,9 @@
   ()
   (:default-initargs :class-name 'function))
 
-(defclass generic-function-info (global-function-info)
-  ((%method-class-name :initform 'standard-method
-                       :initarg :method-class-name
-                       :reader method-class-name))
+(defclass generic-function-info (global-function-info method-class-name-mixin)
+  ()
   (:default-initargs :class-name 'standard-generic-function))
-
-(defmethod clone-info append ((object generic-function-info))
-  `((:method-class-name method-class-name)))
 
 (defclass macro-info (function-info expander-mixin)
   ())
