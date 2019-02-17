@@ -7,7 +7,7 @@
 ;;;
 ;;; VARIABLE-INFO classes.
 
-(defclass variable-info (name-mixin)
+(defclass variable-info (info name-mixin)
   ())
 
 (defclass authentic-variable-info (variable-info type-mixin)
@@ -36,7 +36,7 @@
 ;;;
 ;;; FUNCTION-INFO classes.
 
-(defclass function-info (name-mixin) ())
+(defclass function-info (info name-mixin) ())
 
 (defclass authentic-function-info (function-info type-mixin inline-mixin)
   ())
@@ -70,14 +70,14 @@
 ;;;
 ;;; BLOCK-INFO class.
 
-(defclass block-info (name-mixin identity-mixin)
+(defclass block-info (info name-mixin identity-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; TAG-INFO class.
 
-(defclass tag-info (name-mixin identity-mixin)
+(defclass tag-info (info name-mixin identity-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,12 +85,12 @@
 ;;; OPTIMIZE-INFO class.
 
 (defclass optimize-info
-    (speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
+    (info speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; CLASS-INFO class.
 
-(defclass class-info (superclass-names-mixin metaclass-name-mixin)
+(defclass class-info (info superclass-names-mixin metaclass-name-mixin)
   ())
