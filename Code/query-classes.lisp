@@ -44,12 +44,8 @@
 
 (defclass function-info (name-mixin) ())
 
-(defclass authentic-function-info (function-info type-mixin)
-  ((%inline :initform nil :initarg :inline :reader inline
-	    :type (member nil cl:inline cl:notinline))))
-
-(defmethod clone-info append ((object authentic-function-info))
-  `((:inline inline)))
+(defclass authentic-function-info (function-info type-mixin inline-mixin)
+  ())
 
 (defclass local-function-info
     (authentic-function-info identity-mixin ignore-mixin dynamic-extent-mixin)
