@@ -138,6 +138,7 @@ feature is represented as a slot with an initarg, a reader, an
 initform, and a type.
 
 \subsection{\texttt{name-mixin}}
+\label{sec-name-mixin}
 
 \Defclass {name-mixin}
 
@@ -153,6 +154,7 @@ returns the name information, as supplied by the initarg
 \texttt{:name}.
 
 \subsection{\texttt{identity-mixin}}
+\label{sec-identity-mixin}
 
 \Defclass {identity-mixin}
 
@@ -169,6 +171,7 @@ returns the identity information, as supplied by the initarg
 \texttt{:identity}.
 
 \subsection{\texttt{type-mixin}}
+\label{sec-type-mixin}
 
 \Defclass {type-mixin}
 
@@ -186,6 +189,7 @@ returns the type information, as supplied by the initarg
 \texttt{:type}.
 
 \subsection{\texttt{ignore-mixin}}
+\label{sec-ignore-mixin}
 
 \Defclass {ignore-mixin}
 
@@ -201,6 +205,7 @@ returns the ignore information, as supplied by the initarg
 \texttt{:ignore}.
 
 \subsection{\texttt{dynamic-extent-mixin}}
+\label{sec-dynamic-extent-mixin}
 
 \Defclass {dynamic-extent-mixin}
 
@@ -216,6 +221,7 @@ returns the dynamic-extent information, as supplied by the initarg
 \texttt{:dynamic-extent}.
 
 \subsection{\texttt{expansion-mixin}}
+\label{sec-expansion-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have an expansion.  In particular, it is a
@@ -230,6 +236,7 @@ returns the expansion information, as supplied by the initarg
 \texttt{:expansion}.
 
 \subsection{\texttt{expander-mixin}}
+\label{sec-expander-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have an expander function.  In particular, it is
@@ -244,6 +251,7 @@ returns the expander information, as supplied by the initarg
 \texttt{:expander}.
 
 \subsection{\texttt{class-name-mixin}}
+\label{sec-class-name-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have a class-name.  In particular, it is a
@@ -258,6 +266,7 @@ returns the class-name information, as supplied by the initarg
 \texttt{:class-name}.
 
 \subsection{\texttt{inline-mixin}}
+\label{sec-inline-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have inline information.  In particular, it is a
@@ -277,6 +286,7 @@ returns the inline information, as supplied by the initarg
 \texttt{:inline}.
 
 \subsection{\texttt{method-class-name-mixin}}
+\label{sec-method-class-name-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have method-class-name information.  In
@@ -296,6 +306,7 @@ method returns the method-class-name information, as supplied by the
 initarg \texttt{:method-class-name}.
 
 \subsection{\texttt{speed-mixin}}
+\label{sec-speed-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have speed information.  In particular, it is a
@@ -313,6 +324,7 @@ returns the compilation-speed information, as supplied by the initarg
 \texttt{:speed}.
 
 \subsection{\texttt{compilation-speed-mixin}}
+\label{sec-compilation-speed-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have compilation-speed information.  In particular, it is a
@@ -330,6 +342,7 @@ returns the compilation-compilation-speed information, as supplied by the initar
 \texttt{:compilation-speed}.
 
 \subsection{\texttt{debug-mixin}}
+\label{sec-debug-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have debug information.  In particular, it is a
@@ -347,6 +360,7 @@ returns the compilation-debug information, as supplied by the initarg
 \texttt{:debug}.
 
 \subsection{\texttt{space-mixin}}
+\label{sec-space-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have space information.  In particular, it is a
@@ -364,6 +378,7 @@ returns the compilation-space information, as supplied by the initarg
 \texttt{:space}.
 
 \subsection{\texttt{safety-mixin}}
+\label{sec-safety-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have safety information.  In particular, it is a
@@ -381,6 +396,7 @@ returns the compilation-safety information, as supplied by the initarg
 \texttt{:safety}.
 
 \subsection{\texttt{superclass-names-mixin}}
+\label{sec-superclass-names-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have superclass-names information.  In
@@ -399,6 +415,7 @@ method returns the superclass-names information, as supplied by the
 initarg \texttt{:superclass-names}.
 
 \subsection{\texttt{metaclass-name-mixin}}
+\label{sec-metaclass-name-mixin}
 
 This class is a superclass of query classes that provide information
 of entities that can have metaclass-name information.  In
@@ -613,11 +630,9 @@ This class is a subclass of the classes \texttt{name-mixin},
 
 \Defclass {optimize-info}
 
-\Defmethod {optimize} {(info {\tt optimize-info})}
-
-Given an instance of the class \texttt{optimize-info}, this method
-returns the optimize information as supplied by the initarg
-\texttt{:optimize}.
+This class is a subclass of \texttt{speed-mixin},
+\texttt{compilation-speed-mixin}, \texttt{debug-mixin},
+\texttt{space-mixin}, and \texttt{safety-mixin}.
 
 \section{Type information}
 
