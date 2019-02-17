@@ -23,6 +23,7 @@
            compiler-macro-mxin
            expander-mixin
            expasion-mixin
+           class-name-mixin
            ;; Generic function and base class for variable information.
            #:variable-info
            ;; Classes for variable information.
