@@ -18,20 +18,20 @@
 (defmethod merge-function-dynamic-extent ((info dynamic-extent-mixin))
   (quasi-clone info :dynamic-extent t))
 
-(defmethod merge-inline ((info function-info) inline)
+(defmethod merge-inline ((info function-information) inline)
   (quasi-clone info :inline inline))
 
-(defmethod merge-speed ((info optimize-info) value)
+(defmethod merge-speed ((info optimize-information) value)
   (quasi-clone info :speed value))
 
-(defmethod merge-compilation-speed ((info optimize-info) value)
+(defmethod merge-compilation-speed ((info optimize-information) value)
   (quasi-clone info :compilation-speed value))
 
-(defmethod merge-debug ((info optimize-info) value)
+(defmethod merge-debug ((info optimize-information) value)
   (quasi-clone info :debug value))
 
-(defmethod merge-safety ((info optimize-info) value)
+(defmethod merge-safety ((info optimize-information) value)
   (quasi-clone info :safety value))
 
-(defmethod merge-space ((info optimize-info) value)
+(defmethod merge-space ((info optimize-information) value)
   (quasi-clone info :space value))

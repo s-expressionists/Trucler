@@ -1,31 +1,31 @@
 (cl:in-package #:trucler)
 
-(setf (documentation 'variable-info 'function)
-      (format nil "Return an instance of the class VARIABLE-INFO~@
+(setf (documentation 'variable-information 'function)
+      (format nil "Return an instance of the class VARIABLE-INFORMATION~@
                    describing the role of SYMBOL in ENVIRONMENT~@
                    when SYMBOL was found in a variable position."))
 
-(setf (documentation 'function-info 'function)
-      (format nil "Return an instance of the class FUNCTION-INFO~@
+(setf (documentation 'function-information 'function)
+      (format nil "Return an instance of the class FUNCTION-INFORMATION~@
                    describing the role of FUNCTION-NAME in ENVIRONMENT~@
                    when FUNCTION-NAME was found in a function position.~@
                    This function can also be used to obtain information~@
                    about a function name that is not a symbol."))
 
-(setf (documentation 'block-info 'function)
-      (format nil "Return an instance of the class BLOCK-INFO~@
+(setf (documentation 'block-information 'function)
+      (format nil "Return an instance of the class BLOCK-INFORMATION~@
                    describing the role of SYMBOL in ENVIRONMENT~@
                    when SYMBOL was found in a position to name a block."))
 
-(setf (documentation 'tag-info 'function)
-      (format nil "Return an instance of the class TAG-INFO~@
+(setf (documentation 'tag-information 'function)
+      (format nil "Return an instance of the class TAG-INFORMATION~@
                    describing the role of TAG in ENVIRONMENT~@
                    when TAG was found in a position to name a~@
                    TAGBODY tag, i.e. as an argument to GO.~@
                    TAG must be a symbol or an integer."))
 
-(setf (documentation 'optimize-info 'function)
-      (format nil "Return an instance of the class OPTIMIZE-INFO~@
+(setf (documentation 'optimize-information 'function)
+      (format nil "Return an instance of the class OPTIMIZE-INFORMATION~@
                    describing the values of all OPTIMIZE qualities~@
                    in ENVIRONMENT."))
 
@@ -74,8 +74,8 @@
                    in scope.~@
                    ~@
                    The argument must be an instance of a subclass of one of~@
-                   the following classes: LOCAL-FUNCTION-INFO, LOCAL-MACRO-INFO,~@
-                   LEXICAL-VARIABLE-INFO, or ."))
+                   the following classes: LOCAL-FUNCTION-INFORMATION, LOCAL-MACRO-INFORMATION,~@
+                   LEXICAL-VARIABLE-INFORMATION, or ."))
 
 (setf (documentation 'dynamic-extent 'function)
       (format nil "This function returns TRUE if and only if there is~@

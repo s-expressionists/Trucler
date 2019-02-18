@@ -2,45 +2,45 @@
 
 (defgeneric global-environment (environment))
 
-(defgeneric cached-function-infos (environment))
+(defgeneric cached-function-information (environment))
 
-(defgeneric cached-variable-infos (environment))
+(defgeneric cached-variable-information (environment))
 
-(defgeneric cached-block-infos (environment))
+(defgeneric cached-block-information (environment))
 
-(defgeneric cached-tag-infos (environment))
+(defgeneric cached-tag-information (environment))
 
-(defgeneric cached-optimize-info (environment))
+(defgeneric cached-optimize-information (environment))
 
 (defclass environment ()
   ((%global-environment
     :initarg :global-environment
     :reader global-environment)
-   (%function-infos
+   (%function-information
     :initform '()
-    :initarg :cached-function-infos
-    :reader cached-function-infos)
-   (%variable-infos
+    :initarg :cached-function-information
+    :reader cached-function-information)
+   (%variable-information
     :initform '()
-    :initarg :cached-variable-infos
-    :reader cached-variable-infos)
-   (%block-infos
+    :initarg :cached-variable-information
+    :reader cached-variable-information)
+   (%block-information
     :initform '()
-    :initarg :cached-block-infos
-    :reader cached-block-infos)
-   (%tag-infos
+    :initarg :cached-block-information
+    :reader cached-block-information)
+   (%tag-information
     :initform '()
-    :initarg :cached-tag-infos
-    :reader cached-tag-infos)
-   (%optimize-info
+    :initarg :cached-tag-information
+    :reader cached-tag-information)
+   (%optimize-information
     :initform '()
-    :initarg :cached-optimize-info
-    :reader cached-optimize-info)))
+    :initarg :cached-optimize-information
+    :reader cached-optimize-information)))
 
-(defmethod clone-info append ((object environment))
+(defmethod clone-information append ((object environment))
   '((:global-environment global-environment)
-    (:cached-function-infos cached-function-infos)
-    (:cached-variable-infos cached-variable-infos)
-    (:cached-block-infos cached-block-infos)
-    (:cached-tag-infos cached-tag-infos)
-    (:cached-optimize-info cached-optimize-info)))
+    (:cached-function-information cached-function-information)
+    (:cached-variable-information cached-variable-information)
+    (:cached-block-information cached-block-information)
+    (:cached-tag-information cached-tag-information)
+    (:cached-optimize-information cached-optimize-information)))

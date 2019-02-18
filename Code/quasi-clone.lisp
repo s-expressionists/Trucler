@@ -4,6 +4,6 @@
   (apply #'make-instance
          (class-of instance)
          initarg initval
-         (loop for (initarg reader) in (clone-info instance)
+         (loop for (initarg reader) in (clone-information instance)
                collect initarg
                collect (funcall reader instance))))

@@ -1,4 +1,4 @@
 (cl:in-package #:trucler)
 
-(defgeneric clone-info (object)
+(defgeneric clone-information (object)
   (:method-combination append :most-specific-last))

@@ -34,30 +34,30 @@
            ;; Macro for definining mixin classes.
            #:define-mixin-class
            ;; Generic function and base class for variable information.
-           #:variable-info
+           #:variable-information
            ;; Classes for variable information.
-           #:authentic-variable-info
-           #:lexical-variable-info
-           #:special-variable-info
-           #:constant-variable-info
-           #:symbol-macro-info
+           #:authentic-variable-information
+           #:lexical-variable-information
+           #:special-variable-information
+           #:constant-variable-information
+           #:symbol-macro-information
            ;; Generic function and base class for function information.
-           #:function-info
+           #:function-information
            ;; Classes for function information.
-           #:authentic-function-info
-           #:local-function-info
-           #:global-function-info
-           #:generic-function-info
-           #:macro-info
-           #:local-macro-info
-           #:global-macro-info
-           #:special-operator-info
+           #:authentic-function-information
+           #:local-function-information
+           #:global-function-information
+           #:generic-function-information
+           #:macro-information
+           #:local-macro-information
+           #:global-macro-information
+           #:special-operator-information
            ;; Generic function and class for block information.
-           #:block-info
+           #:block-information
            ;; Generic function and class for tag information.
-           #:tag-info
+           #:tag-information
            ;; Generic function and class for optimize information.
-           #:optimize-info
+           #:optimize-information
            ;; INFO accessors
            #:name
            #:identity
@@ -90,8 +90,8 @@
            #:add-inline
            #:add-inline-expansion
            ;; Condition types.
-           #:no-info
-           #:no-variable-info
-           #:no-function-info
-           #:no-block-info
-           #:no-tag-info))
+           #:no-information
+           #:no-variable-information
+           #:no-function-information
+           #:no-block-information
+           #:no-tag-information))
