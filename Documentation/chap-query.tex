@@ -19,8 +19,10 @@ on these functions, specialized to its particular representation of
 its global environments.  If the client does not have an explicit
 representation of its global environment (as is usually the case), it
 must nevertheless define a dummy standard class to specialize on.
-\sysname{} provides methods on the query functions, specialized to its
-representation of \emph{lexical} environments.  Client code that wants
+Contrary to global environments, \sysname{} provides its own
+representation of \emph{lexical} environments, and it provides methods
+on the query functions, specialized to the classes defined to
+represent those lexical environments.  Client code that wants
 to use a different representation of lexical environments than the one
 provided by \sysname{} must also provide methods specialized to its
 lexical environment classes.
