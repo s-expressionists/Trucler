@@ -1,25 +1,25 @@
 (cl:in-package #:trucler)
 
-(defgeneric merge-variable-type (info type))
+(defgeneric merge-variable-type (variable-information type))
 
-(defgeneric merge-function-type (info type))
+(defgeneric merge-variable-ignore (variable-information ignore))
 
-(defgeneric merge-variable-ignore (info ignore))
+(defgeneric merge-variable-dynamic-extent (variable-information))
 
-(defgeneric merge-function-ignore (info ignore))
+(defgeneric merge-function-type (function-information type))
 
-(defgeneric merge-variable-dynamic-extent (info))
+(defgeneric merge-function-ignore (function-information ignore))
 
-(defgeneric merge-function-dynamic-extent (info))
+(defgeneric merge-function-dynamic-extent (function-information))
 
-(defgeneric merge-inline (info inline))
+(defgeneric merge-inline (function-information inline))
 
-(defgeneric merge-speed (info value))
+(defgeneric merge-speed (optimize-information value))
 
-(defgeneric merge-compilation-speed (info value))
+(defgeneric merge-compilation-speed (optimize-information value))
 
-(defgeneric merge-debug (info value))
+(defgeneric merge-debug (optimize-information value))
 
-(defgeneric merge-space (info value))
+(defgeneric merge-space (optimize-information value))
 
-(defgeneric merge-safety (info value))
+(defgeneric merge-safety (optimize-information value))
