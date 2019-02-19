@@ -213,6 +213,14 @@ integer between $0$ and $3$, return a new instance that is just like
 all the slots), except that its speed information has been updated
 according to that of \textit{value}.
 
+\Defmethod {merge-speed}\\
+           {client\\
+            (optimize-information {\tt optimize-information})\\
+            value}
+
+This is the default method provided on \texttt{merge-speed} and it is
+specialized to \texttt{optimize-information}.
+
 \Defgeneric {merge-compilation-speed} {client optimize-information value}
 
 Given an instance of the class \texttt{optimize-information} and an
@@ -220,6 +228,15 @@ integer between $0$ and $3$, return a new instance that is just like
 \textit{optimize-information} (including the class and the values of
 all the slots), except that its compilation-speed information has been
 updated according to that of \textit{value}.
+
+\Defmethod {merge-compilation-speed}\\
+           {client\\
+            (optimize-information {\tt optimize-information})\\
+            value}
+
+This is the default method provided on
+\texttt{merge-compilation-speed} and it is specialized to
+\texttt{optimize-information}.
 
 \Defgeneric {merge-debug} {client optimize-information value}
 
@@ -229,6 +246,14 @@ integer between $0$ and $3$, return a new instance that is just like
 all the slots), except that its debug information has been updated
 according to that of \textit{value}.
 
+\Defmethod {merge-debug}\\
+           {client\\
+            (optimize-information {\tt optimize-information})\\
+            value}
+
+This is the default method provided on \texttt{merge-debug} and it is
+specialized to \texttt{optimize-information}.
+
 \Defgeneric {merge-space} {client optimize-information value}
 
 Given an instance of the class \texttt{optimize-information} and an
@@ -237,6 +262,14 @@ integer between $0$ and $3$, return a new instance that is just like
 all the slots), except that its space information has been updated
 according to that of \textit{value}.
 
+\Defmethod {merge-space}\\
+           {client\\
+            (optimize-information {\tt optimize-information})\\
+            value}
+
+This is the default method provided on \texttt{merge-space} and it is
+specialized to \texttt{optimize-information}.
+
 \Defgeneric {merge-safety} {client optimize-information value}
 
 Given an instance of the class \texttt{optimize-information} and an
@@ -244,6 +277,14 @@ integer between $0$ and $3$, return a new instance that is just like
 \textit{optimize-information} (including the class and the values of
 all the slots), except that its safety information has been updated
 according to that of \textit{value}.
+
+\Defmethod {merge-safety}\\
+           {client\\
+            (optimize-information {\tt optimize-information})\\
+            value}
+
+This is the default method provided on \texttt{merge-safety} and it is
+specialized to \texttt{optimize-information}.
 
 \section{Adding and annotating variables}
 
