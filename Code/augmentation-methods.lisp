@@ -58,95 +58,84 @@
 (defmethod add-variable-type
     (client (environment environment) symbol type)
   (let ((info (variable-information client environment symbol)))
-    (quasi-clone environment
-                 :cached-variable-information
-                 (cons (merge-variable-type info type)
-                       (cached-variable-information environment)))))
+    (augment-with-variable-information
+     client environment
+     (merge-variable-type info type))))
 
 (defmethod add-variable-ignore
     (client (environment environment) symbol ignore)
   (let ((info (variable-information client environment symbol)))
-    (quasi-clone environment
-                 :cached-variable-information
-                 (cons (merge-variable-ignore info ignore)
-                       (cached-variable-information environment)))))
+    (augment-with-variable-information
+     client environment
+     (merge-variable-ignore info ignore))))
 
 (defmethod add-variable-dynamic-extent
     (client (environment environment) variable-name)
   (let ((info (variable-information client environment variable-name)))
-    (quasi-clone environment
-                 :cached-variable-information
-                 (cons (merge-variable-dynamic-extent info)
-                       (cached-variable-information environment)))))
+    (augment-with-variable-information
+     client environment
+     (merge-variable-dynamic-extent info))))
 
 (defmethod add-inline
     (client (environment environment) function-name inline)
   (let ((info (function-information client environment function-name)))
-    (quasi-clone environment
-                 :cached-function-information
-                 (cons (merge-inline info inline)
-                       (cached-function-information environment)))))
+    (augment-with-function-information
+     client environment
+     (merge-inline info inline))))
 
 (defmethod add-function-type
     (client (environment environment) function-name type)
   (let ((info (function-information client environment function-name)))
-    (quasi-clone environment
-                 :cached-function-information
-                 (cons (merge-function-type info type)
-                       (cached-function-information environment)))))
+    (augment-with-function-information
+     client environment
+     (merge-function-type info type))))
 
 (defmethod add-function-ignore
     (client (environment environment) function-name ignore)
   (let ((info (function-information client environment function-name)))
-    (quasi-clone environment
-                 :cached-function-information
-                 (cons (merge-function-ignore info ignore)
-                       (cached-function-information environment)))))
+    (augment-with-function-information
+     client environment
+     (merge-function-ignore info ignore))))
 
 (defmethod add-function-dynamic-extent
     (client (environment environment) function-name)
   (let ((info (function-information client environment function-name)))
-    (quasi-clone environment
-                 :cached-function-information
-                 (cons (merge-function-dynamic-extent info)
-                       (cached-function-information environment)))))
+    (augment-with-function-information
+     client environment
+     (merge-function-dynamic-extent info))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:speed)) value)
   (let ((info (optimize-information client environment)))
-    (quasi-clone environment
-                 :cached-optimize-information
-                 (cons (merge-speed info value)
-                       (cached-optimize-information environment)))))
+    (augment-with-optimize-information
+     client environment
+     (merge-speed info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:compilation-speed)) value)
   (let ((info (optimize-information client environment)))
-    (quasi-clone environment
-                 :cached-optimize-information
-                 (cons (merge-compilation-speed info value)
-                       (cached-optimize-information environment)))))
+    (augment-with-optimize-information
+     client environment
+     (merge-compilation-speed info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:debug)) value)
   (let ((info (optimize-information client environment)))
-    (quasi-clone environment
-                 :cached-optimize-information
-                 (cons (merge-debug info value)
-                       (cached-optimize-information environment)))))
+    (augment-with-optimize-information
+     client environment
+     (merge-debug info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:safety)) value)
   (let ((info (optimize-information client environment)))
-    (quasi-clone environment
-                 :cached-optimize-information
-                 (cons (merge-safety info value)
-                       (cached-optimize-information environment)))))
+    (augment-with-optimize-information
+     client environment
+     (merge-safety info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:space)) value)
   (let ((info (optimize-information client environment)))
-    (quasi-clone environment
-                 :cached-optimize-information
-                 (cons (merge-space info value)
-                       (cached-optimize-information environment)))))
+    (augment-with-optimize-information
+     client environment
+     (merge-space info value))))
+
