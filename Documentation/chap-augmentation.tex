@@ -91,6 +91,160 @@ This default method returns a new environment object which is like the
 one passed as an argument, except that \textit{optimize-information}
 will shadow any previous optimize information.
 
+\section{Merging information instances}
+
+We use the term \emph{merging} to mean the creation of a new
+information instance from an existing information instance plus some
+additional information such as type or dynamic extent.
+
+In this section, we describe generic functions that are provided for
+this purpose.
+
+\Defgeneric {merge-variable-type} {client variable-information type}
+
+Given an instance of the class \texttt{variable-information} and a
+type descriptor, return a new instance that is just like
+\textit{variable-information} (including the class and the values of
+all the slots), except that its type information has been updated
+according to that of \textit{type}.
+
+\Defmethod {merge-variable-type}\\
+           {client\\
+            (variable-information {\tt variable-information})\\
+            type}
+
+This is the default method provided on \texttt{merge-variable-type}
+and it is specialized to \texttt{variable-information}.
+
+\Defgeneric {merge-variable-ignore} {client variable-information ignore}
+
+Given an instance of the class \texttt{variable-information} and one
+of the symbols \texttt{cl:ignore} and \texttt{cl:ignorable},
+return a new instance that is just like
+\textit{variable-information} (including the class and the values of
+all the slots), except that its ignore information has been updated
+according to that of \textit{ignore}.
+
+\Defmethod {merge-variable-ignore}\\
+           {client\\
+            (variable-information {\tt variable-information})\\
+            ignore}
+
+This is the default method provided on \texttt{merge-variable-ignore}
+and it is specialized to \texttt{variable-information}.
+
+\Defgeneric {merge-variable-dynamic-extent} {client variable-information}
+
+Given an instance of the class \texttt{variable-information}, return a
+new instance that is just like \textit{variable-information}
+(including the class and the values of all the slots), except that its
+dynamic-extent information has been updated so that it is \emph{true}.
+
+\Defmethod {merge-variable-dynamic-extent}\\
+           {client\\
+            (variable-information {\tt variable-information})}
+
+This is the default method provided on
+\texttt{merge-variable-dynamic-extent} and it is specialized to
+\texttt{variable-information}.
+
+\Defgeneric {merge-function-type} {client function-information type}
+
+Given an instance of the class \texttt{function-information} and a
+type descriptor, return a new instance that is just like
+\textit{function-information} (including the class and the values of
+all the slots), except that its type information has been updated
+according to that of \textit{type}.
+
+\Defmethod {merge-function-type}\\
+           {client\\
+            (function-information {\tt function-information})\\
+            type}
+
+This is the default method provided on \texttt{merge-function-type}
+and it is specialized to \texttt{function-information}.
+
+\Defgeneric {merge-function-ignore} {client function-information ignore}
+
+Given an instance of the class \texttt{function-information} and one
+of the symbols \texttt{cl:ignore} and \texttt{cl:ignorable},
+return a new instance that is just like
+\textit{function-information} (including the class and the values of
+all the slots), except that its ignore information has been updated
+according to that of \textit{ignore}.
+
+\Defmethod {merge-function-ignore}\\
+           {client\\
+            (function-information {\tt function-information})\\
+            ignore}
+
+This is the default method provided on \texttt{merge-function-ignore}
+and it is specialized to \texttt{function-information}.
+
+\Defgeneric {merge-function-dynamic-extent} {client function-information}
+
+Given an instance of the class \texttt{function-information}, return a
+new instance that is just like \textit{function-information}
+(including the class and the values of all the slots), except that its
+dynamic-extent information has been updated so that it is \emph{true}.
+
+\Defmethod {merge-function-dynamic-extent}\\
+           {client\\
+            (function-information {\tt function-information})}
+
+This is the default method provided on
+\texttt{merge-function-dynamic-extent} and it is specialized to
+\texttt{function-information}.
+
+\Defgeneric {merge-inline} {client function-information inline}
+
+Given an instance of the class \texttt{function-information} and one
+of the symbols \texttt{cl:inline} and \texttt{cl:notinline},
+return a new instance that is just like
+\textit{function-information} (including the class and the values of
+all the slots), except that its inline information has been updated
+according to that of \textit{inline}.
+
+\Defgeneric {merge-speed} {client optimize-information value}
+
+Given an instance of the class \texttt{optimize-information} and an
+integer between $0$ and $3$, return a new instance that is just like
+\textit{optimize-information} (including the class and the values of
+all the slots), except that its speed information has been updated
+according to that of \textit{value}.
+
+\Defgeneric {merge-compilation-speed} {client optimize-information value}
+
+Given an instance of the class \texttt{optimize-information} and an
+integer between $0$ and $3$, return a new instance that is just like
+\textit{optimize-information} (including the class and the values of
+all the slots), except that its compilation-speed information has been
+updated according to that of \textit{value}.
+
+\Defgeneric {merge-debug} {client optimize-information value}
+
+Given an instance of the class \texttt{optimize-information} and an
+integer between $0$ and $3$, return a new instance that is just like
+\textit{optimize-information} (including the class and the values of
+all the slots), except that its debug information has been updated
+according to that of \textit{value}.
+
+\Defgeneric {merge-space} {client optimize-information value}
+
+Given an instance of the class \texttt{optimize-information} and an
+integer between $0$ and $3$, return a new instance that is just like
+\textit{optimize-information} (including the class and the values of
+all the slots), except that its space information has been updated
+according to that of \textit{value}.
+
+\Defgeneric {merge-safety} {client optimize-information value}
+
+Given an instance of the class \texttt{optimize-information} and an
+integer between $0$ and $3$, return a new instance that is just like
+\textit{optimize-information} (including the class and the values of
+all the slots), except that its safety information has been updated
+according to that of \textit{value}.
+
 \section{Adding and annotating variables}
 
 \subsection{Adding a lexical variable}
