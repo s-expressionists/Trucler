@@ -13,6 +13,7 @@
    (:file "query-classes")
    (:file "merge-functions")
    (:file "merge-methods")
+   (:file "low-level-augmentation-functions")
    (:file "augmentation-functions")
    (:file "environment")
    (:file "query-methods")
