@@ -2,32 +2,26 @@
 
 (defmethod add-lexical-variable
     (client (environment environment) symbol &optional identity)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-variable-information
-               (cons (make-instance 'lexical-variable-information
-                       :name symbol
-                       :identity identity)
-                     (cached-variable-information environment))))
+  (augment-with-variable-information
+   client environment
+   (make-instance 'lexical-variable-information
+     :name symbol
+     :identity identity)))
 
 (defmethod add-special-variable
     (client (environment environment) symbol)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-variable-information
-               (cons (make-instance 'special-variable-information
-                       :name symbol)
-                     (cached-variable-information environment))))
+  (augment-with-variable-information
+   client environment
+   (make-instance 'special-variable-information
+     :name symbol)))
 
 (defmethod add-local-symbol-macro
     (client (environment environment) symbol expansion)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-variable-information
-               (cons (make-instance 'local-symbol-macro-information
-                       :name symbol
-                       :expansion expansion)
-                     (cached-variable-information environment))))
+  (augment-with-variable-information
+   client environment
+   (make-instance 'local-symbol-macro-information
+     :name symbol
+     :expansion expansion)))
 
 (defmethod add-local-function
     (client (environment environment) symbol &optional identity)
