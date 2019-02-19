@@ -1,5 +1,28 @@
 (cl:in-package #:trucler)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Low-level autmentation functions.
+
+(defgeneric augment-with-variable-information
+    (client environment variable-information))
+
+(defgeneric augment-with-function-information
+    (client environment function-information))
+
+(defgeneric augment-with-block-information
+    (client environment block-information))
+
+(defgeneric augment-with-tag-information
+    (client environment tag-information))
+
+(defgeneric augment-with-optimize-information
+    (client environment optimize-information))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; High-level autmentation functions.
+
 (defgeneric add-lexical-variable
     (client environment symbol &optional identity))
 
