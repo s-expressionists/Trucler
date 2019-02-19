@@ -17,6 +17,7 @@
    (:file "augmentation-functions")
    (:file "environment")
    (:file "query-methods")
+   (:file "low-level-augmentation-methods")
    (:file "augmentation-methods")
    (:file "conditions")
    (:file "condition-reporters-english")
