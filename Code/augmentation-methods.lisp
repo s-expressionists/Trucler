@@ -25,43 +25,35 @@
 
 (defmethod add-local-function
     (client (environment environment) symbol &optional identity)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-function-information
-               (cons (make-instance 'local-function-information
-                       :name symbol
-                       :identity identity)
-                     (cached-function-information environment))))
+  (augment-with-function-information
+   client environment
+   (make-instance 'local-function-information
+     :name symbol
+     :identity identity)))
 
 (defmethod add-local-macro
     (client (environment environment) symbol expander)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-macro-information
-               (cons (make-instance 'local-macro-information
-                       :name symbol
-                       :expander expander)
-                     (cached-function-information environment))))
+  (augment-with-function-information
+   client environment
+   (make-instance 'local-macro-information
+     :name symbol
+     :expander expander)))
 
 (defmethod add-block
     (client (environment environment) symbol &optional identity)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-block-information
-               (cons (make-instance 'block-information
-                       :name symbol
-                       :identity identity)
-                     (cached-block-information environment))))
+  (augment-with-block-information
+   client environment
+   (make-instance 'block-information
+     :name symbol
+     :identity identity)))
 
 (defmethod add-tag
     (client (environment environment) tag &optional identity)
-  (declare (cl:ignore client))
-  (quasi-clone environment
-               :cached-tag-information
-               (cons (make-instance 'tag-information
-                       :name tag
-                       :identity identity)
-                     (cached-tag-information environment))))
+  (augment-with-tag-information
+   client environment
+   (make-instance 'tag-information
+     :name tag
+     :identity identity)))
 
 (defmethod add-variable-type
     (client (environment environment) symbol type)
