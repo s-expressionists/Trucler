@@ -100,191 +100,151 @@ additional information such as type or dynamic extent.
 In this section, we describe generic functions that are provided for
 this purpose.
 
-\Defgeneric {merge-variable-type} {client variable-information type}
+\Defgeneric {merge-type} {client information type}
 
-Given an instance of the class \texttt{variable-information} and a
+Given an instance of the class \texttt{information} and a
 type descriptor, return a new instance that is just like
-\textit{variable-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its type information has been updated
 according to that of \textit{type}.
 
-\Defmethod {merge-variable-type}\\
+\Defmethod {merge-type}\\
            {client\\
-            (variable-information {\tt variable-information})\\
+            (information {\tt type-mixin})\\
             type}
 
-This is the default method provided on \texttt{merge-variable-type}
-and it is specialized to \texttt{variable-information}.
+This is the default method provided on \texttt{merge-type}
+and it is specialized to \texttt{type-mixin}.
 
-\Defgeneric {merge-variable-ignore} {client variable-information ignore}
+\Defgeneric {merge-ignore} {client information ignore}
 
-Given an instance of the class \texttt{variable-information} and one
+Given an instance of the class \texttt{information} and one
 of the symbols \texttt{cl:ignore} and \texttt{cl:ignorable},
 return a new instance that is just like
-\textit{variable-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its ignore information has been updated
 according to that of \textit{ignore}.
 
-\Defmethod {merge-variable-ignore}\\
+\Defmethod {merge-ignore}\\
            {client\\
-            (variable-information {\tt variable-information})\\
+            (information {\tt ignore-mixin})\\
             ignore}
 
-This is the default method provided on \texttt{merge-variable-ignore}
-and it is specialized to \texttt{variable-information}.
+This is the default method provided on \texttt{merge-ignore}
+and it is specialized to \texttt{ignore-mixin}.
 
-\Defgeneric {merge-variable-dynamic-extent} {client variable-information}
+\Defgeneric {merge-dynamic-extent} {client information}
 
-Given an instance of the class \texttt{variable-information}, return a
-new instance that is just like \textit{variable-information}
+Given an instance of the class \texttt{information}, return a
+new instance that is just like \textit{information}
 (including the class and the values of all the slots), except that its
 dynamic-extent information has been updated so that it is \emph{true}.
 
-\Defmethod {merge-variable-dynamic-extent}\\
+\Defmethod {merge-dynamic-extent}\\
            {client\\
-            (variable-information {\tt variable-information})}
+            (information {\tt dynamic-extent-mixin})}
 
 This is the default method provided on
-\texttt{merge-variable-dynamic-extent} and it is specialized to
-\texttt{variable-information}.
+\texttt{merge-dynamic-extent} and it is specialized to
+\texttt{dynamic-extent-mixin}.
 
-\Defgeneric {merge-function-type} {client function-information type}
+\Defgeneric {merge-inline} {client information inline}
 
-Given an instance of the class \texttt{function-information} and a
-type descriptor, return a new instance that is just like
-\textit{function-information} (including the class and the values of
-all the slots), except that its type information has been updated
-according to that of \textit{type}.
-
-\Defmethod {merge-function-type}\\
-           {client\\
-            (function-information {\tt function-information})\\
-            type}
-
-This is the default method provided on \texttt{merge-function-type}
-and it is specialized to \texttt{function-information}.
-
-\Defgeneric {merge-function-ignore} {client function-information ignore}
-
-Given an instance of the class \texttt{function-information} and one
-of the symbols \texttt{cl:ignore} and \texttt{cl:ignorable},
-return a new instance that is just like
-\textit{function-information} (including the class and the values of
-all the slots), except that its ignore information has been updated
-according to that of \textit{ignore}.
-
-\Defmethod {merge-function-ignore}\\
-           {client\\
-            (function-information {\tt function-information})\\
-            ignore}
-
-This is the default method provided on \texttt{merge-function-ignore}
-and it is specialized to \texttt{function-information}.
-
-\Defgeneric {merge-function-dynamic-extent} {client function-information}
-
-Given an instance of the class \texttt{function-information}, return a
-new instance that is just like \textit{function-information}
-(including the class and the values of all the slots), except that its
-dynamic-extent information has been updated so that it is \emph{true}.
-
-\Defmethod {merge-function-dynamic-extent}\\
-           {client\\
-            (function-information {\tt function-information})}
-
-This is the default method provided on
-\texttt{merge-function-dynamic-extent} and it is specialized to
-\texttt{function-information}.
-
-\Defgeneric {merge-inline} {client function-information inline}
-
-Given an instance of the class \texttt{function-information} and one
+Given an instance of the class \texttt{information} and one
 of the symbols \texttt{cl:inline} and \texttt{cl:notinline},
 return a new instance that is just like
-\textit{function-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its inline information has been updated
 according to that of \textit{inline}.
 
-\Defgeneric {merge-speed} {client optimize-information value}
+\Defmethod {merge-inline}\\
+           {client\\
+            (information {\tt inline-mixin})\\
+            inline}
 
-Given an instance of the class \texttt{optimize-information} and an
+This is the default method provided on \texttt{merge-inline}
+and it is specialized to \texttt{inline-mixin}.
+
+\Defgeneric {merge-speed} {client information value}
+
+Given an instance of the class \texttt{information} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{optimize-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its speed information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-speed}\\
            {client\\
-            (optimize-information {\tt optimize-information})\\
+            (information {\tt speed-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-speed} and it is
-specialized to \texttt{optimize-information}.
+specialized to \texttt{speed-mixin}.
 
-\Defgeneric {merge-compilation-speed} {client optimize-information value}
+\Defgeneric {merge-compilation-speed} {client information value}
 
-Given an instance of the class \texttt{optimize-information} and an
+Given an instance of the class \texttt{information} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{optimize-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its compilation-speed information has been
 updated according to that of \textit{value}.
 
 \Defmethod {merge-compilation-speed}\\
            {client\\
-            (optimize-information {\tt optimize-information})\\
+            (information {\tt compilation-speed-mixin})\\
             value}
 
 This is the default method provided on
 \texttt{merge-compilation-speed} and it is specialized to
-\texttt{optimize-information}.
+\texttt{compilation-speed-mixin}.
 
-\Defgeneric {merge-debug} {client optimize-information value}
+\Defgeneric {merge-debug} {client information value}
 
-Given an instance of the class \texttt{optimize-information} and an
+Given an instance of the class \texttt{information} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{optimize-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its debug information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-debug}\\
            {client\\
-            (optimize-information {\tt optimize-information})\\
+            (information {\tt debug-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-debug} and it is
-specialized to \texttt{optimize-information}.
+specialized to \texttt{debug-mixin}.
 
-\Defgeneric {merge-space} {client optimize-information value}
+\Defgeneric {merge-space} {client information value}
 
-Given an instance of the class \texttt{optimize-information} and an
+Given an instance of the class \texttt{information} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{optimize-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its space information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-space}\\
            {client\\
-            (optimize-information {\tt optimize-information})\\
+            (information {\tt space-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-space} and it is
-specialized to \texttt{optimize-information}.
+specialized to \texttt{space-mixin}.
 
-\Defgeneric {merge-safety} {client optimize-information value}
+\Defgeneric {merge-safety} {client information value}
 
-Given an instance of the class \texttt{optimize-information} and an
+Given an instance of the class \texttt{information} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{optimize-information} (including the class and the values of
+\textit{information} (including the class and the values of
 all the slots), except that its safety information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-safety}\\
            {client\\
-            (optimize-information {\tt optimize-information})\\
+            (information {\tt safety-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-safety} and it is
-specialized to \texttt{optimize-information}.
+specialized to \texttt{safety-mixin}.
 
 \section{Adding and annotating variables}
 
