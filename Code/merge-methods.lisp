@@ -9,20 +9,20 @@
 (defmethod merge-dynamic-extent (client (info dynamic-extent-mixin))
   (quasi-clone info :dynamic-extent t))
 
-(defmethod merge-inline (client (info function-information) inline)
+(defmethod merge-inline (client (info inline-mixin) inline)
   (quasi-clone info :inline inline))
 
-(defmethod merge-speed (client (info optimize-information) value)
+(defmethod merge-speed (client (info speed-mixin) value)
   (quasi-clone info :speed value))
 
-(defmethod merge-compilation-speed (client (info optimize-information) value)
+(defmethod merge-compilation-speed (client (info compilation-speed-mixin) value)
   (quasi-clone info :compilation-speed value))
 
-(defmethod merge-debug (client (info optimize-information) value)
+(defmethod merge-debug (client (info debug-mixin) value)
   (quasi-clone info :debug value))
 
-(defmethod merge-safety (client (info optimize-information) value)
+(defmethod merge-safety (client (info safety-mixin) value)
   (quasi-clone info :safety value))
 
-(defmethod merge-space (client (info optimize-information) value)
+(defmethod merge-space (client (info space-mixin) value)
   (quasi-clone info :space value))
