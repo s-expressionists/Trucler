@@ -1,10 +1,10 @@
 (cl:in-package #:trucler)
 
-(defgeneric merge-variable-type (client variable-information type))
+(defgeneric merge-type (client variable-information type))
 
-(defgeneric merge-variable-ignore (client variable-information ignore))
+(defgeneric merge-ignore (client variable-information ignore))
 
-(defgeneric merge-variable-dynamic-extent (client variable-information))
+(defgeneric merge-dynamic-extent (client variable-information))
 
 (defgeneric merge-function-type (client function-information type))
 

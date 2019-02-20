@@ -1,18 +1,18 @@
 (cl:in-package #:trucler)
 
-(defmethod merge-variable-type (client (info type-mixin) type)
+(defmethod merge-type (client (info type-mixin) type)
   (quasi-clone info :type `(and type ,(type info))))
 
 (defmethod merge-function-type (client (info type-mixin) type)
   (quasi-clone info :type `(and type ,(type info))))
 
-(defmethod merge-variable-ignore (client (info ignore-mixin) ignore)
+(defmethod merge-ignore (client (info ignore-mixin) ignore)
   (quasi-clone info :ignore ignore))
 
 (defmethod merge-function-ignore (client (info ignore-mixin) ignore)
   (quasi-clone info :ignore ignore))
 
-(defmethod merge-variable-dynamic-extent (client (info dynamic-extent-mixin))
+(defmethod merge-dynamic-extent (client (info dynamic-extent-mixin))
   (quasi-clone info :dynamic-extent t))
 
 (defmethod merge-function-dynamic-extent (client (info dynamic-extent-mixin))

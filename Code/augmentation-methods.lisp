@@ -60,21 +60,21 @@
   (let ((info (variable-information client environment symbol)))
     (augment-with-variable-information
      client environment
-     (merge-variable-type info type))))
+     (merge-type info type))))
 
 (defmethod add-variable-ignore
     (client (environment environment) symbol ignore)
   (let ((info (variable-information client environment symbol)))
     (augment-with-variable-information
      client environment
-     (merge-variable-ignore info ignore))))
+     (merge-ignore info ignore))))
 
 (defmethod add-variable-dynamic-extent
     (client (environment environment) variable-name)
   (let ((info (variable-information client environment variable-name)))
     (augment-with-variable-information
      client environment
-     (merge-variable-dynamic-extent info))))
+     (merge-dynamic-extent info))))
 
 (defmethod add-inline
     (client (environment environment) function-name inline)
