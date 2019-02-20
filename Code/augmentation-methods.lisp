@@ -60,82 +60,82 @@
   (let ((info (variable-information client environment symbol)))
     (augment-with-variable-information
      client environment
-     (merge-type info type))))
+     (merge-type client info type))))
 
 (defmethod add-variable-ignore
     (client (environment environment) symbol ignore)
   (let ((info (variable-information client environment symbol)))
     (augment-with-variable-information
      client environment
-     (merge-ignore info ignore))))
+     (merge-ignore client info ignore))))
 
 (defmethod add-variable-dynamic-extent
     (client (environment environment) variable-name)
   (let ((info (variable-information client environment variable-name)))
     (augment-with-variable-information
      client environment
-     (merge-dynamic-extent info))))
+     (merge-dynamic-extent client info))))
 
 (defmethod add-inline
     (client (environment environment) function-name inline)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-inline info inline))))
+     (merge-inline client info inline))))
 
 (defmethod add-function-type
     (client (environment environment) function-name type)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-type info type))))
+     (merge-type client info type))))
 
 (defmethod add-function-ignore
     (client (environment environment) function-name ignore)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-ignore info ignore))))
+     (merge-ignore client info ignore))))
 
 (defmethod add-function-dynamic-extent
     (client (environment environment) function-name)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-dynamic-extent info))))
+     (merge-dynamic-extent client info))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:speed)) value)
   (let ((info (optimize-information client environment)))
     (augment-with-optimize-information
      client environment
-     (merge-speed info value))))
+     (merge-speed client info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:compilation-speed)) value)
   (let ((info (optimize-information client environment)))
     (augment-with-optimize-information
      client environment
-     (merge-compilation-speed info value))))
+     (merge-compilation-speed client info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:debug)) value)
   (let ((info (optimize-information client environment)))
     (augment-with-optimize-information
      client environment
-     (merge-debug info value))))
+     (merge-debug client info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:safety)) value)
   (let ((info (optimize-information client environment)))
     (augment-with-optimize-information
      client environment
-     (merge-safety info value))))
+     (merge-safety client info value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:space)) value)
   (let ((info (optimize-information client environment)))
     (augment-with-optimize-information
      client environment
-     (merge-space info value))))
+     (merge-space client info value))))
 
