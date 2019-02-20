@@ -88,21 +88,21 @@
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-function-type info type))))
+     (merge-type info type))))
 
 (defmethod add-function-ignore
     (client (environment environment) function-name ignore)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-function-ignore info ignore))))
+     (merge-ignore info ignore))))
 
 (defmethod add-function-dynamic-extent
     (client (environment environment) function-name)
   (let ((info (function-information client environment function-name)))
     (augment-with-function-information
      client environment
-     (merge-function-dynamic-extent info))))
+     (merge-dynamic-extent info))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:speed)) value)

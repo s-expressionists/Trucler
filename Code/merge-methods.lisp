@@ -3,19 +3,10 @@
 (defmethod merge-type (client (info type-mixin) type)
   (quasi-clone info :type `(and type ,(type info))))
 
-(defmethod merge-function-type (client (info type-mixin) type)
-  (quasi-clone info :type `(and type ,(type info))))
-
 (defmethod merge-ignore (client (info ignore-mixin) ignore)
   (quasi-clone info :ignore ignore))
 
-(defmethod merge-function-ignore (client (info ignore-mixin) ignore)
-  (quasi-clone info :ignore ignore))
-
 (defmethod merge-dynamic-extent (client (info dynamic-extent-mixin))
-  (quasi-clone info :dynamic-extent t))
-
-(defmethod merge-function-dynamic-extent (client (info dynamic-extent-mixin))
   (quasi-clone info :dynamic-extent t))
 
 (defmethod merge-inline (client (info function-information) inline)

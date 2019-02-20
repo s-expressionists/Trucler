@@ -6,12 +6,6 @@
 
 (defgeneric merge-dynamic-extent (client variable-information))
 
-(defgeneric merge-function-type (client function-information type))
-
-(defgeneric merge-function-ignore (client function-information ignore))
-
-(defgeneric merge-function-dynamic-extent (client function-information))
-
 (defgeneric merge-inline (client function-information inline))
 
 (defgeneric merge-speed (client optimize-information value))
