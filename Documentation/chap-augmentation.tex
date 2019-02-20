@@ -11,8 +11,9 @@ corresponding to features that do not have any initialization forms.
 In this section, we describe basic functions for augmenting an
 environment, given an old environment and an information instance.
 
-\Defgeneric {augment-with-variable-information}\\
-            {client environment variable-information}
+{\footnotesize
+\Defgeneric {augment-with-variable-information} {client environment information}
+}
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
@@ -21,10 +22,10 @@ existing environment object and an instance of the class
 \Defmethod {augment-with-variable-information}\\
            {client\\
             (environment {\tt environment})\\
-            (variable-information {\tt variable-information})}
+            (information {\tt variable-information})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{variable-information}
+one passed as an argument, except that \textit{information}
 will shadow any variable information with the same name.
 
 \Defgeneric {augment-with-function-information}\\
@@ -140,9 +141,9 @@ new instance that is just like \textit{information}
 (including the class and the values of all the slots), except that its
 dynamic-extent information has been updated so that it is \emph{true}.
 
-\Defmethod {merge-dynamic-extent}\\
-           {client\\
-            (information {\tt dynamic-extent-mixin})}
+{\footnotesize
+\Defmethod {merge-dynamic-extent} {client (information {\tt dynamic-extent-mixin})}
+}
 
 This is the default method provided on
 \texttt{merge-dynamic-extent} and it is specialized to
