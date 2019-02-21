@@ -102,4 +102,13 @@
            #:no-variable-description
            #:no-function-description
            #:no-block-description
-           #:no-tag-description))
+           #:no-tag-description
+           #:invalid-description-for-merging-type-information
+           #:invalid-description-for-merging-ignore-information
+           #:invalid-description-for-merging-dynamic-extetn-information
+           #:invalid-description-for-merging-inline-information
+           #:invalid-description-for-merging-speed-information
+           #:invalid-description-for-merging-compilation-speed-information
+           #:invalid-description-for-merging-debug-information
+           #:invalid-description-for-merging-safety-information
+           #:invalid-description-for-merging-space-information))
