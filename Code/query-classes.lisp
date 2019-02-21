@@ -1,13 +1,13 @@
 (cl:in-package #:trucler)
 
 ;;; The base class of all INFO classes.
-(defclass info () ())
+(defclass description () ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; VARIABLE-DESCRIPTION classes.
 
-(defclass variable-description (info name-mixin)
+(defclass variable-description (description name-mixin)
   ())
 
 (defclass authentic-variable-description (variable-description type-mixin)
@@ -36,7 +36,7 @@
 ;;;
 ;;; FUNCTION-DESCRIPTION classes.
 
-(defclass function-description (info name-mixin) ())
+(defclass function-description (description name-mixin) ())
 
 (defclass authentic-function-description (function-description type-mixin inline-mixin)
   ())
@@ -70,14 +70,14 @@
 ;;;
 ;;; BLOCK-DESCRIPTION class.
 
-(defclass block-description (info name-mixin identity-mixin)
+(defclass block-description (description name-mixin identity-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; TAG-DESCRIPTION class.
 
-(defclass tag-description (info name-mixin identity-mixin)
+(defclass tag-description (description name-mixin identity-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,12 +85,12 @@
 ;;; OPTIMIZE-DESCRIPTION class.
 
 (defclass optimize-description
-    (info speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
+    (description speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; CLASS-DESCRIPTION class.
 
-(defclass class-description (info name-mixin superclass-names-mixin metaclass-name-mixin)
+(defclass class-description (description name-mixin superclass-names-mixin metaclass-name-mixin)
   ())

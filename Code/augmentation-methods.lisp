@@ -57,85 +57,85 @@
 
 (defmethod add-variable-type
     (client (environment environment) symbol type)
-  (let ((info (describe-variable client environment symbol)))
+  (let ((description (describe-variable client environment symbol)))
     (augment-with-variable-description
      client environment
-     (merge-type client info type))))
+     (merge-type client description type))))
 
 (defmethod add-variable-ignore
     (client (environment environment) symbol ignore)
-  (let ((info (describe-variable client environment symbol)))
+  (let ((description (describe-variable client environment symbol)))
     (augment-with-variable-description
      client environment
-     (merge-ignore client info ignore))))
+     (merge-ignore client description ignore))))
 
 (defmethod add-variable-dynamic-extent
     (client (environment environment) variable-name)
-  (let ((info (describe-variable client environment variable-name)))
+  (let ((description (describe-variable client environment variable-name)))
     (augment-with-variable-description
      client environment
-     (merge-dynamic-extent client info))))
+     (merge-dynamic-extent client description))))
 
 (defmethod add-inline
     (client (environment environment) function-name inline)
-  (let ((info (describe-function client environment function-name)))
+  (let ((description (describe-function client environment function-name)))
     (augment-with-function-description
      client environment
-     (merge-inline client info inline))))
+     (merge-inline client description inline))))
 
 (defmethod add-function-type
     (client (environment environment) function-name type)
-  (let ((info (describe-function client environment function-name)))
+  (let ((description (describe-function client environment function-name)))
     (augment-with-function-description
      client environment
-     (merge-type client info type))))
+     (merge-type client description type))))
 
 (defmethod add-function-ignore
     (client (environment environment) function-name ignore)
-  (let ((info (describe-function client environment function-name)))
+  (let ((description (describe-function client environment function-name)))
     (augment-with-function-description
      client environment
-     (merge-ignore client info ignore))))
+     (merge-ignore client description ignore))))
 
 (defmethod add-function-dynamic-extent
     (client (environment environment) function-name)
-  (let ((info (describe-function client environment function-name)))
+  (let ((description (describe-function client environment function-name)))
     (augment-with-function-description
      client environment
-     (merge-dynamic-extent client info))))
+     (merge-dynamic-extent client description))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:speed)) value)
-  (let ((info (describe-optimize client environment)))
+  (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
-     (merge-speed client info value))))
+     (merge-speed client description value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:compilation-speed)) value)
-  (let ((info (describe-optimize client environment)))
+  (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
-     (merge-compilation-speed client info value))))
+     (merge-compilation-speed client description value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:debug)) value)
-  (let ((info (describe-optimize client environment)))
+  (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
-     (merge-debug client info value))))
+     (merge-debug client description value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:safety)) value)
-  (let ((info (describe-optimize client environment)))
+  (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
-     (merge-safety client info value))))
+     (merge-safety client description value))))
 
 (defmethod add-optimize
     (client (environment environment) (quality (eql 'cl:space)) value)
-  (let ((info (describe-optimize client environment)))
+  (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
-     (merge-space client info value))))
+     (merge-space client description value))))
 

@@ -60,7 +60,7 @@ on the generic function \texttt{describe-variable} returns \texttt{nil}.
 
 \Defmethod {name} {(condition {\tt no-variable-description})}
 
-This method returns the name of the variable for which no info was
+This method returns the name of the variable for which no description was
 available.
 
 \subsection{Function information}
@@ -79,7 +79,7 @@ on the generic function \texttt{describe-function} returns \texttt{nil}.
 
 \Defmethod {name} {(condition {\tt no-function-description})}
 
-This method returns the name of the function for which no info was
+This method returns the name of the function for which no description was
 available.
 
 \subsection{Block information}
@@ -93,7 +93,7 @@ on the generic function \texttt{describe-block} returns \texttt{nil}.
 
 \Defmethod {name} {(condition {\tt no-block-description})}
 
-This method returns the name of the block for which no info was
+This method returns the name of the block for which no description was
 available.
 
 \subsection{Tag information}
@@ -107,7 +107,7 @@ on the generic function \texttt{describe-tag} returns \texttt{nil}.
 
 \Defmethod {name} {(condition {\tt no-tag-description})}
 
-This method returns the name of the tag for which no info was
+This method returns the name of the tag for which no description was
 available.
 
 \subsection{Class information}
@@ -121,7 +121,7 @@ on the generic function \texttt{describe-class} returns \texttt{nil}.
 
 \Defmethod {name} {(condition {\tt no-class-description})}
 
-This method returns the name of the class for which no info was
+This method returns the name of the class for which no description was
 available.
 
 \subsection{Optimize information}
@@ -129,7 +129,7 @@ available.
 \Defgeneric {describe-optimize} {client environment}
 
 Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-description}. Optimize info includes
+instance of the class \texttt{optimize-description}. Optimize description includes
 information about optimize declarations.
 
 
@@ -150,7 +150,7 @@ identify the information supplied by the class instances.
 
 \Definitarg {:name}
 
-\Defmethod {name} {(info {\tt name-mixin})}
+\Defmethod {name} {(description {\tt name-mixin})}
 
 Given an instance of the class \texttt{name-mixin}, this method
 returns the name information, as supplied by the initarg
@@ -167,7 +167,7 @@ same name.
 
 \Definitarg {:identity}
 
-\Defmethod {identity} {(info {\tt identity-mixin})}
+\Defmethod {identity} {(description {\tt identity-mixin})}
 
 Given an instance of the class \texttt{identity-mixin}, this method
 returns the identity information, as supplied by the initarg
@@ -185,7 +185,7 @@ of entities that can have a type.
 
 If this initarg is not supplied, it defaults to \texttt{t}.
 
-\Defmethod {type} {(info {\tt type-mixin})}
+\Defmethod {type} {(description {\tt type-mixin})}
 
 Given an instance of the class \texttt{type-mixin}, this method
 returns the type information, as supplied by the initarg
@@ -201,7 +201,7 @@ of entities that can be declared \texttt{ignore} or \texttt{ignorable}.
 
 \Definitarg {:ignore}
 
-\Defmethod {ignore} {(info {\tt ignore-mixin})}
+\Defmethod {ignore} {(description {\tt ignore-mixin})}
 
 Given an instance of the class \texttt{ignore-mixin}, this method
 returns the ignore information, as supplied by the initarg
@@ -217,7 +217,7 @@ of entities that can be declared \texttt{dynamic-extent}.
 
 \Definitarg {:dynamic-extent}
 
-\Defmethod {dynamic-extent} {(info {\tt dynamic-extent-mixin})}
+\Defmethod {dynamic-extent} {(description {\tt dynamic-extent-mixin})}
 
 Given an instance of the class \texttt{dynamic-extent-mixin}, this method
 returns the dynamic-extent information, as supplied by the initarg
@@ -232,7 +232,7 @@ superclass of the abstract class \texttt{symbol-macro-description}.
 
 \Definitarg {:expansion}
 
-\Defmethod {expansion} {(info {\tt expansion-mixin})}
+\Defmethod {expansion} {(description {\tt expansion-mixin})}
 
 Given an instance of the class \texttt{expansion-mixin}, this method
 returns the expansion information, as supplied by the initarg
@@ -247,7 +247,7 @@ a superclass of the abstract class \texttt{macro-description}.
 
 \Definitarg {:expander}
 
-\Defmethod {expander} {(info {\tt expander-mixin})}
+\Defmethod {expander} {(description {\tt expander-mixin})}
 
 Given an instance of the class \texttt{expander-mixin}, this method
 returns the expander information, as supplied by the initarg
@@ -262,7 +262,7 @@ superclass of the class \texttt{global-function-description}.
 
 \Definitarg {:class-name}
 
-\Defmethod {class-name} {(info {\tt class-name-mixin})}
+\Defmethod {class-name} {(description {\tt class-name-mixin})}
 
 Given an instance of the class \texttt{class-name-mixin}, this method
 returns the class-name information, as supplied by the initarg
@@ -282,7 +282,7 @@ and \texttt{notinline}, all symbols in the \texttt{common-lisp}
 package.  The value \texttt{nil} means that no inline information has
 been provided, and this is the default value if the initarg is omitted.
 
-\Defmethod {inline} {(info {\tt inline-mixin})}
+\Defmethod {inline} {(description {\tt inline-mixin})}
 
 Given an instance of the class \texttt{inline-mixin}, this method
 returns the inline information, as supplied by the initarg
@@ -302,7 +302,7 @@ The value of this initarg is a symbol naming a class to be used for
 methods.  If this initarg is not given, it defaults to the symbol
 \texttt{standard-method}.
 
-\Defmethod {method-class-name} {(info {\tt method-class-name-mixin})}
+\Defmethod {method-class-name} {(description {\tt method-class-name-mixin})}
 
 Given an instance of the class \texttt{method-class-name-mixin}, this
 method returns the method-class-name information, as supplied by the
@@ -320,7 +320,7 @@ superclass of the class \texttt{optimize-description}.
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
-\Defmethod {speed} {(info {\tt speed-mixin})}
+\Defmethod {speed} {(description {\tt speed-mixin})}
 
 Given an instance of the class \texttt{speed-mixin}, this method
 returns the compilation-speed information, as supplied by the initarg
@@ -338,7 +338,7 @@ superclass of the class \texttt{optimize-description}.
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
-\Defmethod {compilation-speed} {(info {\tt compilation-speed-mixin})}
+\Defmethod {compilation-speed} {(description {\tt compilation-speed-mixin})}
 
 Given an instance of the class \texttt{compilation-speed-mixin}, this method
 returns the compilation-compilation-speed information, as supplied by the initarg
@@ -356,7 +356,7 @@ superclass of the class \texttt{optimize-description}.
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
-\Defmethod {debug} {(info {\tt debug-mixin})}
+\Defmethod {debug} {(description {\tt debug-mixin})}
 
 Given an instance of the class \texttt{debug-mixin}, this method
 returns the compilation-debug information, as supplied by the initarg
@@ -374,7 +374,7 @@ superclass of the class \texttt{optimize-description}.
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
-\Defmethod {space} {(info {\tt space-mixin})}
+\Defmethod {space} {(description {\tt space-mixin})}
 
 Given an instance of the class \texttt{space-mixin}, this method
 returns the compilation-space information, as supplied by the initarg
@@ -392,7 +392,7 @@ superclass of the class \texttt{optimize-description}.
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
-\Defmethod {safety} {(info {\tt safety-mixin})}
+\Defmethod {safety} {(description {\tt safety-mixin})}
 
 Given an instance of the class \texttt{safety-mixin}, this method
 returns the compilation-safety information, as supplied by the initarg
@@ -411,7 +411,7 @@ The value of this initarg is a list of symbols naming a classes.  If
 this initarg is not given, it defaults the empty list.  Only
 explicitly mentioned superclass names should be provided.
 
-\Defmethod {superclass-names} {(info {\tt superclass-names-mixin})}
+\Defmethod {superclass-names} {(description {\tt superclass-names-mixin})}
 
 Given an instance of the class \texttt{superclass-names-mixin}, this
 method returns the superclass-names information, as supplied by the
@@ -431,7 +431,7 @@ The value of this initarg is a symbol naming a class to be used as a
 metaclasss.  If this initarg is not given, it defaults to the symbol
 \texttt{standard-class}.
 
-\Defmethod {metaclass-name} {(info {\tt metaclass-name-mixin})}
+\Defmethod {metaclass-name} {(description {\tt metaclass-name-mixin})}
 
 Given an instance of the class \texttt{metaclass-name-mixin}, this
 metaclass returns the metaclass-name information, as supplied by the
@@ -439,7 +439,7 @@ initarg \texttt{:metaclass-name}.
 
 \section{Abstract query classes}
 
-\Defclass {variable-information}
+\Defclass {variable-description}
 
 This abstract class is the superclass of every query class returned by
 a call to the generic function \texttt{describe-variable}.  It is a

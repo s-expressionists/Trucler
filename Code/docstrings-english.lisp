@@ -5,7 +5,7 @@
                    describing the role of SYMBOL in ENVIRONMENT~@
                    when SYMBOL was found in a variable position."))
 
-(setf (documentation 'function-information 'function)
+(setf (documentation 'describe-function 'function)
       (format nil "Return an instance of the class FUNCTION-DESCRIPTION~@
                    describing the role of FUNCTION-NAME in ENVIRONMENT~@
                    when FUNCTION-NAME was found in a function position.~@
@@ -43,15 +43,15 @@
 (setf (documentation 'identity 'function)
       (format nil "This function returns some kind of object determining~@
                    the identity of the entity that is described in the~@
-                   info instance given as the argument."))
+                   description given as the argument."))
 
 (setf (documentation 'type 'function)
       (format nil "This function returns the type of the entity that is~@
-                   described in the info instance given as the argument."))
+                   described in the description given as the argument."))
 
 (setf (documentation 'inline 'function)
       (format nil "This function returns information about any INLINE~@
-                   declaration in scope for the info instance given as~@
+                   declaration in scope for the description given as~@
                    the argument.~@
                    ~@
                    There are three possible values here, namely~@
@@ -63,7 +63,7 @@
 
 (setf (documentation 'ignore 'function)
       (format nil "This function returns information about any IGNORE~@
-                   or IGNORABLE declaration in scope for the info instance~@
+                   or IGNORABLE declaration in scope for the description~@
                    given as the argument.~@
                    ~@
                    There are three possible values here, namely~@
@@ -79,8 +79,8 @@
 
 (setf (documentation 'dynamic-extent 'function)
       (format nil "This function returns TRUE if and only if there is~@
-                   a DYNAMIC-EXTENT declaration in scope for the info~@
-                   instance given as the argument."))
+                   a DYNAMIC-EXTENT declaration in scope for the description~@
+                   given as the argument."))
 
 (setf (documentation 'compler-macro 'function)
       (format nil ""))

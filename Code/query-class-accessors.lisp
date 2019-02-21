@@ -1,29 +1,29 @@
 (cl:in-package #:trucler)
 
-(defgeneric name (info-instance))
+(defgeneric name (description))
 
-(defgeneric identity (info-instance))
+(defgeneric identity (description))
 
-(defgeneric type (info-instance))
+(defgeneric type (description))
 
-(defgeneric inline (info-instance))
+(defgeneric inline (description))
 
-(defgeneric ignore (info-instance))
+(defgeneric ignore (description))
 
-(defgeneric dynamic-extent (info-instance))
+(defgeneric dynamic-extent (description))
 
-(defgeneric ast (info-instance))
+(defgeneric ast (description))
 
-(defgeneric compiler-macro (info-instance))
+(defgeneric compiler-macro (description))
 
-(defgeneric expander (info-instance))
+(defgeneric expander (description))
 
-(defgeneric global-p (info-instance))
+(defgeneric global-p (description))
 
-(defgeneric value (info-instance))
+(defgeneric value (description))
 
-(defgeneric expansion (info-instance))
+(defgeneric expansion (description))
 
-(defgeneric class-name (info-instance))
+(defgeneric class-name (description))
 
-(defgeneric method-class-name (info-instance))
+(defgeneric method-class-name (description))

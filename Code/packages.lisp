@@ -13,7 +13,7 @@
            #:debug
            #:space
            #:safety)
-  (:export #:info
+  (:export #:description
            ;; Mixin classes.
            #:name-mixin
            #:identity-mixin
