@@ -1,35 +1,35 @@
 (cl:in-package #:trucler)
 
-(defmethod augment-with-variable-information
-    (client (environment environment) (variable-information variable-information))
+(defmethod augment-with-variable-description
+    (client (environment environment) (variable-description variable-description))
   (quasi-clone environment
-               :cached-variable-information
-               (cons variable-information
-                     (cached-variable-information environment))))
+               :cached-variable-description
+               (cons variable-description
+                     (cached-variable-description environment))))
 
-(defmethod augment-with-function-information
-    (client (environment environment) (function-information function-information))
+(defmethod augment-with-function-description
+    (client (environment environment) (function-description function-description))
   (quasi-clone environment
-               :cached-function-information
-               (cons function-information
-                     (cached-function-information environment))))
+               :cached-function-description
+               (cons function-description
+                     (cached-function-description environment))))
 
-(defmethod augment-with-block-information
-    (client (environment environment) (block-information block-information))
+(defmethod augment-with-block-description
+    (client (environment environment) (block-description block-description))
   (quasi-clone environment
-               :cached-block-information
-               (cons block-information
-                     (cached-block-information environment))))
+               :cached-block-description
+               (cons block-description
+                     (cached-block-description environment))))
 
-(defmethod augment-with-tag-information
-    (client (environment environment) (tag-information tag-information))
+(defmethod augment-with-tag-description
+    (client (environment environment) (tag-description tag-description))
   (quasi-clone environment
-               :cached-tag-information
-               (cons tag-information
-                     (cached-tag-information environment))))
-(defmethod augment-with-optimize-information
-    (client (environment environment) (optimize-information optimize-information))
+               :cached-tag-description
+               (cons tag-description
+                     (cached-tag-description environment))))
+(defmethod augment-with-optimize-description
+    (client (environment environment) (optimize-description optimize-description))
   (quasi-clone environment
-               :cached-optimize-information
-               (cons optimize-information
-                     (cached-optimize-information environment))))
+               :cached-optimize-description
+               (cons optimize-description
+                     (cached-optimize-description environment))))

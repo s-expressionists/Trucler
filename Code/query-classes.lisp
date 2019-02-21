@@ -5,92 +5,92 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; VARIABLE-INFORMATION classes.
+;;; VARIABLE-DESCRIPTION classes.
 
-(defclass variable-information (info name-mixin)
+(defclass variable-description (info name-mixin)
   ())
 
-(defclass authentic-variable-information (variable-information type-mixin)
+(defclass authentic-variable-description (variable-description type-mixin)
   ())
 
-(defclass lexical-variable-information
-    (authentic-variable-information identity-mixin ignore-mixin dynamic-extent-mixin)
+(defclass lexical-variable-description
+    (authentic-variable-description identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass special-variable-information (authentic-variable-information global-p-mixin)
+(defclass special-variable-description (authentic-variable-description global-p-mixin)
   ())
 
-(defclass constant-variable-information (variable-information value-mixin)
+(defclass constant-variable-description (variable-description value-mixin)
   ())
 
-(defclass symbol-macro-information (variable-information type-mixin expansion-mixin)
+(defclass symbol-macro-description (variable-description type-mixin expansion-mixin)
   ())
 
-(defclass local-symbol-macro-information (symbol-macro-information ignore-mixin)
+(defclass local-symbol-macro-description (symbol-macro-description ignore-mixin)
   ())
 
-(defclass global-symbol-macro-information (symbol-macro-information)
+(defclass global-symbol-macro-description (symbol-macro-description)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; FUNCTION-INFORMATION classes.
+;;; FUNCTION-DESCRIPTION classes.
 
-(defclass function-information (info name-mixin) ())
+(defclass function-description (info name-mixin) ())
 
-(defclass authentic-function-information (function-information type-mixin inline-mixin)
+(defclass authentic-function-description (function-description type-mixin inline-mixin)
   ())
 
-(defclass local-function-information
-    (authentic-function-information identity-mixin ignore-mixin dynamic-extent-mixin)
+(defclass local-function-description
+    (authentic-function-description identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass global-function-information
-    (authentic-function-information compiler-macro-mixin class-name-mixin)
+(defclass global-function-description
+    (authentic-function-description compiler-macro-mixin class-name-mixin)
   ()
   (:default-initargs :class-name 'function))
 
-(defclass generic-function-information (global-function-information method-class-name-mixin)
+(defclass generic-function-description (global-function-description method-class-name-mixin)
   ()
   (:default-initargs :class-name 'standard-generic-function))
 
-(defclass macro-information (function-information expander-mixin)
+(defclass macro-description (function-description expander-mixin)
   ())
 
-(defclass local-macro-information (macro-information ignore-mixin)
+(defclass local-macro-description (macro-description ignore-mixin)
   ())
 
-(defclass global-macro-information (macro-information compiler-macro-mixin)
+(defclass global-macro-description (macro-description compiler-macro-mixin)
   ())
 
-(defclass special-operator-information (function-information)
-  ())
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; BLOCK-INFORMATION class.
-
-(defclass block-information (info name-mixin identity-mixin)
+(defclass special-operator-description (function-description)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; TAG-INFORMATION class.
+;;; BLOCK-DESCRIPTION class.
 
-(defclass tag-information (info name-mixin identity-mixin)
+(defclass block-description (info name-mixin identity-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; OPTIMIZE-INFORMATION class.
+;;; TAG-DESCRIPTION class.
 
-(defclass optimize-information
+(defclass tag-description (info name-mixin identity-mixin)
+  ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; OPTIMIZE-DESCRIPTION class.
+
+(defclass optimize-description
     (info speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; CLASS-INFORMATION class.
+;;; CLASS-DESCRIPTION class.
 
-(defclass class-information (info name-mixin superclass-names-mixin metaclass-name-mixin)
+(defclass class-description (info name-mixin superclass-names-mixin metaclass-name-mixin)
   ())

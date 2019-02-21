@@ -1,247 +1,247 @@
 \chapter{Augmenting the environment}
 
-\section{Creating new information instances}
+\section{Creating new description instances}
 
-In order to create a new information instance, \texttt{make-instance}
+In order to create a new description instance, \texttt{make-instance}
 must be called, providing values for all the initialization arguments
 corresponding to features that do not have any initialization forms.
 
 \section{Low-level augmentation functions}
 
 In this section, we describe basic functions for augmenting an
-environment, given an old environment and an information instance.
+environment, given an old environment and an description instance.
 
 {\footnotesize
-\Defgeneric {augment-with-variable-information} {client environment information}
+\Defgeneric {augment-with-variable-description} {client environment description}
 }
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
-\texttt{variable-information}.
+\texttt{variable-description}.
 
-\Defmethod {augment-with-variable-information}\\
+\Defmethod {augment-with-variable-description}\\
            {client\\
             (environment {\tt environment})\\
-            (information {\tt variable-information})}
+            (description {\tt variable-description})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{information}
-will shadow any variable information with the same name.
+one passed as an argument, except that \textit{description}
+will shadow any variable description with the same name.
 
-\Defgeneric {augment-with-function-information}\\
-            {client environment function-information}
+\Defgeneric {augment-with-function-description}\\
+            {client environment function-description}
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
-\texttt{function-information}.
+\texttt{function-description}.
 
-\Defmethod {augment-with-function-information}\\
+\Defmethod {augment-with-function-description}\\
            {client\\
             (environment {\tt environment})\\
-            (function-information {\tt function-information})}
+            (function-description {\tt function-description})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{function-information}
-will shadow any function information with the same name.
+one passed as an argument, except that \textit{function-description}
+will shadow any function description with the same name.
 
-\Defgeneric {augment-with-block-information}\\
-            {client environment block-information}
+\Defgeneric {augment-with-block-description}\\
+            {client environment block-description}
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
-\texttt{block-information}.
+\texttt{block-description}.
 
-\Defmethod {augment-with-block-information}\\
+\Defmethod {augment-with-block-description}\\
            {client\\
             (environment {\tt environment})\\
-            (block-information {\tt block-information})}
+            (block-description {\tt block-description})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{block-information}
-will shadow any block information with the same name.
+one passed as an argument, except that \textit{block-description}
+will shadow any block description with the same name.
 
-\Defgeneric {augment-with-tag-information}\\
-            {client environment tag-information}
+\Defgeneric {augment-with-tag-description}\\
+            {client environment tag-description}
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
-\texttt{tag-information}.
+\texttt{tag-description}.
 
-\Defmethod {augment-with-tag-information}\\
+\Defmethod {augment-with-tag-description}\\
            {client\\
             (environment {\tt environment})\\
-            (tag-information {\tt tag-information})}
+            (tag-description {\tt tag-description})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{tag-information}
-will shadow any tag information with the same name.
+one passed as an argument, except that \textit{tag-description}
+will shadow any tag description with the same name.
 
-\Defgeneric {augment-with-optimize-information}\\
-            {client environment optimize-information}
+\Defgeneric {augment-with-optimize-description}\\
+            {client environment optimize-description}
 
 This function is used to create a new environment object from an
 existing environment object and an instance of the class
-\texttt{optimize-information}.
+\texttt{optimize-description}.
 
-\Defmethod {augment-with-optimize-information}\\
+\Defmethod {augment-with-optimize-description}\\
            {client\\
             (environment {\tt environment})\\
-            (optimize-information {\tt optimize-information})}
+            (optimize-description {\tt optimize-description})}
 
 This default method returns a new environment object which is like the
-one passed as an argument, except that \textit{optimize-information}
-will shadow any previous optimize information.
+one passed as an argument, except that \textit{optimize-description}
+will shadow any previous optimize description.
 
-\section{Merging information instances}
+\section{Merging description instances}
 
 We use the term \emph{merging} to mean the creation of a new
-information instance from an existing information instance plus some
+description instance from an existing description instance plus some
 additional information such as type or dynamic extent.
 
 In this section, we describe generic functions that are provided for
 this purpose.
 
-\Defgeneric {merge-type} {client information type}
+\Defgeneric {merge-type} {client description type}
 
-Given an instance of the class \texttt{information} and a
+Given an instance of the class \texttt{description} and a
 type descriptor, return a new instance that is just like
-\textit{information} (including the class and the values of
-all the slots), except that its type information has been updated
+\textit{description} (including the class and the values of
+all the slots), except that its type description has been updated
 according to that of \textit{type}.
 
 \Defmethod {merge-type}\\
            {client\\
-            (information {\tt type-mixin})\\
+            (description {\tt type-mixin})\\
             type}
 
 This is the default method provided on \texttt{merge-type}
 and it is specialized to \texttt{type-mixin}.
 
-\Defgeneric {merge-ignore} {client information ignore}
+\Defgeneric {merge-ignore} {client description ignore}
 
-Given an instance of the class \texttt{information} and one
+Given an instance of the class \texttt{description} and one
 of the symbols \texttt{cl:ignore} and \texttt{cl:ignorable},
 return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its ignore information has been updated
 according to that of \textit{ignore}.
 
 \Defmethod {merge-ignore}\\
            {client\\
-            (information {\tt ignore-mixin})\\
+            (description {\tt ignore-mixin})\\
             ignore}
 
 This is the default method provided on \texttt{merge-ignore}
 and it is specialized to \texttt{ignore-mixin}.
 
-\Defgeneric {merge-dynamic-extent} {client information}
+\Defgeneric {merge-dynamic-extent} {client description}
 
-Given an instance of the class \texttt{information}, return a
-new instance that is just like \textit{information}
+Given an instance of the class \texttt{description}, return a
+new instance that is just like \textit{description}
 (including the class and the values of all the slots), except that its
 dynamic-extent information has been updated so that it is \emph{true}.
 
 {\footnotesize
-\Defmethod {merge-dynamic-extent} {client (information {\tt dynamic-extent-mixin})}
+\Defmethod {merge-dynamic-extent} {client (description {\tt dynamic-extent-mixin})}
 }
 
 This is the default method provided on
 \texttt{merge-dynamic-extent} and it is specialized to
 \texttt{dynamic-extent-mixin}.
 
-\Defgeneric {merge-inline} {client information inline}
+\Defgeneric {merge-inline} {client description inline}
 
-Given an instance of the class \texttt{information} and one
+Given an instance of the class \texttt{description} and one
 of the symbols \texttt{cl:inline} and \texttt{cl:notinline},
 return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its inline information has been updated
 according to that of \textit{inline}.
 
 \Defmethod {merge-inline}\\
            {client\\
-            (information {\tt inline-mixin})\\
+            (description {\tt inline-mixin})\\
             inline}
 
 This is the default method provided on \texttt{merge-inline}
 and it is specialized to \texttt{inline-mixin}.
 
-\Defgeneric {merge-speed} {client information value}
+\Defgeneric {merge-speed} {client description value}
 
-Given an instance of the class \texttt{information} and an
+Given an instance of the class \texttt{description} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its speed information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-speed}\\
            {client\\
-            (information {\tt speed-mixin})\\
+            (description {\tt speed-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-speed} and it is
 specialized to \texttt{speed-mixin}.
 
-\Defgeneric {merge-compilation-speed} {client information value}
+\Defgeneric {merge-compilation-speed} {client description value}
 
-Given an instance of the class \texttt{information} and an
+Given an instance of the class \texttt{description} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its compilation-speed information has been
 updated according to that of \textit{value}.
 
 \Defmethod {merge-compilation-speed}\\
            {client\\
-            (information {\tt compilation-speed-mixin})\\
+            (description {\tt compilation-speed-mixin})\\
             value}
 
 This is the default method provided on
 \texttt{merge-compilation-speed} and it is specialized to
 \texttt{compilation-speed-mixin}.
 
-\Defgeneric {merge-debug} {client information value}
+\Defgeneric {merge-debug} {client description value}
 
-Given an instance of the class \texttt{information} and an
+Given an instance of the class \texttt{description} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its debug information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-debug}\\
            {client\\
-            (information {\tt debug-mixin})\\
+            (description {\tt debug-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-debug} and it is
 specialized to \texttt{debug-mixin}.
 
-\Defgeneric {merge-space} {client information value}
+\Defgeneric {merge-space} {client description value}
 
-Given an instance of the class \texttt{information} and an
+Given an instance of the class \texttt{description} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its space information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-space}\\
            {client\\
-            (information {\tt space-mixin})\\
+            (description {\tt space-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-space} and it is
 specialized to \texttt{space-mixin}.
 
-\Defgeneric {merge-safety} {client information value}
+\Defgeneric {merge-safety} {client description value}
 
-Given an instance of the class \texttt{information} and an
+Given an instance of the class \texttt{description} and an
 integer between $0$ and $3$, return a new instance that is just like
-\textit{information} (including the class and the values of
+\textit{description} (including the class and the values of
 all the slots), except that its safety information has been updated
 according to that of \textit{value}.
 
 \Defmethod {merge-safety}\\
            {client\\
-            (information {\tt safety-mixin})\\
+            (description {\tt safety-mixin})\\
             value}
 
 This is the default method provided on \texttt{merge-safety} and it is

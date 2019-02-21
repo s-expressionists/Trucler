@@ -1,19 +1,19 @@
 (cl:in-package #:trucler)
 
-(defgeneric merge-type (client information type))
+(defgeneric merge-type (client description type))
 
-(defgeneric merge-ignore (client information ignore))
+(defgeneric merge-ignore (client description ignore))
 
-(defgeneric merge-dynamic-extent (client information))
+(defgeneric merge-dynamic-extent (client description))
 
-(defgeneric merge-inline (client information inline))
+(defgeneric merge-inline (client description inline))
 
-(defgeneric merge-speed (client information value))
+(defgeneric merge-speed (client description value))
 
-(defgeneric merge-compilation-speed (client information value))
+(defgeneric merge-compilation-speed (client description value))
 
-(defgeneric merge-debug (client information value))
+(defgeneric merge-debug (client description value))
 
-(defgeneric merge-space (client information value))
+(defgeneric merge-space (client description value))
 
-(defgeneric merge-safety (client information value))
+(defgeneric merge-safety (client description value))

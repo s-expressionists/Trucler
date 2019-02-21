@@ -47,89 +47,89 @@ on the compilation functions that handle these classes.
 
 \subsection{Variable information}
 
-\Defgeneric {variable-information} {client environment symbol}
+\Defgeneric {describe-variable} {client environment symbol}
 
 This function is called by the compiler whenever a symbol in a
 \emph{variable} position is to be compiled.  If successful, it returns
 an instance of one of the classes described below.
 
-\Defcondition {no-variable-information}
+\Defcondition {no-variable-description}
 
 This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{variable-information} returns \texttt{nil}.
+on the generic function \texttt{describe-variable} returns \texttt{nil}.
 
-\Defmethod {name} {(condition {\tt no-variable-information})}
+\Defmethod {name} {(condition {\tt no-variable-description})}
 
 This method returns the name of the variable for which no info was
 available.
 
 \subsection{Function information}
 
-\Defgeneric {function-information} {client environment function-name}
+\Defgeneric {describe-function} {client environment function-name}
 
 This function is called by the compiler whenever a symbol in a
 \emph{function} position is to be compiled or whenever a function name
 is found in a context where it is known to refer to a function.  It
 returns an instance of one of the classes described below.
 
-\Defcondition {no-function-information}
+\Defcondition {no-function-description}
 
 This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{function-information} returns \texttt{nil}.
+on the generic function \texttt{describe-function} returns \texttt{nil}.
 
-\Defmethod {name} {(condition {\tt no-function-information})}
+\Defmethod {name} {(condition {\tt no-function-description})}
 
 This method returns the name of the function for which no info was
 available.
 
 \subsection{Block information}
 
-\Defgeneric {block-information} {client environment symbol}
+\Defgeneric {describe-block} {client environment symbol}
 
-\Defcondition {no-block-information}
+\Defcondition {no-block-description}
 
 This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{block-information} returns \texttt{nil}.
+on the generic function \texttt{describe-block} returns \texttt{nil}.
 
-\Defmethod {name} {(condition {\tt no-block-information})}
+\Defmethod {name} {(condition {\tt no-block-description})}
 
 This method returns the name of the block for which no info was
 available.
 
 \subsection{Tag information}
 
-\Defgeneric {tag-information} {client environment tag}
+\Defgeneric {describe-tag} {client environment tag}
 
-\Defcondition {no-tag-information}
+\Defcondition {no-tag-description}
 
 This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{tag-information} returns \texttt{nil}.
+on the generic function \texttt{describe-tag} returns \texttt{nil}.
 
-\Defmethod {name} {(condition {\tt no-tag-information})}
+\Defmethod {name} {(condition {\tt no-tag-description})}
 
 This method returns the name of the tag for which no info was
 available.
 
 \subsection{Class information}
 
-\Defgeneric {class-information} {client environment class-name}
+\Defgeneric {describe-class} {client environment class-name}
 
-\Defcondition {no-class-information}
+\Defcondition {no-class-description}
 
 This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{class-information} returns \texttt{nil}.
+on the generic function \texttt{describe-class} returns \texttt{nil}.
 
-\Defmethod {name} {(condition {\tt no-class-information})}
+\Defmethod {name} {(condition {\tt no-class-description})}
 
 This method returns the name of the class for which no info was
 available.
 
 \subsection{Optimize information}
 
-\Defgeneric {optimize-information} {client environment}
+\Defgeneric {describe-optimize} {client environment}
 
 Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-information}. Optimize info includes
+instance of the class \texttt{optimize-description}. Optimize info includes
 information about optimize declarations.
 
 
@@ -228,7 +228,7 @@ returns the dynamic-extent information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have an expansion.  In particular, it is a
-superclass of the abstract class \texttt{symbol-macro-information}.
+superclass of the abstract class \texttt{symbol-macro-description}.
 
 \Definitarg {:expansion}
 
@@ -243,7 +243,7 @@ returns the expansion information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have an expander function.  In particular, it is
-a superclass of the abstract class \texttt{macro-information}.
+a superclass of the abstract class \texttt{macro-description}.
 
 \Definitarg {:expander}
 
@@ -258,7 +258,7 @@ returns the expander information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have a class-name.  In particular, it is a
-superclass of the class \texttt{global-function-information}.
+superclass of the class \texttt{global-function-description}.
 
 \Definitarg {:class-name}
 
@@ -273,7 +273,7 @@ returns the class-name information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have inline information.  In particular, it is a
-superclass of the class \texttt{authentic-function-information}.
+superclass of the class \texttt{authentic-function-description}.
 
 \Definitarg {:inline}
 
@@ -294,7 +294,7 @@ returns the inline information, as supplied by the initarg
 This class is a superclass of query classes that provide information
 of entities that can have method-class-name information.  In
 particular, it is a superclass of the class
-\texttt{generic-function-information}.
+\texttt{generic-function-description}.
 
 \Definitarg {:method-class-name}
 
@@ -313,7 +313,7 @@ initarg \texttt{:method-class-name}.
 
 This class is a superclass of query classes that provide information
 of entities that can have speed information.  In particular, it is a
-superclass of the class \texttt{optimize-information}.
+superclass of the class \texttt{optimize-description}.
 
 \Definitarg {:speed}
 
@@ -331,7 +331,7 @@ returns the compilation-speed information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have compilation-speed information.  In particular, it is a
-superclass of the class \texttt{optimize-information}.
+superclass of the class \texttt{optimize-description}.
 
 \Definitarg {:compilation-speed}
 
@@ -349,7 +349,7 @@ returns the compilation-compilation-speed information, as supplied by the initar
 
 This class is a superclass of query classes that provide information
 of entities that can have debug information.  In particular, it is a
-superclass of the class \texttt{optimize-information}.
+superclass of the class \texttt{optimize-description}.
 
 \Definitarg {:debug}
 
@@ -367,7 +367,7 @@ returns the compilation-debug information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have space information.  In particular, it is a
-superclass of the class \texttt{optimize-information}.
+superclass of the class \texttt{optimize-description}.
 
 \Definitarg {:space}
 
@@ -385,7 +385,7 @@ returns the compilation-space information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have safety information.  In particular, it is a
-superclass of the class \texttt{optimize-information}.
+superclass of the class \texttt{optimize-description}.
 
 \Definitarg {:safety}
 
@@ -403,7 +403,7 @@ returns the compilation-safety information, as supplied by the initarg
 
 This class is a superclass of query classes that provide information
 of entities that can have superclass-names information.  In
-particular, it is a superclass of the class \texttt{class-information}.
+particular, it is a superclass of the class \texttt{class-description}.
 
 \Definitarg {:superclass-names}
 
@@ -423,7 +423,7 @@ initarg \texttt{:superclass-names}.
 This class is a superclass of query classes that provide information
 of entities that can have metaclass-name information.  In
 particular, it is a superclass of the class
-\texttt{class-information}.
+\texttt{class-description}.
 
 \Definitarg {:metaclass-name}
 
@@ -442,196 +442,196 @@ initarg \texttt{:metaclass-name}.
 \Defclass {variable-information}
 
 This abstract class is the superclass of every query class returned by
-a call to the generic function \texttt{variable-information}.  It is a
+a call to the generic function \texttt{describe-variable}.  It is a
 subclass of the class \texttt{name-mixin}.
 
-\Defclass {authentic-variable-information}
+\Defclass {authentic-variable-description}
 
 This abstract class is a subclass of the classes
-\texttt{variable-information} and \texttt{type-mixin}.
+\texttt{variable-description} and \texttt{type-mixin}.
 
 It is a superclass of the two instantiable classes
-\texttt{lexical-variable-information} and
-\texttt{special-variable-information}.
+\texttt{lexical-variable-description} and
+\texttt{special-variable-description}.
 
-\Defclass {symbol-macro-information}
+\Defclass {symbol-macro-description}
 
 This abstract class is a subclass of the classes
-\texttt{variable-information}, \texttt{type-mixin}, and
+\texttt{variable-description}, \texttt{type-mixin}, and
 \texttt{expansion-mixin}.
 
 It is a superclass of the two instantiable classes
-\texttt{local-symbol-macro-information} and
-\texttt{global-symbol-macro-information}.
+\texttt{local-symbol-macro-description} and
+\texttt{global-symbol-macro-description}.
 
-\Defclass {function-information}
+\Defclass {function-description}
 
 This abstract class is the superclass of every query class returned by
-a call to the generic function \texttt{function-information}.  It is a
+a call to the generic function \texttt{function-description}.  It is a
 subclass of the class \texttt{name-mixin}.
 
-\Defclass {authentic-function-information}
+\Defclass {authentic-function-description}
 
 This abstract class is a subclass of the classes
-\texttt{function-information} and \texttt{type-mixin}.
+\texttt{function-description} and \texttt{type-mixin}.
 
 It is a superclass of the two instantiable classes
-\texttt{local-function-information} and
-\texttt{global-function-information}.
+\texttt{local-function-description} and
+\texttt{global-function-description}.
 
-\Defclass {macro-information}
+\Defclass {macro-description}
 
 This abstract class is a subclass of the classes
-\texttt{function-information} and \texttt{expander-mixin}.
+\texttt{function-description} and \texttt{expander-mixin}.
 
 It is a superclass of the two instantiable classes
-\texttt{local-macro-information} and
-\texttt{global-macro-information}.
+\texttt{local-macro-description} and
+\texttt{global-macro-description}.
 
 \section{Instantiable classes}
 
-\subsection{Variable information}
+\subsection{Variable description}
 
-\Defclass {lexical-variable-information}
+\Defclass {lexical-variable-description}
 
 This class represents information about lexical variables.  An
-instance of this class is returned by a call to \texttt{variable-information}
+instance of this class is returned by a call to \texttt{variable-description}
 when it turns out that the symbol passed as an argument refers to a
 lexical variable.
 
 This class is a subclass of the classes
-\texttt{authentic-variable-information} \texttt{identity-mixin},
+\texttt{authentic-variable-description} \texttt{identity-mixin},
 \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
-\Defclass {special-variable-information}
+\Defclass {special-variable-description}
 
 This class represents information about special variables.   An
-instance of this class is returned by a call to \texttt{variable-information}
+instance of this class is returned by a call to \texttt{variable-description}
 when it turns out that the symbol passed as an argument refers to a
 special variable.
 
 This class is a subclass of the classes
-\texttt{authentic-variable-information} and \texttt{global-p-mixin}.
+\texttt{authentic-variable-description} and \texttt{global-p-mixin}.
 
-\Defclass {constant-variable-information}
+\Defclass {constant-variable-description}
 
 This class represents information about constant variables.   An
-instance of this class is returned by a call to \texttt{variable-information}
+instance of this class is returned by a call to \texttt{variable-description}
 when it turns out that the symbol passed as an argument refers to a
 constant variable.
 
-This class is a subclass of the classes \texttt{variable-information} and
+This class is a subclass of the classes \texttt{variable-description} and
 \texttt{value-mixin}.
 
-\Defclass {global-symbol-macro-information}
+\Defclass {global-symbol-macro-description}
 
-This class is a subclass of \texttt{symbol-macro-information}.  It is
-returned by a call to \texttt{variable-informationrmation} when the name is
+This class is a subclass of \texttt{symbol-macro-description}.  It is
+returned by a call to \texttt{variable-descriptionrmation} when the name is
 defined as a global symbol macro, as defined by
 \texttt{define-symbol-macro}.
 
-\Defclass {local-symbol-macro-information}
+\Defclass {local-symbol-macro-description}
 
-This class is a subclass of \texttt{symbol-macro-information} and
+This class is a subclass of \texttt{symbol-macro-description} and
 \texttt{ignore-mixin}.  It is returned by a call to
-\texttt{variable-informationrmation} when the name is defined as a local
+\texttt{variable-descriptionrmation} when the name is defined as a local
 symbol macro, as defined by \texttt{symbol-macrolet}.
 
-\subsection{Function information}
+\subsection{Function description}
 
-\Defclass {local-function-information}
+\Defclass {local-function-description}
 
 This class represents information about local functions introduced by
 \texttt{flet} or \texttt{labels}.  An instance of this class is
-returned by a call to \texttt{function-information} when it turns out that
+returned by a call to \texttt{function-description} when it turns out that
 the function name passed as an argument refers to a local function.
 
-This class is a subclass of \texttt{authentic-function-information},
+This class is a subclass of \texttt{authentic-function-description},
 \texttt{identity-mixin}, \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
-\Defclass {global-function-information}
+\Defclass {global-function-description}
 
 This class represents information about global functions.  An instance
-of this class is returned by a call to \texttt{function-information} when it
+of this class is returned by a call to \texttt{function-description} when it
 turns out that the function name passed as an argument refers to a
 global function.
 
-This class is a subclass of \texttt{authentic-function-information},
+This class is a subclass of \texttt{authentic-function-description},
 \texttt{compiler-macro-mixin}, and \texttt{class-name-mixin}.
 
-\Defclass {generic-function-information}
+\Defclass {generic-function-description}
 
-This class is a subclass of \texttt{global-function-information} and
+This class is a subclass of \texttt{global-function-description} and
 \texttt{method-class-name-mixin}.
 
 
-\Defclass {local-macro-information}
+\Defclass {local-macro-description}
 
 This class represents information about local macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
-\texttt{function-information} when it turns out that the function name passed
+\texttt{function-description} when it turns out that the function name passed
 as an argument refers to a local macro.
 
-This class is a subclass of \texttt{macro-information} and \texttt{ignore-mixin}.
+This class is a subclass of \texttt{macro-description} and \texttt{ignore-mixin}.
 
-\Defclass {global-macro-information}
+\Defclass {global-macro-description}
 
 This class represents information about global macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
-\texttt{function-information} when it turns out that the function name passed
+\texttt{function-description} when it turns out that the function name passed
 as an argument refers to a global macro.
 
-This class is a subclass of \texttt{macro-information} and \texttt{compiler-macro-mixin}.
+This class is a subclass of \texttt{macro-description} and \texttt{compiler-macro-mixin}.
 
-\Defclass {special-operator-information}
+\Defclass {special-operator-description}
 
 This class represents information about special operators.  An
-instance of this class is returned by a call to \texttt{function-information}
+instance of this class is returned by a call to \texttt{function-description}
 when it turns out that the function name passed as an argument refers
 to a specialoperator.
 
-This class is a subclass of the class \texttt{function-information}.
+This class is a subclass of the class \texttt{function-description}.
 
-\subsection{Block information}
+\subsection{Block description}
 
-\Defclass {block-information}
+\Defclass {block-description}
 
 This class represents information about blocks introduced by
 \texttt{block}.  An instance of this class is returned by a call to
-\texttt{block-information} when the symbol passed as an argument refers to a
+\texttt{block-description} when the symbol passed as an argument refers to a
 block.
 
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
-\subsection{Tag information}
+\subsection{Tag description}
 
-\Defclass {tag-information}
+\Defclass {tag-description}
 
 This class represents information about tags introduced by
 \texttt{tagbody}.  An instance of this class is returned by a call to
-\texttt{tag-information} when the name (which must be a symbol or an integer)
+\texttt{tag-description} when the name (which must be a symbol or an integer)
 passed as an argument refers to a tag.
 
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
-\subsection{Class information}
+\subsection{Class description}
 
-\Defclass {class-information}
+\Defclass {class-description}
 
 This class represents information about a class introduced by
 \texttt{defclass}.  An instance of this class is returned by a call to
-\texttt{class-information} when the name (which must be a symbol)
+\texttt{class-description} when the name (which must be a symbol)
 passed as an argument refers to a class.
 
 This class is a subclass of the classes \texttt{name-mixin},
 \texttt{superclass-names-mixin},  and
 \texttt{metaclass-name-mixin}.
 
-\subsection{Optimization information}
+\subsection{Optimization description}
 
-\Defclass {optimize-information}
+\Defclass {optimize-description}
 
 This class is a subclass of \texttt{speed-mixin},
 \texttt{compilation-speed-mixin}, \texttt{debug-mixin},

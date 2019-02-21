@@ -2,45 +2,45 @@
 
 (defgeneric global-environment (environment))
 
-(defgeneric cached-function-information (environment))
+(defgeneric cached-function-description (environment))
 
-(defgeneric cached-variable-information (environment))
+(defgeneric cached-variable-description (environment))
 
-(defgeneric cached-block-information (environment))
+(defgeneric cached-block-description (environment))
 
-(defgeneric cached-tag-information (environment))
+(defgeneric cached-tag-description (environment))
 
-(defgeneric cached-optimize-information (environment))
+(defgeneric cached-optimize-description (environment))
 
 (defclass environment ()
   ((%global-environment
     :initarg :global-environment
     :reader global-environment)
-   (%function-information
+   (%function-description
     :initform '()
-    :initarg :cached-function-information
-    :reader cached-function-information)
-   (%variable-information
+    :initarg :cached-function-description
+    :reader cached-function-description)
+   (%variable-description
     :initform '()
-    :initarg :cached-variable-information
-    :reader cached-variable-information)
-   (%block-information
+    :initarg :cached-variable-description
+    :reader cached-variable-description)
+   (%block-description
     :initform '()
-    :initarg :cached-block-information
-    :reader cached-block-information)
-   (%tag-information
+    :initarg :cached-block-description
+    :reader cached-block-description)
+   (%tag-description
     :initform '()
-    :initarg :cached-tag-information
-    :reader cached-tag-information)
-   (%optimize-information
+    :initarg :cached-tag-description
+    :reader cached-tag-description)
+   (%optimize-description
     :initform '()
-    :initarg :cached-optimize-information
-    :reader cached-optimize-information)))
+    :initarg :cached-optimize-description
+    :reader cached-optimize-description)))
 
-(defmethod clone-information append ((object environment))
+(defmethod clone-object append ((object environment))
   '((:global-environment global-environment)
-    (:cached-function-information cached-function-information)
-    (:cached-variable-information cached-variable-information)
-    (:cached-block-information cached-block-information)
-    (:cached-tag-information cached-tag-information)
-    (:cached-optimize-information cached-optimize-information)))
+    (:cached-function-description cached-function-description)
+    (:cached-variable-description cached-variable-description)
+    (:cached-block-description cached-block-description)
+    (:cached-tag-description cached-tag-description)
+    (:cached-optimize-description cached-optimize-description)))

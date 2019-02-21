@@ -7,7 +7,7 @@
   ((:file "packages")
    (:file "query-functions")
    (:file "query-class-accessors")
-   (:file "clone-information")
+   (:file "clone-object")
    (:file "quasi-clone")
    (:file "query-mixin-classes")
    (:file "query-classes")

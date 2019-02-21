@@ -33,31 +33,39 @@
            #:safety-mixin
            ;; Macro for definining mixin classes.
            #:define-mixin-class
-           ;; Generic function and base class for variable information.
-           #:variable-information
-           ;; Classes for variable information.
-           #:authentic-variable-information
-           #:lexical-variable-information
-           #:special-variable-information
-           #:constant-variable-information
-           #:symbol-macro-information
-           ;; Generic function and base class for function information.
-           #:function-information
-           ;; Classes for function information.
-           #:authentic-function-information
-           #:local-function-information
-           #:global-function-information
-           #:generic-function-information
-           #:macro-information
-           #:local-macro-information
-           #:global-macro-information
-           #:special-operator-information
-           ;; Generic function and class for block information.
-           #:block-information
-           ;; Generic function and class for tag information.
-           #:tag-information
-           ;; Generic function and class for optimize information.
-           #:optimize-information
+           ;; Generic function for variable information.
+           #:describe-variable
+           ;; Classes for variable description.
+           #:variable-description
+           #:authentic-variable-description
+           #:lexical-variable-description
+           #:special-variable-description
+           #:constant-variable-description
+           #:symbol-macro-description
+           ;; Generic function for function information.
+           #:describe-function
+           ;; Classes for function description.
+           #:function-description
+           #:authentic-function-description
+           #:local-function-description
+           #:global-function-description
+           #:generic-function-description
+           #:macro-description
+           #:local-macro-description
+           #:global-macro-description
+           #:special-operator-description
+           ;; Generic function for block information.
+           #:describe-block
+           ;; Class for block description.
+           #:block-description
+           ;; Generic function for tag information.
+           #:describe-tag
+           ;; Class for tag description.
+           #:tag-description
+           ;; Generic function for optimize information.
+           #:describe-optimize
+           ;; Class for optimize description.
+           #:optimize-description
            ;; INFO accessors
            #:name
            #:identity
@@ -90,8 +98,8 @@
            #:add-inline
            #:add-inline-expansion
            ;; Condition types.
-           #:no-information
-           #:no-variable-information
-           #:no-function-information
-           #:no-block-information
-           #:no-tag-information))
+           #:no-description
+           #:no-variable-description
+           #:no-function-description
+           #:no-block-description
+           #:no-tag-description))
