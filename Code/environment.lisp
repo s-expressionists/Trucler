@@ -37,7 +37,7 @@
     :initarg :cached-optimize-description
     :reader cached-optimize-description)))
 
-(defmethod clone-object append ((object environment))
+(defmethod cloning-information append ((object environment))
   '((:global-environment global-environment)
     (:cached-function-description cached-function-description)
     (:cached-variable-description cached-variable-description)

@@ -14,7 +14,7 @@
                          :initarg ,initarg
                          :reader ,reader-name)))
 
-          (defmethod clone-object append ((object ,class-name))
+          (defmethod cloning-information append ((object ,class-name))
             '((,initarg ,reader-name)))))
 
 (define-mixin-class name-mixin
