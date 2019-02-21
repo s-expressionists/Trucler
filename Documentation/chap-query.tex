@@ -3,11 +3,11 @@
 \label{chap-environment-querying}
 
 In this chapter, we describe classes and functions that are used by
-the compiler to query the environment concerning information about
-program elements that the compiler needs in order to determine how to
+the language processor to query the environment concerning information about
+program elements that the language processor needs in order to determine how to
 process those program elements.
 
-When the compiler calls a generic query function, it passes two or
+When the language processor calls a generic query function, it passes two or
 three arguments, depending on the function it calls.  The first
 argument is called the \texttt{client}.  \sysname{} does not
 specialize on this argument, but client code should define a standard
@@ -47,90 +47,142 @@ on the compilation functions that handle these classes.
 
 \subsection{Variable information}
 
-\Defgeneric {describe-variable} {client environment symbol}
+{\footnotesize
+\Defgeneric {describe-variable} {client environment name}
+}
 
-This function is called by the compiler whenever a symbol in a
-\emph{variable} position is to be compiled.  If successful, it returns
-an instance of one of the classes described below.
+This function is called by the language processor whenever a symbol in
+a \emph{variable} position is to be compiled.  If successful, it
+returns an instance of one of the classes described in
+\refSec{sec-instantiable-classes-variable-desciption}.
 
+{\footnotesize
 \Defcondition {no-variable-description}
+}
 
 This condition is signaled by \sysname{} when a client-supplied method
 on the generic function \texttt{describe-variable} returns \texttt{nil}.
 
+{\footnotesize
 \Defmethod {name} {(condition {\tt no-variable-description})}
+}
 
 This method returns the name of the variable for which no description was
 available.
 
 \subsection{Function information}
 
-\Defgeneric {describe-function} {client environment function-name}
+{\footnotesize
+\Defgeneric {describe-function} {client environment name}
+}
 
-This function is called by the compiler whenever a symbol in a
-\emph{function} position is to be compiled or whenever a function name
-is found in a context where it is known to refer to a function.  It
-returns an instance of one of the classes described below.
+This function is called by the language processor whenever a symbol in
+a \emph{function} position is to be compiled or whenever a function
+name is found in a context where it is known to refer to a function.
+If successful, it returns an instance of one of the classes described
+in \refSec{sec-instantiable-classes-function-desciption}.
 
+{\footnotesize
 \Defcondition {no-function-description}
+}
 
 This condition is signaled by \sysname{} when a client-supplied method
 on the generic function \texttt{describe-function} returns \texttt{nil}.
 
+{\footnotesize
 \Defmethod {name} {(condition {\tt no-function-description})}
+}
 
 This method returns the name of the function for which no description was
 available.
 
 \subsection{Block information}
 
-\Defgeneric {describe-block} {client environment symbol}
+{\footnotesize
+\Defgeneric {describe-block} {client environment name}
+}
 
+This function is called by the language processor whenever a symbol
+referring to a \emph{block} is found, typically in a
+\texttt{return-from} form.  If successful, it returns an instance of
+the class described in
+\refSec{sec-instantiable-classes-block-desciption}.
+
+{\footnotesize
 \Defcondition {no-block-description}
+}
 
 This condition is signaled by \sysname{} when a client-supplied method
 on the generic function \texttt{describe-block} returns \texttt{nil}.
 
+{\footnotesize
 \Defmethod {name} {(condition {\tt no-block-description})}
+}
 
 This method returns the name of the block for which no description was
 available.
 
 \subsection{Tag information}
 
+{\footnotesize
 \Defgeneric {describe-tag} {client environment tag}
+}
 
+This function is called by the language processor whenever a symbol or
+an integer referring to a \emph{tag} is found, typically in a
+\texttt{go} form.  If successful, it returns an instance of the
+class described in \refSec{sec-instantiable-classes-tag-desciption}.
+
+{\footnotesize
 \Defcondition {no-tag-description}
+}
 
 This condition is signaled by \sysname{} when a client-supplied method
 on the generic function \texttt{describe-tag} returns \texttt{nil}.
 
+{\footnotesize
 \Defmethod {name} {(condition {\tt no-tag-description})}
+}
 
 This method returns the name of the tag for which no description was
 available.
 
 \subsection{Class information}
 
+{\footnotesize
 \Defgeneric {describe-class} {client environment class-name}
+}
 
+This function is called by the language processor whenever a symbol
+referring to a \emph{class} is found, for example as a specializer in
+a \texttt{defmethod} form.  If successful, it returns an instance of
+the class described in
+\refSec{sec-instantiable-classes-class-desciption}.
+
+{\footnotesize
 \Defcondition {no-class-description}
+}
 
 This condition is signaled by \sysname{} when a client-supplied method
 on the generic function \texttt{describe-class} returns \texttt{nil}.
 
+{\footnotesize
 \Defmethod {name} {(condition {\tt no-class-description})}
+}
 
 This method returns the name of the class for which no description was
 available.
 
 \subsection{Optimize information}
 
+{\footnotesize
 \Defgeneric {describe-optimize} {client environment}
+}
 
 Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-description}. Optimize description includes
-information about optimize declarations.
+instance of the class \texttt{optimize-description}.  It returns an
+instance of the class described in
+\refSec{sec-instantiable-classes-optimize-desciption}.
 
 
 \section{Mixin classes}
@@ -143,14 +195,20 @@ initform, and a type.
 \subsection{\texttt{name-mixin}}
 \label{sec-name-mixin}
 
+{\footnotesize
 \Defclass {name-mixin}
+}
 
 This class is a superclass of query classes that require a name to
 identify the information supplied by the class instances.
 
+{\footnotesize
 \Definitarg {:name}
+}
 
+{\footnotesize
 \Defmethod {name} {(description {\tt name-mixin})}
+}
 
 Given an instance of the class \texttt{name-mixin}, this method
 returns the name information, as supplied by the initarg
@@ -159,15 +217,21 @@ returns the name information, as supplied by the initarg
 \subsection{\texttt{identity-mixin}}
 \label{sec-identity-mixin}
 
+{\footnotesize
 \Defclass {identity-mixin}
+}
 
 This class is a superclass of query classes that require some kind of
 identity to distinguish instances of the query class that have the
 same name.
 
+{\footnotesize
 \Definitarg {:identity}
+}
 
+{\footnotesize
 \Defmethod {identity} {(description {\tt identity-mixin})}
+}
 
 Given an instance of the class \texttt{identity-mixin}, this method
 returns the identity information, as supplied by the initarg
@@ -176,16 +240,22 @@ returns the identity information, as supplied by the initarg
 \subsection{\texttt{type-mixin}}
 \label{sec-type-mixin}
 
+{\footnotesize
 \Defclass {type-mixin}
+}
 
 This class is a superclass of query classes that provide information
-of entities that can have a type.
+about entities that can have a type.
 
+{\footnotesize
 \Definitarg {:type}
+}
 
 If this initarg is not supplied, it defaults to \texttt{t}.
 
+{\footnotesize
 \Defmethod {type} {(description {\tt type-mixin})}
+}
 
 Given an instance of the class \texttt{type-mixin}, this method
 returns the type information, as supplied by the initarg
@@ -194,14 +264,23 @@ returns the type information, as supplied by the initarg
 \subsection{\texttt{ignore-mixin}}
 \label{sec-ignore-mixin}
 
+{\footnotesize
 \Defclass {ignore-mixin}
+}
 
 This class is a superclass of query classes that provide information
-of entities that can be declared \texttt{ignore} or \texttt{ignorable}.
+about entities that can be declared \texttt{ignore} or \texttt{ignorable}.
 
+{\footnotesize
 \Definitarg {:ignore}
+}
 
+The value of this initarg must be one of the symbols \texttt{ignore}
+and \texttt{ignorable} from the \texttt{common-lisp} package.
+
+{\footnotesize
 \Defmethod {ignore} {(description {\tt ignore-mixin})}
+}
 
 Given an instance of the class \texttt{ignore-mixin}, this method
 returns the ignore information, as supplied by the initarg
@@ -210,14 +289,20 @@ returns the ignore information, as supplied by the initarg
 \subsection{\texttt{dynamic-extent-mixin}}
 \label{sec-dynamic-extent-mixin}
 
+{\footnotesize
 \Defclass {dynamic-extent-mixin}
+}
 
 This class is a superclass of query classes that provide information
-of entities that can be declared \texttt{dynamic-extent}.
+about entities that can be declared \texttt{dynamic-extent}.
 
+{\footnotesize
 \Definitarg {:dynamic-extent}
+}
 
+{\footnotesize
 \Defmethod {dynamic-extent} {(description {\tt dynamic-extent-mixin})}
+}
 
 Given an instance of the class \texttt{dynamic-extent-mixin}, this method
 returns the dynamic-extent information, as supplied by the initarg
@@ -226,13 +311,21 @@ returns the dynamic-extent information, as supplied by the initarg
 \subsection{\texttt{expansion-mixin}}
 \label{sec-expansion-mixin}
 
+{\footnotesize
+\Defclass {expansion-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have an expansion.  In particular, it is a
+about entities that can have an expansion.  In particular, it is a
 superclass of the abstract class \texttt{symbol-macro-description}.
 
+{\footnotesize
 \Definitarg {:expansion}
+}
 
+{\footnotesize
 \Defmethod {expansion} {(description {\tt expansion-mixin})}
+}
 
 Given an instance of the class \texttt{expansion-mixin}, this method
 returns the expansion information, as supplied by the initarg
@@ -241,13 +334,21 @@ returns the expansion information, as supplied by the initarg
 \subsection{\texttt{expander-mixin}}
 \label{sec-expander-mixin}
 
+{\footnotesize
+\Defclass {expander-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have an expander function.  In particular, it is
+about entities that can have an expander function.  In particular, it is
 a superclass of the abstract class \texttt{macro-description}.
 
+{\footnotesize
 \Definitarg {:expander}
+}
 
+{\footnotesize
 \Defmethod {expander} {(description {\tt expander-mixin})}
+}
 
 Given an instance of the class \texttt{expander-mixin}, this method
 returns the expander information, as supplied by the initarg
@@ -256,13 +357,21 @@ returns the expander information, as supplied by the initarg
 \subsection{\texttt{class-name-mixin}}
 \label{sec-class-name-mixin}
 
+{\footnotesize
+\Defclass {class-name-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have a class-name.  In particular, it is a
+about entities that can have a class-name.  In particular, it is a
 superclass of the class \texttt{global-function-description}.
 
+{\footnotesize
 \Definitarg {:class-name}
+}
 
+{\footnotesize
 \Defmethod {class-name} {(description {\tt class-name-mixin})}
+}
 
 Given an instance of the class \texttt{class-name-mixin}, this method
 returns the class-name information, as supplied by the initarg
@@ -271,18 +380,26 @@ returns the class-name information, as supplied by the initarg
 \subsection{\texttt{inline-mixin}}
 \label{sec-inline-mixin}
 
+{\footnotesize
+\Defclass {inline-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have inline information.  In particular, it is a
+about entities that can have inline information.  In particular, it is a
 superclass of the class \texttt{authentic-function-description}.
 
+{\footnotesize
 \Definitarg {:inline}
+}
 
 Possible values for this initarg are \texttt{nil}, \texttt{inline},
 and \texttt{notinline}, all symbols in the \texttt{common-lisp}
 package.  The value \texttt{nil} means that no inline information has
 been provided, and this is the default value if the initarg is omitted.
 
+{\footnotesize
 \Defmethod {inline} {(description {\tt inline-mixin})}
+}
 
 Given an instance of the class \texttt{inline-mixin}, this method
 returns the inline information, as supplied by the initarg
@@ -291,18 +408,26 @@ returns the inline information, as supplied by the initarg
 \subsection{\texttt{method-class-name-mixin}}
 \label{sec-method-class-name-mixin}
 
+{\footnotesize
+\Defclass {method-class-name-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have method-class-name information.  In
+about entities that can have method-class-name information.  In
 particular, it is a superclass of the class
 \texttt{generic-function-description}.
 
+{\footnotesize
 \Definitarg {:method-class-name}
+}
 
 The value of this initarg is a symbol naming a class to be used for
 methods.  If this initarg is not given, it defaults to the symbol
 \texttt{standard-method}.
 
+{\footnotesize
 \Defmethod {method-class-name} {(description {\tt method-class-name-mixin})}
+}
 
 Given an instance of the class \texttt{method-class-name-mixin}, this
 method returns the method-class-name information, as supplied by the
@@ -311,16 +436,24 @@ initarg \texttt{:method-class-name}.
 \subsection{\texttt{speed-mixin}}
 \label{sec-speed-mixin}
 
+{\footnotesize
+\Defclass {speed-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have speed information.  In particular, it is a
+about entities that can have speed information.  In particular, it is a
 superclass of the class \texttt{optimize-description}.
 
+{\footnotesize
 \Definitarg {:speed}
+}
 
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
+{\footnotesize
 \Defmethod {speed} {(description {\tt speed-mixin})}
+}
 
 Given an instance of the class \texttt{speed-mixin}, this method
 returns the compilation-speed information, as supplied by the initarg
@@ -329,16 +462,24 @@ returns the compilation-speed information, as supplied by the initarg
 \subsection{\texttt{compilation-speed-mixin}}
 \label{sec-compilation-speed-mixin}
 
+{\footnotesize
+\Defclass {compilation-speed-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have compilation-speed information.  In particular, it is a
+about entities that can have compilation-speed information.  In particular, it is a
 superclass of the class \texttt{optimize-description}.
 
+{\footnotesize
 \Definitarg {:compilation-speed}
+}
 
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
+{\footnotesize
 \Defmethod {compilation-speed} {(description {\tt compilation-speed-mixin})}
+}
 
 Given an instance of the class \texttt{compilation-speed-mixin}, this method
 returns the compilation-compilation-speed information, as supplied by the initarg
@@ -347,16 +488,23 @@ returns the compilation-compilation-speed information, as supplied by the initar
 \subsection{\texttt{debug-mixin}}
 \label{sec-debug-mixin}
 
+{\footnotesize
+\Defclass {debug-mixin}
+}
 This class is a superclass of query classes that provide information
-of entities that can have debug information.  In particular, it is a
+about entities that can have debug information.  In particular, it is a
 superclass of the class \texttt{optimize-description}.
 
+{\footnotesize
 \Definitarg {:debug}
+}
 
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
+{\footnotesize
 \Defmethod {debug} {(description {\tt debug-mixin})}
+}
 
 Given an instance of the class \texttt{debug-mixin}, this method
 returns the compilation-debug information, as supplied by the initarg
@@ -365,16 +513,24 @@ returns the compilation-debug information, as supplied by the initarg
 \subsection{\texttt{space-mixin}}
 \label{sec-space-mixin}
 
+{\footnotesize
+\Defclass {space-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have space information.  In particular, it is a
+about entities that can have space information.  In particular, it is a
 superclass of the class \texttt{optimize-description}.
 
+{\footnotesize
 \Definitarg {:space}
+}
 
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
+{\footnotesize
 \Defmethod {space} {(description {\tt space-mixin})}
+}
 
 Given an instance of the class \texttt{space-mixin}, this method
 returns the compilation-space information, as supplied by the initarg
@@ -383,16 +539,24 @@ returns the compilation-space information, as supplied by the initarg
 \subsection{\texttt{safety-mixin}}
 \label{sec-safety-mixin}
 
+{\footnotesize
+\Defclass {safety-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have safety information.  In particular, it is a
+about entities that can have safety information.  In particular, it is a
 superclass of the class \texttt{optimize-description}.
 
+{\footnotesize
 \Definitarg {:safety}
+}
 
 The value of this initarg must be an integer between $0$ and $3$
 inclusive.
 
+{\footnotesize
 \Defmethod {safety} {(description {\tt safety-mixin})}
+}
 
 Given an instance of the class \texttt{safety-mixin}, this method
 returns the compilation-safety information, as supplied by the initarg
@@ -401,17 +565,25 @@ returns the compilation-safety information, as supplied by the initarg
 \subsection{\texttt{superclass-names-mixin}}
 \label{sec-superclass-names-mixin}
 
+{\footnotesize
+\Defclass {superclass-names-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have superclass-names information.  In
+about entities that can have superclass-names information.  In
 particular, it is a superclass of the class \texttt{class-description}.
 
+{\footnotesize
 \Definitarg {:superclass-names}
+}
 
 The value of this initarg is a list of symbols naming a classes.  If
 this initarg is not given, it defaults the empty list.  Only
 explicitly mentioned superclass names should be provided.
 
+{\footnotesize
 \Defmethod {superclass-names} {(description {\tt superclass-names-mixin})}
+}
 
 Given an instance of the class \texttt{superclass-names-mixin}, this
 method returns the superclass-names information, as supplied by the
@@ -420,18 +592,26 @@ initarg \texttt{:superclass-names}.
 \subsection{\texttt{metaclass-name-mixin}}
 \label{sec-metaclass-name-mixin}
 
+{\footnotesize
+\Defclass {metaclass-name-mixin}
+}
+
 This class is a superclass of query classes that provide information
-of entities that can have metaclass-name information.  In
+about entities that can have metaclass-name information.  In
 particular, it is a superclass of the class
 \texttt{class-description}.
 
+{\footnotesize
 \Definitarg {:metaclass-name}
+}
 
 The value of this initarg is a symbol naming a class to be used as a
 metaclasss.  If this initarg is not given, it defaults to the symbol
 \texttt{standard-class}.
 
+{\footnotesize
 \Defmethod {metaclass-name} {(description {\tt metaclass-name-mixin})}
+}
 
 Given an instance of the class \texttt{metaclass-name-mixin}, this
 metaclass returns the metaclass-name information, as supplied by the
@@ -439,13 +619,17 @@ initarg \texttt{:metaclass-name}.
 
 \section{Abstract query classes}
 
+{\footnotesize
 \Defclass {variable-description}
+}
 
 This abstract class is the superclass of every query class returned by
 a call to the generic function \texttt{describe-variable}.  It is a
 subclass of the class \texttt{name-mixin}.
 
+{\footnotesize
 \Defclass {authentic-variable-description}
+}
 
 This abstract class is a subclass of the classes
 \texttt{variable-description} and \texttt{type-mixin}.
@@ -454,7 +638,9 @@ It is a superclass of the two instantiable classes
 \texttt{lexical-variable-description} and
 \texttt{special-variable-description}.
 
+{\footnotesize
 \Defclass {symbol-macro-description}
+}
 
 This abstract class is a subclass of the classes
 \texttt{variable-description}, \texttt{type-mixin}, and
@@ -464,13 +650,17 @@ It is a superclass of the two instantiable classes
 \texttt{local-symbol-macro-description} and
 \texttt{global-symbol-macro-description}.
 
+{\footnotesize
 \Defclass {function-description}
+}
 
 This abstract class is the superclass of every query class returned by
 a call to the generic function \texttt{function-description}.  It is a
 subclass of the class \texttt{name-mixin}.
 
+{\footnotesize
 \Defclass {authentic-function-description}
+}
 
 This abstract class is a subclass of the classes
 \texttt{function-description} and \texttt{type-mixin}.
@@ -479,7 +669,9 @@ It is a superclass of the two instantiable classes
 \texttt{local-function-description} and
 \texttt{global-function-description}.
 
+{\footnotesize
 \Defclass {macro-description}
+}
 
 This abstract class is a subclass of the classes
 \texttt{function-description} and \texttt{expander-mixin}.
@@ -491,8 +683,11 @@ It is a superclass of the two instantiable classes
 \section{Instantiable classes}
 
 \subsection{Variable description}
+\label{sec-instantiable-classes-variable-desciption}
 
+{\footnotesize
 \Defclass {lexical-variable-description}
+}
 
 This class represents information about lexical variables.  An
 instance of this class is returned by a call to \texttt{variable-description}
@@ -503,7 +698,9 @@ This class is a subclass of the classes
 \texttt{authentic-variable-description} \texttt{identity-mixin},
 \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
+{\footnotesize
 \Defclass {special-variable-description}
+}
 
 This class represents information about special variables.   An
 instance of this class is returned by a call to \texttt{variable-description}
@@ -513,7 +710,9 @@ special variable.
 This class is a subclass of the classes
 \texttt{authentic-variable-description} and \texttt{global-p-mixin}.
 
+{\footnotesize
 \Defclass {constant-variable-description}
+}
 
 This class represents information about constant variables.   An
 instance of this class is returned by a call to \texttt{variable-description}
@@ -523,14 +722,18 @@ constant variable.
 This class is a subclass of the classes \texttt{variable-description} and
 \texttt{value-mixin}.
 
+{\footnotesize
 \Defclass {global-symbol-macro-description}
+}
 
 This class is a subclass of \texttt{symbol-macro-description}.  It is
 returned by a call to \texttt{variable-descriptionrmation} when the name is
 defined as a global symbol macro, as defined by
 \texttt{define-symbol-macro}.
 
+{\footnotesize
 \Defclass {local-symbol-macro-description}
+}
 
 This class is a subclass of \texttt{symbol-macro-description} and
 \texttt{ignore-mixin}.  It is returned by a call to
@@ -538,8 +741,11 @@ This class is a subclass of \texttt{symbol-macro-description} and
 symbol macro, as defined by \texttt{symbol-macrolet}.
 
 \subsection{Function description}
+\label{sec-instantiable-classes-function-desciption}
 
+{\footnotesize
 \Defclass {local-function-description}
+}
 
 This class represents information about local functions introduced by
 \texttt{flet} or \texttt{labels}.  An instance of this class is
@@ -549,7 +755,9 @@ the function name passed as an argument refers to a local function.
 This class is a subclass of \texttt{authentic-function-description},
 \texttt{identity-mixin}, \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
+{\footnotesize
 \Defclass {global-function-description}
+}
 
 This class represents information about global functions.  An instance
 of this class is returned by a call to \texttt{function-description} when it
@@ -559,13 +767,17 @@ global function.
 This class is a subclass of \texttt{authentic-function-description},
 \texttt{compiler-macro-mixin}, and \texttt{class-name-mixin}.
 
+{\footnotesize
 \Defclass {generic-function-description}
+}
 
 This class is a subclass of \texttt{global-function-description} and
 \texttt{method-class-name-mixin}.
 
 
+{\footnotesize
 \Defclass {local-macro-description}
+}
 
 This class represents information about local macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
@@ -574,16 +786,21 @@ as an argument refers to a local macro.
 
 This class is a subclass of \texttt{macro-description} and \texttt{ignore-mixin}.
 
+{\footnotesize
 \Defclass {global-macro-description}
+}
 
 This class represents information about global macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
 \texttt{function-description} when it turns out that the function name passed
 as an argument refers to a global macro.
 
-This class is a subclass of \texttt{macro-description} and \texttt{compiler-macro-mixin}.
+This class is a subclass of \texttt{macro-description} and
+\texttt{compiler-macro-mixin}.
 
+{\footnotesize
 \Defclass {special-operator-description}
+}
 
 This class represents information about special operators.  An
 instance of this class is returned by a call to \texttt{function-description}
@@ -593,8 +810,11 @@ to a specialoperator.
 This class is a subclass of the class \texttt{function-description}.
 
 \subsection{Block description}
+\label{sec-instantiable-classes-block-desciption}
 
+{\footnotesize
 \Defclass {block-description}
+}
 
 This class represents information about blocks introduced by
 \texttt{block}.  An instance of this class is returned by a call to
@@ -605,8 +825,11 @@ This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
 \subsection{Tag description}
+\label{sec-instantiable-classes-tag-desciption}
 
+{\footnotesize
 \Defclass {tag-description}
+}
 
 This class represents information about tags introduced by
 \texttt{tagbody}.  An instance of this class is returned by a call to
@@ -617,8 +840,11 @@ This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
 \subsection{Class description}
+\label{sec-instantiable-classes-class-desciption}
 
+{\footnotesize
 \Defclass {class-description}
+}
 
 This class represents information about a class introduced by
 \texttt{defclass}.  An instance of this class is returned by a call to
@@ -629,9 +855,12 @@ This class is a subclass of the classes \texttt{name-mixin},
 \texttt{superclass-names-mixin},  and
 \texttt{metaclass-name-mixin}.
 
-\subsection{Optimization description}
+\subsection{Optimize description}
+\label{sec-instantiable-classes-optimize-desciption}
 
+{\footnotesize
 \Defclass {optimize-description}
+}
 
 This class is a subclass of \texttt{speed-mixin},
 \texttt{compilation-speed-mixin}, \texttt{debug-mixin},
