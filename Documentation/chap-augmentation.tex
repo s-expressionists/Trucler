@@ -669,6 +669,38 @@ function description.  Finally, it calls
 \texttt{augment-with-function-description} in order to create and
 return a new environment.
 
+\subsubsection{Annotating a function with an \texttt{ignore} declaration}
+\label{sec-annotating-a-function-with-ignore}
+
+{\footnotesize
+\Defgeneric {add-function-ignore} {client environment name ignore}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the function named \textit{name} has
+been annotated with an \texttt{ignore} declaration.
+
+The argument \textit{ignore} must be the symbol \texttt{ignore} or the
+symbol \texttt{ignorable}.
+
+This function can be used when \textit{name} names a local function or
+a local macro.
+
+{\footnotesize
+\Defmethod{add-function-ignore}
+{client
+ (environment environment)
+ name
+ ignore}
+}
+
+This is the main method on \texttt{add-function-ignore} It calls
+\texttt{describe-function} to obtain an existing function description.
+It then calls \texttt{merge-ignore} to create a new function
+description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
 \subsection{Adding a block}
 
 {\footnotesize
