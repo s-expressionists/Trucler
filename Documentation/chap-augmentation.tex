@@ -601,7 +601,20 @@ function named \textit{name}.  The optional argument \textit{identity}
 can be supplied by client code to distinguish different functions with
 the same name.
 
-\subsection{Adding and annotating macros}
+{\footnotesize
+\Defmethod{add-local-function}
+{client
+ (environment environment)
+ name
+ \optional identity}
+}
+
+Tis is the main method on \texttt{add-local-function}.  It
+instantiates the class \texttt{local-function-description} and then
+creates a new environment by calling the function
+\texttt{augment-with-function-description}.
+
+\subsubsection{Adding a local macro}
 
 {\footnotesize
 \Defgeneric {add-local-macro} {client environment name expander}
