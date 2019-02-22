@@ -626,6 +626,49 @@ macro named \texttt{name}.  The argument \textit{expander} is a
 macro-expansion function that takes two arguments, a form and an
 environment.
 
+{\footnotesize
+\Defmethod {add-local-macro} {client (environment environment) name expander}
+}
+
+This is the main method on \texttt{add-local-macro}.  It instantiates
+the class named \texttt{local-macro-description} and then creates a
+new environment by calling the function
+\texttt{augment-with-function-description}.
+
+\subsubsection{Annotating a function with a type}
+\label{sec-annotating-a-function-with-a-type}
+
+{\footnotesize
+\Defgeneric {add-function-type} {client environment name type}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the function named \textit{name} has
+been annotated with the type specifier \textit{type}.
+
+The type of the function returned when the new environment is queried
+for the function named \textit{name} will have a new type that is the
+conjunction of \textit{type} and the type it had in
+\textit{environment}.
+
+This function can be used when \textit{name} names a local function or
+a global function.
+
+{\footnotesize
+\Defmethod{add-function-type}
+{client
+ (environment environment)
+ name
+ type}
+}
+
+This is the main method on \texttt{add-function-type} It
+calls \texttt{describe-function} to obtain an existing function
+description.  It then calls \texttt{merge-type} to create a new
+function description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
 \subsection{Adding a block}
 
 {\footnotesize
