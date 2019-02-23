@@ -210,9 +210,10 @@ identify the information supplied by the class instances.
 \Defmethod {name} {(description {\tt name-mixin})}
 }
 
-Given an instance of the class \texttt{name-mixin}, this method
-returns the name information, as supplied by the initarg
-\texttt{:name}.
+\def\Given #1 {Given an instance of the class \texttt{#1},
+this method returns }
+\def\Assupplied #1 {as supplied by the initarg \texttt{#1}.}
+\Given{name-mixin} the name information, \Assupplied{:name}
 
 \subsection{\texttt{identity-mixin}}
 \label{sec-identity-mixin}
@@ -233,9 +234,7 @@ same name.
 \Defmethod {identity} {(description {\tt identity-mixin})}
 }
 
-Given an instance of the class \texttt{identity-mixin}, this method
-returns the identity information, as supplied by the initarg
-\texttt{:identity}.
+\Given{identity-mixin} the identity information, \Assupplied{:idenity}
 
 \subsection{\texttt{type-mixin}}
 \label{sec-type-mixin}
