@@ -94,9 +94,12 @@
            #:add-function-ignore
            #:add-variable-dynamic-extent
            #:add-function-dynamic-extent
-           #:add-optimize
+           #:add-speed
+           #:add-compilation-speed
+           #:add-debug
+           #:add-safety
+           #:add-space
            #:add-inline
-           #:add-inline-expansion
            ;; Condition types.
            #:no-description
            #:no-variable-description
