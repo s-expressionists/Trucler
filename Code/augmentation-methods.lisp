@@ -104,38 +104,37 @@
      client environment
      (merge-dynamic-extent client description))))
 
-(defmethod add-optimize
-    (client (environment environment) (quality (eql 'cl:speed)) value)
+(defmethod add-speed
+    (client (environment environment) value)
   (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
      (merge-speed client description value))))
 
-(defmethod add-optimize
-    (client (environment environment) (quality (eql 'cl:compilation-speed)) value)
+(defmethod add-compilation-speed
+    (client (environment environment) value)
   (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
      (merge-compilation-speed client description value))))
 
-(defmethod add-optimize
-    (client (environment environment) (quality (eql 'cl:debug)) value)
+(defmethod add-debug
+    (client (environment environment) value)
   (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
      (merge-debug client description value))))
 
-(defmethod add-optimize
-    (client (environment environment) (quality (eql 'cl:safety)) value)
+(defmethod add-safety
+    (client (environment environment) value)
   (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
      (merge-safety client description value))))
 
-(defmethod add-optimize
-    (client (environment environment) (quality (eql 'cl:space)) value)
+(defmethod add-space
+    (client (environment environment) value)
   (let ((description (describe-optimize client environment)))
     (augment-with-optimize-description
      client environment
      (merge-space client description value))))
-
