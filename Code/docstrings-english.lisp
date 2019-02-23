@@ -82,7 +82,7 @@
                    a DYNAMIC-EXTENT declaration in scope for the description~@
                    given as the argument."))
 
-(setf (documentation 'compler-macro 'function)
+(setf (documentation 'compiler-macro 'function)
       (format nil ""))
 
 (setf (documentation 'expander 'function)
