@@ -728,6 +728,33 @@ description.  Finally, it calls
 \texttt{augment-with-function-description} in order to create and
 return a new environment.
 
+\subsubsection{Annotating a function with a \texttt{dynamic-extent} declaration}
+\label{sec-annotating-a-function-with-dynamic-extent}
+
+{\footnotesize
+\Defgeneric {add-function-dynamic-extent} {client environment name}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the function named \textit{name} has
+been annotated with an \texttt{dynamic-extent} declaration.
+
+This function can be used only when \textit{name} names a local function.
+
+{\footnotesize
+\Defmethod{add-function-dynamic-extent}
+{client
+ (environment environment)
+ name}
+}
+
+This is the main method on \texttt{add-function-dynamic-extent}.  It
+calls \texttt{describe-function} to obtain an existing variable
+description.  It then calls \texttt{merge-dynamic-extent} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
 \subsection{Adding a block}
 
 {\footnotesize
