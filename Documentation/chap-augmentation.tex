@@ -468,7 +468,7 @@ variables with the same name.
  \optional identity}
 }
 
-This is the main method on \texttt{add-lexical-variable} It
+This is the main method on \texttt{add-lexical-variable}.  It
 instantiates the class \texttt{lexical-variable-description} and then
 creates a new environment by calling the function
 \texttt{augment-with-variable-description}.
@@ -490,7 +490,7 @@ variable named \textit{name}.
  name}
 }
 
-This is the main method on \texttt{add-special-variable} It
+This is the main method on \texttt{add-special-variable}.  It
 instantiates the class \texttt{special-variable-description} and then
 creates a new environment by calling the function
 \texttt{augment-with-variable-description}.
@@ -515,7 +515,7 @@ symbol macro named \texttt{name}, with the expansion
  expansion}
 }
 
-This is the main method on \texttt{add-local-symbol-macro} It
+This is the main method on \texttt{add-local-symbol-macro}.  It
 instantiates the class \texttt{local-symbol-macro-description} and then
 creates a new environment by calling the function
 \texttt{augment-with-variable-description}.
@@ -548,7 +548,7 @@ when \textit{name} names a constant variable.
  type}
 }
 
-This is the main method on \texttt{add-variable-type} It
+This is the main method on \texttt{add-variable-type}.  It
 calls \texttt{describe-variable} to obtain an existing variable
 description.  It then calls \texttt{merge-type} to create a new
 variable description.  Finally, it calls
@@ -580,9 +580,36 @@ or a local symbol macro.
  ignore}
 }
 
-This is the main method on \texttt{add-variable-ignore} It
+This is the main method on \texttt{add-variable-ignore}.  It
 calls \texttt{describe-variable} to obtain an existing variable
 description.  It then calls \texttt{merge-ignore} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-variable-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a variable with a \texttt{dynamic-extent} declaration}
+\label{sec-annotating-a-variable-with-dynamic-extent}
+
+{\footnotesize
+\Defgeneric {add-variable-dynamic-extent} {client environment name}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the variable named \textit{name} has
+been annotated with an \texttt{dynamic-extent} declaration.
+
+This function can be used only when \textit{name} names a lexical variable.
+
+{\footnotesize
+\Defmethod{add-variable-dynamic-extent}
+{client
+ (environment environment)
+ name}
+}
+
+This is the main method on \texttt{add-variable-dynamic-extent}.  It
+calls \texttt{describe-variable} to obtain an existing variable
+description.  It then calls \texttt{merge-dynamic-extent} to create a new
 variable description.  Finally, it calls
 \texttt{augment-with-variable-description} in order to create and
 return a new environment.
@@ -662,7 +689,7 @@ a global function.
  type}
 }
 
-This is the main method on \texttt{add-function-type} It
+This is the main method on \texttt{add-function-type}.  It
 calls \texttt{describe-function} to obtain an existing function
 description.  It then calls \texttt{merge-type} to create a new
 function description.  Finally, it calls
@@ -694,7 +721,7 @@ a local macro.
  ignore}
 }
 
-This is the main method on \texttt{add-function-ignore} It calls
+This is the main method on \texttt{add-function-ignore}.  It calls
 \texttt{describe-function} to obtain an existing function description.
 It then calls \texttt{merge-ignore} to create a new function
 description.  Finally, it calls
