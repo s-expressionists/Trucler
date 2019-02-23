@@ -256,8 +256,7 @@ If this initarg is not supplied, it defaults to \texttt{t}.
 \Defmethod {type} {(description {\tt type-mixin})}
 }
 
-\Given{type-mixin} the type information, as supplied by the initarg
-\texttt{:type}.
+\Given{type-mixin} the type information, \Assupplied{:type}
 
 \subsection{\texttt{ignore-mixin}}
 \label{sec-ignore-mixin}
@@ -280,8 +279,7 @@ and \texttt{ignorable} from the \texttt{common-lisp} package.
 \Defmethod {ignore} {(description {\tt ignore-mixin})}
 }
 
-\Given{ignore-mixin} the ignore information, as supplied by the initarg
-\texttt{:ignore}.
+\Given{ignore-mixin} the ignore information, \Assupplied{:ignore}
 
 \subsection{\texttt{dynamic-extent-mixin}}
 \label{sec-dynamic-extent-mixin}
@@ -301,8 +299,7 @@ about entities that can be declared \texttt{dynamic-extent}.
 \Defmethod {dynamic-extent} {(description {\tt dynamic-extent-mixin})}
 }
 
-\Given{dynamic-extent-mixin} the dynamic-extent information, as supplied by the initarg
-\texttt{:dynamic-extent}.
+\Given{dynamic-extent-mixin} the dynamic-extent information, \Assupplied{:dynamic-extent}
 
 \subsection{\texttt{expansion-mixin}}
 \label{sec-expansion-mixin}
@@ -323,8 +320,7 @@ superclass of the abstract class \texttt{symbol-macro-description}.
 \Defmethod {expansion} {(description {\tt expansion-mixin})}
 }
 
-\Given{expansion-mixin} the expansion information, as supplied by the initarg
-\texttt{:expansion}.
+\Given{expansion-mixin} the expansion information, \Assupplied{:expansion}
 
 \subsection{\texttt{expander-mixin}}
 \label{sec-expander-mixin}
@@ -345,8 +341,7 @@ a superclass of the abstract class \texttt{macro-description}.
 \Defmethod {expander} {(description {\tt expander-mixin})}
 }
 
-\Given{expander-mixin} the expander information, as supplied by the initarg
-\texttt{:expander}.
+\Given{expander-mixin} the expander information, \Assupplied{:expander}
 
 \subsection{\texttt{class-name-mixin}}
 \label{sec-class-name-mixin}
@@ -367,8 +362,7 @@ superclass of the class \texttt{global-function-description}.
 \Defmethod {class-name} {(description {\tt class-name-mixin})}
 }
 
-\Given{class-name-mixin} the class-name information, as supplied by the initarg
-\texttt{:class-name}.
+\Given{class-name-mixin} the class-name information, \Assupplied{:class-name}
 
 \subsection{\texttt{inline-mixin}}
 \label{sec-inline-mixin}
@@ -394,8 +388,7 @@ been provided, and this is the default value if the initarg is omitted.
 \Defmethod {inline} {(description {\tt inline-mixin})}
 }
 
-\Given{inline-mixin} the inline information, as supplied by the initarg
-\texttt{:inline}.
+\Given{inline-mixin} the inline information, \Assupplied{:inline}
 
 \subsection{\texttt{method-class-name-mixin}}
 \label{sec-method-class-name-mixin}
@@ -421,8 +414,7 @@ methods.  If this initarg is not given, it defaults to the symbol
 \Defmethod {method-class-name} {(description {\tt method-class-name-mixin})}
 }
 
-\Given{method-class-name-mixin} the method-class-name information, as supplied by the
-initarg \texttt{:method-class-name}.
+\Given{method-class-name-mixin} the method-class-name information, \Assupplied{:method-class-name}
 
 \subsection{\texttt{speed-mixin}}
 \label{sec-speed-mixin}
@@ -446,8 +438,7 @@ inclusive.
 \Defmethod {speed} {(description {\tt speed-mixin})}
 }
 
-\Given{speed-mixin} the compilation-speed information, as supplied by the initarg
-\texttt{:speed}.
+\Given{speed-mixin} the compilation-speed information, \Assupplied{:speed}
 
 \subsection{\texttt{compilation-speed-mixin}}
 \label{sec-compilation-speed-mixin}
@@ -471,8 +462,7 @@ inclusive.
 \Defmethod {compilation-speed} {(description {\tt compilation-speed-mixin})}
 }
 
-\Given{compilation-speed-mixin} the compilation-speed information, as supplied by the initarg
-\texttt{:compilation-speed}.
+\Given{compilation-speed-mixin} the compilation-speed information, \Assupplied{:compilation-speed}
 
 \subsection{\texttt{debug-mixin}}
 \label{sec-debug-mixin}
@@ -495,8 +485,7 @@ inclusive.
 \Defmethod {debug} {(description {\tt debug-mixin})}
 }
 
-\Given{debug-mixin} the debug information, as supplied by the initarg
-\texttt{:debug}.
+\Given{debug-mixin} the debug information, \Assupplied{:debug}
 
 \subsection{\texttt{space-mixin}}
 \label{sec-space-mixin}
@@ -520,8 +509,7 @@ inclusive.
 \Defmethod {space} {(description {\tt space-mixin})}
 }
 
-\Given{space-mixin} the space information, as supplied by the initarg
-\texttt{:space}.
+\Given{space-mixin} the space information, \Assupplied{:space}
 
 \subsection{\texttt{safety-mixin}}
 \label{sec-safety-mixin}
@@ -545,8 +533,7 @@ inclusive.
 \Defmethod {safety} {(description {\tt safety-mixin})}
 }
 
-\Given{safety-mixin} the safety information, as supplied by the initarg
-\texttt{:safety}.
+\Given{safety-mixin} the safety information, \Assupplied{:safety}
 
 \subsection{\texttt{superclass-names-mixin}}
 \label{sec-superclass-names-mixin}
@@ -571,8 +558,7 @@ explicitly mentioned superclass names should be provided.
 \Defmethod {superclass-names} {(description {\tt superclass-names-mixin})}
 }
 
-\Given{superclass-names-mixin} the superclass-names information, as supplied by the
-initarg \texttt{:superclass-names}.
+\Given{superclass-names-mixin} the superclass-names information, \Assupplied{:superclass-names}
 
 \subsection{\texttt{metaclass-name-mixin}}
 \label{sec-metaclass-name-mixin}
@@ -598,8 +584,7 @@ metaclasss.  If this initarg is not given, it defaults to the symbol
 \Defmethod {metaclass-name} {(description {\tt metaclass-name-mixin})}
 }
 
-\Given{metaclass-name-mixin} the metaclass-name information, as supplied by the
-initarg \texttt{:metaclass-name}.
+\Given{metaclass-name-mixin} the metaclass-name information, \Assupplied{:metaclass-name}
 
 \section{Abstract query classes}
 
