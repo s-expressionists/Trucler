@@ -755,6 +755,38 @@ variable description.  Finally, it calls
 \texttt{augment-with-function-description} in order to create and
 return a new environment.
 
+\subsubsection{Annotating a function with an \texttt{inline} declaration}
+\label{sec-annotating-a-function-with-inline}
+
+{\footnotesize
+\Defgeneric {add-inline} {client environment name inline}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the function named \textit{name} has
+been annotated with an \texttt{inline} declaration.
+
+The argument \textit{inline} must be the symbol \texttt{inline} or the
+symbol \texttt{notinline}.
+
+This function can be used when \textit{name} names a local function or
+a local macro.
+
+{\footnotesize
+\Defmethod{add-inline}
+{client
+ (environment environment)
+ name
+ inline}
+}
+
+This is the main method on \texttt{add-inline}.  It calls
+\texttt{describe-function} to obtain an existing function description.
+It then calls \texttt{merge-inline} to create a new function
+description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
 \subsection{Adding a block}
 
 {\footnotesize
