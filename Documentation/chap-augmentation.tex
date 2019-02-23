@@ -836,3 +836,105 @@ This is the main method on \texttt{add-tag}.  It instantiates the
 class \texttt{tag-description} and then creates a new
 environment by calling the function
 \texttt{augment-with-tag-description}.
+
+\subsection{Annotating the \texttt{optimize} qualities}
+
+\def\Optimizefunction #1 {This function returns a new environment that
+  is like \textit{environment} except that the \texttt{optimize}
+  information has been updated with a \texttt{#1} quality value.
+
+The argument \textit{value} must be an integer between $0$ and $3$.}
+
+
+\def\Optimizemethod #1 {This is the main method on
+  \texttt{add-#1}.  It calls \texttt{describe-optimize} to obtain
+  the existing optimize description.  It then calls
+  \texttt{merge-#1} to create a new optimize description.  Finally,
+  it calls \texttt{augment-with-optimize-description} in order to
+  create and return a new environment.}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{speed} value}
+\label{sec-annotating-optimize-with-speed}
+
+{\footnotesize
+\Defgeneric {add-speed} {client environment value}
+}
+
+\Optimizefunction{speed}
+
+{\footnotesize
+\Defmethod{add-speed}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{speed}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{compilation-speed} value}
+
+{\footnotesize
+\Defgeneric {add-compilation-speed} {client environment value}
+}
+
+\Optimizefunction{compilation-speed}
+
+{\footnotesize
+\Defmethod{add-compilation-speed}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{compilation-speed}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{debug} value}
+
+{\footnotesize
+\Defgeneric {add-debug} {client environment value}
+}
+
+\Optimizefunction{debug}
+
+{\footnotesize
+\Defmethod{add-debug}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{debug}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{safety} value}
+
+{\footnotesize
+\Defgeneric {add-safety} {client environment value}
+}
+
+\Optimizefunction{safety}
+
+{\footnotesize
+\Defmethod{add-safety}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{safety}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{space} value}
+
+{\footnotesize
+\Defgeneric {add-space} {client environment value}
+}
+
+\Optimizefunction{space}
+
+{\footnotesize
+\Defmethod{add-space}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{space}
