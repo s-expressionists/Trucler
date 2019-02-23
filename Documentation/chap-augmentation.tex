@@ -799,6 +799,19 @@ named \textit{name}, which must be a symbol.  The optional argument
 \textit{identity} can be supplied by client code to distinguish
 different blocks with the same name.
 
+{\footnotesize
+\Defmethod{add-block}
+{client
+ (environment environment)
+ name
+ \optional identity}
+}
+
+This is the main method on \texttt{add-block}.  It instantiates the
+class \texttt{block-description} and then creates a new
+environment by calling the function
+\texttt{augment-with-block-description}.
+
 \subsection{Adding tags}
 
 {\footnotesize
@@ -810,3 +823,16 @@ This function returns a new environment that is like
 named \textit{tag}, which must be a \emph{go tag}, i.e. a symbol or an
 integer.  The optional argument \textit{identity} can be supplied by
 client code to distinguish different tags with the same name.
+
+{\footnotesize
+\Defmethod{add-tag}
+{client
+ (environment environment)
+ tag
+ \optional identity}
+}
+
+This is the main method on \texttt{add-tag}.  It instantiates the
+class \texttt{tag-description} and then creates a new
+environment by calling the function
+\texttt{augment-with-tag-description}.
