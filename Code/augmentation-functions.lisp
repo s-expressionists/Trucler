@@ -39,11 +39,20 @@
 (defgeneric add-function-dynamic-extent
     (client environment function-name))
 
-(defgeneric add-optimize
-    (client environment quality value))
-
 (defgeneric add-inline
     (client environment function-name inline))
 
-(defgeneric add-inline-expansion
-    (client environment function-name expansion))
+(defgeneric add-speed
+    (client environment value))
+
+(defgeneric add-compilation-speed
+    (client environment value))
+
+(defgeneric add-debug
+    (client environment value))
+
+(defgeneric add-safety
+    (client environment value))
+
+(defgeneric add-space
+    (client environment value))
