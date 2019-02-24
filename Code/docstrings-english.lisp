@@ -15,7 +15,7 @@
 (setf (documentation 'describe-block 'function)
       (format nil "Return an instance of the class BLOCK-DESCRIPTION~@
                    describing the role of NAME in ENVIRONMENT~@
-                   when NAME was found in a position to name a block,
+                   when NAME was found in a position to name a block,~@
                    typically in a RETURN-FROM special form."))
 
 (setf (documentation 'describe-tag 'function)
@@ -29,6 +29,14 @@
       (format nil "Return an instance of the class OPTIMIZE-DESCRIPTION~@
                    describing the values of all OPTIMIZE qualities~@
                    in ENVIRONMENT."))
+
+(setf (documentation 'describe-class 'function)
+      (format nil "Return an instance of the class CLASS-DESCRIPTION~@
+                   describing the role of NAME in ENVIRONMENT~@
+                   when NAME was found in a position to name a class,~@
+                   typically as a specializer in a DEFMETHOD form, as~@
+                   as a superclass name in a DEFCLASS form, or as the~@
+                   argument to a :METACLASS option of a DEFCLASS form."))
 
 (setf (documentation 'name 'function)
       (format nil "This function can be used on any instance returned~@
