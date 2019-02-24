@@ -92,7 +92,17 @@
                    given as the argument."))
 
 (setf (documentation 'compiler-macro 'function)
-      (format nil ""))
+      (format nil "This function returns information about a compiler macro~@
+                   associated with the function description given as an argument.~@
+                   ~@
+                   The return value is either a copiler-macro function, which is a~@
+                   function with two parameters, namely a FORM and an ENVIRONMENT, or~@
+                   NIL if there is no compiler macro associated with the function~@
+                   description.~@
+                   ~@
+                   The argument must be an instance of a subclass of one of~@
+                   one of the classes GLOBAL-FUNCTION-DESCRIPTION or~@
+                   GLOBAL-MACRO-DESCRIPTION, or ."))
 
 (setf (documentation 'expander 'function)
       (format nil ""))
