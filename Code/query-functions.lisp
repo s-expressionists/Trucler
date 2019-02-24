@@ -11,14 +11,14 @@
 ;;;; used on those standard objects to determine the required
 ;;;; information.
 
-(defgeneric describe-variable (client environment variable-name))
+(defgeneric describe-variable (client environment name))
 
-(defgeneric describe-function (client environment function-name))
+(defgeneric describe-function (client environment name))
 
-(defgeneric describe-class (client environment class-name))
+(defgeneric describe-class (client environment name))
 
-(defgeneric describe-block (client environment block-namel))
+(defgeneric describe-block (client environment namel))
 
-(defgeneric describe-tag (client environment tag-name))
+(defgeneric describe-tag (client environment tag))
 
 (defgeneric describe-optimize (client environment))
