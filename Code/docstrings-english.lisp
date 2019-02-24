@@ -95,7 +95,7 @@
       (format nil "This function returns information about a compiler macro~@
                    associated with the function description given as an argument.~@
                    ~@
-                   The return value is either a copiler-macro function, which is a~@
+                   The return value is either a compiler-macro function, which is a~@
                    function with two parameters, namely a FORM and an ENVIRONMENT, or~@
                    NIL if there is no compiler macro associated with the function~@
                    description.~@
