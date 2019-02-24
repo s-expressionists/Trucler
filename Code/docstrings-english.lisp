@@ -2,20 +2,21 @@
 
 (setf (documentation 'describe-variable 'function)
       (format nil "Return an instance of the class VARIABLE-DESCRIPTION~@
-                   describing the role of SYMBOL in ENVIRONMENT~@
-                   when SYMBOL was found in a variable position."))
+                   describing the role of NAME in ENVIRONMENT~@
+                   when NAME was found in a variable position."))
 
 (setf (documentation 'describe-function 'function)
       (format nil "Return an instance of the class FUNCTION-DESCRIPTION~@
-                   describing the role of FUNCTION-NAME in ENVIRONMENT~@
-                   when FUNCTION-NAME was found in a function position.~@
+                   describing the role ofNAME in ENVIRONMENT~@
+                   when NAME was found in a function position.~@
                    This function can also be used to obtain information~@
                    about a function name that is not a symbol."))
 
 (setf (documentation 'describe-block 'function)
       (format nil "Return an instance of the class BLOCK-DESCRIPTION~@
-                   describing the role of SYMBOL in ENVIRONMENT~@
-                   when SYMBOL was found in a position to name a block."))
+                   describing the role of NAME in ENVIRONMENT~@
+                   when NAME was found in a position to name a block,
+                   typically in a RETURN-FROM special form."))
 
 (setf (documentation 'describe-tag 'function)
       (format nil "Return an instance of the class TAG-DESCRIPTION~@
