@@ -65,9 +65,10 @@
                    The return value is a type descriptor."))
 
 (setf (documentation 'inline 'function)
-      (format nil "This function returns information about any INLINE~@
-                   declaration in scope for the description given as~@
-                   the argument.~@
+      (format nil "Return the inline feature of DESCRIPTION, typically given as the~@
+                   value of the :INLINE initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   INLINE-MIXIN.~@
                    ~@
                    There are three possible values here, namely~@
                    NIL, INLINE and NOTINLINE.  NIL means that there is~@
