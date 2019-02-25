@@ -91,9 +91,12 @@
                    in scope"))
 
 (setf (documentation 'dynamic-extent 'function)
-      (format nil "This function returns TRUE if and only if there is~@
-                   a DYNAMIC-EXTENT declaration in scope for the description~@
-                   given as the argument."))
+      (format nil "Return the dynamic-extent property of DESCRIPTION, typically given as the~@
+                   value of the :DYNAMIC-EXTENT initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   DYNAMIC-EXTENT-MIXIN.
+                   ~@
+                   The return value is a generalized Boolean."))
 
 (setf (documentation 'compiler-macro 'function)
       (format nil "This function returns information about a compiler macro~@
