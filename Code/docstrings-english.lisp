@@ -57,8 +57,12 @@
                    IDENTITY-MIXIN."))
 
 (setf (documentation 'type 'function)
-      (format nil "This function returns the type of the entity that is~@
-                   described in the description given as the argument."))
+      (format nil "Return the type of DESCRIPTION, typically given as the~@
+                   value of the :TYPE initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   TYPE-MIXIN.~@
+                   ~@
+                   The return value is a type descriptor."))
 
 (setf (documentation 'inline 'function)
       (format nil "This function returns information about any INLINE~@
