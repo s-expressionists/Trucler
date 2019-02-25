@@ -65,7 +65,7 @@
                    The return value is a type descriptor."))
 
 (setf (documentation 'inline 'function)
-      (format nil "Return the inline feature of DESCRIPTION, typically given as the~@
+      (format nil "Return the inline property of DESCRIPTION, typically given as the~@
                    value of the :INLINE initialization argument when DESCRIPTION~@
                    was created.  DESCRIPTION must be a subclass of the class~@
                    INLINE-MIXIN.~@
@@ -78,20 +78,17 @@
                    in scope."))
 
 (setf (documentation 'ignore 'function)
-      (format nil "This function returns information about any IGNORE~@
-                   or IGNORABLE declaration in scope for the description~@
-                   given as the argument.~@
+      (format nil "Return the ignore property of DESCRIPTION, typically given as the~@
+                   value of the :IGNORE initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   IGNORE-MIXIN.~@
                    ~@
                    There are three possible values here, namely~@
                    NIL, IGNORE and IGNORABLE.  NIL means that there is~@
                    neither an IGNORE nor a IGNORABLE declaration in scope.~@
                    IGNORE means that there is an IGNORE declaration in scope,~@
                    and IGNORABLE means that there is a IGNORABLE declaration~@
-                   in scope.~@
-                   ~@
-                   The argument must be an instance of a subclass of one of~@
-                   the following classes: LOCAL-FUNCTION-DESCRIPTION, LOCAL-MACRO-DESCRIPTION,~@
-                   LEXICAL-VARIABLE-DESCRIPTION, or ."))
+                   in scope"))
 
 (setf (documentation 'dynamic-extent 'function)
       (format nil "This function returns TRUE if and only if there is~@
