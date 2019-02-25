@@ -110,7 +110,15 @@
                    description."))
 
 (setf (documentation 'expander 'function)
-      (format nil ""))
+      (format nil "Return the expander property of DESCRIPTION, typically given as the~@
+                   value of the :EXPANDER initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   EXPANDER-MIXIN.
+                   ~@
+                   The return value is either a macro function, which is a~@
+                   function with two parameters, namely a FORM and an ENVIRONMENT, or~@
+                   NIL if there is no expander associated with the function~@
+                   description."))
 
 (setf (documentation 'global-p 'function)
       (format nil ""))
