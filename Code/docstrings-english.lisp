@@ -39,15 +39,16 @@
                    argument to a :METACLASS option of a DEFCLASS form."))
 
 (setf (documentation 'name 'function)
-      (format nil "This function can be used on any instance returned~@
-                   by a query function.  It returns the name of the entity~@
-                   that is described in the instance.~@
+      (format nil "Return the name of DESCRIPTION, typically given as the~@
+                   value of the :NAME initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   NAME-MIXIN.~@
                    ~@
                    The name returned by this function might be different~@
-                   from the name given to the query function, as a result~@
-                   of errors and restarts.  Therefore, client code should~@
-                   always use the return value of this function for further~@
-                   processing."))
+                   from the name given to the query function that returned~@
+                   DESCRIPTION, as a result of errors and restarts.~@
+                   Therefore, client code should always use the return value~@
+                   of this function for further processing."))
 
 (setf (documentation 'identity 'function)
       (format nil "This function returns some kind of object determining~@
