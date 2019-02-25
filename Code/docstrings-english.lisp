@@ -99,17 +99,15 @@
                    The return value is a generalized Boolean."))
 
 (setf (documentation 'compiler-macro 'function)
-      (format nil "This function returns information about a compiler macro~@
-                   associated with the function description given as an argument.~@
+      (format nil "Return the compiler-macro property of DESCRIPTION, typically given as the~@
+                   value of the :COMPILER-MACRO initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   COMPILER-MACRO-MIXIN.
                    ~@
                    The return value is either a compiler-macro function, which is a~@
                    function with two parameters, namely a FORM and an ENVIRONMENT, or~@
                    NIL if there is no compiler macro associated with the function~@
-                   description.~@
-                   ~@
-                   The argument must be an instance of a subclass of one of~@
-                   one of the classes GLOBAL-FUNCTION-DESCRIPTION or~@
-                   GLOBAL-MACRO-DESCRIPTION, or ."))
+                   description."))
 
 (setf (documentation 'expander 'function)
       (format nil ""))
