@@ -51,9 +51,10 @@
                    of this function for further processing."))
 
 (setf (documentation 'identity 'function)
-      (format nil "This function returns some kind of object determining~@
-                   the identity of the entity that is described in the~@
-                   description given as the argument."))
+      (format nil "Return the identity of DESCRIPTION, typically given as the~@
+                   value of the :IDENTITY initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   IDENTITY-MIXIN."))
 
 (setf (documentation 'type 'function)
       (format nil "This function returns the type of the entity that is~@
