@@ -129,9 +129,14 @@
                    The return value is a generalized Boolean indicating whether a~@
                    special variable has been defined to be globally special."))
 
-
 (setf (documentation 'value 'function)
-      (format nil ""))
+      (format nil "Return the value property of DESCRIPTION, typically given as the~@
+                   value of the :VALUE initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   VALUE-MIXIN.
+                   ~@
+                   The return value is a the value of a constant variable described~@
+                   by DESCRIPTION."))
 
 (setf (documentation 'expansion 'function)
       (format nil ""))
