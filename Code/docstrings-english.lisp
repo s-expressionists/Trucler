@@ -121,7 +121,14 @@
                    description."))
 
 (setf (documentation 'global-p 'function)
-      (format nil ""))
+      (format nil "Return the global-p property of DESCRIPTION, typically given as the~@
+                   value of the :GLOBAL-P initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   GLOBAL-P-MIXIN.
+                   ~@
+                   The return value is a generalized Boolean indicating whether a~@
+                   special variable has been defined to be globally special."))
+
 
 (setf (documentation 'value 'function)
       (format nil ""))
