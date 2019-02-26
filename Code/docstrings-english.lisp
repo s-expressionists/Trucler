@@ -139,7 +139,13 @@
                    by DESCRIPTION."))
 
 (setf (documentation 'expansion 'function)
-      (format nil ""))
+      (format nil "Return the expansion property of DESCRIPTION, typically given as the~@
+                   expansion of the :EXPANSION initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   EXPANSION-MIXIN.
+                   ~@
+                   The return value is a a form that is defined to be the expansion~@
+                   of a symbol macro described by DESCRIPTION."))
 
 (setf (documentation 'class-name 'function)
       (format nil ""))
