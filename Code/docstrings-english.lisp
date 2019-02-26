@@ -157,4 +157,10 @@
                    when DESCRIPTION describes a function."))
 
 (setf (documentation 'method-class-name 'function)
-      (format nil ""))
+      (format nil "Return the method-class-name property of DESCRIPTION, typically given as the~@
+                   value of the :METHOD-CLASS-NAME initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   METHOD-CLASS-NAME-MIXIN.
+                   ~@
+                   The return value is a the the name of the class of the methods of~@
+                   a generic function when DESCRIPTION describes a generic function."))
