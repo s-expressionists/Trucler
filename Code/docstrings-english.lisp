@@ -148,7 +148,13 @@
                    of a symbol macro described by DESCRIPTION."))
 
 (setf (documentation 'class-name 'function)
-      (format nil ""))
+      (format nil "Return the class-name property of DESCRIPTION, typically given as the~@
+                   value of the :CLASS-NAME initialization argument when DESCRIPTION~@
+                   was created.  DESCRIPTION must be a subclass of the class~@
+                   CLASS-NAME-MIXIN.
+                   ~@
+                   The return value is a the the name of the class of the function~@
+                   when DESCRIPTION describes a function."))
 
 (setf (documentation 'method-class-name 'function)
       (format nil ""))
