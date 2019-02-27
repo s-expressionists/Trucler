@@ -211,3 +211,15 @@
                    ~@
                    The reader DYNAMIC-EXTENT can be used to access the dynamic-extent~@
                    information of the entity."))
+
+(setf (documentation (find-class 'expansion-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have an expansion, in particular~@
+                   symbol macros.~@
+                   ~@
+                   The initarg :EXPANSION is supported by this class.  The value~@
+                   of this initarg is a form.~@
+                   ~@
+                   The reader EXPANSION can be used to access the expansion~@
+                   information of the entity."))
