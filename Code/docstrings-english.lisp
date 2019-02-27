@@ -223,3 +223,16 @@
                    ~@
                    The reader EXPANSION can be used to access the expansion~@
                    information of the entity."))
+
+(setf (documentation (find-class 'expander-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have an expander function, in particular~@
+                   macros.~@
+                   ~@
+                   The initarg :EXPANDER is supported by this class.  The value~@
+                   of this initarg is a function of two arguments, a form and.~@
+                   an environment.~@
+                   ~@
+                   The reader EXPANDER can be used to access the expander~@
+                   information of the entity."))
