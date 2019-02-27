@@ -187,3 +187,15 @@
                    initarg is a type descriptor.~@
                    ~@
                    The reader TYPE can be used to access the type of the entity."))
+
+(setf (documentation (find-class 'ignore-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can be declared IGNORE or IGNORABLE.~@
+                   ~@
+                   The initarg :IGNORE is supported by this class.  The value of this~@
+                   initarg is one of the symbols IGNORE and IGNORABLE from the~@
+                   COMMON-LISP package~@
+                   ~@
+                   The reader TYPE can be used to access the ignore information of~@
+                   the entity."))
