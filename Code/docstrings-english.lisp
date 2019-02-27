@@ -164,3 +164,15 @@
                    ~@
                    The return value is a the the name of the class of the methods of~@
                    a generic function when DESCRIPTION describes a generic function."))
+
+(setf (documentation (find-class 'name-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some named entity, such as a function or a class.
+                   ~@
+                   The initarg :NAME is supported by this class.  The nature of this~@
+                   argument depends on the entity being named.  For a variable, it is~@
+                   a symbol.  For a function, it is a symbol or a list (SETF symbol).~@
+                   For a tag, it is a symbol or an integer.~@
+                   ~@
+                   The reader NAME can be used to access the name of the entity."))
