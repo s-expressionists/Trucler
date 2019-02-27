@@ -176,3 +176,14 @@
                    For a tag, it is a symbol or an integer.~@
                    ~@
                    The reader NAME can be used to access the name of the entity."))
+
+(setf (documentation (find-class 'type-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have a type associated with it, such as~@
+                   a variable or a function.~@
+                   ~@
+                   The initarg :TYPE is supported by this class.  The value of this~@
+                   initarg is a type descriptor.~@
+                   ~@
+                   The reader TYPE can be used to access the type of the entity."))
