@@ -184,7 +184,8 @@
                    a variable or a function.~@
                    ~@
                    The initarg :TYPE is supported by this class.  The value of this~@
-                   initarg is a type descriptor.~@
+                   initarg is a type descriptor.  If this initarg is not given, it~@
+                   defaults to T.~@
                    ~@
                    The reader TYPE can be used to access the type of the entity."))
 
@@ -197,5 +198,16 @@
                    initarg is one of the symbols IGNORE and IGNORABLE from the~@
                    COMMON-LISP package~@
                    ~@
-                   The reader TYPE can be used to access the ignore information of~@
+                   The reader IGNORE can be used to access the ignore information of~@
                    the entity."))
+
+(setf (documentation (find-class 'dynamic-extent-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can be declared DYNAMIC-EXTENT.~@
+                   ~@
+                   The initarg :DYNAMIC-EXTENT is supported by this class.  The value~@
+                   of this initarg is a generalized Boolean.~@
+                   ~@
+                   The reader DYNAMIC-EXTENT can be used to access the dynamic-extent~@
+                   information of the entity."))
