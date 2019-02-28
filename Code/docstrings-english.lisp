@@ -256,7 +256,7 @@
                    ordinary or generic functions.~@
                    ~@
                    The initarg :CLASS-NAME is supported by this class.  The value~@
-                   of this initarg is a form.~@
+                   of this initarg is a symbol.~@
                    ~@
                    The reader CLASS-NAME can be used to access the class-name~@
                    information of the entity."))
@@ -268,7 +268,20 @@
                    generic functions.~@
                    ~@
                    The initarg :METHOD-CLASS-NAME is supported by this class.  The value~@
-                   of this initarg is a form.~@
+                   of this initarg is a symbol.~@
                    ~@
                    The reader METHOD-CLASS-NAME can be used to access the method-class-name~@
+                   information of the entity."))
+
+
+(setf (documentation (find-class 'speed-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have speed information, in particular~@
+                   the class optimize-description.~@
+                   ~@
+                   The initarg :SPEED is supported by this class.  The value~@
+                   of this initarg is an integer between 0 and 3.~@
+                   ~@
+                   The reader SPEED can be used to access the speed~@
                    information of the entity."))
