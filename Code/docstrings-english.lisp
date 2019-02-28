@@ -273,7 +273,6 @@
                    The reader METHOD-CLASS-NAME can be used to access the method-class-name~@
                    information of the entity."))
 
-
 (setf (documentation (find-class 'speed-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
                    It can be used as a superclass of query classes that correspond~@
@@ -284,4 +283,52 @@
                    of this initarg is an integer between 0 and 3.~@
                    ~@
                    The reader SPEED can be used to access the speed~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'compilation-speed-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have compilation-speed information, in particular~@
+                   the class optimize-description.~@
+                   ~@
+                   The initarg :COMPILATION-SPEED is supported by this class.  The value~@
+                   of this initarg is an integer between 0 and 3.~@
+                   ~@
+                   The reader COMPILATION-SPEED can be used to access the compilation-speed~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'debug-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have debug information, in particular~@
+                   the class optimize-description.~@
+                   ~@
+                   The initarg :DEBUG is supported by this class.  The value~@
+                   of this initarg is an integer between 0 and 3.~@
+                   ~@
+                   The reader DEBUG can be used to access the debug~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'space-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have space information, in particular~@
+                   the class optimize-description.~@
+                   ~@
+                   The initarg :SPACE is supported by this class.  The value~@
+                   of this initarg is an integer between 0 and 3.~@
+                   ~@
+                   The reader SPACE can be used to access the space~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'safety-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have safety information, in particular~@
+                   the class optimize-description.~@
+                   ~@
+                   The initarg :SAFETY is supported by this class.  The value~@
+                   of this initarg is an integer between 0 and 3.~@
+                   ~@
+                   The reader SAFETY can be used to access the safety~@
                    information of the entity."))
