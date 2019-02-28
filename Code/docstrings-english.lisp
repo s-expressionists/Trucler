@@ -236,3 +236,15 @@
                    ~@
                    The reader EXPANDER can be used to access the expander~@
                    information of the entity."))
+
+(setf (documentation (find-class 'inline-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can be declared INLINE or NOTINLINE.~@
+                   ~@
+                   The initarg :INLINE is supported by this class.  The value of this~@
+                   initarg is one of the symbols INLINE and NOTINLINE from the~@
+                   COMMON-LISP package~@
+                   ~@
+                   The reader INLINE can be used to access the inline information of~@
+                   the entity."))
