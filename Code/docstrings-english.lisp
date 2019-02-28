@@ -356,3 +356,29 @@
                    ~@
                    The reader SAFETY can be used to access the safety~@
                    information of the entity."))
+
+(setf (documentation (find-class 'variable-description) 't)
+      (format nil "This abstract class is the superclass of every query class~@
+                   returned by a call to the generic function DESCRIBE-VARIABLE.~@
+                   It is a subclass of the class NAME-MIXIN."))
+
+(setf (documentation (find-class 'authentic-variable-description) 't)
+      (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION~@
+                   and TYPE-MIXIN."))
+
+(setf (documentation (find-class 'symbol-macro-description) 't)
+      (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION,~@
+                   TYPE-MIXIN, and EXPANSION-MIXIN."))
+
+(setf (documentation (find-class 'function-description) 't)
+      (format nil "This abstract class is the superclass of every query class~@
+                   returned by a call to the generic function DESCRIBE-FUNCTION.~@
+                   It is a subclass of the class NAME-MIXIN."))
+
+(setf (documentation (find-class 'authentic-function-description) 't)
+      (format nil "This abstract class is a subclass of the classes FUNCTION-DESCRIPTION~@
+                   and TYPE-MIXIN."))
+
+(setf (documentation (find-class 'macro-description) 't)
+      (format nil "This abstract class is a subclass of the classes FUNCTION-DESCRIPTION~@
+                   and EXPANDER-MIXIN."))
