@@ -248,3 +248,15 @@
                    ~@
                    The reader INLINE can be used to access the inline information of~@
                    the entity."))
+
+(setf (documentation (find-class 'class-name-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have an class-name, in particular~@
+                   ordinary or generic functions.~@
+                   ~@
+                   The initarg :CLASS-NAME is supported by this class.  The value~@
+                   of this initarg is a form.~@
+                   ~@
+                   The reader CLASS-NAME can be used to access the class-name~@
+                   information of the entity."))
