@@ -260,3 +260,15 @@
                    ~@
                    The reader CLASS-NAME can be used to access the class-name~@
                    information of the entity."))
+
+(setf (documentation (find-class 'method-class-name-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have an method-class-name, in particular~@
+                   generic functions.~@
+                   ~@
+                   The initarg :METHOD-CLASS-NAME is supported by this class.  The value~@
+                   of this initarg is a form.~@
+                   ~@
+                   The reader METHOD-CLASS-NAME can be used to access the method-class-name~@
+                   information of the entity."))
