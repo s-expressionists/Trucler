@@ -264,13 +264,37 @@
 (setf (documentation (find-class 'method-class-name-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
                    It can be used as a superclass of query classes that correspond~@
-                   to some entity that can have an method-class-name, in particular~@
+                   to some entity that can have a method-class-name, in particular~@
                    generic functions.~@
                    ~@
                    The initarg :METHOD-CLASS-NAME is supported by this class.  The value~@
                    of this initarg is a symbol.~@
                    ~@
                    The reader METHOD-CLASS-NAME can be used to access the method-class-name~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'metaclass-name-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have a metaclass-name, in particular~@
+                   classes.~@
+                   ~@
+                   The initarg :METACLASS-NAME is supported by this class.  The value~@
+                   of this initarg is a symbol.~@
+                   ~@
+                   The reader METACLASS-NAME can be used to access the metaclass-name~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'superclass-names-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have a list of superclass-names, in particular~@
+                   classes.~@
+                   ~@
+                   The initarg :SUPERCLASS-NAMES is supported by this class.  The value~@
+                   of this initarg is a list of symbols.~@
+                   ~@
+                   The reader SUPERCLASS-NAMES can be used to access the superclass-names~@
                    information of the entity."))
 
 (setf (documentation (find-class 'speed-mixin) 't)
