@@ -432,8 +432,8 @@
                    is returned by a call to function-description when it turns out that~@
                    the name passed as an argument refers to a local function.~@
                    ~@
-                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
-                   IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN"))
+                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,~@
+                   IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
 
 (setf (documentation (find-class 'global-function-description) 't)
       (format nil "This instantiable class represents information about global~@
@@ -441,7 +441,7 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a global function.~@
                    ~@
-                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
+                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,~@
                    COMPILER-MACRO-MIXIN, and CLASS-NAME-MIXIN."))
 
 (setf (documentation (find-class 'generic-function-description) 't)
@@ -450,5 +450,14 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a generic function.~@
                    ~@
-                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION,
+                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION,~@
                    and METHOD-CLASS-NAME-MIXIN."))
+
+(setf (documentation (find-class 'local-macro-description) 't)
+      (format nil "This instantiable class represents information about local~@
+                   macros introduced by MACROLET.  An instance of this class~@
+                   is returned by a call to function-description when it turns out that~@
+                   the name passed as an argument refers to a local macro.~@
+                   ~@
+                   This class is a subclass of the classes MACRO-DESCRIPTION, and~@
+                   IGNORE-MIXIN."))
