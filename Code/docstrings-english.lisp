@@ -443,3 +443,12 @@
                    ~@
                    This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
                    COMPILER-MACRO-MIXIN, and CLASS-NAME-MIXIN."))
+
+(setf (documentation (find-class 'generic-function-description) 't)
+      (format nil "This instantiable class represents information about generic~@
+                   functions.  An instance of this class is returned by a call to~@
+                   function-description when it turns out that the name passed~@
+                   as an argument refers to a generic function.~@
+                   ~@
+                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION,
+                   and METHOD-CLASS-NAME-MIXIN."))
