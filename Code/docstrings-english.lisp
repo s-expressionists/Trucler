@@ -399,4 +399,13 @@
                    as an argument refers to a special variable.~@
                    ~@
                    This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION~@
-                   GLOBAL-P-MIXIN."))
+                   and GLOBAL-P-MIXIN."))
+
+(setf (documentation (find-class 'constant-variable-description) 't)
+      (format nil "This instantiable class represents information about constant~@
+                   variables.  An instance of this class is returned by a call to~@
+                   variable-description when it turns out that the symbol passed~@
+                   as an argument refers to a constant variable.~@
+                   ~@
+                   This class is a subclass of the classes VARIABLE-DESCRIPTION~@
+                   and VALUE-MIXIN."))
