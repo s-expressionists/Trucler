@@ -434,3 +434,12 @@
                    ~@
                    This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
                    IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN"))
+
+(setf (documentation (find-class 'global-function-description) 't)
+      (format nil "This instantiable class represents information about global~@
+                   functions.  An instance of this class is returned by a call to~@
+                   function-description when it turns out that the name passed~@
+                   as an argument refers to a global function.~@
+                   ~@
+                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
+                   COMPILER-MACRO-MIXIN, and CLASS-NAME-MIXIN."))
