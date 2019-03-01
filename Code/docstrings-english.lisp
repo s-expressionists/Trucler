@@ -409,3 +409,11 @@
                    ~@
                    This class is a subclass of the classes VARIABLE-DESCRIPTION~@
                    and VALUE-MIXIN."))
+
+(setf (documentation (find-class 'global-symbol-macro-description) 't)
+      (format nil "This instantiable class represents information about global~@
+                   symbol macros.  An instance of this class is returned by a call to~@
+                   variable-description when it turns out that the symbol passed~@
+                   as an argument refers to a global symbol macro.~@
+                   ~@
+                   This class is a subclass of the class SYMBOL-MACRO-DESCRIPTION."))
