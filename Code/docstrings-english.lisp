@@ -461,3 +461,12 @@
                    ~@
                    This class is a subclass of the classes MACRO-DESCRIPTION, and~@
                    IGNORE-MIXIN."))
+
+(setf (documentation (find-class 'global-macro-description) 't)
+      (format nil "This instantiable class represents information about global~@
+                   macros.  An instance of this class is returned by a call to~@
+                   function-description when it turns out that the name passed~@
+                   as an argument refers to a global macro.~@
+                   ~@
+                   This class is a subclass of the classes MACRO-DESCRIPTION and~@
+                   COMPILER-MACRO-MIXIN."))
