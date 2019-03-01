@@ -425,3 +425,12 @@
                    as an argument refers to a local symbol macro.~@
                    ~@
                    This class is a subclass of the class SYMBOL-MACRO-DESCRIPTION."))
+
+(setf (documentation (find-class 'local-function-description) 't)
+      (format nil "This instantiable class represents information about local~@
+                   functions introduced by FLET or LABELS.  An instance of this class~@
+                   is returned by a call to function-description when it turns out that~@
+                   the name passed as an argument refers to a local function.~@
+                   ~@
+                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,
+                   IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN"))
