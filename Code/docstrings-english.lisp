@@ -382,3 +382,12 @@
 (setf (documentation (find-class 'macro-description) 't)
       (format nil "This abstract class is a subclass of the classes FUNCTION-DESCRIPTION~@
                    and EXPANDER-MIXIN."))
+
+(setf (documentation (find-class 'lexical-variable-description) 't)
+      (format nil "This instantiable class represents information about lexical~@
+                   variables.  An instance of this class is returned by a call to~@
+                   variable-description when it turns out that the symbol passed~@
+                   as an argument refers to a lexical variable.~@
+                   ~@
+                   This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION,~@
+                   IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
