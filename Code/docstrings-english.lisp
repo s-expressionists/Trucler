@@ -417,3 +417,11 @@
                    as an argument refers to a global symbol macro.~@
                    ~@
                    This class is a subclass of the class SYMBOL-MACRO-DESCRIPTION."))
+
+(setf (documentation (find-class 'local-symbol-macro-description) 't)
+      (format nil "This instantiable class represents information about local~@
+                   symbol macros.  An instance of this class is returned by a call to~@
+                   variable-description when it turns out that the symbol passed~@
+                   as an argument refers to a local symbol macro.~@
+                   ~@
+                   This class is a subclass of the class SYMBOL-MACRO-DESCRIPTION."))
