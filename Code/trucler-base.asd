@@ -15,8 +15,6 @@
    (:file "merge-methods")
    (:file "low-level-augmentation-functions")
    (:file "augmentation-functions")
-   (:file "environment")
-   (:file "query-methods")
    (:file "conditions")
    (:file "condition-reporters-english")
    (:file "docstrings-english")))
