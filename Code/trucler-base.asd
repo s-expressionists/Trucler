@@ -1,6 +1,6 @@
 (cl:in-package #:asdf-user)
 
-(defsystem "trucler"
+(defsystem "trucler-base"
   :depends-on ("acclimation")
   :serial t
   :components
@@ -17,8 +17,6 @@
    (:file "augmentation-functions")
    (:file "environment")
    (:file "query-methods")
-   (:file "low-level-augmentation-methods")
-   (:file "augmentation-methods")
    (:file "conditions")
    (:file "condition-reporters-english")
    (:file "docstrings-english")))
