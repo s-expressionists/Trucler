@@ -1,16 +1,16 @@
-(cl:in-package #:trucler)
+(cl:in-package #:trucler-native)
 
 (defgeneric global-environment (environment))
 
-(defgeneric cached-function-description (environment))
+(defgeneric function-description (environment))
 
-(defgeneric cached-variable-description (environment))
+(defgeneric variable-description (environment))
 
-(defgeneric cached-block-description (environment))
+(defgeneric block-description (environment))
 
-(defgeneric cached-tag-description (environment))
+(defgeneric tag-description (environment))
 
-(defgeneric cached-optimize-description (environment))
+(defgeneric optimize-description (environment))
 
 (defclass environment ()
   ((%global-environment
@@ -18,29 +18,29 @@
     :reader global-environment)
    (%function-description
     :initform '()
-    :initarg :cached-function-description
-    :reader cached-function-description)
+    :initarg :function-description
+    :reader function-description)
    (%variable-description
     :initform '()
-    :initarg :cached-variable-description
-    :reader cached-variable-description)
+    :initarg :variable-description
+    :reader variable-description)
    (%block-description
     :initform '()
-    :initarg :cached-block-description
-    :reader cached-block-description)
+    :initarg :block-description
+    :reader block-description)
    (%tag-description
     :initform '()
-    :initarg :cached-tag-description
-    :reader cached-tag-description)
+    :initarg :tag-description
+    :reader tag-description)
    (%optimize-description
     :initform '()
-    :initarg :cached-optimize-description
-    :reader cached-optimize-description)))
+    :initarg :optimize-description
+    :reader optimize-description)))
 
 (defmethod cloning-information append ((object environment))
   '((:global-environment global-environment)
-    (:cached-function-description cached-function-description)
-    (:cached-variable-description cached-variable-description)
-    (:cached-block-description cached-block-description)
-    (:cached-tag-description cached-tag-description)
-    (:cached-optimize-description cached-optimize-description)))
+    (:function-description function-description)
+    (:variable-description variable-description)
+    (:block-description block-description)
+    (:tag-description tag-description)
+    (:optimize-description optimize-description)))
