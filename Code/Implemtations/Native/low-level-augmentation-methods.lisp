@@ -1,35 +1,36 @@
-(cl:in-package #:trucler)
+(cl:in-package #:trucler-native)
 
-(defmethod augment-with-variable-description
-    (client (environment environment) (variable-description variable-description))
-  (quasi-clone environment
-               :cached-variable-description
-               (cons variable-description
-                     (cached-variable-description environment))))
+(defmethod trucler:augment-with-variable-description
+    (client (environment environment) (variable-description trucler:variable-description))
+  (trucler:quasi-clone environment
+		       :variable-description
+		       (cons variable-description
+			     (variable-description environment))))
 
-(defmethod augment-with-function-description
-    (client (environment environment) (function-description function-description))
-  (quasi-clone environment
-               :cached-function-description
-               (cons function-description
-                     (cached-function-description environment))))
+(defmethod trucler:augment-with-function-description
+    (client (environment environment) (function-description trucler:function-description))
+  (trucler:quasi-clone environment
+		       :function-description
+		       (cons function-description
+			     (function-description environment))))
 
-(defmethod augment-with-block-description
-    (client (environment environment) (block-description block-description))
-  (quasi-clone environment
-               :cached-block-description
-               (cons block-description
-                     (cached-block-description environment))))
+(defmethod trucler:augment-with-block-description
+    (client (environment environment) (block-description trucler:block-description))
+  (trucler:quasi-clone environment
+		       :block-description
+		       (cons block-description
+			     (block-description environment))))
 
-(defmethod augment-with-tag-description
-    (client (environment environment) (tag-description tag-description))
-  (quasi-clone environment
-               :cached-tag-description
-               (cons tag-description
-                     (cached-tag-description environment))))
-(defmethod augment-with-optimize-description
-    (client (environment environment) (optimize-description optimize-description))
-  (quasi-clone environment
-               :cached-optimize-description
-               (cons optimize-description
-                     (cached-optimize-description environment))))
+(defmethod trucler:augment-with-tag-description
+    (client (environment environment) (tag-description trucler:tag-description))
+  (trucler:quasi-clone environment
+		       :tag-description
+		       (cons tag-description
+			     (tag-description environment))))
+
+(defmethod trucler:augment-with-optimize-description
+    (client (environment environment) (optimize-description trucler:optimize-description))
+  (trucler:quasi-clone environment
+		       :optimize-description
+		       (cons optimize-description
+			     (optimize-description environment))))
