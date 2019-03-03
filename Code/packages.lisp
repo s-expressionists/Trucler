@@ -31,6 +31,7 @@
            #:debug-mixin
            #:space-mixin
            #:safety-mixin
+	   #:special-operator-description
            ;; Macro for definining mixin classes.
            #:define-mixin-class
            ;; Generic function for variable information.
@@ -42,6 +43,8 @@
            #:special-variable-description
            #:constant-variable-description
            #:symbol-macro-description
+	   #:local-symbol-macro-description
+	   #:global-symbol-macro-description
            ;; Generic function for function information.
            #:describe-function
            ;; Classes for function description.
@@ -50,10 +53,10 @@
            #:local-function-description
            #:global-function-description
            #:generic-function-description
+	   #:special-operator-description
            #:macro-description
            #:local-macro-description
            #:global-macro-description
-           #:special-operator-description
            ;; Generic function for block information.
            #:describe-block
            ;; Class for block description.
@@ -66,6 +69,8 @@
            #:describe-optimize
            ;; Class for optimize description.
            #:optimize-description
+           ;; Class for class description.
+	   #:class-description
            ;; INFO accessors
            #:name
            #:identity
@@ -81,6 +86,11 @@
            #:class-name
            #:method-class-name
            ;; Augmentation functions.
+	   #:augment-with-variable-description
+	   #:augment-with-function-description
+	   #:augment-with-block-description
+	   #:augment-with-tag-description
+	   #:augment-with-optimize-description
            #:add-lexical-variable
            #:add-special-variable
            #:add-local-symbol-macro
@@ -100,6 +110,18 @@
            #:add-safety
            #:add-space
            #:add-inline
+	   ;; Merge functions
+	   #:merge-type
+	   #:merge-ignore
+	   #:merge-dynamic-extent
+	   #:merge-inline
+	   #:merge-speed
+	   #:merge-compilation-speed
+	   #:merge-debug
+	   #:merge-safety
+	   #:merge-space
+	   ;; Cloning
+	   #:quasi-clone
            ;; Condition types.
            #:no-description
            #:no-variable-description
