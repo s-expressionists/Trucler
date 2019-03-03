@@ -17,7 +17,7 @@
 
 (defgeneric describe-class (client environment name))
 
-(defgeneric describe-block (client environment namel))
+(defgeneric describe-block (client environment name))
 
 (defgeneric describe-tag (client environment tag))
 
