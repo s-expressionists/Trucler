@@ -5,6 +5,7 @@
   :serial t
   :components
   ((:file "packages")
+   (:file "client")
    (:file "environment")
    (:file "query-methods")
    (:file "low-level-augmentation-methods")
