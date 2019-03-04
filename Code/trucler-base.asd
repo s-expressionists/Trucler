@@ -1,6 +1,9 @@
 (cl:in-package #:asdf-user)
 
 (defsystem "trucler-base"
+  :description "Library for managing lexical environments."
+  :author "Robert Strandh <robert.strandh@gmail.com>"
+  :license "FreeBSD, see file LICENSE.text"
   :depends-on ("acclimation")
   :serial t
   :components
