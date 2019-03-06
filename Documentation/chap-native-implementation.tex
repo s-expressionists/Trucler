@@ -16,3 +16,291 @@ argument to protocol functions and that class is named
 Similarly, the native implementation defines an environment class that
 is used and created by the augmentation methods, and that class is
 named \texttt{environment}.
+
+\section{Methods on high-level augmentation functions}
+
+\subsection{Adding and annotating variables}
+
+\subsubsection{Adding a lexical variable}
+
+
+{\footnotesize
+\Defmethod{add-lexical-variable}
+{client
+ (environment environment)
+ name
+ \optional identity}
+}
+
+This is the main method on \texttt{add-lexical-variable}.  It
+instantiates the class \texttt{lexical-variable-description} and then
+creates a new environment by calling the function
+\texttt{augment-with-variable-description}.
+
+\subsubsection{Adding a special variable}
+
+{\footnotesize
+\Defmethod{add-special-variable}
+{client
+ (environment environment)
+ name}
+}
+
+This is the main method on \texttt{add-special-variable}.  It
+instantiates the class \texttt{special-variable-description} and then
+creates a new environment by calling the function
+\texttt{augment-with-variable-description}.
+
+\subsubsection{Adding a local symbol macro}
+
+{\footnotesize
+\Defmethod{add-local-symbol-macro}
+{client
+ (environment environment)
+ name
+ expansion}
+}
+
+This is the main method on \texttt{add-local-symbol-macro}.  It
+instantiates the class \texttt{local-symbol-macro-description} and then
+creates a new environment by calling the function
+\texttt{augment-with-variable-description}.
+
+\subsubsection{Annotating a variable with a type}
+
+{\footnotesize
+\Defmethod{add-variable-type}
+{client
+ (environment environment)
+ name
+ type}
+}
+
+This is the main method on \texttt{add-variable-type}.  It
+calls \texttt{describe-variable} to obtain an existing variable
+description.  It then calls \texttt{merge-type} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-variable-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a variable with an \texttt{ignore} declaration}
+
+{\footnotesize
+\Defmethod{add-variable-ignore}
+{client
+ (environment environment)
+ name
+ ignore}
+}
+
+This is the main method on \texttt{add-variable-ignore}.  It
+calls \texttt{describe-variable} to obtain an existing variable
+description.  It then calls \texttt{merge-ignore} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-variable-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a variable with a \texttt{dynamic-extent} declaration}
+
+{\footnotesize
+\Defmethod{add-variable-dynamic-extent}
+{client
+ (environment environment)
+ name}
+}
+
+This is the main method on \texttt{add-variable-dynamic-extent}.  It
+calls \texttt{describe-variable} to obtain an existing variable
+description.  It then calls \texttt{merge-dynamic-extent} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-variable-description} in order to create and
+return a new environment.
+
+\subsection{Adding and annotating functions}
+
+\subsubsection{Adding a local function}
+
+{\footnotesize
+\Defmethod{add-local-function}
+{client
+ (environment environment)
+ name
+ \optional identity}
+}
+
+This is the main method on \texttt{add-local-function}.  It
+instantiates the class \texttt{local-function-description} and then
+creates a new environment by calling the function
+\texttt{augment-with-function-description}.
+
+\subsubsection{Adding a local macro}
+
+{\footnotesize
+\Defmethod {add-local-macro} {client (environment environment) name expander}
+}
+
+This is the main method on \texttt{add-local-macro}.  It instantiates
+the class named \texttt{local-macro-description} and then creates a
+new environment by calling the function
+\texttt{augment-with-function-description}.
+
+\subsubsection{Annotating a function with a type}
+
+{\footnotesize
+\Defmethod{add-function-type}
+{client
+ (environment environment)
+ name
+ type}
+}
+
+This is the main method on \texttt{add-function-type}.  It
+calls \texttt{describe-function} to obtain an existing function
+description.  It then calls \texttt{merge-type} to create a new
+function description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a function with an \texttt{ignore} declaration}
+
+{\footnotesize
+\Defmethod{add-function-ignore}
+{client
+ (environment environment)
+ name
+ ignore}
+}
+
+This is the main method on \texttt{add-function-ignore}.  It calls
+\texttt{describe-function} to obtain an existing function description.
+It then calls \texttt{merge-ignore} to create a new function
+description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a function with a \texttt{dynamic-extent} declaration}
+
+{\footnotesize
+\Defmethod{add-function-dynamic-extent}
+{client
+ (environment environment)
+ name}
+}
+
+This is the main method on \texttt{add-function-dynamic-extent}.  It
+calls \texttt{describe-function} to obtain an existing variable
+description.  It then calls \texttt{merge-dynamic-extent} to create a new
+variable description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a function with an \texttt{inline} declaration}
+
+{\footnotesize
+\Defmethod{add-inline}
+{client
+ (environment environment)
+ name
+ inline}
+}
+
+This is the main method on \texttt{add-inline}.  It calls
+\texttt{describe-function} to obtain an existing function description.
+It then calls \texttt{merge-inline} to create a new function
+description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
+\subsection{Adding blocks}
+
+{\footnotesize
+\Defmethod{add-block}
+{client
+ (environment environment)
+ name
+ \optional identity}
+}
+
+This is the main method on \texttt{add-block}.  It instantiates the
+class \texttt{block-description} and then creates a new
+environment by calling the function
+\texttt{augment-with-block-description}.
+
+\subsection{Adding tags}
+
+{\footnotesize
+\Defmethod{add-tag}
+{client
+ (environment environment)
+ tag
+ \optional identity}
+}
+
+This is the main method on \texttt{add-tag}.  It instantiates the
+class \texttt{tag-description} and then creates a new
+environment by calling the function
+\texttt{augment-with-tag-description}.
+
+\subsection{Annotating the \texttt{optimize} qualities}
+
+\def\Optimizemethod #1 {This is the main method on
+  \texttt{add-#1}.  It calls \texttt{describe-optimize} to obtain
+  the existing optimize description.  It then calls
+  \texttt{merge-#1} to create a new optimize description.  Finally,
+  it calls \texttt{augment-with-optimize-description} in order to
+  create and return a new environment.}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{speed} value}
+
+{\footnotesize
+\Defmethod{add-speed}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{speed}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{compilation-speed} value}
+
+{\footnotesize
+\Defmethod{add-compilation-speed}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{compilation-speed}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{debug} value}
+
+{\footnotesize
+\Defmethod{add-debug}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{debug}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{safety} value}
+
+{\footnotesize
+\Defmethod{add-safety}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{safety}
+
+\subsubsection{Annotating \texttt{optimize} with a \texttt{space} value}
+
+{\footnotesize
+\Defmethod{add-space}
+{client
+ (environment environment)
+  value}
+}
+
+\Optimizemethod{space}

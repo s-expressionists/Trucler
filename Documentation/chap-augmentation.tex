@@ -461,19 +461,6 @@ variable named \textit{name}.  The optional argument \textit{identity}
 can be supplied by client code to distinguish different lexical
 variables with the same name.
 
-{\footnotesize
-\Defmethod{add-lexical-variable}
-{client
- (environment environment)
- name
- \optional identity}
-}
-
-This is the main method on \texttt{add-lexical-variable}.  It
-instantiates the class \texttt{lexical-variable-description} and then
-creates a new environment by calling the function
-\texttt{augment-with-variable-description}.
-
 \subsubsection{Adding a special variable}
 
 {\footnotesize
@@ -483,19 +470,6 @@ creates a new environment by calling the function
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a special
 variable named \textit{name}.
-
-{\footnotesize
-\Defmethod{add-special-variable}
-{client
- (environment environment)
- name}
-}
-
-This is the main method on \texttt{add-special-variable}.  It
-instantiates the class \texttt{special-variable-description} and then
-creates a new environment by calling the function
-\texttt{augment-with-variable-description}.
-
 
 \subsubsection{Adding a local symbol macro}
 
@@ -507,19 +481,6 @@ This function returns a new environment that is like
 \textit{environment} except that it has been augmented with a local
 symbol macro named \texttt{name}, with the expansion
 \textit{expansion}
-
-{\footnotesize
-\Defmethod{add-local-symbol-macro}
-{client
- (environment environment)
- name
- expansion}
-}
-
-This is the main method on \texttt{add-local-symbol-macro}.  It
-instantiates the class \texttt{local-symbol-macro-description} and then
-creates a new environment by calling the function
-\texttt{augment-with-variable-description}.
 
 \subsubsection{Annotating a variable with a type}
 \label{sec-annotating-a-variable-with-a-type}
@@ -541,21 +502,6 @@ This function can be used when \textit{name} names a lexical variable,
 a special variable, or a symbol macro, but \emph{not}
 when \textit{name} names a constant variable.
 
-{\footnotesize
-\Defmethod{add-variable-type}
-{client
- (environment environment)
- name
- type}
-}
-
-This is the main method on \texttt{add-variable-type}.  It
-calls \texttt{describe-variable} to obtain an existing variable
-description.  It then calls \texttt{merge-type} to create a new
-variable description.  Finally, it calls
-\texttt{augment-with-variable-description} in order to create and
-return a new environment.
-
 \subsubsection{Annotating a variable with an \texttt{ignore} declaration}
 \label{sec-annotating-a-variable-with-ignore}
 
@@ -573,21 +519,6 @@ symbol \texttt{ignorable}.
 This function can be used when \textit{name} names a lexical variable
 or a local symbol macro.
 
-{\footnotesize
-\Defmethod{add-variable-ignore}
-{client
- (environment environment)
- name
- ignore}
-}
-
-This is the main method on \texttt{add-variable-ignore}.  It
-calls \texttt{describe-variable} to obtain an existing variable
-description.  It then calls \texttt{merge-ignore} to create a new
-variable description.  Finally, it calls
-\texttt{augment-with-variable-description} in order to create and
-return a new environment.
-
 \subsubsection{Annotating a variable with a \texttt{dynamic-extent} declaration}
 \label{sec-annotating-a-variable-with-dynamic-extent}
 
@@ -600,20 +531,6 @@ This function returns a new environment that is like
 been annotated with an \texttt{dynamic-extent} declaration.
 
 This function can be used only when \textit{name} names a lexical variable.
-
-{\footnotesize
-\Defmethod{add-variable-dynamic-extent}
-{client
- (environment environment)
- name}
-}
-
-This is the main method on \texttt{add-variable-dynamic-extent}.  It
-calls \texttt{describe-variable} to obtain an existing variable
-description.  It then calls \texttt{merge-dynamic-extent} to create a new
-variable description.  Finally, it calls
-\texttt{augment-with-variable-description} in order to create and
-return a new environment.
 
 \subsection{Adding and annotating functions}
 
@@ -629,19 +546,6 @@ function named \textit{name}.  The optional argument \textit{identity}
 can be supplied by client code to distinguish different functions with
 the same name.
 
-{\footnotesize
-\Defmethod{add-local-function}
-{client
- (environment environment)
- name
- \optional identity}
-}
-
-This is the main method on \texttt{add-local-function}.  It
-instantiates the class \texttt{local-function-description} and then
-creates a new environment by calling the function
-\texttt{augment-with-function-description}.
-
 \subsubsection{Adding a local macro}
 
 {\footnotesize
@@ -653,15 +557,6 @@ This function returns a new environment that is like
 macro named \texttt{name}.  The argument \textit{expander} is a
 macro-expansion function that takes two arguments, a form and an
 environment.
-
-{\footnotesize
-\Defmethod {add-local-macro} {client (environment environment) name expander}
-}
-
-This is the main method on \texttt{add-local-macro}.  It instantiates
-the class named \texttt{local-macro-description} and then creates a
-new environment by calling the function
-\texttt{augment-with-function-description}.
 
 \subsubsection{Annotating a function with a type}
 \label{sec-annotating-a-function-with-a-type}
@@ -682,21 +577,6 @@ conjunction of \textit{type} and the type it had in
 This function can be used when \textit{name} names a local function or
 a global function.
 
-{\footnotesize
-\Defmethod{add-function-type}
-{client
- (environment environment)
- name
- type}
-}
-
-This is the main method on \texttt{add-function-type}.  It
-calls \texttt{describe-function} to obtain an existing function
-description.  It then calls \texttt{merge-type} to create a new
-function description.  Finally, it calls
-\texttt{augment-with-function-description} in order to create and
-return a new environment.
-
 \subsubsection{Annotating a function with an \texttt{ignore} declaration}
 \label{sec-annotating-a-function-with-ignore}
 
@@ -714,21 +594,6 @@ symbol \texttt{ignorable}.
 This function can be used when \textit{name} names a local function or
 a local macro.
 
-{\footnotesize
-\Defmethod{add-function-ignore}
-{client
- (environment environment)
- name
- ignore}
-}
-
-This is the main method on \texttt{add-function-ignore}.  It calls
-\texttt{describe-function} to obtain an existing function description.
-It then calls \texttt{merge-ignore} to create a new function
-description.  Finally, it calls
-\texttt{augment-with-function-description} in order to create and
-return a new environment.
-
 \subsubsection{Annotating a function with a \texttt{dynamic-extent} declaration}
 \label{sec-annotating-a-function-with-dynamic-extent}
 
@@ -741,20 +606,6 @@ This function returns a new environment that is like
 been annotated with an \texttt{dynamic-extent} declaration.
 
 This function can be used only when \textit{name} names a local function.
-
-{\footnotesize
-\Defmethod{add-function-dynamic-extent}
-{client
- (environment environment)
- name}
-}
-
-This is the main method on \texttt{add-function-dynamic-extent}.  It
-calls \texttt{describe-function} to obtain an existing variable
-description.  It then calls \texttt{merge-dynamic-extent} to create a new
-variable description.  Finally, it calls
-\texttt{augment-with-function-description} in order to create and
-return a new environment.
 
 \subsubsection{Annotating a function with an \texttt{inline} declaration}
 \label{sec-annotating-a-function-with-inline}
@@ -773,21 +624,6 @@ symbol \texttt{notinline}.
 This function can be used when \textit{name} names a local function or
 a local macro.
 
-{\footnotesize
-\Defmethod{add-inline}
-{client
- (environment environment)
- name
- inline}
-}
-
-This is the main method on \texttt{add-inline}.  It calls
-\texttt{describe-function} to obtain an existing function description.
-It then calls \texttt{merge-inline} to create a new function
-description.  Finally, it calls
-\texttt{augment-with-function-description} in order to create and
-return a new environment.
-
 \subsection{Adding blocks}
 
 {\footnotesize
@@ -799,19 +635,6 @@ This function returns a new environment that is like
 named \textit{name}, which must be a symbol.  The optional argument
 \textit{identity} can be supplied by client code to distinguish
 different blocks with the same name.
-
-{\footnotesize
-\Defmethod{add-block}
-{client
- (environment environment)
- name
- \optional identity}
-}
-
-This is the main method on \texttt{add-block}.  It instantiates the
-class \texttt{block-description} and then creates a new
-environment by calling the function
-\texttt{augment-with-block-description}.
 
 \subsection{Adding tags}
 
@@ -825,19 +648,6 @@ named \textit{tag}, which must be a \emph{go tag}, i.e. a symbol or an
 integer.  The optional argument \textit{identity} can be supplied by
 client code to distinguish different tags with the same name.
 
-{\footnotesize
-\Defmethod{add-tag}
-{client
- (environment environment)
- tag
- \optional identity}
-}
-
-This is the main method on \texttt{add-tag}.  It instantiates the
-class \texttt{tag-description} and then creates a new
-environment by calling the function
-\texttt{augment-with-tag-description}.
-
 \subsection{Annotating the \texttt{optimize} qualities}
 
 \def\Optimizefunction #1 {This function returns a new environment that
@@ -845,14 +655,6 @@ environment by calling the function
   information has been updated with a \texttt{#1} quality value.
 
 The argument \textit{value} must be an integer between $0$ and $3$.}
-
-
-\def\Optimizemethod #1 {This is the main method on
-  \texttt{add-#1}.  It calls \texttt{describe-optimize} to obtain
-  the existing optimize description.  It then calls
-  \texttt{merge-#1} to create a new optimize description.  Finally,
-  it calls \texttt{augment-with-optimize-description} in order to
-  create and return a new environment.}
 
 \subsubsection{Annotating \texttt{optimize} with a \texttt{speed} value}
 \label{sec-annotating-optimize-with-speed}
@@ -863,15 +665,6 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 
 \Optimizefunction{speed}
 
-{\footnotesize
-\Defmethod{add-speed}
-{client
- (environment environment)
-  value}
-}
-
-\Optimizemethod{speed}
-
 \subsubsection{Annotating \texttt{optimize} with a \texttt{compilation-speed} value}
 
 {\footnotesize
@@ -879,15 +672,6 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 }
 
 \Optimizefunction{compilation-speed}
-
-{\footnotesize
-\Defmethod{add-compilation-speed}
-{client
- (environment environment)
-  value}
-}
-
-\Optimizemethod{compilation-speed}
 
 \subsubsection{Annotating \texttt{optimize} with a \texttt{debug} value}
 
@@ -897,15 +681,6 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 
 \Optimizefunction{debug}
 
-{\footnotesize
-\Defmethod{add-debug}
-{client
- (environment environment)
-  value}
-}
-
-\Optimizemethod{debug}
-
 \subsubsection{Annotating \texttt{optimize} with a \texttt{safety} value}
 
 {\footnotesize
@@ -914,15 +689,6 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 
 \Optimizefunction{safety}
 
-{\footnotesize
-\Defmethod{add-safety}
-{client
- (environment environment)
-  value}
-}
-
-\Optimizemethod{safety}
-
 \subsubsection{Annotating \texttt{optimize} with a \texttt{space} value}
 
 {\footnotesize
@@ -930,12 +696,3 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 }
 
 \Optimizefunction{space}
-
-{\footnotesize
-\Defmethod{add-space}
-{client
- (environment environment)
-  value}
-}
-
-\Optimizemethod{space}
