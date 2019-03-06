@@ -47,4 +47,13 @@ functions, specialized to:
 Typically, two methods must be supplied, one specialized to the
 \emph{lexical} environment class of the implementation, and another
 one, specialized to the \emph{global} environment class, as describe
-in \refSec{sec-representing-the-global-environment}.
+in \refSec{sec-representing-the-global-environment}.  These methods
+should return instances of the instantiable classes described in
+\refSec{sec-instantiable-query-classes}.
+
+\section{Customizing the augmentation functions}
+
+For an existing implementation, the easiest way to customize
+environment augmentation, is to target only the high-level
+augmentation functions described in
+\refSec{sec-high-level-annotation-functions}.
