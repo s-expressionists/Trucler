@@ -5,3 +5,16 @@ representation of lexical environments and no explicit representation
 of the global environment.  In this chapter, we describe the kind of
 customization that such an implementation needs to provide in order to
 use \sysname{}.
+
+\section{Representing the global environment}
+
+Despite the fact that a typical existing implementation has no
+first-class object representing the global environment, in order to
+customize \sysname{}, the implementation should nevertheless define a
+standard class representing such a hypothetical first-class
+environment.  In instance of this environment object must be passed to
+the language processor, so that when the language processor queries
+the null lexical environment for some information, this instance is
+passed to the query functions.
+
+\section{Customizing the query functions}
