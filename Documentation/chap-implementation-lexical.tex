@@ -7,6 +7,7 @@ customization that such an implementation needs to provide in order to
 use \sysname{}.
 
 \section{Representing the global environment}
+\label{sec-representing-the-global-environment}
 
 Despite the fact that a typical existing implementation has no
 first-class object representing the global environment, in order to
@@ -18,3 +19,32 @@ the null lexical environment for some information, this instance is
 passed to the query functions.
 
 \section{Customizing the query functions}
+
+The following query functions are subject to customization:
+
+\begin{itemize}
+\item \texttt{describe-variable}
+\item \texttt{describe-function}
+\item \texttt{describe-block}
+\item \texttt{describe-tag}
+\item \texttt{describe-class}
+\item \texttt{describe-optimize}
+\end{itemize}
+
+These functions are described in \refSec{sec-querying-query-functions}.
+
+Only those functions that are actually called by the language
+processor need be customized.
+
+The customization consists of supplying methods on the relevant query
+functions, specialized to:
+
+\begin{itemize}
+\item the specific client class chosen by the implementation, and
+\item the classes representing environments in the implementation.
+\end{itemize}
+
+Typically, two methods must be supplied, one specialized to the
+\emph{lexical} environment class of the implementation, and another
+one, specialized to the \emph{global} environment class, as describe
+in \refSec{sec-representing-the-global-environment}.
