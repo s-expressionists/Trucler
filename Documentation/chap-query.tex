@@ -345,6 +345,29 @@ of the class \texttt{constant-variable-description}.
 
 \Given{value-mixin} the value information, \Assupplied{:value}
 
+\subsection{\texttt{compiler-macro-mixin}}
+\label{sec-compiler-macro-mixin}
+
+{\footnotesize
+\Defclass {compiler-macro-mixin}
+}
+
+This class is a superclass of query classes that provide information
+about entities that can have a compiler-macro associated with them.
+In particular, it is a superclass of the classes
+\texttt{global-function-description} and
+\texttt{global-macro-description}.
+
+{\footnotesize
+\Definitarg {:compiler-macro}
+}
+
+{\footnotesize
+\Defmethod {compiler-macro} {(description {\tt compiler-macro-mixin})}
+}
+
+\Given{compiler-macro-mixin} the compiler-macro information, \Assupplied{:compiler-macro}
+
 \subsection{\texttt{expansion-mixin}}
 \label{sec-expansion-mixin}
 
