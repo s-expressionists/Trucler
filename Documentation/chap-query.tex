@@ -324,6 +324,27 @@ global or not.  In particular, it is a superclass of the class
 
 \Given{global-p-mixin} the global-p information, \Assupplied{:global-p}
 
+\subsection{\texttt{value-mixin}}
+\label{sec-value-mixin}
+
+{\footnotesize
+\Defclass {value-mixin}
+}
+
+This class is a superclass of query classes that provide information
+about entities that have a value.  In particular, it is a superclass
+of the class \texttt{constant-variable-description}.
+
+{\footnotesize
+\Definitarg {:value}
+}
+
+{\footnotesize
+\Defmethod {value} {(description {\tt value-mixin})}
+}
+
+\Given{value-mixin} the value information, \Assupplied{:value}
+
 \subsection{\texttt{expansion-mixin}}
 \label{sec-expansion-mixin}
 
