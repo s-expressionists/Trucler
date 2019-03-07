@@ -302,6 +302,28 @@ about entities that can be declared \texttt{dynamic-extent}.
 
 \Given{dynamic-extent-mixin} the dynamic-extent information, \Assupplied{:dynamic-extent}
 
+\subsection{\texttt{global-p-mixin}}
+\label{sec-global-p-mixin}
+
+{\footnotesize
+\Defclass {global-p-mixin}
+}
+
+This class is a superclass of query classes that provide information
+about entities that need to be distinguished as to whether they are
+global or not.  In particular, it is a superclass of the class
+\texttt{special-variable-description}.
+
+{\footnotesize
+\Definitarg {:global-p}
+}
+
+{\footnotesize
+\Defmethod {global-p} {(description {\tt global-p-mixin})}
+}
+
+\Given{global-p-mixin} the global-p information, \Assupplied{:global-p}
+
 \subsection{\texttt{expansion-mixin}}
 \label{sec-expansion-mixin}
 
