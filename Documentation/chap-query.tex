@@ -273,8 +273,9 @@ about entities that can be declared \texttt{ignore} or \texttt{ignorable}.
 \Definitarg {:ignore}
 }
 
-The value of this initarg must be one of the symbols \texttt{ignore}
-and \texttt{ignorable} from the \texttt{common-lisp} package.
+The value of this initarg must be one of the symbols \texttt{ignore},
+\texttt{ignorable}, and \texttt{nil} from the \texttt{common-lisp}
+package.  If this initarg is not given, it defaults to \texttt{nil}.
 
 {\footnotesize
 \Defmethod {ignore} {(description {\tt ignore-mixin})}
