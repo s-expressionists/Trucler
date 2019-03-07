@@ -1,6 +1,6 @@
 (cl:in-package #:asdf-user)
 
-(defsystem "trucler-native"
+(defsystem "trucler-reference"
   :depends-on ("trucler-base")
   :serial t
   :components

@@ -1,4 +1,4 @@
-(cl:in-package #:trucler-native)
+(cl:in-package #:trucler-reference)
 
 (defmethod trucler:add-lexical-variable
     ((client client) (environment environment) symbol &optional identity)

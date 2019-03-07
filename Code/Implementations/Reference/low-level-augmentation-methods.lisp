@@ -1,4 +1,4 @@
-(cl:in-package #:trucler-native)
+(cl:in-package #:trucler-reference)
 
 (defmethod trucler:augment-with-variable-description
     ((client client) (environment environment) (variable-description trucler:variable-description))

@@ -1,4 +1,4 @@
-(cl:in-package #:trucler-native)
+(cl:in-package #:trucler-reference)
 
 (defgeneric global-environment (environment))
 
