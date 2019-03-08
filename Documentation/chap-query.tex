@@ -306,28 +306,6 @@ is not given, it defaults to \texttt{nil}.
 
 \Given{dynamic-extent-mixin} the dynamic-extent information, \Assupplied{:dynamic-extent}
 
-\subsection{\texttt{global-p-mixin}}
-\label{sec-global-p-mixin}
-
-{\footnotesize
-\Defclass {global-p-mixin}
-}
-
-This class is a superclass of query classes that provide information
-about entities that need to be distinguished as to whether they are
-global or not.  In particular, it is a superclass of the class
-\texttt{special-variable-description}.
-
-{\footnotesize
-\Definitarg {:global-p}
-}
-
-{\footnotesize
-\Defmethod {global-p} {(description {\tt global-p-mixin})}
-}
-
-\Given{global-p-mixin} the global-p information, \Assupplied{:global-p}
-
 \subsection{\texttt{value-mixin}}
 \label{sec-value-mixin}
 
@@ -679,6 +657,17 @@ It is a superclass of the two instantiable classes
 \texttt{special-variable-description}.
 
 {\footnotesize
+\Defclass {special-variable-description}
+}
+
+This abstract class is a subclass of the class
+\texttt{authentic-variable-description}.
+
+It is a superclass of the two instantiable classes
+\texttt{local-special-variable-description} and
+\texttt{global-special-variable-description}.
+
+{\footnotesize
 \Defclass {symbol-macro-description}
 }
 
@@ -740,16 +729,28 @@ This class is a subclass of the classes
 \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
 {\footnotesize
-\Defclass {special-variable-description}
+\Defclass {local-special-variable-description}
 }
 
-This class represents information about special variables.   An
+This class represents information about local special variables.   An
 instance of this class is returned by a call to \texttt{variable-description}
 when it turns out that the symbol passed as an argument refers to a
-special variable.
+local special variable.
 
-This class is a subclass of the classes
-\texttt{authentic-variable-description} and \texttt{global-p-mixin}.
+This class is a subclass of the class
+\texttt{authentic-variable-description}.
+
+{\footnotesize
+\Defclass {global-special-variable-description}
+}
+
+This class represents information about global special variables.   An
+instance of this class is returned by a call to \texttt{variable-description}
+when it turns out that the symbol passed as an argument refers to a
+global special variable.
+
+This class is a subclass of the class
+\texttt{authentic-variable-description}.
 
 {\footnotesize
 \Defclass {constant-variable-description}
