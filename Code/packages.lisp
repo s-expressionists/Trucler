@@ -42,6 +42,8 @@
            #:authentic-variable-description
            #:lexical-variable-description
            #:special-variable-description
+           #:local-special-variable-description
+           #:global-special-variable-description
            #:constant-variable-description
            #:symbol-macro-description
 	   #:local-symbol-macro-description
