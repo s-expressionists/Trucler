@@ -35,10 +35,6 @@
     %dynamic-extent :dynamic-extent dynamic-extent
     :initform nil)
 
-(define-mixin-class global-p-mixin
-    %global-p :global-p global-p
-    :initform nil)
-
 (define-mixin-class value-mixin
     %value :value value)
 

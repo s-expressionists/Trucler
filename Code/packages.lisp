@@ -20,6 +20,7 @@
            #:type-mixin
            #:ignore-mixin
            #:dynamic-extent-mixin
+           #:value-mixin
            #:compiler-macro-mxin
            #:expander-mixin
            #:expasion-mixin
@@ -79,7 +80,6 @@
            #:inline
            #:compiler-macro
            #:dynamic-extent
-           #:global-p
            #:value
            #:expansion
            #:expander

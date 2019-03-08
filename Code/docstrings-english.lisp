@@ -120,15 +120,6 @@
                    NIL if there is no expander associated with the function~@
                    description."))
 
-(setf (documentation 'global-p 'function)
-      (format nil "Return the global-p property of DESCRIPTION, typically given as the~@
-                   value of the :GLOBAL-P initialization argument when DESCRIPTION~@
-                   was created.  DESCRIPTION must be a subclass of the class~@
-                   GLOBAL-P-MIXIN.
-                   ~@
-                   The return value is a generalized Boolean indicating whether a~@
-                   special variable has been defined to be globally special."))
-
 (setf (documentation 'value 'function)
       (format nil "Return the value property of DESCRIPTION, typically given as the~@
                    value of the :VALUE initialization argument when DESCRIPTION~@
@@ -366,6 +357,10 @@
       (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION~@
                    and TYPE-MIXIN."))
 
+(setf (documentation (find-class 'special-variable-description) 't)
+      (format nil "This abstract class is a superclass of the classes~@
+                   LOCAL-SPECIAL-VARIABLE-DESCRIPTION and GLOBAL-SPECIAL-VARIABLE-DESCRIPTION."))
+
 (setf (documentation (find-class 'symbol-macro-description) 't)
       (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION,~@
                    TYPE-MIXIN, and EXPANSION-MIXIN."))
@@ -392,14 +387,21 @@
                    This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION,~@
                    IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
 
-(setf (documentation (find-class 'special-variable-description) 't)
+(setf (documentation (find-class 'local-special-variable-description) 't)
       (format nil "This instantiable class represents information about special~@
                    variables.  An instance of this class is returned by a call to~@
                    variable-description when it turns out that the symbol passed~@
-                   as an argument refers to a special variable.~@
+                   as an argument refers to a local special variable.~@
                    ~@
-                   This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION~@
-                   and GLOBAL-P-MIXIN."))
+                   This class is a subclass of the class SPECIAL-VARIABLE-DESCRIPTION."))
+
+(setf (documentation (find-class 'global-special-variable-description) 't)
+      (format nil "This instantiable class represents information about special~@
+                   variables.  An instance of this class is returned by a call to~@
+                   variable-description when it turns out that the symbol passed~@
+                   as an argument refers to a global special variable.~@
+                   ~@
+                   This class is a subclass of the class SPECIAL-VARIABLE-DESCRIPTION."))
 
 (setf (documentation (find-class 'constant-variable-description) 't)
       (format nil "This instantiable class represents information about constant~@

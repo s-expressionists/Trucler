@@ -17,7 +17,13 @@
     (authentic-variable-description identity-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
-(defclass special-variable-description (authentic-variable-description global-p-mixin)
+(defclass special-variable-description (authentic-variable-description)
+  ())
+
+(defclass local-special-variable-description (special-variable-mixin)
+  ())
+
+(defclass global-special-variable-description (special-variable-mixin)
   ())
 
 (defclass constant-variable-description (variable-description value-mixin)

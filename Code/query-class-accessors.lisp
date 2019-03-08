@@ -18,8 +18,6 @@
 
 (defgeneric expander (description))
 
-(defgeneric global-p (description))
-
 (defgeneric value (description))
 
 (defgeneric expansion (description))
