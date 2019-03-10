@@ -186,7 +186,7 @@
                    to some entity that can be declared IGNORE or IGNORABLE.~@
                    ~@
                    The initarg :IGNORE is supported by this class.  The value of this~@
-                   initarg is one of the symbols IGNORE and IGNORABLE from the~@
+                   initarg is one of the symbols IGNORE, IGNORABLE, and NIL from the~@
                    COMMON-LISP package~@
                    ~@
                    The reader IGNORE can be used to access the ignore information of~@
@@ -351,7 +351,7 @@
 (setf (documentation (find-class 'variable-description) 't)
       (format nil "This abstract class is the superclass of every query class~@
                    returned by a call to the generic function DESCRIBE-VARIABLE.~@
-                   It is a subclass of the class NAME-MIXIN."))
+                   It is a subclass of the class NAME-MIXIN and IGNORE-MIXIN."))
 
 (setf (documentation (find-class 'authentic-variable-description) 't)
       (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION~@
@@ -385,7 +385,7 @@
                    as an argument refers to a lexical variable.~@
                    ~@
                    This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION,~@
-                   IDENTITY-MIXIN, IGNORE-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
+                   IDENTITY-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
 
 (setf (documentation (find-class 'local-special-variable-description) 't)
       (format nil "This instantiable class represents information about special~@
