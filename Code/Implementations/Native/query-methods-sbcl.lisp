@@ -26,7 +26,11 @@
          :name name
          :identity nil
          :dynamic-extent (leaf-dynamic-extent var env)
-         :ignore (sb-c::lambda-var-ignorep var)
+         :ignore (cond ((sb-c::lambda-var-ignorep var)
+                        'cl:ignore)
+                       ((sb-c::leaf-ever-used var)
+                        'cl:ignorable)
+                       (t nil))
          :type (leaf-type var env)))
       (sb-c::global-var
        (ecase (sb-c::global-var-kind var)

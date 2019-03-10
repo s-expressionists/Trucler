@@ -28,13 +28,13 @@
   ())
 
 (defclass sbcl-local-special-variable-description
-    (trucler:special-variable-description
+    (trucler:local-special-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
 (defclass sbcl-global-special-variable-description
-    (trucler:special-variable-description
+    (trucler:global-special-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
