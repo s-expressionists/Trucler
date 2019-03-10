@@ -643,7 +643,7 @@ metaclasss.  If this initarg is not given, it defaults to the symbol
 
 This abstract class is the superclass of every query class returned by
 a call to the generic function \texttt{describe-variable}.  It is a
-subclass of the class \texttt{name-mixin}.
+subclass of the classes \texttt{name-mixin} and \texttt{ignore-mixin}, .
 
 {\footnotesize
 \Defclass {authentic-variable-description}
@@ -726,7 +726,7 @@ lexical variable.
 
 This class is a subclass of the classes
 \texttt{authentic-variable-description} \texttt{identity-mixin},
-\texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
+and \texttt{dynamic-extent-mixin}.
 
 {\footnotesize
 \Defclass {local-special-variable-description}
@@ -777,10 +777,10 @@ defined as a global symbol macro, as defined by
 \Defclass {local-symbol-macro-description}
 }
 
-This class is a subclass of \texttt{symbol-macro-description} and
-\texttt{ignore-mixin}.  It is returned by a call to
-\texttt{variable-descriptionrmation} when the name is defined as a local
-symbol macro, as defined by \texttt{symbol-macrolet}.
+This class is a subclass of \texttt{symbol-macro-description}.  It is
+returned by a call to \texttt{variable-descriptionrmation} when the
+name is defined as a local symbol macro, as defined by
+\texttt{symbol-macrolet}.
 
 \subsection{Function description}
 \label{sec-instantiable-classes-function-desciption}
