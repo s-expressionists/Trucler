@@ -30,34 +30,30 @@
     `(touch ,name)))
 
 (defmacro assert-local-special-variable
-    (name &key (ignore nil) (type t) (dynamic-extent nil) &environment env)
+    (name &key (ignore nil) (type t) &environment env)
   (let ((description (trucler:describe-variable *client* env name)))
     (check-type description trucler:local-special-variable-description)
     (with-accessors ((description-name trucler:name)
                      (description-ignore trucler:ignore)
-                     (description-type trucler:type)
-                     (description-dynamic-extent trucler:dynamic-extent))
+                     (description-type trucler:type))
         description
       (assert (eq description-name name))
       (assert (eq description-ignore ignore))
-      (assert (subtypep description-type type))
-      (assert (boolean= description-dynamic-extent dynamic-extent))))
+      (assert (subtypep description-type type))))
   (unless (eq ignore 'cl:ignore)
     `(touch ,name)))
 
 (defmacro assert-global-special-variable
-    (name &key (ignore nil) (type t) (dynamic-extent nil) &environment env)
+    (name &key (ignore nil) (type t) &environment env)
   (let ((description (trucler:describe-variable *client* env name)))
     (check-type description trucler:global-special-variable-description)
     (with-accessors ((description-name trucler:name)
                      (description-ignore trucler:ignore)
-                     (description-type trucler:type)
-                     (description-dynamic-extent trucler:dynamic-extent))
+                     (description-type trucler:type))
         description
       (assert (eq description-name name))
       (assert (eq description-ignore ignore))
-      (assert (subtypep description-type type))
-      (assert (boolean= description-dynamic-extent dynamic-extent))))
+      (assert (subtypep description-type type))))
   (unless (eq ignore 'cl:ignore)
     `(touch ,name)))
 

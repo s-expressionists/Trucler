@@ -35,21 +35,18 @@
       (sb-c::global-var
        (ecase (sb-c::global-var-kind var)
          (:special
-          (make-instance 'global-special-variable-description
+          (make-instance 'local-special-variable-description
             :name name
-            :type (leaf-type var env)
-            :dynamic-extent (leaf-dynamic-extent var env)))
+            :type (leaf-type var env)))
          (:global
           (make-instance 'global-variable-description
             :name name
-            :type (leaf-type var env)
-            :dynamic-extent (leaf-dynamic-extent var env)))
+            :type (leaf-type var env)))
          (:unknown nil)))
       (sb-c::constant
        (make-instance 'constant-variable-description
          :name name
-         :type (leaf-type var env)
-         ))
+         :type (leaf-type var env)))
       (cons
        (make-instance 'local-symbol-macro-description
          :name name
