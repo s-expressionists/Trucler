@@ -7,14 +7,14 @@
 ;;;
 ;;; VARIABLE-DESCRIPTION classes.
 
-(defclass variable-description (description name-mixin)
+(defclass variable-description (description name-mixin ignore-mixin)
   ())
 
 (defclass authentic-variable-description (variable-description type-mixin)
   ())
 
 (defclass lexical-variable-description
-    (authentic-variable-description identity-mixin ignore-mixin dynamic-extent-mixin)
+    (authentic-variable-description identity-mixin dynamic-extent-mixin)
   ())
 
 (defclass special-variable-description (authentic-variable-description)
@@ -32,7 +32,7 @@
 (defclass symbol-macro-description (variable-description type-mixin expansion-mixin)
   ())
 
-(defclass local-symbol-macro-description (symbol-macro-description ignore-mixin)
+(defclass local-symbol-macro-description (symbol-macro-description)
   ())
 
 (defclass global-symbol-macro-description (symbol-macro-description)
