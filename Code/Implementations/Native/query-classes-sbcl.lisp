@@ -21,43 +21,43 @@
 ;;;
 ;;; VARIABLE-DESCRIPTION classes.
 
-(defclass sbcl-lexical-variable-description
+(defclass lexical-variable-description
     (trucler:lexical-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-local-special-variable-description
+(defclass local-special-variable-description
     (trucler:local-special-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-global-special-variable-description
+(defclass global-special-variable-description
     (trucler:global-special-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-constant-variable-description
+(defclass constant-variable-description
     (trucler:constant-variable-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-local-symbol-macro-description
+(defclass local-symbol-macro-description
     (trucler:local-symbol-macro-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-global-symbol-macro-description
+(defclass global-symbol-macro-description
     (trucler:global-symbol-macro-description
      always-bound-mixin
      deprecated-mixin)
   ())
 
-(defclass sbcl-global-variable-description
+(defclass global-variable-description
     (trucler:authentic-variable-description
      always-bound-mixin
      deprecated-mixin)
@@ -66,3 +66,33 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; FUNCTION-DESCRIPTION classes.
+
+(defclass local-function-description
+    (trucler:local-function-description
+     deprecated-mixin)
+  ())
+
+(defclass global-function-description
+    (trucler:global-function-description
+     deprecated-mixin)
+  ())
+
+(defclass generic-function-description
+    (trucler:generic-function-description
+     deprecated-mixin)
+  ())
+
+(defclass local-macro-description
+    (trucler:local-macro-description
+     deprecated-mixin)
+  ())
+
+(defclass global-macro-description
+    (trucler:global-macro-description
+     deprecated-mixin)
+  ())
+
+(defclass special-operator-description
+    (trucler:special-operator-description
+     deprecated-mixin)
+  ())
