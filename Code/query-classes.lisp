@@ -20,10 +20,10 @@
 (defclass special-variable-description (authentic-variable-description)
   ())
 
-(defclass local-special-variable-description (special-variable-mixin)
+(defclass local-special-variable-description (special-variable-description)
   ())
 
-(defclass global-special-variable-description (special-variable-mixin)
+(defclass global-special-variable-description (special-variable-description)
   ())
 
 (defclass constant-variable-description (variable-description value-mixin)
