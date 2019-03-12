@@ -10,11 +10,12 @@
 (defclass variable-description (description name-mixin ignore-mixin)
   ())
 
-(defclass authentic-variable-description (variable-description type-mixin)
+(defclass authentic-variable-description
+    (variable-description type-mixin dynamic-extent-mixin)
   ())
 
 (defclass lexical-variable-description
-    (authentic-variable-description identity-mixin dynamic-extent-mixin)
+    (authentic-variable-description identity-mixin)
   ())
 
 (defclass special-variable-description (authentic-variable-description)
