@@ -354,8 +354,8 @@
                    It is a subclass of the class NAME-MIXIN and IGNORE-MIXIN."))
 
 (setf (documentation (find-class 'authentic-variable-description) 't)
-      (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION~@
-                   and TYPE-MIXIN."))
+      (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION,~@
+                   TYPE-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
 
 (setf (documentation (find-class 'special-variable-description) 't)
       (format nil "This abstract class is a superclass of the classes~@
@@ -384,8 +384,8 @@
                    variable-description when it turns out that the symbol passed~@
                    as an argument refers to a lexical variable.~@
                    ~@
-                   This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION,~@
-                   IDENTITY-MIXIN, and DYNAMIC-EXTENT-MIXIN."))
+                   This class is a subclass of the classes AUTHENTIC-VARIABLE-DESCRIPTION~@
+                   and IDENTITY-MIXIN."))
 
 (setf (documentation (find-class 'local-special-variable-description) 't)
       (format nil "This instantiable class represents information about special~@
