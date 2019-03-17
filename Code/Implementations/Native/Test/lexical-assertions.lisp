@@ -13,6 +13,10 @@
       (not b)
       (and b t)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Variables
+
 (defmacro assert-lexical-variable
     (name &key (ignore nil) (type t) (dynamic-extent nil) &environment env)
   (let ((description (trucler:describe-variable *client* env name)))
@@ -60,7 +64,7 @@
 (defmacro assert-constant-variable
     (name &key (ignore nil) (value nil value-p) &environment env)
   (let ((description (trucler:describe-variable *client* env name)))
-    (check-type description trucler:global-special-variable-description)
+    (check-type description trucler:constant-variable-description)
     (with-accessors ((description-name trucler:name)
                      (description-ignore trucler:ignore)
                      (description-value trucler:value))
@@ -71,3 +75,92 @@
         (assert (eql description-value value)))))
   (unless (eq ignore 'cl:ignore)
     `(touch ,name)))
+
+(defmacro assert-local-symbol-macro-description
+    (name &key (expansion nil expansion-p) &environment env)
+  (let ((description (trucler:describe-variable *client* env name)))
+    (check-type description trucler:local-symbol-macro-description)
+    (when expansion-p
+      (assert (equal expansion (trucler:expansion description))))
+    `(values)))
+
+(defmacro assert-global-symbol-macro-description
+    (name &key (expansion nil expansion-p) &environment env)
+  (let ((description (trucler:describe-variable *client* env name)))
+    (check-type description trucler:global-symbol-macro-description)
+    (when expansion-p
+      (assert (equal expansion (trucler:expansion description))))
+    `(values)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Functions
+
+(defmacro assert-local-function-description
+    (name &environment env)
+  (let ((description (trucler:describe-function *client* env name)))
+    (check-type description trucler:local-function-description)
+    `(touch #',name)))
+
+(defmacro assert-global-function-description
+    (name &environment env)
+  (let ((description (trucler:describe-function *client* env name)))
+    (check-type description trucler:global-function-description)
+    `(touch #',name)))
+
+(defmacro assert-local-macro-description
+    (name &environment env)
+  (let ((description (trucler:describe-function *client* env name)))
+    (check-type description trucler:local-macro-description)
+    `(values)))
+
+(defmacro assert-global-macro-description
+    (name &environment env)
+  (let ((description (trucler:describe-function *client* env name)))
+    (check-type description trucler:global-macro-description)
+    (assert (functionp (trucler:expander description)))
+    `(values)))
+
+(defmacro assert-special-operator-description
+    (name &environment env)
+  (let ((description (trucler:describe-function *client* env name)))
+    (check-type description trucler:special-operator-description)
+    (assert (functionp (trucler:expander description)))
+    `(values)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Miscellaneous
+
+(defmacro assert-block-description
+    (name &environment env)
+  (let ((description (trucler:describe-block *client* env name)))
+    (check-type description trucler:block-description)
+    `(values)))
+
+(defmacro assert-tag-description
+    (tag &environment env)
+  (let ((description (trucler:describe-tag *client* env tag)))
+    (check-type description trucler:tag-description)
+    `(values)))
+
+(defmacro assert-optimize-description
+    (&key (speed nil speed-p)
+       (compilation-speed nil compilation-speed-p)
+       (debug nil debug-p)
+       (space nil space-p)
+       (safety nil safety-p)
+     &environment env)
+  (let ((description (trucler:describe-optimize *client* env)))
+    (check-type description trucler:optimize-description)
+    (when speed-p
+      (assert (= (trucler:speed description) speed)))
+    (when compilation-speed-p
+      (assert (= (trucler:compilation-speed description) compilation-speed)))
+    (when debug-p
+      (assert (= (trucler:debug description) debug)))
+    (when space-p
+      (assert (= (trucler:space description) space)))
+    (when safety-p
+      (assert (= (trucler:safety description) safety)))
+    `(values)))
