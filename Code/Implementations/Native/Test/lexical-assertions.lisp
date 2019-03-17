@@ -154,13 +154,13 @@
   (let ((description (trucler:describe-optimize *client* env)))
     (check-type description trucler:optimize-description)
     (when speed-p
-      (assert (= (trucler::speed description) speed)))
+      (assert (= (trucler:speed description) speed)))
     (when compilation-speed-p
-      (assert (= (trucler::compilation-speed description) compilation-speed)))
+      (assert (= (trucler:compilation-speed description) compilation-speed)))
     (when debug-p
-      (assert (= (trucler::debug description) debug)))
+      (assert (= (trucler:debug description) debug)))
     (when space-p
-      (assert (= (trucler::space description) space)))
+      (assert (= (trucler:space description) space)))
     (when safety-p
-      (assert (= (trucler::safety description) safety)))
+      (assert (= (trucler:safety description) safety)))
     `(values)))
