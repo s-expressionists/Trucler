@@ -1,4 +1,5 @@
 (cl:in-package #:common-lisp-user)
 
 (defpackage #:trucler-reference
-  (:use #:common-lisp))
+  (:use #:common-lisp)
+  (:export #:environment))
