@@ -74,7 +74,7 @@
            #:optimize-description
            ;; Class for class description.
 	   #:class-description
-           ;; INFO accessors
+           ;; Description accessors.
            #:name
            #:identity
            #:type
@@ -87,6 +87,11 @@
            #:expander
            #:class-name
            #:method-class-name
+           #:speed
+           #:compilation-speed
+           #:debug
+           #:space
+           #:safety
            ;; Augmentation functions.
 	   #:augment-with-variable-description
 	   #:augment-with-function-description
