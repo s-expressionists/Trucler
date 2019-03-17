@@ -1,4 +1,4 @@
-(cl:in-package #:trucler-native)
+(cl:in-package #:trucler-native-sbcl)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -95,4 +95,20 @@
 (defclass special-operator-description
     (trucler:special-operator-description
      deprecated-mixin)
+  ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Other description classes.
+
+(defclass block-description
+    (trucler:block-description)
+  ())
+
+(defclass tag-description
+    (trucler:tag-description)
+  ())
+
+(defclass optimize-description
+    (trucler:optimize-description)
   ())

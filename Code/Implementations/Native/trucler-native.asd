@@ -7,7 +7,11 @@
   :components
   ((:file "packages")
    (:file "client")
-   (:file "query-classes-sbcl" :if-feature :sbcl)
-   (:file "query-methods-sbcl" :if-feature :sbcl)
-   (:file "low-level-augmentation-methods-sbcl" :if-feature :sbcl)
-   (:file "augmentation-methods-sbcl" :if-feature :sbcl)))
+
+   (:module "SBCL"
+    :components
+    ((:file "packages")
+     (:file "query-classes")
+     (:file "query-methods")
+     (:file "low-level-augmentation-methods")
+     (:file "augmentation-methods")))))
