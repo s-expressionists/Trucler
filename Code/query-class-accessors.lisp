@@ -12,8 +12,6 @@
 
 (defgeneric dynamic-extent (description))
 
-(defgeneric ast (description))
-
 (defgeneric compiler-macro (description))
 
 (defgeneric expander (description))
