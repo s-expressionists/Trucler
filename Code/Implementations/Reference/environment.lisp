@@ -37,7 +37,7 @@
     :initarg :optimize-description
     :reader optimize-description)))
 
-(defmethod cloning-information append ((object environment))
+(defmethod trucler:cloning-information append ((object environment))
   '((:global-environment global-environment)
     (:function-description function-description)
     (:variable-description variable-description)
