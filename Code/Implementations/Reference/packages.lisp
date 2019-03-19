@@ -2,4 +2,5 @@
 
 (defpackage #:trucler-reference
   (:use #:common-lisp)
-  (:export #:environment))
+  (:export #:environment
+           #:global-environment))
