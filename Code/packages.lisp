@@ -131,6 +131,7 @@
 	   #:merge-space
 	   ;; Cloning
 	   #:quasi-clone
+           #:cloning-information
            ;; Condition types.
            #:no-description
            #:no-variable-description
