@@ -56,3 +56,12 @@
 
 (defgeneric add-space
     (client environment value))
+
+;;; This function is kind of an augmentation function.  It is called
+;;; in order to return a new environment that can be used to compile
+;;; the macro expander of MACROLET.  The expander code of MACROLET is
+;;; not allowed to access local variables or local functions, because
+;;; the expander code is executed at compile time, whereas the local
+;;; variables and functions do not exist until run time.
+
+(defgeneric restrict-for-macrolet-expander (client environment))
