@@ -119,6 +119,7 @@
            #:add-safety
            #:add-space
            #:add-inline
+           #:restrict-for-macrolet-expander
 	   ;; Merge functions
 	   #:merge-type
 	   #:merge-ignore
