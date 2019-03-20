@@ -44,3 +44,25 @@
          (loop for (initarg reader) in (trucler:cloning-information environment)
                collect initarg
                collect (funcall reader environment))))
+
+(defgeneric filter-description (description)
+  (:method (description) description)
+  (:method ((description error-description))
+    ;; FIXME, signal a specific error.
+    (error "Attempt to acess a run-time name at compile-time.")))
+
+(defmethod trucler:describe-variable :around
+    ((client client) (environment environment) name)
+  (filter-description (call-next-method)))
+
+(defmethod trucler:describe-function :around
+    ((client client) (environment environment) name)
+  (filter-description (call-next-method)))
+
+(defmethod trucler:describe-block :around
+    ((client client) (environment environment) name)
+  (filter-description (call-next-method)))
+
+(defmethod trucler:describe-tag :around
+    ((client client) (environment environment) name)
+  (filter-description (call-next-method)))
