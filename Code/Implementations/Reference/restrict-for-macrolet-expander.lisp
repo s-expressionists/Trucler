@@ -29,7 +29,7 @@
 (defun restrict-descriptions (descriptions)
   (mapcar #'restrict-description descriptions))
 
-(defmethod trucler:restrict-for-macrolet-expander (client environment)
+(defmethod trucler:restrict-for-macrolet-expander (client (environment environment))
   (apply #'make-instance
          (class-of environment)
          :function-description
