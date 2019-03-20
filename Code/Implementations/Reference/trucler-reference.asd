@@ -9,4 +9,5 @@
    (:file "environment")
    (:file "query-methods")
    (:file "low-level-augmentation-methods")
-   (:file "augmentation-methods")))
+   (:file "augmentation-methods")
+   (:file "restrict-for-macrolet-expander")))
