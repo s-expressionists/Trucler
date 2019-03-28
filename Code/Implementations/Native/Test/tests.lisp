@@ -28,7 +28,6 @@
     (assert-local-special-variable *local*)))
 
 (defconstant +constant+ 42)
-(defconstant +constant+ 42)
 
 (defun test-constants ()
   (assert-constant-variable +constant+ :value 42))
@@ -43,9 +42,11 @@
 (defun gfun ())
 
 (defun test-functions ()
-  (flet ((lfun ()))
+  (flet ((lfun ())
+         ((setf lfun) (value) value))
     (assert-global-function-description gfun)
-    (assert-local-function-description lfun)))
+    (assert-local-function-description lfun)
+    (assert-local-function-description (setf lfun))))
 
 (defmacro gmacro ())
 

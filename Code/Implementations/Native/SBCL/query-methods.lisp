@@ -1,8 +1,8 @@
 (cl:in-package #:trucler-native-sbcl)
 
 ;;; Return the value of KEY in ALIST, or NIL.
-(defun alist-value (key alist &optional (default nil))
-  (let ((cons-or-nil (assoc key alist)))
+(defun alist-value (key alist &key (default nil) (test #'eql))
+  (let ((cons-or-nil (assoc key alist :test test)))
     (if (null cons-or-nil)
         default
         (cdr cons-or-nil))))
@@ -74,7 +74,7 @@
          (:unknown nil))))))
 
 (defmethod trucler:describe-function ((client native-client) (env sb-kernel:lexenv) name)
-  (let ((fun (alist-value name (sb-c::lexenv-funs env))))
+  (let ((fun (alist-value name (sb-c::lexenv-funs env) :test #'equal)))
     (etypecase fun
       (sb-c::functional
        (make-instance 'local-function-description
@@ -94,7 +94,7 @@
          :name name
          :expander (cdr fun)))
       (null
-       (ecase (sb-int:info :function :kind name)
+       (case (sb-int:info :function :kind name)
          (:macro
           (make-instance 'global-macro-description
             :name name
