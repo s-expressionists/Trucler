@@ -36,3 +36,24 @@ of generating some different representation for it.
 In addition to providing a mechanism that solves the problems of
 protocol presented in CLtL2, we also add several new features that
 a language processor must use to process source code.
+
+The term \emph{client code} is used in this document to mean two
+things:
+
+\begin{enumerate}
+\item Code that is specific to a \commonlisp{} implementation and that
+  provides specialized code for one or more generic functions defined
+  in this document.  Typically, such code will depend on the precise
+  representation of lexical environments used by the implementation.
+\item Code that is specific to the language processor that uses
+  \sysname{} to obtain information about program elements in the
+  source code that it processes.
+\end{enumerate}
+
+Both these types of specialization are introduced by means of a
+parameter to \sysname{} functions called \texttt{client}.  Typically,
+a \commonlisp{} implementation will provide a class such that an
+instance represents the implementation, and also provide methods on
+\sysname{} functions, specialized to this class.  A language processor
+that needs further specialization can then define a subclass of this
+class, so that these methods can be overridden or extended.
