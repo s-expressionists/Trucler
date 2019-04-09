@@ -45,3 +45,7 @@
           (reinitialize-instance environment
             :optimize-description description))))
     description))
+
+(defmethod trucler:global-environment
+    ((client client) (environment environment))
+  (global-environment environment))
