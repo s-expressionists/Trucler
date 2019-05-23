@@ -83,6 +83,13 @@
      client environment
      (trucler:merge-inline client description inline))))
 
+(defmethod trucler:add-inline-data
+    ((client client) (environment environment) function-name inline-data)
+  (let ((description (trucler:describe-function client environment function-name)))
+    (trucler:augment-with-function-description
+     client environment
+     (trucler:merge-inline-data client description inline-data))))
+
 (defmethod trucler:add-function-type
     ((client client) (environment environment) function-name type)
   (let ((description (trucler:describe-function client environment function-name)))
