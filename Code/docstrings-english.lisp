@@ -240,6 +240,19 @@
                    The reader INLINE can be used to access the inline information of~@
                    the entity."))
 
+(setf (documentation (find-class 'inline-data-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can be declared INLINE or NOTINLINE, and that~@
+                   may contain additional data for inlining.~@
+                   ~@
+                   The initarg :INLINE-DATA is supported by this class.  The value~@
+                   of this initarg can be any datum supplied by client code.  The~@
+                   default value if this intarg is not supplied is NIL.~@
+                   ~@
+                   The reader INLINE-DATA can be used to access the inline information~@
+                   of the entity."))
+
 (setf (documentation (find-class 'class-name-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
                    It can be used as a superclass of query classes that correspond~@
