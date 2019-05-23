@@ -53,6 +53,14 @@
             (description condition))))
 
 (defmethod acclimation:report-condition
+    ((condition invalid-description-for-merging-inline-data)
+     stream
+     (language acclimation:english))
+  (let ((*package* (find-package '#:keyword)))
+    (format stream "Invalid description for merging inline data ~s"
+            (description condition))))
+
+(defmethod acclimation:report-condition
     ((condition invalid-description-for-merging-speed-information)
      stream
      (language acclimation:english))
