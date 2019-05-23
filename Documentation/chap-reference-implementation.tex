@@ -246,6 +246,20 @@ return a new instance that is just like
 all the slots), except that its inline information has been updated
 according to that of \textit{inline}.
 
+{\footnotesize
+\Defgeneric {merge-inline-data} {client description inline-data}
+}
+
+Given an instance of the class \texttt{description} and any datum
+chosen by client code to represent data to be used for inlining,
+return a new instance that is just like \textit{description}
+(including the class and the values of all the slots), except that its
+inline data has been updated according to that of
+\textit{inline-data}.
+
+Recall that inline data can be any datum that client code can
+associate with a function definition so that, when a call to that
+function is detected, it can be replaced by an inline version of it.
 
 {\footnotesize
 \Defcondition {invalid-description-for-merging-inline-information}
@@ -254,6 +268,14 @@ according to that of \textit{inline}.
 This condition is signaled by \texttt{merge-inline} when the
 \textit{description} argument is not an instance of a class that
 contains information about inline.
+
+{\footnotesize
+\Defcondition {invalid-description-for-merging-inline-data}
+}
+
+This condition is signaled by \texttt{merge-inline-data} when the
+\textit{description} argument is not an instance of a class that
+contains inline data.
 
 {\footnotesize
 \Defmethod {merge-inline} {client description inline}
@@ -272,6 +294,24 @@ signals the condition
 
 This is the main method provided on \texttt{merge-inline}
 and it is specialized to \texttt{inline-mixin}.
+
+{\footnotesize
+\Defmethod {merge-inline-data} {client description inline-data}
+}
+
+This is the default method provided on \texttt{merge-inline-data}.  It
+signals the condition
+\texttt{invalid-description-for-merging-inline-data}.
+
+{\footnotesize
+\Defmethod {merge-inline-data}\\
+           {client\\
+            (description {\tt inline-data-mixin})\\
+            inline-data}
+}
+
+This is the main method provided on \texttt{merge-inline-data}
+and it is specialized to \texttt{inline-data-mixin}.
 
 {\footnotesize
 \Defgeneric {merge-speed} {client description value}
@@ -645,6 +685,23 @@ return a new environment.
 This is the main method on \texttt{add-inline}.  It calls
 \texttt{describe-function} to obtain an existing function description.
 It then calls \texttt{merge-inline} to create a new function
+description.  Finally, it calls
+\texttt{augment-with-function-description} in order to create and
+return a new environment.
+
+\subsubsection{Annotating a function with inline data}
+
+{\footnotesize
+\Defmethod{add-inline-data}
+{client
+ (environment environment)
+ name
+ inline-data}
+}
+
+This is the main method on \texttt{add-inline-data}.  It calls
+\texttt{describe-function} to obtain an existing function description.
+It then calls \texttt{merge-inline-data} to create a new function
 description.  Finally, it calls
 \texttt{augment-with-function-description} in order to create and
 return a new environment.
