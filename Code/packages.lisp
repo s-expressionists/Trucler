@@ -26,6 +26,7 @@
            #:expasion-mixin
            #:class-name-mixin
            #:inline-mixin
+           #:inline-data-mixin
            #:method-class-name-mixin
            #:speed-mixin
            #:compilation-speed-mixin
