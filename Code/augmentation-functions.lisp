@@ -42,6 +42,9 @@
 (defgeneric add-inline
     (client environment function-name inline))
 
+(defgeneric add-inline-data
+    (client environment function-name inline-data))
+
 (defgeneric add-speed
     (client environment value))
 
