@@ -45,7 +45,8 @@
 
 (defclass function-description (description name-mixin) ())
 
-(defclass authentic-function-description (function-description type-mixin inline-mixin)
+(defclass authentic-function-description
+    (function-description type-mixin inline-mixin inline-data-mixin)
   ())
 
 (defclass local-function-description
