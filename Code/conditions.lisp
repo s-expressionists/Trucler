@@ -38,6 +38,10 @@
     (invalid-description)
   ())
 
+(define-condition invalid-description-for-merging-inline-data
+    (invalid-description)
+  ())
+
 (define-condition invalid-description-for-merging-speed-information
     (invalid-description)
   ())
