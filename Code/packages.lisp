@@ -127,6 +127,7 @@
 	   #:merge-ignore
 	   #:merge-dynamic-extent
 	   #:merge-inline
+           #:merge-inline-data
 	   #:merge-speed
 	   #:merge-compilation-speed
 	   #:merge-debug
@@ -145,6 +146,7 @@
            #:invalid-description-for-merging-ignore-information
            #:invalid-description-for-merging-dynamic-extetn-information
            #:invalid-description-for-merging-inline-information
+           #:invalid-description-for-merging-inline-data
            #:invalid-description-for-merging-speed-information
            #:invalid-description-for-merging-compilation-speed-information
            #:invalid-description-for-merging-debug-information
