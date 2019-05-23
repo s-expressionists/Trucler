@@ -56,6 +56,10 @@
     :initform nil
     :type (member nil cl:inline cl:notinline))
 
+(define-mixin-class inline-data-mixin
+    %inline-data :inline-data inline-data
+    :initform nil)
+
 (define-mixin-class method-class-name-mixin
     %method-class-name :method-class-name method-class-name
     :initform 'standard-method)
