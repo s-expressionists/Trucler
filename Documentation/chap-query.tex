@@ -439,6 +439,37 @@ been provided, and this is the default value if the initarg is omitted.
 
 \Given{inline-mixin} the inline information, \Assupplied{:inline}
 
+\subsection{\texttt{inline--data-mixin}}
+\label{sec-inline-data-mixin}
+
+{\footnotesize
+\Defclass {inline-data-mixin}
+}
+
+This class is a superclass of query classes that provide information
+about entities that can have inline data.  In particular, it is a
+superclass of the class \texttt{authentic-function-description}.
+
+Inline data can be used by client code to store data about how to
+inline a particular function.  This data can then be used when a call
+to the function is processed in order to replace that call with an
+inline version of the function.
+
+{\footnotesize
+\Definitarg {:inline-data}
+}
+
+The value of this argument can be any datum used by client code to
+represent the function for the purpose of inlining it.  The value
+\texttt{nil} means that no inline information has been provided, and
+this is the default value if the initarg is omitted.
+
+{\footnotesize
+\Defmethod {inline-data} {(description {\tt inline-data-mixin})}
+}
+
+\Given{inline-data-mixin} the inline data, \Assupplied{:inline-data}
+
 \subsection{\texttt{method-class-name-mixin}}
 \label{sec-method-class-name-mixin}
 
