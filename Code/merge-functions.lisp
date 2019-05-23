@@ -8,6 +8,8 @@
 
 (defgeneric merge-inline (client description inline))
 
+(defgeneric merge-inline-data (client description inline-data))
+
 (defgeneric merge-speed (client description value))
 
 (defgeneric merge-compilation-speed (client description value))
