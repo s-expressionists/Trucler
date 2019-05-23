@@ -22,6 +22,11 @@
   (error 'invalid-description-for-merging-inline-information
          :description description))
 
+(defmethod merge-inline-data (client description inline-data)
+  (declare (cl:ignore client inline-data))
+  (error 'invalid-description-for-merging-inline-data
+         :description description))
+
 (defmethod merge-speed (client description value)
   (declare (cl:ignore client value))
   (error 'invalid-description-for-merging-speed-information
@@ -60,6 +65,9 @@
 
 (defmethod merge-inline (client (description inline-mixin) inline)
   (quasi-clone description :inline inline))
+
+(defmethod merge-inline-data (client (description inline-data-mixin) inline-data)
+  (quasi-clone description :inline-data inline-data))
 
 (defmethod merge-speed (client (description speed-mixin) value)
   (quasi-clone description :speed value))
