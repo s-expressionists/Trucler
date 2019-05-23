@@ -184,8 +184,28 @@ been annotated with an \texttt{inline} declaration.
 The argument \textit{inline} must be the symbol \texttt{inline} or the
 symbol \texttt{notinline}.
 
-This function can be used when \textit{name} names a local function or
-a local macro.
+This function can be used when \textit{name} names a local or a global
+function.
+
+\subsubsection{Annotating a function with \texttt{inline} data}
+\label{sec-annotating-a-function-with-inline-data}
+
+{\footnotesize
+\Defgeneric {add-inline-data} {client environment name inline-data}
+}
+
+This function returns a new environment that is like
+\textit{environment} except that the function named \textit{name} has
+been annotated with inline data.
+
+Inline data can be any datum that client code uses in order to make it
+possible for the corresponding function to be inlined when a call to
+it is detected.
+
+Therefore, the argument \textit{inline-data} can be any datum.
+
+This function can be used when \textit{name} names a local or a global
+function.
 
 \subsection{Adding blocks}
 
