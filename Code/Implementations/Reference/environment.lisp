@@ -35,7 +35,15 @@
    (%optimize-description
     :initform '()
     :initarg :optimize-description
-    :reader optimize-description)))
+    :reader optimize-description)
+   ;; When this flag is set, the environment is restricted for use by
+   ;; macrolet.  When the environment is restricted, a query that
+   ;; returns a local function description or a lexial variable
+   ;; descripton will signal an error.
+   (%restricted-p
+    :initform nil
+    :initarg :restricted-p
+    :reader restricted-p)))
 
 (defmethod trucler:cloning-information append ((object environment))
   '((:global-environment global-environment)
