@@ -3,4 +3,5 @@
 (defpackage #:trucler-reference
   (:use #:common-lisp)
   (:export #:environment
-           #:global-environment))
+           #:global-environment
+           #:client))
