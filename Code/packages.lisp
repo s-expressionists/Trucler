@@ -12,7 +12,10 @@
            #:compilation-speed
            #:debug
            #:space
-           #:safety)
+           #:safety
+           #:class-name
+           #:macro-function
+           #:compiler-macro-function)
   (:export #:description
            ;; Mixin classes.
            #:name-mixin
@@ -21,9 +24,9 @@
            #:ignore-mixin
            #:dynamic-extent-mixin
            #:value-mixin
-           #:compiler-macro-mxin
+           #:compiler-macro-mixin
            #:expander-mixin
-           #:expasion-mixin
+           #:expansion-mixin
            #:class-name-mixin
            #:inline-mixin
            #:inline-data-mixin
@@ -85,6 +88,7 @@
            #:type
            #:ignore
            #:inline
+           #:inline-data
            #:compiler-macro
            #:dynamic-extent
            #:value
@@ -138,6 +142,10 @@
 	   ;; Cloning
 	   #:quasi-clone
            #:cloning-information
+           ;; Macro functions.
+           #:macro-function
+           #:compiler-macro-function
+           #:symbol-macro-expansion
            ;; Condition types.
            #:no-description
            #:no-variable-description
