@@ -10,4 +10,5 @@
    (:file "query-methods")
    (:file "low-level-augmentation-methods")
    (:file "augmentation-methods")
+   (:file "macro-methods")
    (:file "restrict-for-macrolet-expander")))
