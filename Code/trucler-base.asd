@@ -18,6 +18,7 @@
    (:file "merge-methods")
    (:file "low-level-augmentation-functions")
    (:file "augmentation-functions")
+   (:file "macro-functions")
    (:file "conditions")
    (:file "condition-reporters-english")
    (:file "docstrings-english")))
