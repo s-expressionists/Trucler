@@ -28,4 +28,4 @@
              (trucler:symbol-macro-expansion name global-environment)))
           ((typep description 'trucler:expansion-mixin)
            (trucler:expansion description))
-          (t nil))))
+          (t name))))
