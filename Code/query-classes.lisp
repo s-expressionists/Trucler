@@ -46,11 +46,11 @@
 (defclass function-description (description name-mixin) ())
 
 (defclass authentic-function-description
-    (function-description type-mixin inline-mixin inline-data-mixin)
+    (function-description type-mixin inline-mixin inline-data-mixin ignore-mixin dynamic-extent-mixin)
   ())
 
 (defclass local-function-description
-    (authentic-function-description identity-mixin ignore-mixin dynamic-extent-mixin)
+    (authentic-function-description identity-mixin)
   ())
 
 (defclass global-function-description
