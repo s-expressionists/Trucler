@@ -25,6 +25,9 @@
   (declare (ignore env))
   (and (sb-c::leaf-dynamic-extent leaf) t))
 
+(defmethod trucler:describe-variable ((client native-client) (env null) name)
+  (trucler:describe-variable client (sb-kernel:make-null-lexenv) name))
+
 (defmethod trucler:describe-variable ((client native-client) (env sb-kernel:lexenv) name)
   (let ((var (alist-value name (sb-c::lexenv-vars env))))
     (etypecase var
@@ -73,6 +76,9 @@
             :value (symbol-value name)))
          (:unknown nil))))))
 
+(defmethod trucler:describe-function ((client native-client) (env null) name)
+  (trucler:describe-function client (sb-kernel:make-null-lexenv) name))
+
 (defmethod trucler:describe-function ((client native-client) (env sb-kernel:lexenv) name)
   (let ((fun (alist-value name (sb-c::lexenv-funs env) :test #'equal)))
     (etypecase fun
@@ -110,6 +116,9 @@
                       sb-kernel:*universal-fun-type*)
             :inline (sb-int:info :function :inlinep name))))))))
 
+(defmethod trucler:describe-block ((client native-client) (env null) name)
+  (trucler:describe-block client (sb-kernel:make-null-lexenv) name))
+
 (defmethod trucler:describe-block ((client native-client) (env sb-kernel:lexenv) name)
   (let ((found (alist-value name (sb-c::lexenv-blocks env))))
     (if found
@@ -118,6 +127,9 @@
           :identity found)
         nil)))
 
+(defmethod trucler:describe-tag ((client native-client) (env null) tag)
+  (trucler:describe-tag client (sb-kernel:make-null-lexenv) tag))
+
 (defmethod trucler:describe-tag ((client native-client) (env sb-kernel:lexenv) tag)
   (let ((found (alist-value tag (sb-c::lexenv-tags env))))
     (if found
@@ -125,6 +137,9 @@
           :name tag
           :identity found)
         nil)))
+
+(defmethod trucler:describe-optimize ((client native-client) (env null))
+  (trucler:describe-optimize client (sb-kernel:make-null-lexenv)))
 
 (defmethod trucler:describe-optimize ((client native-client) (env sb-kernel:lexenv))
   (let ((policy (or (sb-c::lexenv-policy env)
