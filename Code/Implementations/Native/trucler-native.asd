@@ -9,8 +9,10 @@
    (:file "client")
 
    (:module "SBCL"
+    :if-feature :sbcl
     :components
     ((:file "packages")
+     (:file "null-lexical-environment")
      (:file "query-classes")
      (:file "query-methods")
      (:file "low-level-augmentation-methods")
