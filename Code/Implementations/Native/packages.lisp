@@ -2,4 +2,4 @@
 
 (defpackage #:trucler-native
   (:use #:common-lisp)
-  (:export #:native-client))
+  (:export #:client))

@@ -1,7 +1,7 @@
 (in-package #:trucler-native-test)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (defvar *client* (make-instance 'trucler-native:native-client)))
+  (defvar *client* (make-instance 'trucler-native:client)))
 
 (declaim (notinline touch))
 (defun touch (x)

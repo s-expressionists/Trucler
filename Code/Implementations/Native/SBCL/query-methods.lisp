@@ -25,7 +25,8 @@
   (declare (ignore env))
   (and (sb-c::leaf-dynamic-extent leaf) t))
 
-(defmethod trucler:describe-variable ((client native-client) (env sb-kernel:lexenv) name)
+(defmethod trucler:describe-variable
+    ((client client) (env sb-kernel:lexenv) name)
   (let ((var (alist-value name (sb-c::lexenv-vars env))))
     (etypecase var
       (sb-c::lambda-var
@@ -73,7 +74,8 @@
             :value (symbol-value name)))
          (:unknown nil))))))
 
-(defmethod trucler:describe-function ((client native-client) (env sb-kernel:lexenv) name)
+(defmethod trucler:describe-function
+    ((client client) (env sb-kernel:lexenv) name)
   (let ((fun (alist-value name (sb-c::lexenv-funs env) :test #'equal)))
     (etypecase fun
       (sb-c::functional
@@ -110,7 +112,8 @@
                       sb-kernel:*universal-fun-type*)
             :inline (sb-int:info :function :inlinep name))))))))
 
-(defmethod trucler:describe-block ((client native-client) (env sb-kernel:lexenv) name)
+(defmethod trucler:describe-block
+    ((client client) (env sb-kernel:lexenv) name)
   (let ((found (alist-value name (sb-c::lexenv-blocks env))))
     (if found
         (make-instance 'trucler:block-description
@@ -118,7 +121,8 @@
           :identity found)
         nil)))
 
-(defmethod trucler:describe-tag ((client native-client) (env sb-kernel:lexenv) tag)
+(defmethod trucler:describe-tag
+    ((client client) (env sb-kernel:lexenv) tag)
   (let ((found (alist-value tag (sb-c::lexenv-tags env))))
     (if found
         (make-instance 'tag-description
@@ -126,7 +130,8 @@
           :identity found)
         nil)))
 
-(defmethod trucler:describe-optimize ((client native-client) (env sb-kernel:lexenv))
+(defmethod trucler:describe-optimize
+    ((client client) (env sb-kernel:lexenv))
   (let ((policy (or (sb-c::lexenv-policy env)
                     sb-c::*policy*)))
     (make-instance 'optimize-description
@@ -137,9 +142,9 @@
       :safety (sb-c::policy-quality policy 'safety))))
 
 (defmethod trucler:global-environment
-    ((client native-client) (env sb-kernel:lexenv))
+    ((client client) (env sb-kernel:lexenv))
   (sb-kernel:make-null-lexenv))
 
 (defmethod trucler:global-environment-p
-    ((client native-client) (env sb-kernel:lexenv))
+    ((client client) (env sb-kernel:lexenv))
   (sb-c::null-lexenv-p env))

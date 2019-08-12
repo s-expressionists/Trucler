@@ -2,8 +2,8 @@
 
 (defpackage #:trucler-native-sbcl
   (:use #:common-lisp)
-  (:import-from #:trucler-native #:native-client)
+  (:import-from #:trucler-native #:client)
   (:export
-   #:native-client
+   #:client
    #:deprecated
    #:always-bound-p))
