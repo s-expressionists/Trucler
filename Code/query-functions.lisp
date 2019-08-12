@@ -27,3 +27,7 @@
 ;;; environment.  If the environment given as an argument is the
 ;;; global environment, then this function returns that argument.
 (defgeneric global-environment (client environment))
+
+;;; Returns whether a given environment is a global environment, i.e., a
+;;; null lexical environment.
+(defgeneric global-environment-p (client environment))

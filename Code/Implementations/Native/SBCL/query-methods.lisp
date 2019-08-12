@@ -150,3 +150,19 @@
       :debug (sb-c::policy-quality policy 'debug)
       :space (sb-c::policy-quality policy 'space)
       :safety (sb-c::policy-quality policy 'safety))))
+
+(defmethod trucler:global-environment
+    ((client native-client) (env sb-kernel:lexenv))
+  (sb-kernel:make-null-lexenv))
+
+(defmethod trucler:global-environment
+    ((client native-client) (env null))
+  (sb-kernel:make-null-lexenv))
+
+(defmethod trucler:global-environment-p
+    ((client native-client) (env sb-kernel:lexenv))
+  (sb-c::null-lexenv-p env))
+
+(defmethod trucler:global-environment-p
+    ((client native-client) (env null))
+  t)

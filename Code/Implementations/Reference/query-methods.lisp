@@ -76,3 +76,11 @@
 (defmethod trucler:global-environment
     ((client client) (environment environment))
   (global-environment environment))
+
+(defmethod trucler:global-environment-p
+    ((client client) (environment environment))
+  (and (null (function-description environment))
+       (null (variable-description environment))
+       (null (block-description environment))
+       (null (tag-description environment))
+       (null (optimize-description environment))))

@@ -78,6 +78,7 @@
            #:optimize-description
            ;; Function for finding the global environment.
            #:global-environment
+           #:global-environment-p
            ;; Class for class description.
            ;; Generic function for class information.
            #:describe-class
