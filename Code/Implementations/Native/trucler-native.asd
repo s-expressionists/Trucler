@@ -7,6 +7,7 @@
   :components
   ((:file "packages")
    (:file "client")
+   (:file "methods")
 
    (:module "CCL"
     :if-feature :ccl
