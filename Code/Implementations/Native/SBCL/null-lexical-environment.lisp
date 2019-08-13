@@ -7,7 +7,7 @@
   (sb-kernel:make-null-lexenv))
 
 (defmethod trucler:describe-variable
-    ((client client) (env null) name)
+    ((client client) (env null) (name symbol))
   (trucler:describe-variable client *null-lexical-environment* name))
 
 (defmethod trucler:describe-function
@@ -15,7 +15,7 @@
   (trucler:describe-function client *null-lexical-environment* name))
 
 (defmethod trucler:describe-block
-    ((client client) (env null) name)
+    ((client client) (env null) (name symbol))
   (trucler:describe-block client *null-lexical-environment* name))
 
 (defmethod trucler:describe-tag
@@ -29,7 +29,3 @@
 (defmethod trucler:global-environment
     ((client client) (env null))
   *null-lexical-environment*)
-
-(defmethod trucler:global-environment-p
-    ((client client) (env null))
-  t)

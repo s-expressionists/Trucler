@@ -26,7 +26,7 @@
   (and (sb-c::leaf-dynamic-extent leaf) t))
 
 (defmethod trucler:describe-variable
-    ((client client) (env sb-kernel:lexenv) name)
+    ((client client) (env sb-kernel:lexenv) (symbol name))
   (let ((var (alist-value name (sb-c::lexenv-vars env))))
     (etypecase var
       (sb-c::lambda-var
@@ -113,7 +113,7 @@
             :inline (sb-int:info :function :inlinep name))))))))
 
 (defmethod trucler:describe-block
-    ((client client) (env sb-kernel:lexenv) name)
+    ((client client) (env sb-kernel:lexenv) (name symbol))
   (let ((found (alist-value name (sb-c::lexenv-blocks env))))
     (if found
         (make-instance 'trucler:block-description
