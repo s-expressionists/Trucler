@@ -279,3 +279,34 @@ The argument \textit{value} must be an integer between $0$ and $3$.}
 }
 
 \Optimizefunction{space}
+
+\section{Grouping Environment Augmentations}
+\label{sec-grouping-environment-augmentations}
+
+Each environment augmentation function from section
+\ref{sec-high-level-augmentation-functions} returns a new, augmented
+environment.  This can be wasteful in case multiple augmentations shall be
+made simultaneously.  In this section, we describe a protocol that allows
+multiple augmentations to be grouped together, such that only a single, new
+environment needs to be created independently of the number of
+augmentations.
+
+\subsection{Creating an Environment Builder}
+
+{\footnotesize
+\Defgeneric {make-environment-builder} {client environment}
+}
+
+This function creates an \emph{environment builder} --- an object that is
+suitable as a second argument to all environment augmentation functions but
+that is itself not a valid environment.
+
+\subsection{Finalizing an Environment Builder}
+
+{\footnotesize
+\Defgeneric {finalize-environment-builder} {client environment-builder}
+}
+
+This function returns an environment that is equivalent to the one that was
+passed to \texttt{make-environment-builder}, but with all the augmentations
+that have been applied to the environment builder before this call.
