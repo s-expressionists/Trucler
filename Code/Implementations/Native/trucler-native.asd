@@ -8,6 +8,14 @@
   ((:file "packages")
    (:file "client")
 
+   (:module "CCL"
+    :if-feature :ccl
+    :components
+    ((:file "packages")
+     (:file "null-lexical-environment")
+     (:file "query-classes")
+     (:file "query-methods")))
+
    (:module "SBCL"
     :if-feature :sbcl
     :components
