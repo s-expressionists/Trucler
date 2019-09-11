@@ -129,6 +129,9 @@
            #:add-inline
            #:add-inline-data
            #:restrict-for-macrolet-expander
+           ;; Environment building functions.
+           #:make-environment-builder
+           #:finalize-environment-builder
 	   ;; Merge functions
 	   #:merge-type
 	   #:merge-ignore
