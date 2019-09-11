@@ -24,5 +24,4 @@
      (:file "null-lexical-environment")
      (:file "query-classes")
      (:file "query-methods")
-     (:file "low-level-augmentation-methods")
      (:file "augmentation-methods")))))
