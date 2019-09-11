@@ -26,7 +26,7 @@
   (and (sb-c::leaf-dynamic-extent leaf) t))
 
 (defmethod trucler:describe-variable
-    ((client client) (env sb-kernel:lexenv) (symbol name))
+    ((client client) (env sb-kernel:lexenv) (name symbol))
   (let ((var (alist-value name (sb-c::lexenv-vars env))))
     (etypecase var
       (sb-c::lambda-var
