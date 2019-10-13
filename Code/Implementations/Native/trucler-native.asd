@@ -21,7 +21,12 @@
     :if-feature :sbcl
     :components
     ((:file "packages")
-     (:file "null-lexical-environment")
+     (:file "utilities")
      (:file "query-classes")
-     (:file "query-methods")
-     (:file "augmentation-methods")))))
+     (:file "describe-block")
+     (:file "describe-function")
+     (:file "describe-optimize")
+     (:file "describe-tag")
+     (:file "describe-variable")
+     (:file "global-environment")
+     (:file "global-environment-p")))))
