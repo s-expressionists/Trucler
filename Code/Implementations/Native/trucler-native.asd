@@ -13,9 +13,15 @@
     :if-feature :ccl
     :components
     ((:file "packages")
-     (:file "null-lexical-environment")
+     (:file "utilities")
      (:file "query-classes")
-     (:file "query-methods")))
+     (:file "describe-block")
+     (:file "describe-function")
+     (:file "describe-optimize")
+     (:file "describe-tag")
+     (:file "describe-variable")
+     (:file "global-environment")
+     (:file "global-environment-p")))
 
    (:module "SBCL"
     :if-feature :sbcl
