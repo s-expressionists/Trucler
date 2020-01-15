@@ -20,7 +20,7 @@
            (make-instance 'global-function-description
              :name name
              :type (if (eq (sb-int:info :function :where-from name) :declared)
-                       (sb-int:proclaimed-ftype name)
+                       (sb-int:global-ftype name)
                        sb-kernel:*universal-fun-type*)
              :inline (sb-int:info :function :inlinep name))))
         (let ((fun (cdr entry)))
