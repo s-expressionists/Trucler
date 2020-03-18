@@ -6,16 +6,20 @@
 
 (defmethod trucler:describe-function
     ((client client) (env ccl::lexical-environment) name)
-  (multiple-value-bind (info more)
-      (ccl::nx-lexical-finfo (ccl:setf-function-spec-name name) env)
+  (let ((info (assoc (ccl:setf-function-spec-name name)
+                     (ccl::lexenv.functions env))))
     (if (not info)
-        (trucler:describe-function client (ccl::definition-environment env) name)
-        (destructuring-bind (type afunc) info
+        (trucler:describe-function client (ccl::lexenv.parent-env env) name)
+        (destructuring-bind (name type . rest) info
           (ecase type
             (function
              (make-instance 'local-function-description
                :name name
-               :identity afunc)))))))
+               :identity (cdr rest)))
+            (ccl::macro
+             (make-instance 'local-macro-description
+               :name name
+               :expander rest)))))))
 
 (defmethod trucler:describe-function
     ((client client) (env ccl::definition-environment) name)
@@ -24,15 +28,17 @@
     (if (not present-p)
         (describe-global-function name env)
         (let ((def-info (cdr entry)))
-          (cond ((ccl::def-info.function-p def-info)
+          (cond ((ccl::def-info.macro-p def-info)
+                 (make-instance 'global-macro-description
+                   :name name
+                   :expander
+                   (lambda (form env)
+                     (funcall (macro-function name env) form env))))
+                ((ccl::def-info.function-p def-info)
                  (make-instance 'global-function-description
                    :name name
                    :type (ccl::def-info.function-type def-info)
-                   :class-name 'function))
-                ((ccl::def-info.macro-p def-info)
-                 (make-instance 'global-macro-description
-                   :name name
-                   :expander (cdr def-info))))))))
+                   :class-name 'function)))))))
 
 (defun describe-global-function (name env)
   (if (not (fboundp name))
