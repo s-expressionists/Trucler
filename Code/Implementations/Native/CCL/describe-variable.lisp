@@ -53,7 +53,6 @@
            (describe-global-variable name)))))
 
 (defun describe-global-variable (name)
-  (break)
   (let ((bits (ccl::%symbol-bits name)))
     (cond ((logbitp ccl::$sym_vbit_const bits)
            (make-instance 'constant-variable-description
