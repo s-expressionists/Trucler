@@ -3,6 +3,8 @@
 This library defines a CLOS-based protocol to be used by Common Lisp
 compilers for environment query and update.  In addition, library authors
 can use the =trucler-native= interface to inspect native environments.
+Trucler supports introspection for variables, functions, tags, blocks and
+optimization policies.
 
 * Examples
 ** Introspection at Macroexpansion Time
@@ -10,6 +12,9 @@ The following macro can be used to ensure the presence of a local symbol
 macro, and to see whether it has the expected expansion:
 
 #+BEGIN_SRC lisp
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defvar *client* (make-instance 'trucler-native:client)))
+
 (defmacro assert-local-symbol-macro-description
     (name &key (expansion nil expansion-p) &environment env)
   (let ((description (trucler:describe-variable *client* env name)))
