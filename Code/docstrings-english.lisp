@@ -30,14 +30,6 @@
                    describing the values of all OPTIMIZE qualities~@
                    in ENVIRONMENT."))
 
-(setf (documentation 'describe-class 'function)
-      (format nil "Return an instance of the class CLASS-DESCRIPTION~@
-                   describing the role of NAME in ENVIRONMENT~@
-                   when NAME was found in a position to name a class,~@
-                   typically as a specializer in a DEFMETHOD form, as~@
-                   as a superclass name in a DEFCLASS form, or as the~@
-                   argument to a :METACLASS option of a DEFCLASS form."))
-
 (setf (documentation 'name 'function)
       (format nil "Return the name of DESCRIPTION, typically given as the~@
                    value of the :NAME initialization argument when DESCRIPTION~@

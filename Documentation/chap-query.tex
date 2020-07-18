@@ -148,32 +148,6 @@ on the generic function \texttt{describe-tag} returns \texttt{nil}.
 This method returns the name of the tag for which no description was
 available.
 
-\subsection{Class information}
-
-{\footnotesize
-\Defgeneric {describe-class} {client environment class-name}
-}
-
-This function is called by the language processor whenever a symbol
-referring to a \emph{class} is found, for example as a specializer in
-a \texttt{defmethod} form.  If successful, it returns an instance of
-the class described in
-\refSec{sec-instantiable-classes-class-desciption}.
-
-{\footnotesize
-\Defcondition {no-class-description}
-}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{describe-class} returns \texttt{nil}.
-
-{\footnotesize
-\Defmethod {name} {(condition {\tt no-class-description})}
-}
-
-This method returns the name of the class for which no description was
-available.
-
 \subsection{Optimize information}
 
 {\footnotesize
@@ -832,20 +806,6 @@ passed as an argument refers to a tag.
 
 This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
-
-\subsection{Class description}
-\label{sec-instantiable-classes-class-desciption}
-
-{\footnotesize
-\Defclass {class-description}
-}
-
-This class represents information about a class introduced by
-\texttt{defclass}.  An instance of this class is returned by a call to
-\texttt{class-description} when the name (which must be a symbol)
-passed as an argument refers to a class.
-
-This class is a subclass of the class \texttt{name-mixin}.
 
 \subsection{Optimize description}
 \label{sec-instantiable-classes-optimize-desciption}

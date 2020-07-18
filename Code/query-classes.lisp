@@ -95,10 +95,3 @@
 (defclass optimize-description
     (description speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
   ())
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; CLASS-DESCRIPTION class.
-
-(defclass class-description (description name-mixin)
-  ())

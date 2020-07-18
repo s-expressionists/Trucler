@@ -16,9 +16,6 @@
 (define-condition no-tag-description (no-description)
   ())
 
-(define-condition no-class-description (no-description)
-  ())
-
 (define-condition invalid-description (program-error acclimation:condition)
   ((%description :initarg :description :reader description)))
 
