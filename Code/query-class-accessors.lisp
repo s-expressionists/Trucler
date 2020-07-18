@@ -21,5 +21,3 @@
 (defgeneric expansion (description))
 
 (defgeneric class-name (description))
-
-(defgeneric method-class-name (description))

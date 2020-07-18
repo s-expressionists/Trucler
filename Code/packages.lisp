@@ -30,7 +30,6 @@
            #:class-name-mixin
            #:inline-mixin
            #:inline-data-mixin
-           #:method-class-name-mixin
            #:speed-mixin
            #:compilation-speed-mixin
            #:debug-mixin
@@ -96,7 +95,6 @@
            #:expansion
            #:expander
            #:class-name
-           #:method-class-name
            #:speed
            #:compilation-speed
            #:debug

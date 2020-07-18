@@ -60,10 +60,6 @@
     %inline-data :inline-data inline-data
     :initform nil)
 
-(define-mixin-class method-class-name-mixin
-    %method-class-name :method-class-name method-class-name
-    :initform 'standard-method)
-
 (define-mixin-class speed-mixin
     %speed :speed speed)
 

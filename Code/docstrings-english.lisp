@@ -147,15 +147,6 @@
                    The return value is a the the name of the class of the function~@
                    when DESCRIPTION describes a function."))
 
-(setf (documentation 'method-class-name 'function)
-      (format nil "Return the method-class-name property of DESCRIPTION, typically given as the~@
-                   value of the :METHOD-CLASS-NAME initialization argument when DESCRIPTION~@
-                   was created.  DESCRIPTION must be a subclass of the class~@
-                   METHOD-CLASS-NAME-MIXIN.
-                   ~@
-                   The return value is a the the name of the class of the methods of~@
-                   a generic function when DESCRIPTION describes a generic function."))
-
 (setf (documentation (find-class 'name-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
                    It can be used as a superclass of query classes that correspond~@
@@ -263,18 +254,6 @@
                    of this initarg is a symbol.~@
                    ~@
                    The reader CLASS-NAME can be used to access the class-name~@
-                   information of the entity."))
-
-(setf (documentation (find-class 'method-class-name-mixin) 't)
-      (format nil "This mixin class supplies a single initarg and a single reader.~@
-                   It can be used as a superclass of query classes that correspond~@
-                   to some entity that can have a method-class-name, in particular~@
-                   generic functions.~@
-                   ~@
-                   The initarg :METHOD-CLASS-NAME is supported by this class.  The value~@
-                   of this initarg is a symbol.~@
-                   ~@
-                   The reader METHOD-CLASS-NAME can be used to access the method-class-name~@
                    information of the entity."))
 
 (setf (documentation (find-class 'metaclass-name-mixin) 't)
@@ -465,8 +444,7 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a generic function.~@
                    ~@
-                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION,~@
-                   and METHOD-CLASS-NAME-MIXIN."))
+                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION."))
 
 (setf (documentation (find-class 'local-macro-description) 't)
       (format nil "This instantiable class represents information about local~@

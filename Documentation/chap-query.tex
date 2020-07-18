@@ -470,32 +470,6 @@ this is the default value if the initarg is omitted.
 
 \Given{inline-data-mixin} the inline data, \Assupplied{:inline-data}
 
-\subsection{\texttt{method-class-name-mixin}}
-\label{sec-method-class-name-mixin}
-
-{\footnotesize
-\Defclass {method-class-name-mixin}
-}
-
-This class is a superclass of query classes that provide information
-about entities that can have method-class-name information.  In
-particular, it is a superclass of the class
-\texttt{generic-function-description}.
-
-{\footnotesize
-\Definitarg {:method-class-name}
-}
-
-The value of this initarg is a symbol naming a class to be used for
-methods.  If this initarg is not given, it defaults to the symbol
-\texttt{standard-method}.
-
-{\footnotesize
-\Defmethod {method-class-name} {(description {\tt method-class-name-mixin})}
-}
-
-\Given{method-class-name-mixin} the method-class-name information, \Assupplied{:method-class-name}
-
 \subsection{\texttt{speed-mixin}}
 \label{sec-speed-mixin}
 
@@ -844,9 +818,7 @@ This class is a subclass of \texttt{authentic-function-description},
 \Defclass {generic-function-description}
 }
 
-This class is a subclass of \texttt{global-function-description} and
-\texttt{method-class-name-mixin}.
-
+This class is a subclass of \texttt{global-function-description}.
 
 {\footnotesize
 \Defclass {local-macro-description}

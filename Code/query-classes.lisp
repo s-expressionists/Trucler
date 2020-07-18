@@ -58,7 +58,7 @@
   ()
   (:default-initargs :class-name 'function))
 
-(defclass generic-function-description (global-function-description method-class-name-mixin)
+(defclass generic-function-description (global-function-description)
   ()
   (:default-initargs :class-name 'standard-generic-function))
 
