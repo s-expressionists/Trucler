@@ -74,7 +74,3 @@
 
 (define-mixin-class safety-mixin
     %safety :safety safety)
-
-(define-mixin-class superclass-names-mixin
-    %superclass-names :superclass-names superclass-names
-    :initform '())

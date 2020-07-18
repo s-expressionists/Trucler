@@ -589,31 +589,6 @@ inclusive.
 
 \Given{safety-mixin} the safety information, \Assupplied{:safety}
 
-\subsection{\texttt{superclass-names-mixin}}
-\label{sec-superclass-names-mixin}
-
-{\footnotesize
-\Defclass {superclass-names-mixin}
-}
-
-This class is a superclass of query classes that provide information
-about entities that can have superclass-names information.  In
-particular, it is a superclass of the class \texttt{class-description}.
-
-{\footnotesize
-\Definitarg {:superclass-names}
-}
-
-The value of this initarg is a list of symbols naming a classes.  If
-this initarg is not given, it defaults the empty list.  Only
-explicitly mentioned superclass names should be provided.
-
-{\footnotesize
-\Defmethod {superclass-names} {(description {\tt superclass-names-mixin})}
-}
-
-\Given{superclass-names-mixin} the superclass-names information, \Assupplied{:superclass-names}
-
 \section{Abstract query classes}
 
 {\footnotesize
@@ -870,8 +845,7 @@ This class represents information about a class introduced by
 \texttt{class-description} when the name (which must be a symbol)
 passed as an argument refers to a class.
 
-This class is a subclass of the classes \texttt{name-mixin} and
-\texttt{superclass-names-mixin}.
+This class is a subclass of the class \texttt{name-mixin}.
 
 \subsection{Optimize description}
 \label{sec-instantiable-classes-optimize-desciption}
