@@ -100,5 +100,5 @@
 ;;;
 ;;; CLASS-DESCRIPTION class.
 
-(defclass class-description (description name-mixin superclass-names-mixin metaclass-name-mixin)
+(defclass class-description (description name-mixin superclass-names-mixin)
   ())

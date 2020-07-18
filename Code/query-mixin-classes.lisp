@@ -78,7 +78,3 @@
 (define-mixin-class superclass-names-mixin
     %superclass-names :superclass-names superclass-names
     :initform '())
-
-(define-mixin-class metaclass-name-mixin
-    %metaclass-name :metaclass-name metaclass-name
-    :initform 'standard-class)

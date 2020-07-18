@@ -614,32 +614,6 @@ explicitly mentioned superclass names should be provided.
 
 \Given{superclass-names-mixin} the superclass-names information, \Assupplied{:superclass-names}
 
-\subsection{\texttt{metaclass-name-mixin}}
-\label{sec-metaclass-name-mixin}
-
-{\footnotesize
-\Defclass {metaclass-name-mixin}
-}
-
-This class is a superclass of query classes that provide information
-about entities that can have metaclass-name information.  In
-particular, it is a superclass of the class
-\texttt{class-description}.
-
-{\footnotesize
-\Definitarg {:metaclass-name}
-}
-
-The value of this initarg is a symbol naming a class to be used as a
-metaclasss.  If this initarg is not given, it defaults to the symbol
-\texttt{standard-class}.
-
-{\footnotesize
-\Defmethod {metaclass-name} {(description {\tt metaclass-name-mixin})}
-}
-
-\Given{metaclass-name-mixin} the metaclass-name information, \Assupplied{:metaclass-name}
-
 \section{Abstract query classes}
 
 {\footnotesize
@@ -896,9 +870,8 @@ This class represents information about a class introduced by
 \texttt{class-description} when the name (which must be a symbol)
 passed as an argument refers to a class.
 
-This class is a subclass of the classes \texttt{name-mixin},
-\texttt{superclass-names-mixin},  and
-\texttt{metaclass-name-mixin}.
+This class is a subclass of the classes \texttt{name-mixin} and
+\texttt{superclass-names-mixin}.
 
 \subsection{Optimize description}
 \label{sec-instantiable-classes-optimize-desciption}
