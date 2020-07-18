@@ -366,27 +366,6 @@ a superclass of the abstract class \texttt{macro-description}.
 
 \Given{expander-mixin} the expander information, \Assupplied{:expander}
 
-\subsection{\texttt{class-name-mixin}}
-\label{sec-class-name-mixin}
-
-{\footnotesize
-\Defclass {class-name-mixin}
-}
-
-This class is a superclass of query classes that provide information
-about entities that can have a class-name.  In particular, it is a
-superclass of the class \texttt{global-function-description}.
-
-{\footnotesize
-\Definitarg {:class-name}
-}
-
-{\footnotesize
-\Defmethod {class-name} {(description {\tt class-name-mixin})}
-}
-
-\Given{class-name-mixin} the class-name information, \Assupplied{:class-name}
-
 \subsection{\texttt{inline-mixin}}
 \label{sec-inline-mixin}
 
@@ -735,7 +714,7 @@ turns out that the function name passed as an argument refers to a
 global function.
 
 This class is a subclass of \texttt{authentic-function-description},
-\texttt{compiler-macro-mixin}, and \texttt{class-name-mixin}.
+and \texttt{compiler-macro-mixin}.
 
 {\footnotesize
 \Defclass {generic-function-description}

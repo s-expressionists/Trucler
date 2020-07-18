@@ -48,9 +48,6 @@
 (define-mixin-class expander-mixin
     %expander :expander expander)
 
-(define-mixin-class class-name-mixin
-    %class-name :class-name class-name)
-
 (define-mixin-class inline-mixin
     %inline :inline inline
     :initform nil

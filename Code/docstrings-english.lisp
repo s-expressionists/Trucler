@@ -130,15 +130,6 @@
                    The return value is a a form that is defined to be the expansion~@
                    of a symbol macro described by DESCRIPTION."))
 
-(setf (documentation 'class-name 'function)
-      (format nil "Return the class-name property of DESCRIPTION, typically given as the~@
-                   value of the :CLASS-NAME initialization argument when DESCRIPTION~@
-                   was created.  DESCRIPTION must be a subclass of the class~@
-                   CLASS-NAME-MIXIN.
-                   ~@
-                   The return value is a the the name of the class of the function~@
-                   when DESCRIPTION describes a function."))
-
 (setf (documentation (find-class 'name-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
                    It can be used as a superclass of query classes that correspond~@
@@ -235,18 +226,6 @@
                    ~@
                    The reader INLINE-DATA can be used to access the inline information~@
                    of the entity."))
-
-(setf (documentation (find-class 'class-name-mixin) 't)
-      (format nil "This mixin class supplies a single initarg and a single reader.~@
-                   It can be used as a superclass of query classes that correspond~@
-                   to some entity that can have an class-name, in particular~@
-                   ordinary or generic functions.~@
-                   ~@
-                   The initarg :CLASS-NAME is supported by this class.  The value~@
-                   of this initarg is a symbol.~@
-                   ~@
-                   The reader CLASS-NAME can be used to access the class-name~@
-                   information of the entity."))
 
 (setf (documentation (find-class 'speed-mixin) 't)
       (format nil "This mixin class supplies a single initarg and a single reader.~@
@@ -404,7 +383,7 @@
                    as an argument refers to a global function.~@
                    ~@
                    This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,~@
-                   COMPILER-MACRO-MIXIN, and CLASS-NAME-MIXIN."))
+                   and COMPILER-MACRO-MIXIN."))
 
 (setf (documentation (find-class 'generic-function-description) 't)
       (format nil "This instantiable class represents information about generic~@

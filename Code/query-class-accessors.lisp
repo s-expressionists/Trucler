@@ -19,5 +19,3 @@
 (defgeneric value (description))
 
 (defgeneric expansion (description))
-
-(defgeneric class-name (description))

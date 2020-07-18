@@ -37,8 +37,7 @@
                 ((ccl::def-info.function-p def-info)
                  (make-instance 'global-function-description
                    :name name
-                   :type (ccl::def-info.function-type def-info)
-                   :class-name 'function)))))))
+                   :type (ccl::def-info.function-type def-info))))))))
 
 (defun describe-global-function (name env)
   (if (not (fboundp name))

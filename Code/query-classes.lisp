@@ -54,13 +54,11 @@
   ())
 
 (defclass global-function-description
-    (authentic-function-description compiler-macro-mixin class-name-mixin)
-  ()
-  (:default-initargs :class-name 'function))
+    (authentic-function-description compiler-macro-mixin)
+  ())
 
 (defclass generic-function-description (global-function-description)
-  ()
-  (:default-initargs :class-name 'standard-generic-function))
+  ())
 
 (defclass macro-description (function-description expander-mixin)
   ())

@@ -13,7 +13,6 @@
            #:debug
            #:space
            #:safety
-           #:class-name
            #:macro-function
            #:compiler-macro-function)
   (:export #:description
@@ -27,7 +26,6 @@
            #:compiler-macro-mixin
            #:expander-mixin
            #:expansion-mixin
-           #:class-name-mixin
            #:inline-mixin
            #:inline-data-mixin
            #:speed-mixin
@@ -90,7 +88,6 @@
            #:value
            #:expansion
            #:expander
-           #:class-name
            #:speed
            #:compilation-speed
            #:debug
