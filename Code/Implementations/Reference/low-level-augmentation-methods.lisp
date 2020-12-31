@@ -32,5 +32,4 @@
     ((client client) (environment environment) (optimize-description trucler:optimize-description))
   (trucler:quasi-clone environment
 		       :optimize-description
-		       (cons optimize-description
-			     (optimize-description environment))))
+                       optimize-description))
