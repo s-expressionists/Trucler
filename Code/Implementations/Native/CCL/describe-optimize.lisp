@@ -1,15 +1,27 @@
 (cl:in-package #:trucler-native-ccl)
 
-(defmethod trucler:describe-optimize
-    ((client client) (env null))
-  (describe-optimize *null-lexical-environment*))
+(defmethod trucler:describe-declaration
+    ((client client) (env null) identifier)
+  (describe-declaration *null-lexical-environment* identifier))
 
-(defmethod trucler:describe-optimize
-    ((client client) (env ccl::lexical-environment))
+(defmethod trucler:describe-declaration
+    ((client client) (env ccl::lexical-environment) (id (eql 'cl:optimize)))
   (describe-optimize env))
 
-(defmethod trucler:describe-optimize
-    ((client client) (env ccl::definition-environment))
+(defmethod trucler:describe-declaration
+    ((client client) (env ccl::lexical-environment) (id (eql 'cl:declaration)))
+  (make-instance 'declarations-description
+    :declarations ccl::*nx-known-declarations*))
+
+(defmethod trucler:describe-declaration
+    ((client client) (env ccl::lexical-environment) identifier)
+  (if (member identifier ccl::*nx-known-declarations*)
+      (make-instance 'user-declaration-description :name identifier)
+      nil))
+
+(defmethod trucler:describe-declaration
+    ((client client) (env ccl::definition-environment) identifier)
+  (declare (ignore identifier))
   nil)
 
 (defun describe-optimize (env)
