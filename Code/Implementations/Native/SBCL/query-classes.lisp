@@ -112,3 +112,11 @@
 (defclass optimize-description
     (trucler:optimize-description)
   ())
+
+(defclass declarations-description
+    (trucler:declarations-description)
+  ())
+
+(defclass user-declaration-description
+    (trucler:user-declaration-description)
+  ())
