@@ -151,7 +151,7 @@
        (space nil space-p)
        (safety nil safety-p)
      &environment env)
-  (let ((description (trucler:describe-optimize *client* env)))
+  (let ((description (trucler:describe-declaration *client* env 'cl:optimize)))
     (check-type description trucler:optimize-description)
     (when speed-p
       (assert (= (trucler:speed description) speed)))
