@@ -113,35 +113,40 @@
 
 (defmethod trucler:add-speed
     ((client client) (environment environment) value)
-  (let ((description (trucler:describe-optimize client environment)))
+  (let ((description
+          (trucler:describe-declaration client environment 'cl:optimize)))
     (trucler:augment-with-optimize-description
      client environment
      (trucler:merge-speed client description value))))
 
 (defmethod trucler:add-compilation-speed
     ((client client) (environment environment) value)
-  (let ((description (trucler:describe-optimize client environment)))
+  (let ((description
+          (trucler:describe-declaration client environment 'cl:optimize)))
     (trucler:augment-with-optimize-description
      client environment
      (trucler:merge-compilation-speed client description value))))
 
 (defmethod trucler:add-debug
     ((client client) (environment environment) value)
-  (let ((description (trucler:describe-optimize client environment)))
+  (let ((description
+          (trucler:describe-declaration client environment 'cl:optimize)))
     (trucler:augment-with-optimize-description
      client environment
      (trucler:merge-debug client description value))))
 
 (defmethod trucler:add-safety
     ((client client) (environment environment) value)
-  (let ((description (trucler:describe-optimize client environment)))
+  (let ((description
+          (trucler:describe-declaration client environment 'cl:optimize)))
     (trucler:augment-with-optimize-description
      client environment
      (trucler:merge-safety client description value))))
 
 (defmethod trucler:add-space
     ((client client) (environment environment) value)
-  (let ((description (trucler:describe-optimize client environment)))
+  (let ((description
+          (trucler:describe-declaration client environment 'cl:optimize)))
     (trucler:augment-with-optimize-description
      client environment
      (trucler:merge-space client description value))))

@@ -61,11 +61,13 @@
          (description (find tag descriptions :test #'eql :key #'trucler:name)))
     (check-restriction environment description)))
 
-(defmethod trucler:describe-optimize ((client client) (environment environment))
+(defmethod trucler:describe-declaration
+    ((client client) (environment environment) (identifier (eql 'cl:optimize)))
   (let* ((description (optimize-description environment)))
     (when (null description)
       (let* ((global-environment (global-environment environment))
-             (global-description (trucler:describe-optimize client global-environment)))
+             (global-description
+               (trucler:describe-declaration client global-environment identifier)))
         (setf description global-description)
         (unless (null global-description)
           ;; Cache the global description locally.
