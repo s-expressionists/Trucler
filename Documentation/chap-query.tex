@@ -148,17 +148,26 @@ on the generic function \texttt{describe-tag} returns \texttt{nil}.
 This method returns the name of the tag for which no description was
 available.
 
-\subsection{Optimize information}
+\subsection{Declaration information}
 
 {\footnotesize
-\Defgeneric {describe-optimize} {client environment}
+\Defgeneric {describe-declaration} {client environment identifier}
 }
 
-Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-description}.  It returns an
-instance of the class described in
-\refSec{sec-instantiable-classes-optimize-desciption}.
+Client-supplied methods on this function must return a valid instance
+of the class \texttt{declaration-description} or \texttt{nil}.
 
+When \texttt{identifier} is \texttt{cl:optimize}, a valid instance
+of the class \texttt{optimize-description} must be returned.
+
+When \texttt{identifier} is \texttt{cl:declaration}, a valid
+instance of the class \texttt{declarations-description} must be
+returned.
+
+When \texttt{identifier} is not a valid declaration identifier,
+\texttt{nil} must be returned. Type specifiers are not considered
+to be valid declaration identifiers, and information about types
+must be obtained elsewhere.
 
 \section{Mixin classes}
 
@@ -542,6 +551,30 @@ inclusive.
 
 \Given{safety-mixin} the safety information, \Assupplied{:safety}
 
+\subsection{\texttt{declarations-mixin}}
+\label{sec-declarations-mixin}
+
+{\footnotesize
+\Defclass {declarations-mixin}
+}
+
+This class is a superclass of query classes that provide information
+about defined declaration identifiers. In particular, it is a
+superclass of the class \texttt{declarations-description}.
+
+{\footnotesize
+\Definitarg {:declarations}
+}
+
+The value of this initarg must be a list of declaration identifiers
+which are symbols.
+
+{\footnotesize
+\Defmethod {declarations} {(description {\tt descriptions-mixin})}
+}
+
+\Given{declarations-mixin} the declarations information, \Assupplied{:declarations}
+
 \section{Abstract query classes}
 
 {\footnotesize
@@ -796,3 +829,25 @@ This class is a subclass of the classes \texttt{name-mixin} and
 This class is a subclass of \texttt{speed-mixin},
 \texttt{compilation-speed-mixin}, \texttt{debug-mixin},
 \texttt{space-mixin}, and \texttt{safety-mixin}.
+
+\subsection{User declaration description}
+\label{sec-instantiable-classes-user-declaration-description}
+
+{\footnotesize
+\Defclass {user-declaration-description}
+}
+
+This class is a subclass of \texttt{name-mixin}. It describes
+declarations defined by a user with the \texttt{declaration}
+proclamation.
+
+\subsection{Declarations description}
+\label{sec-instantiable-classes-declarations-description}
+
+{\footnotesize
+\Defclass {declarations-description}
+}
+
+This class is a subclass of \texttt{declarations-mixin}.
+It has information about the list of declarations proclaimed
+with the \texttt{declaration} proclamation.
