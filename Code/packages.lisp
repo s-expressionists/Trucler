@@ -28,6 +28,7 @@
            #:expansion-mixin
            #:inline-mixin
            #:inline-data-mixin
+           #:declarations-mixin
            #:speed-mixin
            #:compilation-speed-mixin
            #:debug-mixin
@@ -69,9 +70,12 @@
            #:describe-tag
            ;; Class for tag description.
            #:tag-description
-           ;; Generic function for optimize information.
-           #:describe-optimize
-           ;; Class for optimize description.
+           ;; Generic function for declaration information.
+           #:describe-declaration
+           ;; Classes for declaration descriptions.
+           #:declaration-description
+           #:user-declaration-description
+           #:declarations-description
            #:optimize-description
            ;; Function for finding the global environment.
            #:global-environment
@@ -88,6 +92,7 @@
            #:value
            #:expansion
            #:expander
+           #:declarations
            #:speed
            #:compilation-speed
            #:debug

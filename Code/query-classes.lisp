@@ -88,8 +88,18 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; OPTIMIZE-DESCRIPTION class.
+;;; DECLARATION-DESCRIPTION classes.
+
+(defclass declaration-description (description name-mixin)
+  ())
+
+(defclass user-declaration-description (declaration-description name-mixin)
+  ())
+
+(defclass declarations-description (declaration-description declarations-mixin)
+  ())
 
 (defclass optimize-description
-    (description speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
-  ())
+    (declaration-description
+     speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
+  ((%name :initform :optimize)))

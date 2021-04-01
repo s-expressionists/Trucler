@@ -19,7 +19,7 @@
 
 (defgeneric describe-tag (client environment tag))
 
-(defgeneric describe-optimize (client environment))
+(defgeneric describe-declaration (client environment identifier))
 
 ;;; Given an environment, this function returns the global
 ;;; environment.  If the environment given as an argument is the

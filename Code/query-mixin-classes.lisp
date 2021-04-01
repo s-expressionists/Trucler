@@ -57,6 +57,9 @@
     %inline-data :inline-data inline-data
     :initform nil)
 
+(define-mixin-class declarations-mixin
+    %declarations :declarations declarations)
+
 (define-mixin-class speed-mixin
     %speed :speed speed)
 
