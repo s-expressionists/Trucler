@@ -93,3 +93,10 @@
 (defclass optimize-description
     (description speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
   ())
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; DECLARATIONS-DESCRIPTION class.
+
+(defclass declarations-description (description declarations-mixin)
+  ())
