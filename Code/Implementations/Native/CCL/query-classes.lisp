@@ -75,3 +75,7 @@
 (defclass optimize-description
     (trucler:optimize-description)
   ())
+
+(defclass declarations-description
+    (trucler:declarations-description)
+  ())
