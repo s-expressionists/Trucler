@@ -36,6 +36,10 @@
     :initform '()
     :initarg :optimize-description
     :reader optimize-description)
+   (%declarations-description
+    :initform '()
+    :initarg :declarations-description
+    :reader declarations-description)
    ;; When this flag is set, the environment is restricted for use by
    ;; macrolet.  When the environment is restricted, a query that
    ;; returns a local function description or a lexial variable
