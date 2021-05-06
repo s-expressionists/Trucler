@@ -73,6 +73,10 @@
            #:describe-optimize
            ;; Class for optimize description.
            #:optimize-description
+           ;; Generic function for declarations information.
+           #:describe-declarations
+           ;; Class for declarations description.
+           #:declarations-description
            ;; Function for finding the global environment.
            #:global-environment
            #:global-environment-p
@@ -93,6 +97,7 @@
            #:debug
            #:space
            #:safety
+           #:declarations
            ;; Augmentation functions.
 	   #:augment-with-variable-description
 	   #:augment-with-function-description

@@ -30,6 +30,11 @@
                    describing the values of all OPTIMIZE qualities~@
                    in ENVIRONMENT."))
 
+(setf (documentation 'describe-declarations 'function)
+      (format nil "Return an instance of the class DECLARATIONS-DESCRIPTION~@
+                   describing the list of user-defined declaration identifiers~@
+                   in ENVIRONMENT."))
+
 (setf (documentation 'name 'function)
       (format nil "Return the name of DESCRIPTION, typically given as the~@
                    value of the :NAME initialization argument when DESCRIPTION~@
@@ -285,6 +290,18 @@
                    of this initarg is an integer between 0 and 3.~@
                    ~@
                    The reader SAFETY can be used to access the safety~@
+                   information of the entity."))
+
+(setf (documentation (find-class 'declarations-mixin) 't)
+      (format nil "This mixin class supplies a single initarg and a single reader.~@
+                   It can be used as a superclass of query classes that correspond~@
+                   to some entity that can have declaration identifier information, in particular~@
+                   the class declarations-description.~@
+                   ~@
+                   The initarg :DECLARATIONS is supported by this class. The value~@
+                   of this initarg is a list of declaration identifiers (symbols).~@
+                   ~@
+                   The reader DECLARATIONS can be used to access the declarations~@
                    information of the entity."))
 
 (setf (documentation (find-class 'variable-description) 't)

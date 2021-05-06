@@ -21,6 +21,8 @@
 
 (defgeneric describe-optimize (client environment))
 
+(defgeneric describe-declarations (client environment))
+
 ;;; Given an environment, this function returns the global
 ;;; environment.  If the environment given as an argument is the
 ;;; global environment, then this function returns that argument.
