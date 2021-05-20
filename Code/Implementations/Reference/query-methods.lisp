@@ -75,10 +75,10 @@
 
 (defmethod trucler:describe-declarations ((client client)
                                           (environment environment))
-  (let ((description (declaration-description environment)))
+  (let ((description (declarations-description environment)))
     (if (null description)
         ;; Get from the global environment.
-        (trucler:desribe-declarations client (global-environment environment))
+        (trucler:describe-declarations client (global-environment environment))
         description)))
 
 (defmethod trucler:global-environment
