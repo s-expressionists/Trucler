@@ -73,6 +73,14 @@
             :optimize-description description))))
     description))
 
+(defmethod trucler:describe-declarations ((client client)
+                                          (environment environment))
+  (let ((description (declarations-description environment)))
+    (if (null description)
+        ;; Get from the global environment.
+        (trucler:describe-declarations client (global-environment environment))
+        description)))
+
 (defmethod trucler:global-environment
     ((client client) (environment environment))
   (global-environment environment))

@@ -71,3 +71,6 @@
 
 (define-mixin-class safety-mixin
     %safety :safety safety)
+
+(define-mixin-class declarations-mixin
+    %declarations :declarations declarations)
