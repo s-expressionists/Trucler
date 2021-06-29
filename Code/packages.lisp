@@ -156,6 +156,8 @@
            #:invalid-description-for-merging-ignore-information
            #:invalid-description-for-merging-dynamic-extetn-information
            #:invalid-description-for-merging-inline-information
+           #:undefined-function-referred-to-by-inline-declaration
+           #:try-again #:ignore-declaration
            #:invalid-description-for-merging-inline-data
            #:invalid-description-for-merging-speed-information
            #:invalid-description-for-merging-compilation-speed-information
