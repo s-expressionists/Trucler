@@ -37,6 +37,15 @@
             (description condition))))
 
 (defmethod acclimation:report-condition
+    ((condition undefined-function-referred-to-by-inline-declaration)
+     stream
+     (language acclimation:english))
+  (let ((*package* (find-package '#:keyword)))
+    (format stream "Undefined function named ~s~@
+                    referred to by INLINE/NOTINLINE declaration"
+            (name condition))))
+
+(defmethod acclimation:report-condition
     ((condition invalid-description-for-merging-dynamic-extent-information)
      stream
      (language acclimation:english))
