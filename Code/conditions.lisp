@@ -35,6 +35,10 @@
     (invalid-description)
   ())
 
+(define-condition undefined-function-referred-to-by-inline-declaration
+    (no-function-description)
+  ())
+
 (define-condition invalid-description-for-merging-inline-data
     (invalid-description)
   ())
