@@ -79,6 +79,18 @@
 (defmethod trucler:add-inline
     ((client client) (environment environment) function-name inline)
   (let ((description (trucler:describe-function client environment function-name)))
+    (loop while (null description)
+          do (restart-case
+                 (error 'trucler:undefined-function-referred-to-by-inline-declaration
+                        :name function-name
+                        :origin nil)
+               (trucler:try-again ()
+                 :report "Try to access description of function again"
+                 (setf description
+                       (trucler:describe-function client environment function-name)))
+               (trucler:ignore-declaration ()
+                 :report "Ignore the INLINE or NOTINLINE declaration"
+                 (return-from trucler:add-inline environment))))
     (trucler:augment-with-function-description
      client environment
      (trucler:merge-inline client description inline))))
