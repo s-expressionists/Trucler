@@ -664,7 +664,7 @@ It is a superclass of the two instantiable classes
 }
 
 This class represents information about lexical variables.  An
-instance of this class is returned by a call to \texttt{variable-description}
+instance of this class is returned by a call to \texttt{describe-variable}
 when it turns out that the symbol passed as an argument refers to a
 lexical variable.
 
@@ -676,7 +676,7 @@ This class is a subclass of the classes
 }
 
 This class represents information about local special variables.   An
-instance of this class is returned by a call to \texttt{variable-description}
+instance of this class is returned by a call to \texttt{describe-variable}
 when it turns out that the symbol passed as an argument refers to a
 local special variable.
 
@@ -688,7 +688,7 @@ This class is a subclass of the class
 }
 
 This class represents information about global special variables.   An
-instance of this class is returned by a call to \texttt{variable-description}
+instance of this class is returned by a call to \texttt{describe-variable}
 when it turns out that the symbol passed as an argument refers to a
 global special variable.
 
@@ -700,11 +700,11 @@ This class is a subclass of the class
 }
 
 This class represents information about constant variables.   An
-instance of this class is returned by a call to \texttt{variable-description}
+instance of this class is returned by a call to \texttt{describe-variable}
 when it turns out that the symbol passed as an argument refers to a
 constant variable.
 
-This class is a subclass of the classes \texttt{variable-description} and
+This class is a subclass of the classes \texttt{describe-variable} and
 \texttt{value-mixin}.
 
 {\footnotesize
@@ -712,7 +712,7 @@ This class is a subclass of the classes \texttt{variable-description} and
 }
 
 This class is a subclass of \texttt{symbol-macro-description}.  It is
-returned by a call to \texttt{variable-descriptionrmation} when the name is
+returned by a call to \texttt{describe-variable} when the name is
 defined as a global symbol macro, as defined by
 \texttt{define-symbol-macro}.
 
@@ -721,7 +721,7 @@ defined as a global symbol macro, as defined by
 }
 
 This class is a subclass of \texttt{symbol-macro-description}.  It is
-returned by a call to \texttt{variable-descriptionrmation} when the
+returned by a call to \texttt{describe-variable} when the
 name is defined as a local symbol macro, as defined by
 \texttt{symbol-macrolet}.
 
