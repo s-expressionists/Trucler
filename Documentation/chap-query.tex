@@ -10,7 +10,7 @@ process those program elements.
 When the language processor calls a generic query function, it passes two or
 three arguments, depending on the function it calls.  The first
 argument is called the \texttt{client}.  \sysname{} does not
-specialize on this argument, but client code should define a standard
+specialize to this argument, but client code should define a standard
 class and pass an instance of that class for this argument.  Client
 code can then define auxiliary methods that specialize to this class
 on the query generic functions.  The second argument is the
