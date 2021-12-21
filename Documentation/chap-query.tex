@@ -154,9 +154,11 @@ available.
 \Defgeneric {describe-optimize} {client environment}
 }
 
-Client-supplied methods on this function must always return a valid
-instance of the class \texttt{optimize-description}.  It returns an
-instance of the class described in
+This function is called by the language processor in order to
+determine the values of the \texttt{optimize} qualities in effect in
+\texttt{environment}.  Client-supplied methods on this function must
+always return a valid instance of the class
+\texttt{optimize-description} described in
 \refSec{sec-instantiable-classes-optimize-desciption}.
 
 
