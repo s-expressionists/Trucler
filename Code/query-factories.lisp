@@ -3,3 +3,7 @@
 (defgeneric lexical-variable-description-class (client)
   (:method (client)
     (find-class 'lexical-variable-description)))
+
+(defgeneric special-variable-description-class (client)
+  (:method (client)
+    (find-class 'special-variable-description)))
