@@ -51,6 +51,7 @@
 	   #:global-symbol-macro-description
            ;; Query factories.
            #:lexical-variable-description-class
+           #:special-variable-description-class
            ;; Generic function for function information.
            #:describe-function
            ;; Classes for function description.
