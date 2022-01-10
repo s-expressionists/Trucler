@@ -19,3 +19,7 @@
 (defgeneric local-macro-description-class (client)
   (:method (client)
     (find-class 'local-macro-description)))
+
+(defgeneric block-description-class (client)
+  (:method (client)
+    (find-class 'block-description)))
