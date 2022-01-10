@@ -4,7 +4,7 @@
     ((client client) (environment environment) symbol &optional identity)
   (trucler:augment-with-variable-description
    client environment
-   (make-instance 'trucler:lexical-variable-description
+   (make-instance (trucler:lexical-variable-description-class client)
      :name symbol
      :identity identity)))
 
