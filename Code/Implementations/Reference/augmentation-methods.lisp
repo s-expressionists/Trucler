@@ -35,7 +35,7 @@
     ((client client) (environment environment) symbol expander)
   (trucler:augment-with-function-description
    client environment
-   (make-instance 'trucler:local-macro-description
+   (make-instance (trucler:local-macro-description-class client)
      :name symbol
      :expander expander)))
 
