@@ -56,6 +56,7 @@
            #:local-function-description-class
            #:local-macro-description-class
            #:block-description-class
+           #:tag-description-class
            ;; Generic function for function information.
            #:describe-function
            ;; Classes for function description.
