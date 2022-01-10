@@ -54,6 +54,7 @@
            #:special-variable-description-class
            #:local-symbol-macro-description-class
            #:local-function-description-class
+           #:local-macro-description-class
            ;; Generic function for function information.
            #:describe-function
            ;; Classes for function description.
