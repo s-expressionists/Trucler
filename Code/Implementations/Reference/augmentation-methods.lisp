@@ -27,7 +27,7 @@
     ((client client) (environment environment) symbol &optional identity)
   (trucler:augment-with-function-description
    client environment
-   (make-instance 'trucler:local-function-description
+   (make-instance (trucler:local-function-description-class client)
      :name symbol
      :identity identity)))
 
