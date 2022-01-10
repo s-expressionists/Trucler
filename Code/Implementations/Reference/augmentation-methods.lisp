@@ -19,7 +19,7 @@
     ((client client) (environment environment) symbol expansion)
   (trucler:augment-with-variable-description
    client environment
-   (make-instance 'trucler:local-symbol-macro-description
+   (make-instance (trucler:local-symbol-macro-description-class client)
      :name symbol
      :expansion expansion)))
 
