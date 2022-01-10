@@ -11,3 +11,7 @@
 (defgeneric local-symbol-macro-description-class (client)
   (:method (client)
     (find-class 'local-symbol-macro-description)))
+
+(defgeneric local-function-description-class (client)
+  (:method (client)
+    (find-class 'local-function-description)))
