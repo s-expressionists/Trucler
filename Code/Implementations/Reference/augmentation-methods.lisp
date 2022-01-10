@@ -12,7 +12,7 @@
     ((client client) (environment environment) symbol)
   (trucler:augment-with-variable-description
    client environment
-   (make-instance 'trucler:special-variable-description
+   (make-instance (trucler:special-variable-description-class client)
      :name symbol)))
 
 (defmethod trucler:add-local-symbol-macro
