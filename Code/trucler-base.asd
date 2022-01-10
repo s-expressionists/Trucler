@@ -14,6 +14,7 @@
    (:file "quasi-clone")
    (:file "query-mixin-classes")
    (:file "query-classes")
+   (:file "query-factories")
    (:file "merge-functions")
    (:file "merge-methods")
    (:file "low-level-augmentation-functions")
