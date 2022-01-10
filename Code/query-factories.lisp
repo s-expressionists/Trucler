@@ -15,3 +15,7 @@
 (defgeneric local-function-description-class (client)
   (:method (client)
     (find-class 'local-function-description)))
+
+(defgeneric local-macro-description-class (client)
+  (:method (client)
+    (find-class 'local-macro-description)))
