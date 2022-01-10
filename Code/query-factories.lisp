@@ -23,3 +23,7 @@
 (defgeneric block-description-class (client)
   (:method (client)
     (find-class 'block-description)))
+
+(defgeneric tag-description-class (client)
+  (:method (client)
+    (find-class 'tag-description)))
