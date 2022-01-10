@@ -43,7 +43,7 @@
     ((client client) (environment environment) symbol &optional identity)
   (trucler:augment-with-block-description
    client environment
-   (make-instance 'trucler:block-description
+   (make-instance (trucler:block-description-class client)
      :name symbol
      :identity identity)))
 
