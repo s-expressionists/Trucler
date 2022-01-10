@@ -51,7 +51,7 @@
     ((client client) (environment environment) tag &optional identity)
   (trucler:augment-with-tag-description
    client environment
-   (make-instance 'trucler:tag-description
+   (make-instance (trucler:tag-description-class client)
      :name tag
      :identity identity)))
 
