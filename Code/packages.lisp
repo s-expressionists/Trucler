@@ -89,6 +89,7 @@
            #:global-environment
            #:global-environment-p
            ;; Description accessors.
+           #:origin
            #:name
            #:identity
            #:type
