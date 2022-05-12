@@ -46,7 +46,12 @@
 (defclass function-description (description name-mixin) ())
 
 (defclass authentic-function-description
-    (function-description type-mixin inline-mixin inline-data-mixin ignore-mixin dynamic-extent-mixin)
+    (function-description
+     type-mixin
+     inline-mixin
+     inline-data-mixin
+     ignore-mixin
+     dynamic-extent-mixin)
   ())
 
 (defclass local-function-description
@@ -91,7 +96,12 @@
 ;;; OPTIMIZE-DESCRIPTION class.
 
 (defclass optimize-description
-    (description speed-mixin compilation-speed-mixin debug-mixin space-mixin safety-mixin)
+    (description
+     speed-mixin
+     compilation-speed-mixin
+     debug-mixin
+     space-mixin
+     safety-mixin)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
