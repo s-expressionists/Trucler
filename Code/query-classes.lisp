@@ -71,7 +71,8 @@
 (defclass local-macro-description (macro-description ignore-mixin)
   ())
 
-(defclass global-macro-description (macro-description compiler-macro-mixin)
+(defclass global-macro-description
+    (macro-description inline-mixin compiler-macro-mixin)
   ())
 
 (defclass special-operator-description (function-description)

@@ -45,14 +45,16 @@
       (if (special-operator-p name)
           (make-instance 'special-operator-description
             :name name)
-          (let ((expander (macro-function name env)))
+          (let ((expander (macro-function name env))
+                (inline (cond ((ccl::proclaimed-inline-p name) 'cl:inline)
+                              ((ccl::proclaimed-notinline-p name) 'cl:notinline)
+                              (t nil))))
             (if (functionp expander)
                 (make-instance 'global-macro-description
                   :name name
-                  :expander expander)
+                  :expander expander
+                  :inline inline)
                 (make-instance 'global-function-description
                   :name name
                   :type (ccl::find-ftype-decl name env)
-                  :inline (cond ((ccl::proclaimed-inline-p name) 'cl:inline)
-                                ((ccl::proclaimed-notinline-p name) 'cl:notinline)
-                                (t nil))))))))
+                  :inline inline))))))

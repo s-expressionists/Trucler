@@ -12,7 +12,8 @@
           (:macro
            (make-instance 'global-macro-description
              :name name
-             :expander (sb-int:info :function :macro-function name)))
+             :expander (sb-int:info :function :macro-function name)
+             :inline (sb-int:info :function :inlinep name)))
           (:special-form
            (make-instance 'special-operator-description
              :name name))

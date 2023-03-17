@@ -389,7 +389,8 @@ a superclass of the abstract class \texttt{macro-description}.
 
 This class is a superclass of query classes that provide information
 about entities that can have inline information.  In particular, it is a
-superclass of the class \texttt{authentic-function-description}.
+superclass of the classes \texttt{authentic-function-description} and
+\texttt{global-macro-description}.
 
 {\footnotesize
 \Definitarg {:inline}
@@ -780,8 +781,8 @@ This class represents information about global macros introduced by
 \texttt{function-description} when it turns out that the function name passed
 as an argument refers to a global macro.
 
-This class is a subclass of \texttt{macro-description} and
-\texttt{compiler-macro-mixin}.
+This class is a subclass of \texttt{macro-description},
+\texttt{inline-mixin}, and \texttt{compiler-macro-mixin}.
 
 {\footnotesize
 \Defclass {special-operator-description}
