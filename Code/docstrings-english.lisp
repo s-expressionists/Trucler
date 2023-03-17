@@ -307,7 +307,7 @@
 (setf (documentation (find-class 'variable-description) 't)
       (format nil "This abstract class is the superclass of every query class~@
                    returned by a call to the generic function DESCRIBE-VARIABLE.~@
-                   It is a subclass of the class NAME-MIXIN and IGNORE-MIXIN."))
+                   It is a subclass of the classes NAME-MIXIN and IGNORE-MIXIN."))
 
 (setf (documentation (find-class 'authentic-variable-description) 't)
       (format nil "This abstract class is a subclass of the classes VARIABLE-DESCRIPTION,~@
@@ -399,7 +399,7 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a global function.~@
                    ~@
-                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION,~@
+                   This class is a subclass of the classes AUTHENTIC-FUNCTION-DESCRIPTION~@
                    and COMPILER-MACRO-MIXIN."))
 
 (setf (documentation (find-class 'generic-function-description) 't)
@@ -408,7 +408,7 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a generic function.~@
                    ~@
-                   This class is a subclass of the classes GLOBAL-FUNCTION-DESCRIPTION."))
+                   This class is a subclass of the class GLOBAL-FUNCTION-DESCRIPTION."))
 
 (setf (documentation (find-class 'local-macro-description) 't)
       (format nil "This instantiable class represents information about local~@
@@ -416,7 +416,7 @@
                    is returned by a call to function-description when it turns out that~@
                    the name passed as an argument refers to a local macro.~@
                    ~@
-                   This class is a subclass of the classes MACRO-DESCRIPTION, and~@
+                   This class is a subclass of the classes MACRO-DESCRIPTION and~@
                    IGNORE-MIXIN."))
 
 (setf (documentation (find-class 'global-macro-description) 't)

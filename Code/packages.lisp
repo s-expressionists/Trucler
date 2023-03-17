@@ -34,7 +34,7 @@
            #:space-mixin
            #:safety-mixin
 	   #:special-operator-description
-           ;; Macro for definining mixin classes.
+           ;; Macro for defining mixin classes.
            #:define-mixin-class
            ;; Generic function for variable information.
            #:describe-variable

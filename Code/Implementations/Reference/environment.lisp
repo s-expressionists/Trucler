@@ -42,8 +42,8 @@
     :reader declarations-description)
    ;; When this flag is set, the environment is restricted for use by
    ;; macrolet.  When the environment is restricted, a query that
-   ;; returns a local function description or a lexial variable
-   ;; descripton will signal an error.
+   ;; returns a local function description or a lexical variable
+   ;; description will signal an error.
    (%restricted-p
     :initform nil
     :initarg :restricted-p
