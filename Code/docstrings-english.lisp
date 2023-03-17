@@ -425,5 +425,5 @@
                    function-description when it turns out that the name passed~@
                    as an argument refers to a global macro.~@
                    ~@
-                   This class is a subclass of the classes MACRO-DESCRIPTION and~@
-                   COMPILER-MACRO-MIXIN."))
+                   This class is a subclass of the classes MACRO-DESCRIPTION,~@
+                   INLINE-MIXIN, and COMPILER-MACRO-MIXIN."))
