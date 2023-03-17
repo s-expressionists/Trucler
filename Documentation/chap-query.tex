@@ -55,7 +55,7 @@ on the compilation functions that handle these classes.
 This function is called by the language processor whenever a symbol in
 a \emph{variable} position is to be compiled.  If successful, it
 returns an instance of one of the classes described in
-\refSec{sec-instantiable-classes-variable-desciption}.
+\refSec{sec-instantiable-classes-variable-description}.
 
 {\footnotesize
 \Defcondition {no-variable-description}
@@ -81,7 +81,7 @@ This function is called by the language processor whenever a symbol in
 a \emph{function} position is to be compiled or whenever a function
 name is found in a context where it is known to refer to a function.
 If successful, it returns an instance of one of the classes described
-in \refSec{sec-instantiable-classes-function-desciption}.
+in \refSec{sec-instantiable-classes-function-description}.
 
 {\footnotesize
 \Defcondition {no-function-description}
@@ -107,7 +107,7 @@ This function is called by the language processor whenever a symbol
 referring to a \emph{block} is found, typically in a
 \texttt{return-from} form.  If successful, it returns an instance of
 the class described in
-\refSec{sec-instantiable-classes-block-desciption}.
+\refSec{sec-instantiable-classes-block-description}.
 
 {\footnotesize
 \Defcondition {no-block-description}
@@ -132,7 +132,7 @@ available.
 This function is called by the language processor whenever a symbol or
 an integer referring to a \emph{tag} is found, typically in a
 \texttt{go} form.  If successful, it returns an instance of the
-class described in \refSec{sec-instantiable-classes-tag-desciption}.
+class described in \refSec{sec-instantiable-classes-tag-description}.
 
 {\footnotesize
 \Defcondition {no-tag-description}
@@ -159,7 +159,7 @@ determine the values of the \texttt{optimize} qualities in effect in
 \texttt{environment}.  Client-supplied methods on this function must
 always return a valid instance of the class
 \texttt{optimize-description} described in
-\refSec{sec-instantiable-classes-optimize-desciption}.
+\refSec{sec-instantiable-classes-optimize-description}.
 
 
 \subsection{Declarations information}
@@ -660,7 +660,7 @@ It is a superclass of the two instantiable classes
 \label{sec-instantiable-query-classes}
 
 \subsection{Variable description}
-\label{sec-instantiable-classes-variable-desciption}
+\label{sec-instantiable-classes-variable-description}
 
 {\footnotesize
 \Defclass {lexical-variable-description}
@@ -729,7 +729,7 @@ name is defined as a local symbol macro, as defined by
 \texttt{symbol-macrolet}.
 
 \subsection{Function description}
-\label{sec-instantiable-classes-function-desciption}
+\label{sec-instantiable-classes-function-description}
 
 {\footnotesize
 \Defclass {local-function-description}
@@ -752,8 +752,8 @@ of this class is returned by a call to \texttt{function-description} when it
 turns out that the function name passed as an argument refers to a
 global function.
 
-This class is a subclass of \texttt{authentic-function-description},
-and \texttt{compiler-macro-mixin}.
+This class is a subclass of \texttt{authentic-function-description} and
+\texttt{compiler-macro-mixin}.
 
 {\footnotesize
 \Defclass {generic-function-description}
@@ -791,12 +791,12 @@ This class is a subclass of \texttt{macro-description},
 This class represents information about special operators.  An
 instance of this class is returned by a call to \texttt{function-description}
 when it turns out that the function name passed as an argument refers
-to a specialoperator.
+to a special operator.
 
 This class is a subclass of the class \texttt{function-description}.
 
 \subsection{Block description}
-\label{sec-instantiable-classes-block-desciption}
+\label{sec-instantiable-classes-block-description}
 
 {\footnotesize
 \Defclass {block-description}
@@ -811,7 +811,7 @@ This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
 \subsection{Tag description}
-\label{sec-instantiable-classes-tag-desciption}
+\label{sec-instantiable-classes-tag-description}
 
 {\footnotesize
 \Defclass {tag-description}
@@ -826,7 +826,7 @@ This class is a subclass of the classes \texttt{name-mixin} and
 \texttt{identity-mixin}.
 
 \subsection{Optimize description}
-\label{sec-instantiable-classes-optimize-desciption}
+\label{sec-instantiable-classes-optimize-description}
 
 {\footnotesize
 \Defclass {optimize-description}
