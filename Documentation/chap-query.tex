@@ -589,7 +589,7 @@ i.e., symbols.
 
 This abstract class is the superclass of every query class returned by
 a call to the generic function \texttt{describe-variable}.  It is a
-subclass of the classes \texttt{name-mixin} and \texttt{ignore-mixin}, .
+subclass of the classes \texttt{name-mixin} and \texttt{ignore-mixin}.
 
 {\footnotesize
 \Defclass {authentic-variable-description}
@@ -631,7 +631,7 @@ It is a superclass of the two instantiable classes
 }
 
 This abstract class is the superclass of every query class returned by
-a call to the generic function \texttt{function-description}.  It is a
+a call to the generic function \texttt{describe-function}.  It is a
 subclass of the class \texttt{name-mixin}.
 
 {\footnotesize
@@ -639,7 +639,9 @@ subclass of the class \texttt{name-mixin}.
 }
 
 This abstract class is a subclass of the classes
-\texttt{function-description} and \texttt{type-mixin}.
+\texttt{function-description}, \texttt{type-mixin},
+\texttt{inline-mixin}, \texttt{inline-data-mixin},
+\texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
 
 It is a superclass of the two instantiable classes
 \texttt{local-function-description} and
@@ -684,7 +686,7 @@ when it turns out that the symbol passed as an argument refers to a
 local special variable.
 
 This class is a subclass of the class
-\texttt{authentic-variable-description}.
+\texttt{special-variable-description}.
 
 {\footnotesize
 \Defclass {global-special-variable-description}
@@ -696,7 +698,7 @@ when it turns out that the symbol passed as an argument refers to a
 global special variable.
 
 This class is a subclass of the class
-\texttt{authentic-variable-description}.
+\texttt{special-variable-description}.
 
 {\footnotesize
 \Defclass {constant-variable-description}
@@ -707,7 +709,7 @@ instance of this class is returned by a call to \texttt{describe-variable}
 when it turns out that the symbol passed as an argument refers to a
 constant variable.
 
-This class is a subclass of the classes \texttt{describe-variable} and
+This class is a subclass of the classes \texttt{variable-description} and
 \texttt{value-mixin}.
 
 {\footnotesize
@@ -737,18 +739,18 @@ name is defined as a local symbol macro, as defined by
 
 This class represents information about local functions introduced by
 \texttt{flet} or \texttt{labels}.  An instance of this class is
-returned by a call to \texttt{function-description} when it turns out that
+returned by a call to \texttt{describe-function} when it turns out that
 the function name passed as an argument refers to a local function.
 
-This class is a subclass of \texttt{authentic-function-description},
-\texttt{identity-mixin}, \texttt{ignore-mixin}, and \texttt{dynamic-extent-mixin}.
+This class is a subclass of \texttt{authentic-function-description} and
+\texttt{identity-mixin}.
 
 {\footnotesize
 \Defclass {global-function-description}
 }
 
 This class represents information about global functions.  An instance
-of this class is returned by a call to \texttt{function-description} when it
+of this class is returned by a call to \texttt{describe-function} when it
 turns out that the function name passed as an argument refers to a
 global function.
 
@@ -767,10 +769,11 @@ This class is a subclass of \texttt{global-function-description}.
 
 This class represents information about local macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
-\texttt{function-description} when it turns out that the function name passed
+\texttt{describe-function} when it turns out that the function name passed
 as an argument refers to a local macro.
 
-This class is a subclass of \texttt{macro-description} and \texttt{ignore-mixin}.
+This class is a subclass of \texttt{macro-description} and
+\texttt{ignore-mixin}.
 
 {\footnotesize
 \Defclass {global-macro-description}
@@ -778,7 +781,7 @@ This class is a subclass of \texttt{macro-description} and \texttt{ignore-mixin}
 
 This class represents information about global macros introduced by
 \texttt{macrolet}.  An instance of this class is returned by a call to
-\texttt{function-description} when it turns out that the function name passed
+\texttt{describe-function} when it turns out that the function name passed
 as an argument refers to a global macro.
 
 This class is a subclass of \texttt{macro-description},
@@ -789,7 +792,7 @@ This class is a subclass of \texttt{macro-description},
 }
 
 This class represents information about special operators.  An
-instance of this class is returned by a call to \texttt{function-description}
+instance of this class is returned by a call to \texttt{describe-function}
 when it turns out that the function name passed as an argument refers
 to a special operator.
 
@@ -804,7 +807,7 @@ This class is a subclass of the class \texttt{function-description}.
 
 This class represents information about blocks introduced by
 \texttt{block}.  An instance of this class is returned by a call to
-\texttt{block-description} when the symbol passed as an argument refers to a
+\texttt{describe-block} when the symbol passed as an argument refers to a
 block.
 
 This class is a subclass of the classes \texttt{name-mixin} and
@@ -819,7 +822,7 @@ This class is a subclass of the classes \texttt{name-mixin} and
 
 This class represents information about tags introduced by
 \texttt{tagbody}.  An instance of this class is returned by a call to
-\texttt{tag-description} when the name (which must be a symbol or an integer)
+\texttt{describe-tag} when the name (which must be a symbol or an integer)
 passed as an argument refers to a tag.
 
 This class is a subclass of the classes \texttt{name-mixin} and
