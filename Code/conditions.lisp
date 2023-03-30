@@ -1,6 +1,7 @@
 (cl:in-package #:trucler)
 
-(define-condition no-description (program-error acclimation:condition)
+(define-condition undefined-function-referred-to-by-inline-declaration
+    (program-error acclimation:condition)
   ((%name :initarg :name :reader name)
    (%origin :initarg :origin :reader origin)))
 
@@ -21,10 +22,6 @@
 
 (define-condition invalid-description-for-merging-inline-information
     (invalid-description)
-  ())
-
-(define-condition undefined-function-referred-to-by-inline-declaration
-    (no-description)
   ())
 
 (define-condition invalid-description-for-merging-inline-data

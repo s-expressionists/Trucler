@@ -156,7 +156,6 @@
            #:compiler-macro-function
            #:symbol-macro-expansion
            ;; Condition types.
-           #:no-description
            #:invalid-description-for-merging-type-information
            #:invalid-description-for-merging-ignore-information
            #:invalid-description-for-merging-dynamic-extetn-information
