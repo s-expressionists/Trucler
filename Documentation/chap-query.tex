@@ -95,22 +95,10 @@ environment, then this function returns \texttt{nil}
 
 This function is called by the language processor whenever a symbol or
 an integer referring to a \emph{tag} is found, typically in a
-\texttt{go} form.  If successful, it returns an instance of the
-class described in \refSec{sec-instantiable-classes-tag-description}.
-
-{\footnotesize
-\Defcondition {no-tag-description}
-}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{describe-tag} returns \texttt{nil}.
-
-{\footnotesize
-\Defmethod {name} {(condition {\tt no-tag-description})}
-}
-
-This method returns the name of the tag for which no description was
-available.
+\texttt{go} form.  If successful, it returns an instance of the class
+described in \refSec{sec-instantiable-classes-tag-description}.  If no
+relevant information related to the name \textit{name} exists in the
+current environment, then this function returns \texttt{nil}.
 
 \subsection{Optimize information}
 

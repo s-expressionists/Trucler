@@ -29,7 +29,9 @@
                    describing the role of TAG in ENVIRONMENT~@
                    when TAG was found in a position to name a~@
                    TAGBODY tag, i.e. as an argument to GO.~@
-                   TAG must be a symbol or an integer."))
+                   TAG must be a symbol or an integer.~@
+                   If no relevant information about NAME exists~@
+                   in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-optimize 'function)
       (format nil "Return an instance of the class OPTIMIZE-DESCRIPTION~@
