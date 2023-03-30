@@ -3,7 +3,9 @@
 (setf (documentation 'describe-variable 'function)
       (format nil "Return an instance of the class VARIABLE-DESCRIPTION~@
                    describing the role of NAME in ENVIRONMENT~@
-                   when NAME was found in a variable position."))
+                   when NAME was found in a variable position.~@
+                   If NAME has no role in a variable position~@
+                   in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-function 'function)
       (format nil "Return an instance of the class FUNCTION-DESCRIPTION~@
