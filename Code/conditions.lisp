@@ -4,9 +4,6 @@
   ((%name :initarg :name :reader name)
    (%origin :initarg :origin :reader origin)))
 
-(define-condition no-function-description (no-description)
-  ())
-
 (define-condition no-block-description (no-description)
   ())
 
@@ -33,7 +30,7 @@
   ())
 
 (define-condition undefined-function-referred-to-by-inline-declaration
-    (no-function-description)
+    (no-description)
   ())
 
 (define-condition invalid-description-for-merging-inline-data
