@@ -4,9 +4,6 @@
   ((%name :initarg :name :reader name)
    (%origin :initarg :origin :reader origin)))
 
-(define-condition no-block-description (no-description)
-  ())
-
 (define-condition no-tag-description (no-description)
   ())
 
