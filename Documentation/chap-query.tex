@@ -55,9 +55,9 @@ on the compilation functions that handle these classes.
 This function is called by the language processor whenever a symbol in
 a \emph{variable} position is to be compiled.  If successful, it
 returns an instance of one of the classes described in
-\refSec{sec-instantiable-classes-variable-description}.  If no symbol
-with the name \textit{name} exists in the current environment, then
-this function returns \texttt{nil}.
+\refSec{sec-instantiable-classes-variable-description}.  If no
+relevant information related to the name \textit{name} exists in the
+current environment, then this function returns \texttt{nil}.
 
 \subsection{Function information}
 
@@ -69,21 +69,9 @@ This function is called by the language processor whenever a symbol in
 a \emph{function} position is to be compiled or whenever a function
 name is found in a context where it is known to refer to a function.
 If successful, it returns an instance of one of the classes described
-in \refSec{sec-instantiable-classes-function-description}.
-
-{\footnotesize
-\Defcondition {no-function-description}
-}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{describe-function} returns \texttt{nil}.
-
-{\footnotesize
-\Defmethod {name} {(condition {\tt no-function-description})}
-}
-
-This method returns the name of the function for which no description was
-available.
+in \refSec{sec-instantiable-classes-function-description}.  If no
+relevant information related to the name \textit{name} exists in the
+current environment, then this function returns \texttt{nil}.
 
 \subsection{Block information}
 

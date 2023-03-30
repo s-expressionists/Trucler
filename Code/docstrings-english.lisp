@@ -9,10 +9,12 @@
 
 (setf (documentation 'describe-function 'function)
       (format nil "Return an instance of the class FUNCTION-DESCRIPTION~@
-                   describing the role ofNAME in ENVIRONMENT~@
+                   describing the role of NAME in ENVIRONMENT~@
                    when NAME was found in a function position.~@
                    This function can also be used to obtain information~@
-                   about a function name that is not a symbol."))
+                   about a function name that is not a symbol.~@
+                   If NAME has no role in a function position~@
+                   in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-block 'function)
       (format nil "Return an instance of the class BLOCK-DESCRIPTION~@
