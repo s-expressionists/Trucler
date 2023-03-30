@@ -157,7 +157,6 @@
            #:symbol-macro-expansion
            ;; Condition types.
            #:no-description
-           #:no-variable-description
            #:no-function-description
            #:no-block-description
            #:no-tag-description
