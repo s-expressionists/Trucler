@@ -4,9 +4,6 @@
   ((%name :initarg :name :reader name)
    (%origin :initarg :origin :reader origin)))
 
-(define-condition no-tag-description (no-description)
-  ())
-
 (define-condition invalid-description (program-error acclimation:condition)
   ((%description :initarg :description :reader description)))
 
