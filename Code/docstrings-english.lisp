@@ -4,7 +4,7 @@
       (format nil "Return an instance of the class VARIABLE-DESCRIPTION~@
                    describing the role of NAME in ENVIRONMENT~@
                    when NAME was found in a variable position.~@
-                   If NAME has no role in a variable position~@
+                   If no relevant information about NAME exists~@
                    in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-function 'function)
@@ -13,14 +13,16 @@
                    when NAME was found in a function position.~@
                    This function can also be used to obtain information~@
                    about a function name that is not a symbol.~@
-                   If NAME has no role in a function position~@
+                   If no relevant information about NAME exists~@
                    in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-block 'function)
       (format nil "Return an instance of the class BLOCK-DESCRIPTION~@
                    describing the role of NAME in ENVIRONMENT~@
                    when NAME was found in a position to name a block,~@
-                   typically in a RETURN-FROM special form."))
+                   typically in a RETURN-FROM special form.~@
+                   If no relevant information about NAME exists~@
+                   in ENVIRONMENT, then return NIL."))
 
 (setf (documentation 'describe-tag 'function)
       (format nil "Return an instance of the class TAG-DESCRIPTION~@

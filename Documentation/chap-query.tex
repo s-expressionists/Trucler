@@ -83,21 +83,9 @@ This function is called by the language processor whenever a symbol
 referring to a \emph{block} is found, typically in a
 \texttt{return-from} form.  If successful, it returns an instance of
 the class described in
-\refSec{sec-instantiable-classes-block-description}.
-
-{\footnotesize
-\Defcondition {no-block-description}
-}
-
-This condition is signaled by \sysname{} when a client-supplied method
-on the generic function \texttt{describe-block} returns \texttt{nil}.
-
-{\footnotesize
-\Defmethod {name} {(condition {\tt no-block-description})}
-}
-
-This method returns the name of the block for which no description was
-available.
+\refSec{sec-instantiable-classes-block-description}.  If no relevant
+information related to the name \textit{name} exists in the current
+environment, then this function returns \texttt{nil}
 
 \subsection{Tag information}
 
