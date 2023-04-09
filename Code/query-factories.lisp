@@ -4,9 +4,9 @@
   (:method (client)
     (find-class 'lexical-variable-description)))
 
-(defgeneric special-variable-description-class (client)
+(defgeneric local-special-variable-description-class (client)
   (:method (client)
-    (find-class 'special-variable-description)))
+    (find-class 'local-special-variable-description)))
 
 (defgeneric local-symbol-macro-description-class (client)
   (:method (client)

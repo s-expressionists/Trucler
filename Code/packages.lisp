@@ -51,7 +51,7 @@
 	   #:global-symbol-macro-description
            ;; Query factories.
            #:lexical-variable-description-class
-           #:special-variable-description-class
+           #:local-special-variable-description-class
            #:local-symbol-macro-description-class
            #:local-function-description-class
            #:local-macro-description-class
@@ -114,7 +114,7 @@
 	   #:augment-with-tag-description
 	   #:augment-with-optimize-description
            #:add-lexical-variable
-           #:add-special-variable
+           #:add-local-special-variable
            #:add-local-symbol-macro
            #:add-local-function
            #:add-local-macro

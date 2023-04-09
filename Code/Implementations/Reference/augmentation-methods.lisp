@@ -8,11 +8,11 @@
      :name symbol
      :identity identity)))
 
-(defmethod trucler:add-special-variable
+(defmethod trucler:add-local-special-variable
     ((client client) (environment environment) symbol)
   (trucler:augment-with-variable-description
    client environment
-   (make-instance (trucler:special-variable-description-class client)
+   (make-instance (trucler:local-special-variable-description-class client)
      :name symbol)))
 
 (defmethod trucler:add-local-symbol-macro
