@@ -3,7 +3,7 @@
 (defgeneric add-lexical-variable
     (client environment symbol &optional identity))
 
-(defgeneric add-special-variable
+(defgeneric add-local-special-variable
     (client environment symbol))
 
 (defgeneric add-local-symbol-macro

@@ -515,17 +515,17 @@ instantiates the class \texttt{lexical-variable-description} and then
 creates a new environment by calling the function
 \texttt{augment-with-variable-description}.
 
-\subsubsection{Adding a special variable}
+\subsubsection{Adding a local special variable}
 
 {\footnotesize
-\Defmethod{add-special-variable}
+\Defmethod{add-local-special-variable}
 {client
  (environment environment)
  name}
 }
 
-This is the main method on \texttt{add-special-variable}.  It
-instantiates the class \texttt{special-variable-description} and then
+This is the main method on \texttt{add-local-special-variable}.  It
+instantiates the class \texttt{local-special-variable-description} and then
 creates a new environment by calling the function
 \texttt{augment-with-variable-description}.
 

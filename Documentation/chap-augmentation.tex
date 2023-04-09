@@ -24,15 +24,15 @@ variable named \textit{name}.  The optional argument \textit{identity}
 can be supplied by client code to distinguish different lexical
 variables with the same name.
 
-\subsubsection{Adding a special variable}
+\subsubsection{Adding a local special variable}
 
 {\footnotesize
-\Defgeneric {add-special-variable} {client environment name}
+\Defgeneric {add-local-special-variable} {client environment name}
 }
 
 This function returns a new environment that is like
-\textit{environment} except that it has been augumented with a special
-variable named \textit{name}.
+\textit{environment} except that it has been augumented with a local
+special variable named \textit{name}.
 
 \subsubsection{Adding a local symbol macro}
 
