@@ -38,5 +38,8 @@
                          (sb-int:deprecation-info-version info))
             :replacements (sb-int:deprecation-info-replacements info))))
 
+(defun fun-deprecated (name)
+  (deprecation-entry (sb-int:info :function :deprecated name)))
+
 (defun var-deprecated (name)
   (deprecation-entry (sb-int:info :variable :deprecated name)))

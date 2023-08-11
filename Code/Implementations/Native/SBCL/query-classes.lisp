@@ -63,8 +63,7 @@
 ;;; FUNCTION-DESCRIPTION classes.
 
 (defclass local-function-description
-    (trucler:local-function-description
-     deprecated-mixin)
+    (trucler:local-function-description)
   ())
 
 (defclass global-function-description
@@ -78,8 +77,7 @@
   ())
 
 (defclass local-macro-description
-    (trucler:local-macro-description
-     deprecated-mixin)
+    (trucler:local-macro-description)
   ())
 
 (defclass global-macro-description
