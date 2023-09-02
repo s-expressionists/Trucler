@@ -56,7 +56,7 @@
 
 (defmethod merge-type (client (description type-mixin) type)
   (declare (cl:ignore client))
-  (quasi-clone description :type `(and type ,(type description))))
+  (quasi-clone description :type `(and ,type ,(type description))))
 
 (defmethod merge-ignore (client (description ignore-mixin) ignore)
   (declare (cl:ignore client))
