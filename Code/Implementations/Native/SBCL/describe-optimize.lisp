@@ -1,12 +1,12 @@
 (cl:in-package #:trucler-native-sbcl)
 
 (defmethod trucler:describe-optimize
-    ((client client) (env null))
+    ((client client) (environment null))
   (trucler:describe-optimize client *null-lexical-environment*))
 
 (defmethod trucler:describe-optimize
-    ((client client) (env sb-kernel:lexenv))
-  (let ((policy (or (sb-c::lexenv-%policy env)
+    ((client client) (environment sb-kernel:lexenv))
+  (let ((policy (or (sb-c::lexenv-%policy environment)
                     sb-c::*policy*)))
     (make-instance 'optimize-description
       :speed (sb-c::policy-quality policy 'speed)

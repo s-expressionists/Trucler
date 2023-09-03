@@ -1,4 +1,4 @@
-(in-package #:trucler-native-test)
+(cl:in-package #:trucler-native-test)
 
 ;;; The test suite is invoked simply by loading it.  All tests are
 ;;; conducted implicitly during macro expansion.

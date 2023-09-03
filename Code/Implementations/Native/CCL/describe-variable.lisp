@@ -1,13 +1,13 @@
 (cl:in-package #:trucler-native-ccl)
 
 (defmethod trucler:describe-variable
-    ((client client) (env null) (name symbol))
+    ((client client) (environment null) name)
   (trucler:describe-variable client *null-lexical-environment* name))
 
 (defmethod trucler:describe-variable
-    ((client client) (env ccl::lexical-environment) (name symbol))
+    ((client client) (environment ccl::lexical-environment) name)
   (multiple-value-bind (info more)
-      (let ((ccl::*nx-lexical-environment* env))
+      (let ((ccl::*nx-lexical-environment* environment))
         (ccl::nx-lex-info name))
     (etypecase info
       (ccl::var
@@ -31,13 +31,13 @@
        (make-instance 'local-special-variable-description
          :name name))
       (null
-       (trucler:describe-variable client (ccl::definition-environment env) name)))))
+       (trucler:describe-variable client (ccl::definition-environment environment) name)))))
 
 (defmethod trucler:describe-variable
-    ((client client) (env ccl::definition-environment) (name symbol))
-  (let ((symbol-macro-entry (assoc name (ccl::defenv.symbol-macros env)))
-        (constant-entry (assoc name (ccl::defenv.constants env)))
-        (global-special-entry (assoc name (ccl::defenv.specials env))))
+    ((client client) (environment ccl::definition-environment) name)
+  (let ((symbol-macro-entry (assoc name (ccl::defenv.symbol-macros environment)))
+        (constant-entry (assoc name (ccl::defenv.constants environment)))
+        (global-special-entry (assoc name (ccl::defenv.specials environment))))
     (cond ((consp symbol-macro-entry)
            (make-instance 'global-symbol-macro-description
              :name name

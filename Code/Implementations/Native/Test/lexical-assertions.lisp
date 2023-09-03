@@ -1,4 +1,4 @@
-(in-package #:trucler-native-test)
+(cl:in-package #:trucler-native-test)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defvar *client* (make-instance 'trucler-native:client)))
@@ -139,8 +139,8 @@
     `(values)))
 
 (defmacro assert-tag-description
-    (tag &environment env)
-  (let ((description (trucler:describe-tag *client* env tag)))
+    (name &environment env)
+  (let ((description (trucler:describe-tag *client* env name)))
     (check-type description trucler:tag-description)
     `(values)))
 

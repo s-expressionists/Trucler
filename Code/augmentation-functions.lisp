@@ -1,49 +1,49 @@
 (cl:in-package #:trucler)
 
 (defgeneric add-lexical-variable
-    (client environment symbol &optional identity))
+    (client environment name &optional identity))
 
 (defgeneric add-local-special-variable
-    (client environment symbol))
+    (client environment name))
 
 (defgeneric add-local-symbol-macro
-    (client environment symbol expansion))
+    (client environment name expansion))
 
 (defgeneric add-local-function
-    (client environment function-name &optional identity))
+    (client environment name &optional identity))
 
 (defgeneric add-local-macro
-    (client environment symbol expander))
+    (client environment name expander))
 
 (defgeneric add-block
-    (client environment symbol &optional identity))
+    (client environment name &optional identity))
 
 (defgeneric add-tag
-    (client environment tag &optional identity))
+    (client environment name &optional identity))
 
 (defgeneric add-variable-type
-    (client environment symbol type))
+    (client environment name type))
 
 (defgeneric add-function-type
-    (client environment function-name type))
+    (client environment name type))
 
 (defgeneric add-variable-ignore
-    (client environment symbol ignore))
+    (client environment name ignore))
 
 (defgeneric add-function-ignore
-    (client environment function-name ignore))
+    (client environment name ignore))
 
 (defgeneric add-variable-dynamic-extent
-    (client environment symbol))
+    (client environment name))
 
 (defgeneric add-function-dynamic-extent
-    (client environment function-name))
+    (client environment name))
 
 (defgeneric add-inline
-    (client environment function-name inline))
+    (client environment name inline))
 
 (defgeneric add-inline-data
-    (client environment function-name inline-data))
+    (client environment name inline-data))
 
 (defgeneric add-speed
     (client environment value))

@@ -26,10 +26,10 @@
 
 (setf (documentation 'describe-tag 'function)
       (format nil "Return an instance of the class TAG-DESCRIPTION~@
-                   describing the role of TAG in ENVIRONMENT~@
-                   when TAG was found in a position to name a~@
+                   describing the role of NAME in ENVIRONMENT~@
+                   when NAME was found in a position to name a~@
                    TAGBODY tag, i.e., as an argument to GO.~@
-                   TAG must be a symbol or an integer.~@
+                   NAME must be a symbol or an integer.~@
                    If no relevant information about NAME exists~@
                    in ENVIRONMENT, then return NIL."))
 
