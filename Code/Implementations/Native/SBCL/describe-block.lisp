@@ -10,5 +10,5 @@
     (if entry
         (make-instance 'trucler:block-description
           :name name
-          :identity (car entry))
+          :identity (cdr entry))
         nil)))
