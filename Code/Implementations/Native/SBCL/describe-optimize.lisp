@@ -6,7 +6,7 @@
 
 (defmethod trucler:describe-optimize
     ((client client) (env sb-kernel:lexenv))
-  (let ((policy (or (sb-c::lexenv-policy env)
+  (let ((policy (or (sb-c::lexenv-%policy env)
                     sb-c::*policy*)))
     (make-instance 'optimize-description
       :speed (sb-c::policy-quality policy 'speed)
