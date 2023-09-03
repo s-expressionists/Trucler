@@ -6,7 +6,7 @@
 
 (defmethod trucler:describe-tag
     ((client client) (environment sb-kernel:lexenv) name)
-  (let ((entry (assoc name (sb-c::lexenv-tags environment))))
+  (let ((entry (assoc name (sb-c::lexenv-tags environment) :test #'eq)))
     (if (null entry)
         nil
         (make-instance 'tag-description

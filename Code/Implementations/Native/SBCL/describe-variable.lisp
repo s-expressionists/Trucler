@@ -6,7 +6,7 @@
 
 (defmethod trucler:describe-variable
     ((client client) (environment sb-kernel:lexenv) name)
-  (let ((entry (assoc name (sb-c::lexenv-vars environment))))
+  (let ((entry (assoc name (sb-c::lexenv-vars environment) :test #'eq)))
     (if (null entry)
         (ecase (sb-int:info :variable :kind name)
           (:special

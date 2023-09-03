@@ -6,7 +6,7 @@
 
 (defmethod trucler:describe-block
     ((client client) (environment sb-kernel:lexenv) name)
-  (let ((entry (assoc name (sb-c::lexenv-blocks environment))))
+  (let ((entry (assoc name (sb-c::lexenv-blocks environment) :test #'eq)))
     (if (null entry)
         nil
         (make-instance 'block-description
