@@ -6,4 +6,4 @@
   (:export
    #:client
    #:deprecated
-   #:always-bound-p))
+   #:always-bound))
