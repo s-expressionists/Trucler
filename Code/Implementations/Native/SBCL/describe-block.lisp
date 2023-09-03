@@ -8,7 +8,7 @@
     ((client client) (env sb-kernel:lexenv) (name symbol))
   (let ((entry (assoc name (sb-c::lexenv-blocks env))))
     (if entry
-        (make-instance 'trucler:block-description
+        (make-instance 'block-description
           :name name
           :identity (cdr entry))
         nil)))
