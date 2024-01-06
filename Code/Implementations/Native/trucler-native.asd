@@ -36,5 +36,7 @@
      (:file "describe-declarations")
      (:file "describe-tag")
      (:file "describe-variable")
+     (:file "low-level-augmentation-utilities")
+     (:file "augmentation-methods")
      (:file "global-environment")
      (:file "global-environment-p")))))

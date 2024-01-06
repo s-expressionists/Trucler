@@ -1,14 +1,15 @@
 (cl:in-package #:trucler-native-ccl)
 
-(defmethod trucler:describe-declarations ((client client) (env null))
+(defmethod trucler:describe-declarations
+    ((client client) (environment null))
   (describe-declarations))
 
-(defmethod trucler:describe-declarations ((client client)
-                                          (env ccl::lexical-environment))
+(defmethod trucler:describe-declarations
+    ((client client) (environment ccl::lexical-environment))
   (describe-declarations))
 
-(defmethod trucler:describe-declarations ((client client)
-                                          (env ccl::definition-environment))
+(defmethod trucler:describe-declarations
+    ((client client) (environment ccl::definition-environment))
   (describe-declarations))
 
 (defun describe-declarations ()

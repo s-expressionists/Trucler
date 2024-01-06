@@ -1,14 +1,14 @@
 (cl:in-package #:trucler-native-sbcl)
 
 (defmethod trucler:describe-tag
-    ((client client) (env null) tag)
-  (trucler:describe-tag client *null-lexical-environment* tag))
+    ((client client) (environment null) name)
+  (trucler:describe-tag client *null-lexical-environment* name))
 
 (defmethod trucler:describe-tag
-    ((client client) (env sb-kernel:lexenv) tag)
-  (let ((entry (assoc tag (sb-c::lexenv-tags env))))
-    (if entry
+    ((client client) (environment sb-kernel:lexenv) name)
+  (let ((entry (assoc name (sb-c::lexenv-tags environment) :test #'eq)))
+    (if (null entry)
+        nil
         (make-instance 'tag-description
-          :name tag
-          :identity (cdr entry))
-        nil)))
+          :name name
+          :identity (cdr entry)))))

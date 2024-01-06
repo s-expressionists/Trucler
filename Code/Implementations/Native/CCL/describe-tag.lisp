@@ -1,20 +1,20 @@
 (cl:in-package #:trucler-native-ccl)
 
 (defmethod trucler:describe-tag
-    ((client client) (env null) tag)
-  (trucler:describe-tag client *null-lexical-environment* tag))
+    ((client client) (environment null) name)
+  (trucler:describe-tag client *null-lexical-environment* name))
 
 (defmethod trucler:describe-tag
-    ((client client) (env ccl::lexical-environment) tag)
-  (describe-tag tag))
+    ((client client) (environment ccl::lexical-environment) name)
+  (describe-tag name))
 
 (defmethod trucler:describe-tag
-    ((client client) (env ccl::definition-environment) tag)
-  (describe-tag tag))
+    ((client client) (environment ccl::definition-environment) name)
+  (describe-tag name))
 
 (defun describe-tag (name)
   (let ((info (ccl::nx-tag-info name)))
-    (if (not info)
+    (if (null info)
         nil
         (make-instance 'tag-description
           :name name

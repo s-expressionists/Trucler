@@ -1,14 +1,14 @@
 (cl:in-package #:trucler-native-sbcl)
 
 (defmethod trucler:describe-block
-    ((client client) (env null) (name symbol))
+    ((client client) (environment null) name)
   (trucler:describe-block client *null-lexical-environment* name))
 
 (defmethod trucler:describe-block
-    ((client client) (env sb-kernel:lexenv) (name symbol))
-  (let ((entry (assoc name (sb-c::lexenv-blocks env))))
-    (if entry
+    ((client client) (environment sb-kernel:lexenv) name)
+  (let ((entry (assoc name (sb-c::lexenv-blocks environment) :test #'eq)))
+    (if (null entry)
+        nil
         (make-instance 'block-description
           :name name
-          :identity (cdr entry))
-        nil)))
+          :identity (cdr entry)))))

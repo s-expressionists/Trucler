@@ -1,93 +1,93 @@
 (cl:in-package #:trucler-reference)
 
 (defmethod trucler:add-lexical-variable
-    ((client client) (environment environment) symbol &optional identity)
+    ((client client) (environment environment) name &optional identity)
   (trucler:augment-with-variable-description
    client environment
    (make-instance (trucler:lexical-variable-description-class client)
-     :name symbol
+     :name name
      :identity identity)))
 
 (defmethod trucler:add-local-special-variable
-    ((client client) (environment environment) symbol)
+    ((client client) (environment environment) name)
   (trucler:augment-with-variable-description
    client environment
    (make-instance (trucler:local-special-variable-description-class client)
-     :name symbol)))
+     :name name)))
 
 (defmethod trucler:add-local-symbol-macro
-    ((client client) (environment environment) symbol expansion)
+    ((client client) (environment environment) name expansion)
   (trucler:augment-with-variable-description
    client environment
    (make-instance (trucler:local-symbol-macro-description-class client)
-     :name symbol
+     :name name
      :expansion expansion)))
 
 (defmethod trucler:add-local-function
-    ((client client) (environment environment) symbol &optional identity)
+    ((client client) (environment environment) name &optional identity)
   (trucler:augment-with-function-description
    client environment
    (make-instance (trucler:local-function-description-class client)
-     :name symbol
+     :name name
      :identity identity)))
 
 (defmethod trucler:add-local-macro
-    ((client client) (environment environment) symbol expander)
+    ((client client) (environment environment) name expander)
   (trucler:augment-with-function-description
    client environment
    (make-instance (trucler:local-macro-description-class client)
-     :name symbol
+     :name name
      :expander expander)))
 
 (defmethod trucler:add-block
-    ((client client) (environment environment) symbol &optional identity)
+    ((client client) (environment environment) name &optional identity)
   (trucler:augment-with-block-description
    client environment
    (make-instance (trucler:block-description-class client)
-     :name symbol
+     :name name
      :identity identity)))
 
 (defmethod trucler:add-tag
-    ((client client) (environment environment) tag &optional identity)
+    ((client client) (environment environment) name &optional identity)
   (trucler:augment-with-tag-description
    client environment
    (make-instance (trucler:tag-description-class client)
-     :name tag
+     :name name
      :identity identity)))
 
 (defmethod trucler:add-variable-type
-    ((client client) (environment environment) symbol type)
-  (let ((description (trucler:describe-variable client environment symbol)))
+    ((client client) (environment environment) name type)
+  (let ((description (trucler:describe-variable client environment name)))
     (trucler:augment-with-variable-description
      client environment
      (trucler:merge-type client description type))))
 
 (defmethod trucler:add-variable-ignore
-    ((client client) (environment environment) symbol ignore)
-  (let ((description (trucler:describe-variable client environment symbol)))
+    ((client client) (environment environment) name ignore)
+  (let ((description (trucler:describe-variable client environment name)))
     (trucler:augment-with-variable-description
      client environment
      (trucler:merge-ignore client description ignore))))
 
 (defmethod trucler:add-variable-dynamic-extent
-    ((client client) (environment environment) variable-name)
-  (let ((description (trucler:describe-variable client environment variable-name)))
+    ((client client) (environment environment) name)
+  (let ((description (trucler:describe-variable client environment name)))
     (trucler:augment-with-variable-description
      client environment
      (trucler:merge-dynamic-extent client description))))
 
 (defmethod trucler:add-inline
-    ((client client) (environment environment) function-name inline)
-  (let ((description (trucler:describe-function client environment function-name)))
+    ((client client) (environment environment) name inline)
+  (let ((description (trucler:describe-function client environment name)))
     (loop while (null description)
           do (restart-case
                  (error 'trucler:undefined-function-referred-to-by-inline-declaration
-                        :name function-name
+                        :name name
                         :origin nil)
                (trucler:try-again ()
                  :report "Try to access description of function again"
                  (setf description
-                       (trucler:describe-function client environment function-name)))
+                       (trucler:describe-function client environment name)))
                (trucler:ignore-declaration ()
                  :report "Ignore the INLINE or NOTINLINE declaration"
                  (return-from trucler:add-inline environment))))
@@ -96,29 +96,29 @@
      (trucler:merge-inline client description inline))))
 
 (defmethod trucler:add-inline-data
-    ((client client) (environment environment) function-name inline-data)
-  (let ((description (trucler:describe-function client environment function-name)))
+    ((client client) (environment environment) name inline-data)
+  (let ((description (trucler:describe-function client environment name)))
     (trucler:augment-with-function-description
      client environment
      (trucler:merge-inline-data client description inline-data))))
 
 (defmethod trucler:add-function-type
-    ((client client) (environment environment) function-name type)
-  (let ((description (trucler:describe-function client environment function-name)))
+    ((client client) (environment environment) name type)
+  (let ((description (trucler:describe-function client environment name)))
     (trucler:augment-with-function-description
      client environment
      (trucler:merge-type client description type))))
 
 (defmethod trucler:add-function-ignore
-    ((client client) (environment environment) function-name ignore)
-  (let ((description (trucler:describe-function client environment function-name)))
+    ((client client) (environment environment) name ignore)
+  (let ((description (trucler:describe-function client environment name)))
     (trucler:augment-with-function-description
      client environment
      (trucler:merge-ignore client description ignore))))
 
 (defmethod trucler:add-function-dynamic-extent
-    ((client client) (environment environment) function-name)
-  (let ((description (trucler:describe-function client environment function-name)))
+    ((client client) (environment environment) name)
+  (let ((description (trucler:describe-function client environment name)))
     (trucler:augment-with-function-description
      client environment
      (trucler:merge-dynamic-extent client description))))

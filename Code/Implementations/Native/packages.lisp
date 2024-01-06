@@ -1,4 +1,4 @@
-(in-package #:common-lisp-user)
+(cl:in-package #:common-lisp-user)
 
 (defpackage #:trucler-native
   (:use #:common-lisp)

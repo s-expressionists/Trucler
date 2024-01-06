@@ -222,12 +222,12 @@ different blocks with the same name.
 \subsection{Adding tags}
 
 {\footnotesize
-\Defgeneric {add-tag} {client environment tag \optional identity}
+\Defgeneric {add-tag} {client environment name \optional identity}
 }
 
 This function returns a new environment that is like
 \textit{environment} except that it has been augumented with a tag
-named \textit{tag}, which must be a \emph{go tag}, i.e. a symbol or an
+named \textit{name}, which must be a \emph{go tag}, i.e., a symbol or an
 integer.  The optional argument \textit{identity} can be supplied by
 client code to distinguish different tags with the same name.
 

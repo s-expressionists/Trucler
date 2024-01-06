@@ -17,7 +17,7 @@
 
 (defgeneric describe-block (client environment name))
 
-(defgeneric describe-tag (client environment tag))
+(defgeneric describe-tag (client environment name))
 
 (defgeneric describe-optimize (client environment))
 

@@ -1,21 +1,21 @@
 (cl:in-package #:trucler-native-ccl)
 
 (defmethod trucler:describe-optimize
-    ((client client) (env null))
+    ((client client) (environment null))
   (describe-optimize *null-lexical-environment*))
 
 (defmethod trucler:describe-optimize
-    ((client client) (env ccl::lexical-environment))
-  (describe-optimize env))
+    ((client client) (environment ccl::lexical-environment))
+  (describe-optimize environment))
 
 (defmethod trucler:describe-optimize
-    ((client client) (env ccl::definition-environment))
+    ((client client) (environment ccl::definition-environment))
   nil)
 
-(defun describe-optimize (env)
+(defun describe-optimize (environment)
   (make-instance 'optimize-description
-    :speed (ccl::speed-optimize-quantity env)
-    :compilation-speed (ccl::compilation-speed-optimize-quantity env)
-    :debug (ccl::debug-optimize-quantity env)
-    :space (ccl::space-optimize-quantity env)
-    :safety (ccl::safety-optimize-quantity env)))
+    :speed (ccl::speed-optimize-quantity environment)
+    :compilation-speed (ccl::compilation-speed-optimize-quantity environment)
+    :debug (ccl::debug-optimize-quantity environment)
+    :space (ccl::space-optimize-quantity environment)
+    :safety (ccl::safety-optimize-quantity environment)))

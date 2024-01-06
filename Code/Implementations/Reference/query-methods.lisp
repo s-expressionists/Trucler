@@ -56,9 +56,9 @@
          (description (find name descriptions :test #'eq :key #'trucler:name)))
     description))
 
-(defmethod trucler:describe-tag ((client client) (environment environment) tag)
+(defmethod trucler:describe-tag ((client client) (environment environment) name)
   (let* ((descriptions (tag-description environment))
-         (description (find tag descriptions :test #'eql :key #'trucler:name)))
+         (description (find name descriptions :test #'eql :key #'trucler:name)))
     (check-restriction environment description)))
 
 (defmethod trucler:describe-optimize ((client client) (environment environment))
